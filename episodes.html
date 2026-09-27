@@ -1,5 +1,6 @@
 <!-- ============================================================
      FILE: episodes.html (عدسة الروايات - الحلقات والفيديوهات)
+     يدعم: Streamable + Dailymotion + YouTube + MP4
      ============================================================ -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -363,8 +364,7 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             transition: all var(--transition);
-            text-decoration: none;
-            color: inherit;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
         }
@@ -379,8 +379,11 @@
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
-            background: var(--bg-secondary);
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
             border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .episode-card .thumb img {
@@ -397,6 +400,7 @@
             inset: 0;
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
             pointer-events: none;
+            z-index: 1;
         }
 
         .episode-card .thumb .play-btn {
@@ -404,18 +408,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
+            width: 68px;
+            height: 68px;
             border-radius: 50%;
             background: rgba(245, 180, 0, 0.95);
             color: #0A0A0A;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 24px;
             z-index: 2;
             transition: all var(--transition);
-            box-shadow: 0 0 30px rgba(245, 180, 0, 0.5);
+            box-shadow: 0 0 30px rgba(245, 180, 0, 0.5), 0 0 0 8px rgba(245, 180, 0, 0.15);
             padding-left: 5px;
         }
 
@@ -561,6 +565,160 @@
             color: var(--gold);
         }
 
+        /* ============================================================
+           VIDEO MODAL - مشغل الفيديو الداخلي
+           ============================================================ */
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .video-modal.active {
+            display: flex;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .video-modal-inner {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            max-height: 95vh;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .video-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        .video-modal-header .title-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .video-modal-header .episode-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 10px;
+            background: rgba(245, 180, 0, 0.1);
+            color: var(--gold);
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: flex-start;
+        }
+
+        .video-modal-header .title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .video-modal-close {
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .video-modal-close:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #0A0A0A;
+            transform: rotate(90deg);
+        }
+
+        .video-modal-body {
+            position: relative;
+            width: 100%;
+            background: #000;
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-body .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+        }
+
+        .video-modal-body iframe,
+        .video-modal-body video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .video-modal-description {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        .video-modal-description p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
         /* FOOTER */
         .footer {
             margin-top: 60px;
@@ -649,10 +807,6 @@
             .episode-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); }
         }
 
-        @media (min-width: 1200px) {
-            .episodes-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
         @media (max-width: 599px) and (min-width: 480px) {
             .container { padding: 0 22px; }
             .episode-card .body { padding: 16px; }
@@ -676,11 +830,17 @@
             .episode-card .body { padding: 14px; gap: 8px; }
             .episode-card .body h3 { font-size: 14px; }
             .episode-card .body .description { font-size: 12px; }
-            .episode-card .thumb .play-btn { width: 50px; height: 50px; font-size: 18px; }
+            .episode-card .thumb .play-btn { width: 56px; height: 56px; font-size: 20px; }
             .empty-state { padding: 60px 20px; }
             .empty-state .icon-wrapper { width: 80px; height: 80px; font-size: 34px; }
             .empty-state h3 { font-size: 18px; }
             .empty-state p { font-size: 13px; }
+            .video-modal { padding: 10px; }
+            .video-modal-header { padding: 10px 14px; }
+            .video-modal-header .title { font-size: 13px; }
+            .video-modal-close { width: 34px; height: 34px; font-size: 14px; }
+            .video-modal-description { padding: 12px 14px; }
+            .video-modal-description p { font-size: 12px; }
             .footer { margin-top: 40px; padding: 30px 0 20px; }
             .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
             .footer-brand .name { font-size: 16px; }
@@ -813,6 +973,10 @@
                 <i class="fas fa-th"></i>
                 <span>الكل</span>
             </button>
+            <button class="filter-tab" data-filter="تعريف">
+                <i class="fas fa-info-circle"></i>
+                <span>تعريف</span>
+            </button>
             <button class="filter-tab" data-filter="سكاي لاين">
                 <i class="fas fa-heart"></i>
                 <span>سكاي لاين</span>
@@ -834,6 +998,32 @@
             <div class="episodes-grid" id="episodesGrid"></div>
         </div>
     </section>
+
+    <!-- ============================================================
+         VIDEO MODAL - مشغل الفيديو الداخلي
+         ============================================================ -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-inner">
+            <div class="video-modal-header">
+                <div class="title-info">
+                    <span class="episode-label" id="modalEpisodeLabel">
+                        <i class="fas fa-circle"></i>
+                        <span>الحلقة</span>
+                    </span>
+                    <span class="title" id="modalTitle">عنوان الحلقة</span>
+                </div>
+                <button class="video-modal-close" id="modalClose" aria-label="إغلاق">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-modal-body">
+                <div class="video-wrapper" id="videoWrapper"></div>
+            </div>
+            <div class="video-modal-description" id="modalDescription">
+                <p></p>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -892,22 +1082,26 @@
 
         // ============================================================
         //  DATA - الحلقات
-        //  ⚠️ ضع الحلقات هنا عندما تصبح جاهزة
-        //  مثال:
-        //  {
-        //      id: 1,
-        //      title: 'اسم الحلقة',
-        //      novel: 'سكاي لاين',
-        //      episodeNum: 1,
-        //      duration: '12:30',
-        //      image: 'episode-1.jpg',
-        //      description: 'وصف الحلقة...',
-        //      url: 'https://youtube.com/...',
-        //      date: '2026-01-15'
-        //  }
+        //  ⚠️ المصادر المدعومة:
+        //  - 'streamable' → فيديو Streamable (يعمل داخل الموقع) ✅
+        //  - 'dailymotion' → فيديو Dailymotion (قد لا يعمل)
+        //  - 'youtube' → فيديو YouTube (قد لا يعمل للفيديوهات القصيرة)
+        //  - 'mp4' → ملف فيديو محلي
         // ============================================================
         const episodes = [
-            // المصفوفة فارغة حالياً - ستُملأ لاحقاً
+            {
+                id: 1,
+                title: 'تعريف عن فريق عدسة الروايات',
+                novel: 'تعريف',
+                episodeNum: 1,
+                duration: '00:30',
+                image: 'https://cdn-cf-east.streamable.com/image/8oo8f4.jpg',
+                description: 'فيديو تعريفي عن فريق عمل عدسة الروايات، رسالتنا، ورؤيتنا في عالم الإبداع القصصي والإنتاج السينمائي.',
+                source: 'streamable',
+                streamableId: '8oo8f4',
+                date: '2026-09-27'
+            }
+            // لإضافة المزيد من الحلقات، انسخ الكود أعلاه وعدّل القيم
         ];
 
         // ============================================================
@@ -943,7 +1137,7 @@
             }
 
             grid.innerHTML = filtered.map(ep => `
-                <a href="${ep.url}" class="episode-card" target="_blank" rel="noopener">
+                <div class="episode-card" data-id="${ep.id}" role="button" tabindex="0">
                     <div class="thumb">
                         <img src="${ep.image}" alt="${ep.title}" loading="lazy" onerror="this.style.display='none'" />
                         <span class="category-badge">${ep.novel}</span>
@@ -964,9 +1158,107 @@
                             <span><i class="fas fa-clock"></i> ${ep.duration}</span>
                         </div>
                     </div>
-                </a>
+                </div>
             `).join('');
+
+            // ربط أحداث النقر
+            document.querySelectorAll('.episode-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    openVideo(id);
+                });
+            });
         }
+
+        // ============================================================
+        //  VIDEO MODAL - فتح الفيديو داخل الموقع
+        // ============================================================
+        const modal = document.getElementById('videoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalEpisodeLabel = document.getElementById('modalEpisodeLabel');
+        const modalDescription = document.getElementById('modalDescription');
+        const videoWrapper = document.getElementById('videoWrapper');
+        const modalClose = document.getElementById('modalClose');
+
+        function openVideo(id) {
+            const ep = episodes.find(e => e.id === id);
+            if (!ep) return;
+
+            // تعيين المعلومات
+            modalTitle.textContent = ep.title;
+            modalEpisodeLabel.querySelector('span').textContent = `الحلقة ${ep.episodeNum} • ${ep.novel}`;
+            modalDescription.querySelector('p').textContent = ep.description;
+
+            // تحديد مصدر الفيديو
+            let videoHTML = '';
+
+            if (ep.source === 'streamable') {
+                // Streamable - يعمل داخل الموقع
+                videoHTML = `
+                    <iframe 
+                        src="https://streamable.com/e/${ep.streamableId}?autoplay=1"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen
+                        frameborder="0"
+                    ></iframe>
+                `;
+            } else if (ep.source === 'dailymotion') {
+                videoHTML = `
+                    <iframe 
+                        src="https://www.dailymotion.com/embed/video/${ep.dailymotionId}?autoplay=1"
+                        allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                        allowfullscreen
+                        frameborder="0"
+                    ></iframe>
+                `;
+            } else if (ep.source === 'youtube') {
+                videoHTML = `
+                    <iframe 
+                        src="https://www.youtube.com/embed/${ep.youtubeId}?autoplay=1&rel=0" 
+                        allow="autoplay; encrypted-media; fullscreen"
+                        allowfullscreen
+                        frameborder="0"
+                    ></iframe>
+                `;
+            } else if (ep.source === 'mp4') {
+                videoHTML = `
+                    <video controls autoplay playsinline>
+                        <source src="${ep.videoFile}" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
+                `;
+            }
+
+            videoWrapper.innerHTML = videoHTML;
+
+            // فتح الـ Modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideo() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            // إيقاف الفيديو بإفراغ الحاوية
+            setTimeout(() => {
+                videoWrapper.innerHTML = '';
+            }, 300);
+        }
+
+        // إغلاق الـ Modal
+        modalClose.addEventListener('click', closeVideo);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeVideo();
+            }
+        });
+
+        // إغلاق بـ ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeVideo();
+            }
+        });
 
         // FILTER EVENTS
         filterTabs.forEach(tab => {
