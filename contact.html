@@ -1,0 +1,1216 @@
+<!-- ============================================================
+     FILE: contact.html (عدسة الروايات - تواصل معنا)
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>تواصل معنا - عدسة الروايات | LENS OF NOVELS</title>
+    <meta name="description" content="تواصل مع فريق عدسة الروايات - نسعد بسماع اقتراحاتكم واستفساراتكم" />
+    <meta name="keywords" content="تواصل, اتصل بنا, عدسة الروايات, دعم, استفسارات" />
+    <meta name="author" content="شادي رحال" />
+    <meta property="og:title" content="تواصل معنا - عدسة الروايات" />
+    <meta property="og:description" content="تواصل مع فريق عدسة الروايات" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/contact.html" />
+    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="apple-touch-icon" href="favicon.jfif" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-hover: #1F1F1F;
+            --gold: #F5B400;
+            --gold-light: #FFC933;
+            --gold-dark: #D49400;
+            --gold-glow: rgba(245, 180, 0, 0.15);
+            --text: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --text-muted: #7A7A7A;
+            --border: rgba(245, 180, 0, 0.12);
+            --border-hover: rgba(245, 180, 0, 0.3);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --shadow-gold: 0 8px 24px rgba(245, 180, 0, 0.25);
+            --success: #22C55E;
+            --error: #EF4444;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            min-height: 70px;
+        }
+
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 22px;
+            transition: all var(--transition);
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+        }
+
+        .menu-btn:active { background: var(--bg-hover); }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-brand .logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 0 20px var(--gold-glow);
+            flex-shrink: 0;
+            padding: 2px;
+            border: 2px solid var(--gold);
+        }
+
+        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
+
+        .header-brand .brand-text .name { font-weight: 800; font-size: 17px; color: var(--gold); letter-spacing: -0.01em; }
+
+        .header-brand .brand-text .tag { font-size: 9px; color: var(--text-muted); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
+
+        .header-spacer { width: 42px; flex-shrink: 0; }
+
+        /* SIDEBAR */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+        }
+
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            max-width: 85vw;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 999;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.active { right: 0; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7); }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
+
+        .sidebar-header .logo-mini .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            padding: 2px;
+        }
+
+        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
+
+        .sidebar-header .logo-mini .text .name { font-size: 15px; font-weight: 800; color: var(--gold); }
+
+        .sidebar-header .logo-mini .text .sub { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; }
+
+        .sidebar-close {
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            font-size: 14px;
+        }
+
+        .sidebar-close:hover { background: var(--bg-hover); color: var(--gold); border-color: var(--border-hover); }
+
+        .sidebar-nav { padding: 16px 0; flex: 1; }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all var(--transition);
+            border-right: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            color: var(--gold);
+            background: var(--bg-hover);
+            border-right-color: var(--gold);
+        }
+
+        .sidebar-nav a i { width: 22px; font-size: 17px; text-align: center; color: var(--text-muted); transition: color var(--transition); }
+
+        .sidebar-nav a:hover i, .sidebar-nav a.active i { color: var(--gold); }
+
+        .sidebar-footer {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .sidebar-footer .dev { color: var(--gold); font-weight: 700; }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 60px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, var(--gold-glow), transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .page-header .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1.5px solid rgba(245, 180, 0, 0.3);
+            border-radius: 50%;
+            color: var(--gold);
+            font-size: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 40px var(--gold-glow);
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .page-header h1 .gold {
+            background: linear-gradient(180deg, var(--gold-light), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: clamp(13px, 1.5vw, 15px);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px;
+            line-height: 1.8;
+        }
+
+        /* CONTACT GRID */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 32px 0 60px;
+        }
+
+        /* CONTACT INFO */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 22px 20px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            transition: all var(--transition);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .info-card:active {
+            transform: scale(0.98);
+            border-color: var(--border-hover);
+        }
+
+        .info-card .info-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .info-card .info-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .info-card .info-content .label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .info-card .info-content .value {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .info-card .info-content .value.arabic {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .info-card .info-content .sub-value {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        /* SOCIAL SECTION */
+        .social-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px 20px;
+            margin-top: 4px;
+        }
+
+        .social-section h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-section h3 i {
+            color: var(--gold);
+            font-size: 15px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: all var(--transition);
+            font-family: inherit;
+        }
+
+        .social-btn:active {
+            transform: scale(0.96);
+        }
+
+        .social-btn i {
+            font-size: 16px;
+        }
+
+        .social-btn.facebook:hover { background: #1877F2; color: #fff; border-color: #1877F2; }
+        .social-btn.facebook i { color: #1877F2; }
+        .social-btn.facebook:hover i { color: #fff; }
+
+        .social-btn.instagram:hover { background: #E1306C; color: #fff; border-color: #E1306C; }
+        .social-btn.instagram i { color: #E1306C; }
+        .social-btn.instagram:hover i { color: #fff; }
+
+        .social-btn.youtube:hover { background: #FF0000; color: #fff; border-color: #FF0000; }
+        .social-btn.youtube i { color: #FF0000; }
+        .social-btn.youtube:hover i { color: #fff; }
+
+        .social-btn.tiktok:hover { background: #000; color: #fff; border-color: #000; }
+        .social-btn.tiktok i { color: #fff; }
+
+        .social-btn.telegram:hover { background: #0088CC; color: #fff; border-color: #0088CC; }
+        .social-btn.telegram i { color: #0088CC; }
+        .social-btn.telegram:hover i { color: #fff; }
+
+        .social-btn.whatsapp:hover { background: #25D366; color: #fff; border-color: #25D366; }
+        .social-btn.whatsapp i { color: #25D366; }
+        .social-btn.whatsapp:hover i { color: #fff; }
+
+        /* CONTACT FORM */
+        .contact-form-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 28px 22px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.5;
+        }
+
+        .contact-form-wrapper h3 {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form-wrapper h3 i {
+            color: var(--gold);
+            font-size: 17px;
+        }
+
+        .contact-form-wrapper .subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group label .required {
+            color: var(--gold);
+            margin-right: 4px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all var(--transition);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.7;
+        }
+
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23F5B400' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 16px center;
+            padding-left: 42px;
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: var(--bg-secondary);
+            color: var(--text);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(245, 180, 0, 0.1);
+            background: var(--bg-card);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #0A0A0A;
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.97);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .form-status {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .form-status.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .form-status.success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: var(--success);
+        }
+
+        .form-status.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: var(--error);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 40px;
+            padding: 40px 0 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-brand { text-align: center; margin-bottom: 24px; }
+
+        .footer-brand .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+
+        .footer-brand .sub { font-size: 10px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-bottom: 24px;
+            padding: 0 16px;
+        }
+
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 4px; transition: color var(--transition); }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom .author { color: var(--gold); font-weight: 700; }
+        .footer-bottom .dev { color: var(--text-secondary); font-weight: 600; }
+        .footer-bottom .phone { direction: ltr; color: var(--gold); font-weight: 700; }
+
+        /* RESPONSIVE */
+        @media (min-width: 600px) {
+            .container { padding: 0 28px; }
+            .page-header { padding: 80px 0 40px; }
+            .contact-grid {
+                grid-template-columns: 1fr 1.5fr;
+                gap: 28px;
+            }
+            .social-grid { grid-template-columns: repeat(3, 1fr); }
+            .contact-form-wrapper { padding: 32px 28px; }
+            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: right; padding-top: 20px; }
+        }
+
+        @media (min-width: 900px) {
+            .header-inner { padding: 16px 0; }
+            .menu-btn, .header-spacer { width: 46px; height: 46px; }
+            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .brand-text .name { font-size: 19px; }
+            .header-brand .brand-text .tag { font-size: 10px; }
+            .page-header { padding: 100px 0 60px; }
+            .info-card:hover {
+                transform: translateX(-4px);
+                border-color: var(--border-hover);
+                box-shadow: var(--shadow);
+            }
+            .contact-form-wrapper { padding: 40px 36px; }
+        }
+
+        @media (max-width: 599px) and (min-width: 480px) {
+            .container { padding: 0 22px; }
+            .info-card { padding: 18px; }
+            .info-card .info-icon { width: 50px; height: 50px; font-size: 20px; }
+        }
+
+        @media (max-width: 479px) and (min-width: 375px) {
+            .container { padding: 0 16px; }
+            .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
+            .menu-btn, .header-spacer { width: 38px; height: 38px; }
+            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .brand-text .name { font-size: 15px; }
+            .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
+            .page-header { padding: 40px 0 24px; }
+            .page-header .icon-badge { width: 60px; height: 60px; font-size: 24px; margin-bottom: 14px; }
+            .page-header h1 { font-size: 26px; }
+            .page-header p { font-size: 13px; }
+            .contact-grid { padding: 24px 0 40px; gap: 16px; }
+            .info-card { padding: 16px 14px; gap: 14px; }
+            .info-card .info-icon { width: 48px; height: 48px; font-size: 19px; border-radius: 12px; }
+            .info-card .info-content .label { font-size: 10px; }
+            .info-card .info-content .value { font-size: 13px; }
+            .social-section { padding: 20px 16px; }
+            .social-section h3 { font-size: 14px; margin-bottom: 12px; }
+            .social-btn { padding: 12px 8px; font-size: 12px; gap: 6px; }
+            .social-btn i { font-size: 14px; }
+            .contact-form-wrapper { padding: 22px 16px; }
+            .contact-form-wrapper h3 { font-size: 16px; }
+            .contact-form-wrapper .subtitle { font-size: 12px; margin-bottom: 20px; }
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 12px 14px;
+                font-size: 13px;
+            }
+            .form-group textarea { min-height: 110px; }
+            .submit-btn { padding: 14px 20px; font-size: 14px; }
+            .footer { margin-top: 30px; padding: 30px 0 20px; }
+            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .name { font-size: 16px; }
+            .footer-links { gap: 6px 16px; margin-bottom: 18px; }
+            .footer-links a { font-size: 12px; }
+        }
+
+        @media (max-width: 374px) {
+            .container { padding: 0 12px; }
+            .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
+            .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
+            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .brand-text .name { font-size: 14px; }
+            .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
+            .page-header { padding: 32px 0 20px; }
+            .page-header .icon-badge { width: 52px; height: 52px; font-size: 20px; }
+            .page-header h1 { font-size: 22px; }
+            .page-header p { font-size: 12px; }
+            .info-card { padding: 14px 12px; }
+            .info-card .info-icon { width: 42px; height: 42px; font-size: 17px; }
+            .info-card .info-content .value { font-size: 12px; }
+            .social-grid { grid-template-columns: 1fr; }
+            .contact-form-wrapper { padding: 18px 14px; }
+            .contact-form-wrapper h3 { font-size: 15px; }
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 11px 12px;
+                font-size: 12px;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .info-card:hover { transform: none; box-shadow: none; }
+            .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
+            .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="index.html" class="header-brand">
+                    <div class="logo">
+                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    </div>
+                    <div class="brand-text">
+                        <span class="name">عدسة الروايات</span>
+                        <span class="tag">LENS OF NOVELS</span>
+                    </div>
+                </a>
+
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mini">
+                <div class="icon">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="text">
+                    <span class="name">عدسة الروايات</span>
+                    <span class="sub">LENS OF NOVELS</span>
+                </div>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                <span>الصفحة الرئيسية</span>
+            </a>
+            <a href="novels.html">
+                <i class="fas fa-book"></i>
+                <span>الروايات</span>
+            </a>
+            <a href="episodes.html">
+                <i class="fas fa-film"></i>
+                <span>الحلقات والفيديوهات</span>
+            </a>
+            <a href="announcements.html">
+                <i class="fas fa-bullhorn"></i>
+                <span>الإعلانات</span>
+            </a>
+            <a href="about.html">
+                <i class="fas fa-users"></i>
+                <span>عن الفريق</span>
+            </a>
+            <a href="contact.html" class="active">
+                <i class="fas fa-envelope"></i>
+                <span>تواصل معنا</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div>جميع الحقوق محفوظة &copy; 2026</div>
+            <div class="dev">بهاء الدين الحسين</div>
+            <div style="direction: ltr;">0982520358</div>
+        </div>
+    </aside>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <div class="icon-badge">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h1>
+                تواصل <span class="gold">معنا</span>
+            </h1>
+            <p>
+                نسعد بسماع اقتراحاتكم، استفساراتكم، وأفكاركم.
+                تواصل معنا عبر الطرق التالية أو أرسل لنا رسالة مباشرة.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section>
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- CONTACT INFO -->
+                <div class="contact-info">
+                    <a href="tel:0982520358" class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="label">الهاتف</div>
+                            <div class="value">0982520358</div>
+                            <div class="sub-value">للتواصل المباشر</div>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/963982520358" target="_blank" rel="noopener" class="info-card">
+                        <div class="info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="label">واتساب</div>
+                            <div class="value">+963 982 520 358</div>
+                            <div class="sub-value">للرسائل السريعة</div>
+                        </div>
+                    </a>
+
+                    <a href="mailto:info@lensnovels.com" class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="label">البريد الإلكتروني</div>
+                            <div class="value">info@lensnovels.com</div>
+                            <div class="sub-value">للاستفسارات الرسمية</div>
+                        </div>
+                    </a>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <div class="label">ساعات العمل</div>
+                            <div class="value arabic">يومياً 10:00 - 22:00</div>
+                            <div class="sub-value">بتوقيت دمشق</div>
+                        </div>
+                    </div>
+
+                    <!-- SOCIAL -->
+                    <div class="social-section">
+                        <h3>
+                            <i class="fas fa-share-alt"></i>
+                            تابعنا على
+                        </h3>
+                        <div class="social-grid" id="socialGrid"></div>
+                    </div>
+                </div>
+
+                <!-- CONTACT FORM -->
+                <div class="contact-form-wrapper">
+                    <h3>
+                        <i class="fas fa-paper-plane"></i>
+                        أرسل لنا رسالة
+                    </h3>
+                    <p class="subtitle">
+                        املأ النموذج التالي وسنقوم بالرد عليك في أقرب وقت ممكن.
+                    </p>
+
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>
+                                <span class="required">*</span>
+                                الاسم الكامل
+                            </label>
+                            <input type="text" name="name" placeholder="اكتب اسمك هنا..." required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <span class="required">*</span>
+                                البريد الإلكتروني
+                            </label>
+                            <input type="email" name="email" placeholder="example@email.com" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <span class="required">*</span>
+                                الموضوع
+                            </label>
+                            <select name="subject" required>
+                                <option value="">اختر الموضوع...</option>
+                                <option value="استفسار عام">استفسار عام</option>
+                                <option value="اقتراح">اقتراح</option>
+                                <option value="شكوى">شكوى</option>
+                                <option value="تعاون">طلب تعاون</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <span class="required">*</span>
+                                الرسالة
+                            </label>
+                            <textarea name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>إرسال الرسالة</span>
+                        </button>
+
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="name">عدسة الروايات</div>
+                <div class="sub">LENS OF NOVELS</div>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="novels.html">الروايات</a>
+                <a href="episodes.html">الحلقات</a>
+                <a href="announcements.html">الإعلانات</a>
+                <a href="about.html">عن الفريق</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    ❤️ جميع الحقوق محفوظة &copy; 2026 <span class="author">عدسة الروايات</span>
+                </div>
+                <div>
+                    🔧 برمجة وتطوير: <span class="dev">بهاء الدين الحسين</span> | <span class="phone">0982520358</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // SIDEBAR
+        (function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuBtn.addEventListener('click', openSidebar);
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        })();
+
+        // ============================================================
+        //  DATA - روابط التواصل الاجتماعي
+        //  ⚠️ عدّل الروابط هنا (أضف روابطك الفعلية)
+        // ============================================================
+        const socialLinks = [
+            {
+                name: 'فيسبوك',
+                icon: 'fab fa-facebook-f',
+                class: 'facebook',
+                url: 'https://facebook.com/lensnovels',
+                enabled: true
+            },
+            {
+                name: 'إنستغرام',
+                icon: 'fab fa-instagram',
+                class: 'instagram',
+                url: 'https://instagram.com/lensnovels',
+                enabled: true
+            },
+            {
+                name: 'يوتيوب',
+                icon: 'fab fa-youtube',
+                class: 'youtube',
+                url: 'https://youtube.com/@lensnovels',
+                enabled: true
+            },
+            {
+                name: 'تيك توك',
+                icon: 'fab fa-tiktok',
+                class: 'tiktok',
+                url: 'https://tiktok.com/@lensnovels',
+                enabled: true
+            },
+            {
+                name: 'تليجرام',
+                icon: 'fab fa-telegram',
+                class: 'telegram',
+                url: 'https://t.me/lensnovels',
+                enabled: true
+            },
+            {
+                name: 'واتساب',
+                icon: 'fab fa-whatsapp',
+                class: 'whatsapp',
+                url: 'https://wa.me/963982520358',
+                enabled: true
+            }
+        ];
+
+        // RENDER SOCIAL
+        const socialGrid = document.getElementById('socialGrid');
+
+        function renderSocial() {
+            const enabled = socialLinks.filter(s => s.enabled);
+
+            if (enabled.length === 0) {
+                socialGrid.parentElement.style.display = 'none';
+                return;
+            }
+
+            socialGrid.innerHTML = enabled.map(s => `
+                <a href="${s.url}" target="_blank" rel="noopener" class="social-btn ${s.class}">
+                    <i class="${s.icon}"></i>
+                    <span>${s.name}</span>
+                </a>
+            `).join('');
+        }
+
+        renderSocial();
+
+        // ============================================================
+        //  FORM SUBMIT
+        //  ⚠️ نموذج تجريبي - يفتح بريدك الإلكتروني
+        //  للحل الاحترافي: استخدم Formspree أو أي خدمة إرسال
+        // ============================================================
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formStatus = document.getElementById('formStatus');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const subject = form.subject.value;
+            const message = form.message.value.trim();
+
+            // التحقق
+            if (!name || !email || !subject || !message) {
+                showStatus('error', 'يرجى تعبئة جميع الحقول المطلوبة');
+                return;
+            }
+
+            // تحقق من البريد
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showStatus('error', 'يرجى إدخال بريد إلكتروني صحيح');
+                return;
+            }
+
+            // تعطيل الزر
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>جاري الإرسال...</span>';
+
+            // محاكاة الإرسال (استبدلها بالكود الحقيقي لاحقاً)
+            setTimeout(() => {
+                // ✅ هنا يمكن ربط API أو خدمة إرسال مثل Formspree
+                // مثال: window.location.href = `mailto:info@lensnovels.com?subject=${subject}&body=${message}`;
+
+                showStatus('success', 'تم استلام رسالتك بنجاح! سنتواصل معك قريباً.');
+                form.reset();
+
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i><span>إرسال الرسالة</span>';
+            }, 1200);
+        });
+
+        function showStatus(type, text) {
+            formStatus.className = 'form-status show ' + type;
+            const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+            formStatus.innerHTML = `<i class="fas ${icon}"></i><span>${text}</span>`;
+
+            setTimeout(() => {
+                formStatus.classList.remove('show');
+            }, 5000);
+        }
+    </script>
+
+</body>
+</html>

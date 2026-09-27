@@ -1,0 +1,1385 @@
+<!-- ============================================================
+     FILE: skylane.html (عدسة الروايات - رواية سكاي لاين)
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>سكاي لاين - عدسة الروايات | LENS OF NOVELS</title>
+    <meta name="description" content="رواية سكاي لاين - قصة حب بين أستاذ وطالبة في وادي الياسمين | عدسة الروايات" />
+    <meta name="keywords" content="سكاي لاين, رواية سكاي لاين, عدسة الروايات, شادي رحال" />
+    <meta name="author" content="شادي رحال" />
+    <meta property="og:title" content="سكاي لاين - عدسة الروايات" />
+    <meta property="og:description" content="قصة حب بين أستاذ وطالبة في وادي الياسمين" />
+    <meta property="og:image" content="https://bahaa90231-art.github.io/-6575/skylane.jpg" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/skylane.html" />
+    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="apple-touch-icon" href="favicon.jfif" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-hover: #1F1F1F;
+            --gold: #F5B400;
+            --gold-light: #FFC933;
+            --gold-dark: #D49400;
+            --gold-glow: rgba(245, 180, 0, 0.15);
+            --text: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --text-muted: #7A7A7A;
+            --border: rgba(245, 180, 0, 0.12);
+            --border-hover: rgba(245, 180, 0, 0.3);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --shadow-gold: 0 8px 24px rgba(245, 180, 0, 0.25);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            min-height: 70px;
+        }
+
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 22px;
+            transition: all var(--transition);
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+        }
+
+        .menu-btn:active { background: var(--bg-hover); }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-brand .logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 0 20px var(--gold-glow);
+            flex-shrink: 0;
+            padding: 2px;
+            border: 2px solid var(--gold);
+        }
+
+        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
+
+        .header-brand .brand-text .name { font-weight: 800; font-size: 17px; color: var(--gold); letter-spacing: -0.01em; }
+
+        .header-brand .brand-text .tag { font-size: 9px; color: var(--text-muted); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
+
+        .header-spacer { width: 42px; flex-shrink: 0; }
+
+        /* SIDEBAR */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+        }
+
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            max-width: 85vw;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 999;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.active { right: 0; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7); }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
+
+        .sidebar-header .logo-mini .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            padding: 2px;
+        }
+
+        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
+
+        .sidebar-header .logo-mini .text .name { font-size: 15px; font-weight: 800; color: var(--gold); }
+
+        .sidebar-header .logo-mini .text .sub { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; }
+
+        .sidebar-close {
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            font-size: 14px;
+        }
+
+        .sidebar-close:hover { background: var(--bg-hover); color: var(--gold); border-color: var(--border-hover); }
+
+        .sidebar-nav { padding: 16px 0; flex: 1; }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all var(--transition);
+            border-right: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            color: var(--gold);
+            background: var(--bg-hover);
+            border-right-color: var(--gold);
+        }
+
+        .sidebar-nav a i { width: 22px; font-size: 17px; text-align: center; color: var(--text-muted); transition: color var(--transition); }
+
+        .sidebar-nav a:hover i, .sidebar-nav a.active i { color: var(--gold); }
+
+        .sidebar-footer {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .sidebar-footer .dev { color: var(--gold); font-weight: 700; }
+
+        /* BACK LINK */
+        .back-link-wrapper {
+            padding: 20px 0 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .back-link:active { transform: scale(0.96); }
+
+        .back-link i { color: var(--gold); font-size: 12px; }
+
+        /* HERO */
+        .hero {
+            padding: 30px 0 30px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, var(--gold-glow), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .hero-cover {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        .hero-text .novel-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.25);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(28px, 6vw, 52px);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+            background: linear-gradient(180deg, var(--text) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+
+        .hero-meta i { color: var(--gold); }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #0A0A0A;
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-gold);
+            width: 100%;
+        }
+
+        .btn-pdf:active { transform: scale(0.97); }
+
+        .btn-pdf.loading { opacity: 0.7; pointer-events: none; }
+        .btn-pdf.loading i { animation: spin 1s linear infinite; }
+
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* CHAPTERS */
+        .chapters-section { padding: 24px 0 60px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+
+        .section-header .title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header .title-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .section-header .count {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .chapters-grid {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .chapter-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 12px;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .chapter-card:active {
+            transform: scale(0.97);
+            background: var(--bg-hover);
+            border-color: var(--border-hover);
+        }
+
+        .chapter-card .num {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .chapter-card .title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .chapter-card .arrow {
+            font-size: 11px;
+            color: var(--text-muted);
+            transition: all var(--transition);
+            margin-top: 2px;
+        }
+
+        /* CHAPTER VIEW */
+        .chapter-view {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--bg);
+            overflow-y: auto;
+            padding: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .chapter-view.active { display: block; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chapter-view-inner { max-width: 800px; margin: 0 auto; }
+
+        .chapter-view-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 10;
+        }
+
+        .chapter-view-header .title-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .chapter-view-header .ch-num {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(245, 180, 0, 0.1);
+            color: var(--gold);
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            align-self: flex-start;
+        }
+
+        .chapter-view-header .ch-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-close {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px 12px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            flex-shrink: 0;
+        }
+
+        .btn-close:active { transform: scale(0.95); }
+
+        .chapter-body {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--text);
+            padding-bottom: 60px;
+        }
+
+        .chapter-body p { margin-bottom: 1.2rem; }
+
+        .chapter-body .first-letter {
+            font-size: 2.8rem;
+            font-weight: 900;
+            float: right;
+            margin-left: 10px;
+            margin-top: 4px;
+            color: var(--gold);
+            line-height: 0.9;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 40px;
+            padding: 40px 0 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-brand { text-align: center; margin-bottom: 24px; }
+
+        .footer-brand .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+
+        .footer-brand .sub { font-size: 10px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-bottom: 24px;
+            padding: 0 16px;
+        }
+
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 4px; transition: color var(--transition); }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom .author { color: var(--gold); font-weight: 700; }
+        .footer-bottom .dev { color: var(--text-secondary); font-weight: 600; }
+        .footer-bottom .phone { direction: ltr; color: var(--gold); font-weight: 700; }
+
+        /* RESPONSIVE */
+        @media (min-width: 600px) {
+            .container { padding: 0 28px; }
+            .hero { padding: 40px 0; }
+            .hero-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .hero-text h1 { font-size: 44px; }
+            .hero-text p { font-size: 15px; }
+            .btn-pdf { width: auto; padding: 14px 28px; }
+            .chapters-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+            .chapter-card { padding: 16px 14px; }
+            .chapter-card .num { font-size: 22px; }
+            .chapter-card .title { font-size: 13px; }
+            .chapter-view { padding: 24px; }
+            .chapter-body { font-size: 17px; }
+            .chapter-view-header { padding: 16px 0; margin-bottom: 28px; }
+            .chapter-view-header .ch-title { font-size: 17px; }
+            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: right; padding-top: 20px; }
+        }
+
+        @media (min-width: 900px) {
+            .header-inner { padding: 16px 0; }
+            .menu-btn, .header-spacer { width: 46px; height: 46px; }
+            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .brand-text .name { font-size: 19px; }
+            .header-brand .brand-text .tag { font-size: 10px; }
+            .hero { padding: 60px 0; }
+            .hero-text h1 { font-size: 52px; }
+            .hero-text p { font-size: 16px; }
+            .chapter-card:hover {
+                transform: translateY(-4px);
+                border-color: var(--border-hover);
+                box-shadow: var(--shadow);
+            }
+            .chapter-card:hover .arrow {
+                transform: translateX(-4px);
+                color: var(--gold);
+            }
+            .btn-pdf:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 32px rgba(245, 180, 0, 0.4);
+            }
+        }
+
+        @media (max-width: 599px) and (min-width: 480px) {
+            .container { padding: 0 22px; }
+            .hero-text h1 { font-size: 34px; }
+            .chapters-grid { gap: 12px; }
+            .chapter-card { padding: 16px 14px; }
+            .chapter-card .num { font-size: 22px; }
+            .chapter-card .title { font-size: 13px; }
+            .chapter-view { padding: 20px; }
+        }
+
+        @media (max-width: 479px) and (min-width: 375px) {
+            .container { padding: 0 16px; }
+            .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
+            .menu-btn, .header-spacer { width: 38px; height: 38px; }
+            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .brand-text .name { font-size: 15px; }
+            .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
+            .back-link-wrapper { padding: 14px 0 0; }
+            .back-link { font-size: 12px; padding: 7px 14px; }
+            .hero { padding: 24px 0 20px; }
+            .hero-content { gap: 20px; }
+            .hero-text h1 { font-size: 30px; }
+            .hero-text p { font-size: 13px; }
+            .hero-meta { font-size: 11px; gap: 12px; }
+            .btn-pdf { padding: 13px 22px; font-size: 13px; }
+            .chapters-section { padding: 20px 0 40px; }
+            .section-header .title-icon { width: 36px; height: 36px; font-size: 15px; }
+            .section-header h2 { font-size: 18px; }
+            .chapters-grid { gap: 10px; }
+            .chapter-card { padding: 14px 12px; }
+            .chapter-card .num { font-size: 20px; }
+            .chapter-card .title { font-size: 12px; }
+            .chapter-view { padding: 14px; }
+            .chapter-view-header { padding: 10px 0; margin-bottom: 18px; }
+            .chapter-view-header .ch-title { font-size: 13px; }
+            .chapter-body { font-size: 15px; line-height: 1.9; }
+            .chapter-body .first-letter { font-size: 2.4rem; }
+            .btn-close span { display: none; }
+            .footer { margin-top: 30px; padding: 30px 0 20px; }
+            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .name { font-size: 16px; }
+            .footer-links { gap: 6px 16px; margin-bottom: 18px; }
+            .footer-links a { font-size: 12px; }
+        }
+
+        @media (max-width: 374px) {
+            .container { padding: 0 12px; }
+            .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
+            .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
+            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .brand-text .name { font-size: 14px; }
+            .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
+            .back-link { font-size: 11px; padding: 6px 12px; }
+            .hero { padding: 20px 0 16px; }
+            .hero-text h1 { font-size: 26px; }
+            .hero-text p { font-size: 12px; }
+            .hero-meta { font-size: 10px; gap: 10px; }
+            .btn-pdf { padding: 12px 18px; font-size: 12px; }
+            .section-header .title-icon { width: 32px; height: 32px; font-size: 13px; }
+            .section-header h2 { font-size: 16px; }
+            .chapters-grid { gap: 8px; }
+            .chapter-card { padding: 12px 10px; }
+            .chapter-card .num { font-size: 18px; }
+            .chapter-card .title { font-size: 11px; }
+            .chapter-view { padding: 12px; }
+            .chapter-view-header .ch-title { font-size: 12px; }
+            .chapter-body { font-size: 14px; line-height: 1.85; }
+            .chapter-body .first-letter { font-size: 2.2rem; }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .chapter-card:hover { transform: none; border-color: var(--border); box-shadow: none; }
+            .chapter-card:hover .arrow { transform: none; color: var(--text-muted); }
+            .btn-pdf:hover { transform: none; }
+            .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
+            .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="index.html" class="header-brand">
+                    <div class="logo">
+                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    </div>
+                    <div class="brand-text">
+                        <span class="name">عدسة الروايات</span>
+                        <span class="tag">LENS OF NOVELS</span>
+                    </div>
+                </a>
+
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mini">
+                <div class="icon">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="text">
+                    <span class="name">عدسة الروايات</span>
+                    <span class="sub">LENS OF NOVELS</span>
+                </div>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                <span>الصفحة الرئيسية</span>
+            </a>
+            <a href="novels.html" class="active">
+                <i class="fas fa-book"></i>
+                <span>الروايات</span>
+            </a>
+            <a href="episodes.html">
+                <i class="fas fa-film"></i>
+                <span>الحلقات والفيديوهات</span>
+            </a>
+            <a href="announcements.html">
+                <i class="fas fa-bullhorn"></i>
+                <span>الإعلانات</span>
+            </a>
+            <a href="about.html">
+                <i class="fas fa-users"></i>
+                <span>عن الفريق</span>
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                <span>تواصل معنا</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div>جميع الحقوق محفوظة &copy; 2026</div>
+            <div class="dev">بهاء الدين الحسين</div>
+            <div style="direction: ltr;">0982520358</div>
+        </div>
+    </aside>
+
+    <!-- BACK LINK -->
+    <div class="container">
+        <div class="back-link-wrapper">
+            <a href="novels.html" class="back-link">
+                <i class="fas fa-arrow-right"></i>
+                <span>العودة للروايات</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-cover">
+                    <img src="skylane.jpg" alt="غلاف سكاي لاين" onerror="this.style.display='none'" />
+                </div>
+                <div class="hero-text">
+                    <span class="novel-tag">
+                        <i class="fas fa-heart"></i>
+                        رواية رومانسية
+                    </span>
+                    <h1>سكاي لاين</h1>
+                    <p>
+                        قصة حب بين أستاذ وطالبة، تبدأ بكرسي وطاولة وتنتهي بوعد ودمعة.
+                        رحلة من الحلم إلى الواقع في وادي الياسمين.
+                    </p>
+                    <div class="hero-meta">
+                        <span><i class="fas fa-book"></i> 19 فصلاً</span>
+                        <span><i class="fas fa-user"></i> شادي رحال</span>
+                        <span><i class="fas fa-clock"></i> قراءة 2 ساعة</span>
+                    </div>
+                    <button class="btn-pdf" id="downloadPdfBtn">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>تحميل الرواية PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTERS -->
+    <section class="chapters-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="title-group">
+                    <div class="title-icon">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <h2>الفصول</h2>
+                </div>
+                <span class="count">19 فصلاً</span>
+            </div>
+            <div class="chapters-grid" id="chaptersGrid"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="name">عدسة الروايات</div>
+                <div class="sub">LENS OF NOVELS</div>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="novels.html">الروايات</a>
+                <a href="episodes.html">الحلقات</a>
+                <a href="announcements.html">الإعلانات</a>
+                <a href="about.html">عن الفريق</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    ❤️ جميع الحقوق محفوظة &copy; 2026 <span class="author">عدسة الروايات</span>
+                </div>
+                <div>
+                    🔧 برمجة وتطوير: <span class="dev">بهاء الدين الحسين</span> | <span class="phone">0982520358</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHAPTER VIEW -->
+    <div class="chapter-view" id="chapterView">
+        <div class="chapter-view-inner">
+            <div class="chapter-view-header">
+                <div class="title-info">
+                    <span class="ch-num" id="viewNum">الفصل 1</span>
+                    <span class="ch-title" id="viewTitle">عنوان الفصل</span>
+                </div>
+                <button class="btn-close" onclick="closeChapter()">
+                    <i class="fas fa-times"></i>
+                    <span>إغلاق</span>
+                </button>
+            </div>
+            <div class="chapter-body" id="viewBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // SIDEBAR
+        (function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuBtn.addEventListener('click', openSidebar);
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        })();
+
+        // ============================================================
+        //  DATA - فصول سكاي لاين
+        // ============================================================
+        const chapters = [{
+            id: 0,
+            title: 'المقدمة',
+            content: `في كل مدينة في باب... باب معهد، باب بيت، باب قلب. بس مو كل الأبواب بتنفتح، وبعضها إذا انفتح... بيتسكر للأبد.
+
+    هذي مو قصة حب عادية. هذي قصة ولد كان بدو يعلم، وبنت كانت بدها تتعلم. بلشت بكرسي وطاولة... وانتهت بوعد ودمعة.
+
+    هذي قصة "سكاي لين". المكان اللي جمعنا، والاسم اللي سميناه على حلمنا. هون تعلمنا الحب قبل الرياضيات، وهون تعلمنا الفراق قبل التخرج.
+
+    في هالقصة رح تشوفوا فرق العمر، ورح تشوفوا العادات، ورح تشوفوا أب عنيد، وأم قلبها طيب، ورح تشوفوا خاتم اتكبر واتيدل، وأسماء ولاد انحكت واننسيت.
+
+    ...بس قبل كل هاد
+    تذكروا شي واحد:
+
+    الحب رزق. والرزق إذا ما لحقته بإيدك، رح يلحقه غيرك.
+    والأقدار مكتوبة... ونحنا بس عم نعيشها.
+
+    أنا رامي
+    وهي قصة "عسل"
+    وهي قصة الدقيقة 3:13`
+        }, {
+            id: 1,
+            title: 'الفصل الأول: أول وجهين',
+            content: `*7 أكتوبر 2017*
+
+    كان رامي قاعد بالمكتب عم يرتب الكتب والأقلام وعم يستنى. الغرفة نضيفة، السبورة فاضية، والساعة 8:03. انفتح الباب بهدوء. فوتت بنت لحالها، بعدها رفيقتها. عسل. البسة حجاب لونو فاتح، ونفسها طالع شوي من المشي بسرعة.
+
+    "السلام عليكم أستاذ... تأخرنا دقيقتين" قالتها وهي محرجة.
+    رامي ابتسم ورد: "وعليكم السلام. ما صار شي، انتو أول مين وصل."
+    قعدوا بأول طاولتين. عمل فتحت دفترها فوراً، قلمها جاهز، وعيونها على السبورة. ما حكت كثير بهاليوم. بس كان مبين إنها جاية تتعلم عندح.
+
+    بهاليوم رامي ما شاف فيها غير "طالبة جديدة". بس طالبة شكلها غير... هادية، مركزة، وعندها شغف باللغة مبين من أول نظرة.`
+        }, {
+            id: 2,
+            title: 'الفصل الثاني: أول انتباه',
+            content: `بعد أسبوع
+
+    مر أسبوع. رامي صار حافظ أسماء الكل إلا اسم واحد كان يضل يتكرر بباله: عسل. مو لأنها أشرط وحدة. لأنها أكثر وحدة بتسأل. بتجي قبل الحصة، دفترها مرتب، وبتكتب كل كلمة. حبها للغة ما كان تمثيل.
+
+    بيوم كان عم يشرح قاعدة معقدة والكل ساكت. رفعت ايدها بهدوء:
+    "أستاذ، فينا نستخدم القاعدة بهالمثال؟"
+    وعطته جملة من تأليفها.
+    وقف ثانية وقال: "برافو عسل. هذا بالضبط التفكير اللي بدناه."
+    ومن هون بلشت تتغير الديناميكية. هو صار ينتبه لأسلئها أكثر بالحصة. وهي صارت تنتبه لشرحه وتفاصيله أكثر. لسا ما في كلام برا الدرس. لما كل شي رسمي: "أستاذ" و "طالبة". بس في احترام عم يكبر.`
+        }, {
+            id: 3,
+            title: 'الفصل الثالث: الغياب اللي بيلخبط',
+            content: `بعد شهر
+
+    بعد كم درس، رامي بلش يلاحظ شي غريب على حاله. اليوم اللي ما بتجي فيه عسل... الحصة كلها بتكون ناقصة. بيشرح وبيطلع على أول طاولتين فاضيين، وبتلاقي الدرس مافي طعمة. بيفكر "بكمل بسرعة وخلص".
+
+    واليوم اللي بتكون موجودة فيه... بيكون العكس. بيتوتر شوي. الكلام بيلبك. بيشرح القاعدة مرات مشان يتأكد إنها فهمت 3. بيصير بده يعطي أحسن ما عنده.
+
+    هو ما كان فاهم شو عم يصير. كان بيسميه "طالبة مجتهدة لازم اهتم فيها".`
+        }, {
+            id: 4,
+            title: 'الفصل الرابع: كيكة عيد الميلاد',
+            content: `آخر شهر 11
+
+    يوم عيد ميلاد رامي. دخل عالمعهد متأخر شوي. فتح باب الصف ولقى الطالب عم يغنوا "كل سنة وانت طيب". وفي نص الطاولة كيكة. بس اللي صدمه مو الكيكة... اللي صدمه إنو عسل قاعدة جنبها وبتضحك.
+
+    قلبه دق بسرعة مو من المفاجأة بس... من إنو هي اللي شايلة الكيك. حطت عسل القالب عالطاولة قدامو وقالت بخجل: "كل سنة وانت بخير. انت بتستاهل."`
+        }, {
+            id: 5,
+            title: 'الفصل الخامس: البنت القصيرة',
+            content: `رامي كان معروف بين الطالب إنو دمو خفيف وبحب يمزح. بيوم كان الدرس عن "الصفات الشخصية" وطلب من الكل يكتبوا موضوع صغير عن حالهم.
+
+    إجا دور عسل. وقفت شوي وقالت طولها. رامي ابتسم وقال بمزح: "ما شاء الله... قصيرة بس شاطرة وبتجيب العيد بالعلامات."`
+        }, {
+            id: 6,
+            title: 'الفصل السادس: تغير العلاقة',
+            content: `عسل: "خالو بعرف شو قالت أمي عنك؟"
+    رامي: "شو قالت؟"
+    عسل: "قالت يا ريت يكون عندي أخ مثل أستاذك"
+
+    بهالجملة الدنيا تغيرت. صار في ثقة من الأهل، وصار في راحة أكثر بالكلام.`
+        }, {
+            id: 7,
+            title: 'الفصل السابع: وردة بيضا',
+            content: `أول شهر 12
+
+    الحب بقلب رامي وقلب عسل صار يكبر. بيوم شافت وردة بيضا بحديقة المعهد. رجعت عالبيت وبعتله:
+    عسل: "خالو ليش هاي الوردة مو عندي؟"
+    رامي: "خلص بكرة رح جيبلك أحلى منها."
+
+    تاني يوم الصبح، دخل عالمعهد وإيده ورا ضهره. وعطاها وردة بيضا.
+    رامي: "هاي مشان ما يكون إلها مكان وبس... صار إلها مكان عندك"`
+        }, {
+            id: 8,
+            title: 'الفصل الثامن: اعتراف الصف الفاضي',
+            content: `*15/12/2017*
+
+    المعهد كان فاضي. شافها قاعدة لحالها بأول طاولة. فتت وقعد جنبها. بلشنا ندرس... شوي شوي دخلنا بالحديث الجد.
+
+    رامي: "عسل... انتي شو رأيك بعلاقتنا؟"
+    عسل: "أي... حابة إنها تقوى وتتغير"
+    رامي: "بتحبيني؟"
+    عسل: "أي"
+    رامي: "مستعدة تكوني معي كل العمر؟"
+    عسل: "أي"
+
+    بهاللحظة اعترفنا لبعض. أخذنا عهد إنو نضل لبعض كل العمر.`
+        }, {
+            id: 9,
+            title: 'الفصل التاسع: أول يوم بعد الاعتراف',
+            content: `*16/12/2017*
+
+    تاني يوم الصبح... الدنيا كلها كانت مختلفة. فوت رامي عالمعهد وقلبه داقق. وهي كانت قاعدة بمكانها المعتاد بأول طاولة، بس اليوم ابتسمت ابتسامة "حبيبتي" مش "طالبتي".
+
+    بعد ما طلعوا الطالب، ضلت هي تتأخر 5 دقايق "عندها سؤال". وكان السؤال هو:
+    عسل: "حبي... تعبت مبارح؟"
+    رامي: "لا... بس كنت سهران عم فكر فيكي"`
+        }, {
+            id: 10,
+            title: 'الفصل العاشر: قرار وعقبتين',
+            content: `آخر شهر 12 - البرد بلش
+
+    دخل آخر شهر 12 والجو صار بارد كثير. الشتوية نزلت على وادي الياسمين. بس رامي وعسل كانوا عايشين بعالم لحالهم. كل يوم حكي، كل تفصيلة صغيرة صارت بيناتهم.
+
+    الحب تبعهم كبر وصار هو روتينهم اليومي. ويوم من الأيام، بعد سهرة حكي للصبح، أخذوا القرار سوا:
+    بدنا نتزوج`
+        }, {
+            id: 11,
+            title: 'الفصل الحادي عشر: قبل المواجهة',
+            content: `عسل تحكي عن رامي لأمها بالبيت كل يوم شوي. "ماما اليوم رامي شرحلي درس صعب" "ماما خالو رامي زلمة محترم ويخاف الله وقلبه طيب" تزرع اسمه ببيتهم كـ "الأستاذ المحترم" بالأول.
+
+    رامي يتواصل مع الأم عالهاتف بعد أسبوع من تمهيد عسل. ويخبرها إنو هو "أستاذ عسل بمعهد سكاي الين" وإنو حابب يطلب ايد بنتها عسل للزواج. والأهم: عسل ما عندها خبر بالموضوع.`
+        }, {
+            id: 12,
+            title: 'الفصل الثاني عشر: الرفض الأول',
+            content: `نص شهر 1 - 2018
+
+    اليوم اللي رامي اتصل فيه بأم عسل كان أسوأ يوم.
+
+    رامي: "مرحبا خالة، معك رامي أستاذ عسل بمعهد سكاي الين. حابب أحكي معك بموضوع مهم... أنا ناوي أطلب ايد بنتك عسل"
+    أم عسل: "نعم؟! انت كبير عليها. نحنا كرد وانتو عرب. القصة مرفوضة من أساسها. لا تعاود تتصل"
+    رفض قاطع. سكرت بوجهه.
+
+    رامي ما يأس. ما تراجع. ضل يحاول وضل مآمن إنو الحب بيقدر يكسر أي حاجز.`
+        }, {
+            id: 13,
+            title: 'الفصل الثالث عشر: الوعد',
+            content: `عسل: "حبي بس إذا طال الموضوع؟"
+    رامي: "لو طال سنين. أنا وعدتك. والوعد دين"
+    سكرت المكالمة وقلبها موجوع بس مرتاحة. لأنها عرفت إنو في حدا متمسك فيها للآخر. الرفض كسرهم شوي...بس ما كسرهم كامل.`
+        }, {
+            id: 14,
+            title: 'الفصل الرابع عشر: شهور الصبر',
+            content: `شهر 2 لشهر 4 - 2018
+
+    الـ3 شهور هدول كانوا امتحان لرامي وعسل.
+
+    القانون الجديد اللي اتفقوا عليه:
+
+    بالمعهد: بس "صباح الخير أستاذ" و "يعطيك العافية" قدام الكل
+
+    عالتلفون: رسالة وحدة بس الساعة 11 بالليل. "نمتي؟" "اي الحمدله انت؟"
+
+    بالبيت: عسل مهمتها وحدة... تخلي اسم "الأستاذ رامي" ينذكر بالبيت بس بالمنيح`
+        }, {
+            id: 15,
+            title: 'الفصل الخامس عشر: الموقف اللي غير كل شي',
+            content: `آخر شهر 2، أم عسل كان عندها معاملة مهمة بالدوائر الحكومية ومتعبة فيها. أوراق وتواقيع وطوابير. رامي سمع من عسل وبدون ما يحكي لحدا راح وساعدها. خلصها كلها بيوم واحد.
+
+    تاني يوم دقت أم عسل لعسل:
+    أم عسل: "الأستاذ رامي هو اللي خلصلي المعاملة؟ زلمة خير والله"`
+        }, {
+            id: 16,
+            title: 'الفصل السادس عشر: شهرين قبل العاصفة',
+            content: `شهر 4 - شهر 6 | 2018
+
+    كان باقي شهرين للمتحانات النهائية. الجو كله صار دراسة وتوتر. بس التوتر هاد كان حلو... لأنه كان "توتر سوا."
+
+    بعد ما الأم وافقت على المشوار وصارت تثق برامي، صار في اتفاق جديد بيناتهم:
+    نستنى نخلص امتحانات عسل، وبعدها فورا نحكي مع الأب.`
+        }, {
+            id: 17,
+            title: 'الفصل السابع عشر: اليوم اللي تغيرت فيه',
+            content: `بداية شهر 6 - 2018
+
+    أول يوم بالامتحانات كان بتاريخ 2018/06/4. رامي وعسل صاحيين من الفجر، متوترين وفرحانين بنفس الوقت.
+
+    بنفس اليوم كان في عرس لقرايب عسل. بعد ما خلصت أول مادة، راحت عسل عالعرس وهي فرحانة كثير.
+
+    تاني يوم رجعت من العرس... بس رجعت غير. الكلام قليل، الضحكة خفيفة، في شي شاغل بالها.`
+        }, {
+            id: 18,
+            title: 'الفصل الثامن عشر: الدقيقة اللي غيرت كل شي',
+            content: `نص شهر 6 - 2018
+
+    كانت مبسوطة وعم تزمّت على امتحاناتها. وصلها للمكان اللي متعود يوصله عليه، وباس راسها ومشي على شغله التاني.
+
+    كان عنده درس. بعتها:
+    رامي: "حبي أنا فايت ع الدرس"
+    عسل: "تمام حبي الله يعطيك العافية"
+
+    خلص الدرس. فتح جواله. لقى رسالة منها بتقطع القلب:
+    عسل: "أمي خبرت أبي بالموضوع. أبي رفض رفض قطعي"
+
+    رامي وقف بالشارع. ايده عم ترجف. رد عليها وهو مو مصدق:
+    رامي: "اي شو يعني؟"
+
+    الساعة كانت 3:13 دقيقة.
+    هاي الدقيقة أصعب دقيقة بحياته.
+
+    وقات كلمة ما بينساها رامي كل حياتو:
+    عسل: "كلشي بيناتنا انتهى"`
+        }, {
+            id: 19,
+            title: 'الفصل التاسع عشر: الانكسار',
+            content: `وصل الخبر. شخص بقربها تقدم لخطبتها. وأبوها وافق. وقروا الفاتحة.
+
+    وهون رامي مات فعليا.
+    عصب. ما عاد يعرف شو يساوي. غلط كثير... كثير.
+
+    بآخر الشهر السادس. انخطبت عسل رسمي. ورامي راح حضر حفل خطوبتها وباركلها. وهو عم يبتسم وقلبه عم ينحرق.
+
+    وقبل ما يطلع قالها جملة وحدة:
+    رامي: "بدي منك وعد. تكملي دراستك وتحقي حلمك وتكوني قوية وما تنكسر. وأي لحظة بتحتاجيني فيها... بتلاقيني موجود"
+    وطلع من القعدة.`
+        }, {
+            id: 20,
+            title: 'الفصل العشرون: سكاي الين - بعد سنين',
+            content: `...بعد سنين. معهد "سكاي الين" لساته واقف بمكانه. نفس الباب، نفس السبورة، نفس أول طاولتين. رامي كبر وصار أستاذ الكل بيحترمه. وعسل صارت ناجحة وقوية مثل ما وعدها. ما التقوا. وما حكوا. بس كل واحد فيهم شايل قصة كاملة بقلبه.
+
+    الناس بتقول "قصة فشلت".
+    بس الحقيقة؟
+    القصة ما فشلت... هي انكسرت على صخرة العادات والخوف.
+
+    الخاتمة
+    وآخر شي بقلك يا قارئ:
+    ...إذا لقيت حدا بيحبك مثل ما رامي حب عسل، ما تتركه بسبب كلمة أهل، ولا فرق عمر، ولا قومية.
+
+    وإذا الدنيا فرقتكم... حبوا بعض بالدعاء.
+
+    وادي الياسمين لساته بيزهر كل ربيع.
+    بس ريحة الورد الأبيض... صارت بتذكرهم همي التنين.
+
+    النهاية
+    رامي & عسل`
+        }];
+
+        // RENDER
+        const gridContainer = document.getElementById('chaptersGrid');
+
+        function renderChapters() {
+            gridContainer.innerHTML = chapters.map((ch, idx) => `
+                <div class="chapter-card" data-index="${idx}" role="button" tabindex="0">
+                    <div class="num">${idx === 0 ? 'م' : idx}</div>
+                    <div class="title">${ch.title}</div>
+                    <i class="fas fa-arrow-left arrow"></i>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.chapter-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const idx = parseInt(this.dataset.index);
+                    openChapter(idx);
+                });
+            });
+        }
+
+        const view = document.getElementById('chapterView');
+        const viewNum = document.getElementById('viewNum');
+        const viewTitle = document.getElementById('viewTitle');
+        const viewBody = document.getElementById('viewBody');
+
+        function openChapter(idx) {
+            const ch = chapters[idx];
+            if (!ch) return;
+            viewNum.textContent = idx === 0 ? 'المقدمة' : `الفصل ${idx}`;
+            viewTitle.textContent = ch.title;
+
+            const paragraphs = ch.content.split('\n\n').filter(p => p.trim().length > 0);
+            let html = '';
+            paragraphs.forEach((p, i) => {
+                const trimmed = p.trim();
+                if (trimmed.length === 0) return;
+                if (i === 0) {
+                    const firstChar = trimmed.charAt(0);
+                    const rest = trimmed.slice(1);
+                    html += `<p><span class="first-letter">${firstChar}</span>${rest}</p>`;
+                } else {
+                    html += `<p>${trimmed}</p>`;
+                }
+            });
+            viewBody.innerHTML = html;
+            view.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            history.pushState({ idx }, '', `#chapter-${idx}`);
+            view.scrollTop = 0;
+        }
+
+        function closeChapter() {
+            view.classList.remove('active');
+            document.body.style.overflow = '';
+            history.pushState({}, '', window.location.pathname);
+        }
+
+        window.addEventListener('popstate', function() {
+            if (view.classList.contains('active')) {
+                view.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        window.addEventListener('load', function() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#chapter-')) {
+                const idx = parseInt(hash.replace('#chapter-', ''));
+                if (!isNaN(idx) && chapters[idx]) {
+                    setTimeout(() => openChapter(idx), 100);
+                }
+            }
+        });
+
+        // DOWNLOAD PDF
+        document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+            const btn = this;
+            btn.classList.add('loading');
+            btn.innerHTML = '<i class="fas fa-spinner"></i> جاري التحميل...';
+
+            const pdfContainer = document.createElement('div');
+            pdfContainer.id = 'pdfContainer';
+            pdfContainer.style.cssText = 'padding: 40px; background: #fff; color: #000; direction: rtl; font-family: Cairo, sans-serif;';
+
+            pdfContainer.innerHTML = `
+                <div style="text-align:center; margin-bottom:40px; padding-bottom:20px; border-bottom:2px solid #F5B400;">
+                    <h1 style="font-size:32px; color:#0A0A0A; margin-bottom:8px; font-weight:900;">سكاي لاين</h1>
+                    <p style="color:#666; font-size:15px;">قصة حب بين أستاذ وطالبة</p>
+                    <p style="color:#F5B400; font-size:13px; margin-top:8px; font-weight:700;">عدسة الروايات - LENS OF NOVELS</p>
+                    <p style="color:#999; font-size:12px;">للكاتب شادي رحال</p>
+                </div>
+            `;
+
+            chapters.forEach((ch, idx) => {
+                const title = idx === 0 ? 'المقدمة' : `الفصل ${idx}`;
+                const content = ch.content.replace(/\n/g, '<br>');
+                pdfContainer.innerHTML += `
+                    <div style="margin-bottom:30px; page-break-inside:avoid;">
+                        <h2 style="color:#0A0A0A; font-size:20px; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid #F5B400; font-weight:800;">
+                            ${title}: ${ch.title}
+                        </h2>
+                        <div style="line-height:2; font-size:15px; color:#333; text-align:justify;">${content}</div>
+                    </div>
+                `;
+            });
+
+            pdfContainer.innerHTML += `
+                <div style="text-align:center; color:#999; font-size:12px; margin-top:40px; padding-top:20px; border-top:1px solid #eee;">
+                    جميع الحقوق محفوظة &copy; 2026 عدسة الروايات<br>
+                    برمجة وتطوير: بهاء الدين الحسين - 0982520358
+                </div>
+            `;
+
+            document.body.appendChild(pdfContainer);
+
+            const opt = {
+                margin: [15, 15, 15, 15],
+                filename: 'سكاي_لاين_عدسة_الروايات.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true, scrollY: 0 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(pdfContainer).save().then(() => {
+                document.body.removeChild(pdfContainer);
+                btn.classList.remove('loading');
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> <span>تحميل الرواية PDF</span>';
+            }).catch(() => {
+                document.body.removeChild(pdfContainer);
+                btn.classList.remove('loading');
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> <span>تحميل الرواية PDF</span>';
+                alert('حدث خطأ أثناء التحميل');
+            });
+        });
+
+        renderChapters();
+    </script>
+</body>
+</html>

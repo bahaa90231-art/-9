@@ -1,0 +1,985 @@
+<!-- ============================================================
+     FILE: episodes.html (عدسة الروايات - الحلقات والفيديوهات)
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>الحلقات والفيديوهات - عدسة الروايات | LENS OF NOVELS</title>
+    <meta name="description" content="شاهد حلقاتنا المرئية والصوتية التي تحكي رواياتنا بأسلوب سينمائي مبتكر | عدسة الروايات" />
+    <meta name="keywords" content="حلقات, فيديوهات, روايات مرئية, إنتاج سينمائي, عدسة الروايات" />
+    <meta name="author" content="شادي رحال" />
+    <meta property="og:title" content="الحلقات والفيديوهات - عدسة الروايات" />
+    <meta property="og:description" content="حلقات مرئية وصوتية لرواياتنا" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/episodes.html" />
+    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="apple-touch-icon" href="favicon.jfif" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-hover: #1F1F1F;
+            --gold: #F5B400;
+            --gold-light: #FFC933;
+            --gold-dark: #D49400;
+            --gold-glow: rgba(245, 180, 0, 0.15);
+            --text: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --text-muted: #7A7A7A;
+            --border: rgba(245, 180, 0, 0.12);
+            --border-hover: rgba(245, 180, 0, 0.3);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --shadow-gold: 0 8px 24px rgba(245, 180, 0, 0.25);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            min-height: 70px;
+        }
+
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 22px;
+            transition: all var(--transition);
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+        }
+
+        .menu-btn:active { background: var(--bg-hover); }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-brand .logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 0 20px var(--gold-glow);
+            flex-shrink: 0;
+            padding: 2px;
+            border: 2px solid var(--gold);
+        }
+
+        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
+
+        .header-brand .brand-text .name { font-weight: 800; font-size: 17px; color: var(--gold); letter-spacing: -0.01em; }
+
+        .header-brand .brand-text .tag { font-size: 9px; color: var(--text-muted); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
+
+        .header-spacer { width: 42px; flex-shrink: 0; }
+
+        /* SIDEBAR */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+        }
+
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            max-width: 85vw;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 999;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.active { right: 0; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7); }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
+
+        .sidebar-header .logo-mini .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            padding: 2px;
+        }
+
+        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
+
+        .sidebar-header .logo-mini .text .name { font-size: 15px; font-weight: 800; color: var(--gold); }
+
+        .sidebar-header .logo-mini .text .sub { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; }
+
+        .sidebar-close {
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            font-size: 14px;
+        }
+
+        .sidebar-close:hover { background: var(--bg-hover); color: var(--gold); border-color: var(--border-hover); }
+
+        .sidebar-nav { padding: 16px 0; flex: 1; }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all var(--transition);
+            border-right: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            color: var(--gold);
+            background: var(--bg-hover);
+            border-right-color: var(--gold);
+        }
+
+        .sidebar-nav a i { width: 22px; font-size: 17px; text-align: center; color: var(--text-muted); transition: color var(--transition); }
+
+        .sidebar-nav a:hover i, .sidebar-nav a.active i { color: var(--gold); }
+
+        .sidebar-footer {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .sidebar-footer .dev { color: var(--gold); font-weight: 700; }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 60px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, var(--gold-glow), transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .page-header .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1.5px solid rgba(245, 180, 0, 0.3);
+            border-radius: 50%;
+            color: var(--gold);
+            font-size: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 40px var(--gold-glow);
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .page-header h1 .gold {
+            background: linear-gradient(180deg, var(--gold-light), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: clamp(13px, 1.5vw, 15px);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px;
+            line-height: 1.8;
+        }
+
+        /* FILTERS */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 32px 0 40px;
+            padding: 0 12px;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition);
+            -webkit-appearance: none;
+            appearance: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-tab:active { transform: scale(0.96); }
+
+        .filter-tab.active {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #0A0A0A;
+            border-color: var(--gold);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .filter-tab i { font-size: 12px; }
+
+        /* EPISODES GRID */
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding-bottom: 60px;
+        }
+
+        .episode-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .episode-card:active {
+            transform: scale(0.98);
+            border-color: var(--border-hover);
+        }
+
+        .episode-card .thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .episode-card .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .episode-card .thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+        }
+
+        .episode-card .thumb .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(245, 180, 0, 0.95);
+            color: #0A0A0A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            z-index: 2;
+            transition: all var(--transition);
+            box-shadow: 0 0 30px rgba(245, 180, 0, 0.5);
+            padding-left: 5px;
+        }
+
+        .episode-card:active .play-btn {
+            transform: translate(-50%, -50%) scale(0.9);
+        }
+
+        .episode-card .thumb .duration {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            z-index: 2;
+            direction: ltr;
+        }
+
+        .episode-card .thumb .category-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(245, 180, 0, 0.9);
+            color: #0A0A0A;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 800;
+            z-index: 2;
+        }
+
+        .episode-card .body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .episode-card .body .episode-num {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .episode-card .body .episode-num i { font-size: 10px; }
+
+        .episode-card .body h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.35;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .episode-card .body .description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .episode-card .body .meta {
+            display: flex;
+            gap: 14px;
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+            flex-wrap: wrap;
+            margin-top: 4px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        .episode-card .body .meta span { display: flex; align-items: center; gap: 5px; }
+
+        .episode-card .body .meta i { color: var(--gold); font-size: 10px; }
+
+        /* EMPTY STATE */
+        .empty-state {
+            text-align: center;
+            padding: 80px 30px;
+            background: var(--bg-card);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-lg);
+            color: var(--text-muted);
+            grid-column: 1 / -1;
+        }
+
+        .empty-state .icon-wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: rgba(245, 180, 0, 0.05);
+            border: 1px solid rgba(245, 180, 0, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            color: var(--gold);
+            opacity: 0.6;
+        }
+
+        .empty-state h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 420px;
+            margin: 0 auto 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.25);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 60px;
+            padding: 40px 0 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-brand { text-align: center; margin-bottom: 24px; }
+
+        .footer-brand .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+
+        .footer-brand .sub { font-size: 10px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-bottom: 24px;
+            padding: 0 16px;
+        }
+
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 4px; transition: color var(--transition); }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom .author { color: var(--gold); font-weight: 700; }
+        .footer-bottom .dev { color: var(--text-secondary); font-weight: 600; }
+        .footer-bottom .phone { direction: ltr; color: var(--gold); font-weight: 700; }
+
+        /* RESPONSIVE */
+        @media (min-width: 600px) {
+            .container { padding: 0 28px; }
+            .page-header { padding: 80px 0 40px; }
+            .episodes-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .episode-card .body { padding: 20px; }
+            .episode-card .body h3 { font-size: 17px; }
+            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: right; padding-top: 20px; }
+        }
+
+        @media (min-width: 900px) {
+            .header-inner { padding: 16px 0; }
+            .menu-btn, .header-spacer { width: 46px; height: 46px; }
+            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .brand-text .name { font-size: 19px; }
+            .header-brand .brand-text .tag { font-size: 10px; }
+            .page-header { padding: 100px 0 60px; }
+            .episodes-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+            .episode-card:hover {
+                transform: translateY(-6px);
+                border-color: var(--border-hover);
+                box-shadow: var(--shadow-lg);
+            }
+            .episode-card:hover .thumb img { transform: scale(1.05); }
+            .episode-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        @media (min-width: 1200px) {
+            .episodes-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 599px) and (min-width: 480px) {
+            .container { padding: 0 22px; }
+            .episode-card .body { padding: 16px; }
+            .episode-card .body h3 { font-size: 15px; }
+        }
+
+        @media (max-width: 479px) and (min-width: 375px) {
+            .container { padding: 0 16px; }
+            .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
+            .menu-btn, .header-spacer { width: 38px; height: 38px; }
+            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .brand-text .name { font-size: 15px; }
+            .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
+            .page-header { padding: 40px 0 24px; }
+            .page-header .icon-badge { width: 60px; height: 60px; font-size: 24px; margin-bottom: 14px; }
+            .page-header h1 { font-size: 26px; }
+            .page-header p { font-size: 13px; }
+            .filter-tabs { margin: 24px 0 28px; gap: 6px; }
+            .filter-tab { padding: 8px 14px; font-size: 12px; }
+            .episodes-grid { gap: 16px; padding-bottom: 40px; }
+            .episode-card .body { padding: 14px; gap: 8px; }
+            .episode-card .body h3 { font-size: 14px; }
+            .episode-card .body .description { font-size: 12px; }
+            .episode-card .thumb .play-btn { width: 50px; height: 50px; font-size: 18px; }
+            .empty-state { padding: 60px 20px; }
+            .empty-state .icon-wrapper { width: 80px; height: 80px; font-size: 34px; }
+            .empty-state h3 { font-size: 18px; }
+            .empty-state p { font-size: 13px; }
+            .footer { margin-top: 40px; padding: 30px 0 20px; }
+            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .name { font-size: 16px; }
+            .footer-links { gap: 6px 16px; margin-bottom: 18px; }
+            .footer-links a { font-size: 12px; }
+        }
+
+        @media (max-width: 374px) {
+            .container { padding: 0 12px; }
+            .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
+            .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
+            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .brand-text .name { font-size: 14px; }
+            .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
+            .page-header { padding: 32px 0 20px; }
+            .page-header .icon-badge { width: 52px; height: 52px; font-size: 20px; }
+            .page-header h1 { font-size: 22px; }
+            .page-header p { font-size: 12px; }
+            .filter-tab { padding: 7px 12px; font-size: 11px; }
+            .episode-card .body h3 { font-size: 13px; }
+            .episode-card .body .description { font-size: 11px; }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .episode-card:hover { transform: none; box-shadow: none; }
+            .episode-card:hover .thumb img { transform: none; }
+            .episode-card:hover .play-btn { transform: translate(-50%, -50%); }
+            .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
+            .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="index.html" class="header-brand">
+                    <div class="logo">
+                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    </div>
+                    <div class="brand-text">
+                        <span class="name">عدسة الروايات</span>
+                        <span class="tag">LENS OF NOVELS</span>
+                    </div>
+                </a>
+
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mini">
+                <div class="icon">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="text">
+                    <span class="name">عدسة الروايات</span>
+                    <span class="sub">LENS OF NOVELS</span>
+                </div>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                <span>الصفحة الرئيسية</span>
+            </a>
+            <a href="novels.html">
+                <i class="fas fa-book"></i>
+                <span>الروايات</span>
+            </a>
+            <a href="episodes.html" class="active">
+                <i class="fas fa-film"></i>
+                <span>الحلقات والفيديوهات</span>
+            </a>
+            <a href="announcements.html">
+                <i class="fas fa-bullhorn"></i>
+                <span>الإعلانات</span>
+            </a>
+            <a href="about.html">
+                <i class="fas fa-users"></i>
+                <span>عن الفريق</span>
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                <span>تواصل معنا</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div>جميع الحقوق محفوظة &copy; 2026</div>
+            <div class="dev">بهاء الدين الحسين</div>
+            <div style="direction: ltr;">0982520358</div>
+        </div>
+    </aside>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <div class="icon-badge">
+                <i class="fas fa-film"></i>
+            </div>
+            <h1>
+                الحلقات و <span class="gold">الفيديوهات</span>
+            </h1>
+            <p>
+                نأخذكم في رحلة بصرية وسماعية استثنائية، حيث ننقل السطور المكتوبة إلى
+                مشاهد حية وحلقات تشويقية بأسلوب سينمائي مبتكر.
+            </p>
+        </div>
+    </section>
+
+    <!-- FILTERS -->
+    <div class="container">
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-filter="all">
+                <i class="fas fa-th"></i>
+                <span>الكل</span>
+            </button>
+            <button class="filter-tab" data-filter="سكاي لاين">
+                <i class="fas fa-heart"></i>
+                <span>سكاي لاين</span>
+            </button>
+            <button class="filter-tab" data-filter="الأماكن">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>الأماكن</span>
+            </button>
+            <button class="filter-tab" data-filter="ماذا لو">
+                <i class="fas fa-dove"></i>
+                <span>ماذا لو</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- EPISODES GRID -->
+    <section>
+        <div class="container">
+            <div class="episodes-grid" id="episodesGrid"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="name">عدسة الروايات</div>
+                <div class="sub">LENS OF NOVELS</div>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="novels.html">الروايات</a>
+                <a href="episodes.html">الحلقات</a>
+                <a href="announcements.html">الإعلانات</a>
+                <a href="about.html">عن الفريق</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    ❤️ جميع الحقوق محفوظة &copy; 2026 <span class="author">عدسة الروايات</span>
+                </div>
+                <div>
+                    🔧 برمجة وتطوير: <span class="dev">بهاء الدين الحسين</span> | <span class="phone">0982520358</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // SIDEBAR
+        (function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuBtn.addEventListener('click', openSidebar);
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        })();
+
+        // ============================================================
+        //  DATA - الحلقات
+        //  ⚠️ ضع الحلقات هنا عندما تصبح جاهزة
+        //  مثال:
+        //  {
+        //      id: 1,
+        //      title: 'اسم الحلقة',
+        //      novel: 'سكاي لاين',
+        //      episodeNum: 1,
+        //      duration: '12:30',
+        //      image: 'episode-1.jpg',
+        //      description: 'وصف الحلقة...',
+        //      url: 'https://youtube.com/...',
+        //      date: '2026-01-15'
+        //  }
+        // ============================================================
+        const episodes = [
+            // المصفوفة فارغة حالياً - ستُملأ لاحقاً
+        ];
+
+        // ============================================================
+        //  RENDER
+        // ============================================================
+        const grid = document.getElementById('episodesGrid');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        let activeFilter = 'all';
+
+        function render() {
+            const filtered = activeFilter === 'all'
+                ? episodes
+                : episodes.filter(e => e.novel === activeFilter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>قريباً...</h3>
+                        <p>
+                            نعمل حالياً على إنتاج حلقات مميزة لرواياتنا بأسلوب سينمائي مبتكر.
+                            تابعنا للاطلاع على جديدنا فور صدوره.
+                        </p>
+                        <span class="badge">
+                            <i class="fas fa-clock"></i>
+                            <span>قيد الإنتاج</span>
+                        </span>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(ep => `
+                <a href="${ep.url}" class="episode-card" target="_blank" rel="noopener">
+                    <div class="thumb">
+                        <img src="${ep.image}" alt="${ep.title}" loading="lazy" onerror="this.style.display='none'" />
+                        <span class="category-badge">${ep.novel}</span>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span class="duration">${ep.duration}</span>
+                    </div>
+                    <div class="body">
+                        <div class="episode-num">
+                            <i class="fas fa-circle"></i>
+                            <span>الحلقة ${ep.episodeNum}</span>
+                        </div>
+                        <h3>${ep.title}</h3>
+                        <p class="description">${ep.description}</p>
+                        <div class="meta">
+                            <span><i class="fas fa-calendar"></i> ${ep.date}</span>
+                            <span><i class="fas fa-clock"></i> ${ep.duration}</span>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // FILTER EVENTS
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                activeFilter = this.dataset.filter;
+                render();
+            });
+        });
+
+        render();
+    </script>
+
+</body>
+</html>

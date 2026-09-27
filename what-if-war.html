@@ -1,0 +1,1465 @@
+<!-- ============================================================
+     FILE: what-if-war.html (عدسة الروايات - رواية ماذا لو ما كانت الحرب؟)
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>ماذا لو ما كانت الحرب؟ - عدسة الروايات | LENS OF NOVELS</title>
+    <meta name="description" content="رواية ماذا لو ما كانت الحرب؟ - رواية تأملية عن النزوح والفقد والأمل | عدسة الروايات" />
+    <meta name="keywords" content="ماذا لو ما كانت الحرب, رواية اجتماعية, عدسة الروايات, شادي رحال" />
+    <meta name="author" content="شادي رحال" />
+    <meta property="og:title" content="ماذا لو ما كانت الحرب؟ - عدسة الروايات" />
+    <meta property="og:description" content="رواية تأملية عن النزوح والفقد والأمل" />
+    <meta property="og:image" content="https://bahaa90231-art.github.io/-6575/what-if-war.jpg" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/what-if-war.html" />
+    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="apple-touch-icon" href="favicon.jfif" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-hover: #1F1F1F;
+            --gold: #F5B400;
+            --gold-light: #FFC933;
+            --gold-dark: #D49400;
+            --gold-glow: rgba(245, 180, 0, 0.15);
+            --text: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --text-muted: #7A7A7A;
+            --border: rgba(245, 180, 0, 0.12);
+            --border-hover: rgba(245, 180, 0, 0.3);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --shadow-gold: 0 8px 24px rgba(245, 180, 0, 0.25);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            min-height: 70px;
+        }
+
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 22px;
+            transition: all var(--transition);
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+        }
+
+        .menu-btn:active { background: var(--bg-hover); }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-brand .logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 0 20px var(--gold-glow);
+            flex-shrink: 0;
+            padding: 2px;
+            border: 2px solid var(--gold);
+        }
+
+        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
+
+        .header-brand .brand-text .name { font-weight: 800; font-size: 17px; color: var(--gold); letter-spacing: -0.01em; }
+
+        .header-brand .brand-text .tag { font-size: 9px; color: var(--text-muted); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
+
+        .header-spacer { width: 42px; flex-shrink: 0; }
+
+        /* SIDEBAR */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+        }
+
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            max-width: 85vw;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 999;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.active { right: 0; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7); }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
+
+        .sidebar-header .logo-mini .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            padding: 2px;
+        }
+
+        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
+
+        .sidebar-header .logo-mini .text .name { font-size: 15px; font-weight: 800; color: var(--gold); }
+
+        .sidebar-header .logo-mini .text .sub { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; }
+
+        .sidebar-close {
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            font-size: 14px;
+        }
+
+        .sidebar-close:hover { background: var(--bg-hover); color: var(--gold); border-color: var(--border-hover); }
+
+        .sidebar-nav { padding: 16px 0; flex: 1; }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all var(--transition);
+            border-right: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            color: var(--gold);
+            background: var(--bg-hover);
+            border-right-color: var(--gold);
+        }
+
+        .sidebar-nav a i { width: 22px; font-size: 17px; text-align: center; color: var(--text-muted); transition: color var(--transition); }
+
+        .sidebar-nav a:hover i, .sidebar-nav a.active i { color: var(--gold); }
+
+        .sidebar-footer {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .sidebar-footer .dev { color: var(--gold); font-weight: 700; }
+
+        /* BACK LINK */
+        .back-link-wrapper { padding: 20px 0 0; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .back-link:active { transform: scale(0.96); }
+
+        .back-link i { color: var(--gold); font-size: 12px; }
+
+        /* HERO */
+        .hero {
+            padding: 30px 0 30px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, var(--gold-glow), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .hero-cover {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .hero-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        .hero-text .novel-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.25);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(24px, 5vw, 46px);
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+            background: linear-gradient(180deg, var(--text) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .hero-meta span { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+
+        .hero-meta i { color: var(--gold); }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #0A0A0A;
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-gold);
+            width: 100%;
+        }
+
+        .btn-pdf:active { transform: scale(0.97); }
+
+        .btn-pdf.loading { opacity: 0.7; pointer-events: none; }
+        .btn-pdf.loading i { animation: spin 1s linear infinite; }
+
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* CHAPTERS */
+        .chapters-section { padding: 24px 0 60px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+
+        .section-header .title-group { display: flex; align-items: center; gap: 12px; }
+
+        .section-header .title-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .section-header .count { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+
+        .chapters-grid {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .chapter-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 12px;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .chapter-card:active {
+            transform: scale(0.97);
+            background: var(--bg-hover);
+            border-color: var(--border-hover);
+        }
+
+        .chapter-card .num {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .chapter-card .title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .chapter-card .arrow {
+            font-size: 11px;
+            color: var(--text-muted);
+            transition: all var(--transition);
+            margin-top: 2px;
+        }
+
+        /* CHAPTER VIEW */
+        .chapter-view {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--bg);
+            overflow-y: auto;
+            padding: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .chapter-view.active { display: block; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chapter-view-inner { max-width: 800px; margin: 0 auto; }
+
+        .chapter-view-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 10;
+        }
+
+        .chapter-view-header .title-info { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+
+        .chapter-view-header .ch-num {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(245, 180, 0, 0.1);
+            color: var(--gold);
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            align-self: flex-start;
+        }
+
+        .chapter-view-header .ch-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-close {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px 12px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            flex-shrink: 0;
+        }
+
+        .btn-close:active { transform: scale(0.95); }
+
+        .chapter-body {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--text);
+            padding-bottom: 60px;
+        }
+
+        .chapter-body p { margin-bottom: 1.2rem; }
+
+        .chapter-body .first-letter {
+            font-size: 2.8rem;
+            font-weight: 900;
+            float: right;
+            margin-left: 10px;
+            margin-top: 4px;
+            color: var(--gold);
+            line-height: 0.9;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 40px;
+            padding: 40px 0 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-brand { text-align: center; margin-bottom: 24px; }
+
+        .footer-brand .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+
+        .footer-brand .sub { font-size: 10px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-bottom: 24px;
+            padding: 0 16px;
+        }
+
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 4px; transition: color var(--transition); }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom .author { color: var(--gold); font-weight: 700; }
+        .footer-bottom .dev { color: var(--text-secondary); font-weight: 600; }
+        .footer-bottom .phone { direction: ltr; color: var(--gold); font-weight: 700; }
+
+        /* RESPONSIVE */
+        @media (min-width: 600px) {
+            .container { padding: 0 28px; }
+            .hero { padding: 40px 0; }
+            .hero-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .hero-text h1 { font-size: 40px; }
+            .hero-text p { font-size: 15px; }
+            .btn-pdf { width: auto; padding: 14px 28px; }
+            .chapters-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+            .chapter-card { padding: 16px 14px; }
+            .chapter-card .num { font-size: 22px; }
+            .chapter-card .title { font-size: 13px; }
+            .chapter-view { padding: 24px; }
+            .chapter-body { font-size: 17px; }
+            .chapter-view-header { padding: 16px 0; margin-bottom: 28px; }
+            .chapter-view-header .ch-title { font-size: 17px; }
+            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: right; padding-top: 20px; }
+        }
+
+        @media (min-width: 900px) {
+            .header-inner { padding: 16px 0; }
+            .menu-btn, .header-spacer { width: 46px; height: 46px; }
+            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .brand-text .name { font-size: 19px; }
+            .header-brand .brand-text .tag { font-size: 10px; }
+            .hero { padding: 60px 0; }
+            .hero-text h1 { font-size: 46px; }
+            .hero-text p { font-size: 16px; }
+            .chapter-card:hover {
+                transform: translateY(-4px);
+                border-color: var(--border-hover);
+                box-shadow: var(--shadow);
+            }
+            .chapter-card:hover .arrow {
+                transform: translateX(-4px);
+                color: var(--gold);
+            }
+            .btn-pdf:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 32px rgba(245, 180, 0, 0.4);
+            }
+        }
+
+        @media (max-width: 599px) and (min-width: 480px) {
+            .container { padding: 0 22px; }
+            .hero-text h1 { font-size: 32px; }
+            .chapters-grid { gap: 12px; }
+            .chapter-card { padding: 16px 14px; }
+            .chapter-card .num { font-size: 22px; }
+            .chapter-card .title { font-size: 13px; }
+            .chapter-view { padding: 20px; }
+        }
+
+        @media (max-width: 479px) and (min-width: 375px) {
+            .container { padding: 0 16px; }
+            .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
+            .menu-btn, .header-spacer { width: 38px; height: 38px; }
+            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .brand-text .name { font-size: 15px; }
+            .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
+            .back-link-wrapper { padding: 14px 0 0; }
+            .back-link { font-size: 12px; padding: 7px 14px; }
+            .hero { padding: 24px 0 20px; }
+            .hero-content { gap: 20px; }
+            .hero-text h1 { font-size: 26px; }
+            .hero-text p { font-size: 13px; }
+            .hero-meta { font-size: 11px; gap: 12px; }
+            .btn-pdf { padding: 13px 22px; font-size: 13px; }
+            .chapters-section { padding: 20px 0 40px; }
+            .section-header .title-icon { width: 36px; height: 36px; font-size: 15px; }
+            .section-header h2 { font-size: 18px; }
+            .chapters-grid { gap: 10px; }
+            .chapter-card { padding: 14px 12px; }
+            .chapter-card .num { font-size: 20px; }
+            .chapter-card .title { font-size: 12px; }
+            .chapter-view { padding: 14px; }
+            .chapter-view-header { padding: 10px 0; margin-bottom: 18px; }
+            .chapter-view-header .ch-title { font-size: 13px; }
+            .chapter-body { font-size: 15px; line-height: 1.9; }
+            .chapter-body .first-letter { font-size: 2.4rem; }
+            .btn-close span { display: none; }
+            .footer { margin-top: 30px; padding: 30px 0 20px; }
+            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .name { font-size: 16px; }
+            .footer-links { gap: 6px 16px; margin-bottom: 18px; }
+            .footer-links a { font-size: 12px; }
+        }
+
+        @media (max-width: 374px) {
+            .container { padding: 0 12px; }
+            .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
+            .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
+            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .brand-text .name { font-size: 14px; }
+            .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
+            .back-link { font-size: 11px; padding: 6px 12px; }
+            .hero { padding: 20px 0 16px; }
+            .hero-text h1 { font-size: 22px; }
+            .hero-text p { font-size: 12px; }
+            .hero-meta { font-size: 10px; gap: 10px; }
+            .btn-pdf { padding: 12px 18px; font-size: 12px; }
+            .section-header .title-icon { width: 32px; height: 32px; font-size: 13px; }
+            .section-header h2 { font-size: 16px; }
+            .chapters-grid { gap: 8px; }
+            .chapter-card { padding: 12px 10px; }
+            .chapter-card .num { font-size: 18px; }
+            .chapter-card .title { font-size: 11px; }
+            .chapter-view { padding: 12px; }
+            .chapter-view-header .ch-title { font-size: 12px; }
+            .chapter-body { font-size: 14px; line-height: 1.85; }
+            .chapter-body .first-letter { font-size: 2.2rem; }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .chapter-card:hover { transform: none; border-color: var(--border); box-shadow: none; }
+            .chapter-card:hover .arrow { transform: none; color: var(--text-muted); }
+            .btn-pdf:hover { transform: none; }
+            .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
+            .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="index.html" class="header-brand">
+                    <div class="logo">
+                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    </div>
+                    <div class="brand-text">
+                        <span class="name">عدسة الروايات</span>
+                        <span class="tag">LENS OF NOVELS</span>
+                    </div>
+                </a>
+
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mini">
+                <div class="icon">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="text">
+                    <span class="name">عدسة الروايات</span>
+                    <span class="sub">LENS OF NOVELS</span>
+                </div>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                <span>الصفحة الرئيسية</span>
+            </a>
+            <a href="novels.html" class="active">
+                <i class="fas fa-book"></i>
+                <span>الروايات</span>
+            </a>
+            <a href="episodes.html">
+                <i class="fas fa-film"></i>
+                <span>الحلقات والفيديوهات</span>
+            </a>
+            <a href="announcements.html">
+                <i class="fas fa-bullhorn"></i>
+                <span>الإعلانات</span>
+            </a>
+            <a href="about.html">
+                <i class="fas fa-users"></i>
+                <span>عن الفريق</span>
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                <span>تواصل معنا</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div>جميع الحقوق محفوظة &copy; 2026</div>
+            <div class="dev">بهاء الدين الحسين</div>
+            <div style="direction: ltr;">0982520358</div>
+        </div>
+    </aside>
+
+    <!-- BACK LINK -->
+    <div class="container">
+        <div class="back-link-wrapper">
+            <a href="novels.html" class="back-link">
+                <i class="fas fa-arrow-right"></i>
+                <span>العودة للروايات</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-cover">
+                    <img src="what-if-war.jpg" alt="غلاف ماذا لو ما كانت الحرب؟" onerror="this.style.display='none'" />
+                </div>
+                <div class="hero-text">
+                    <span class="novel-tag">
+                        <i class="fas fa-dove"></i>
+                        رواية اجتماعية
+                    </span>
+                    <h1>ماذا لو ما كانت الحرب؟</h1>
+                    <p>
+                        رواية تأملية عن النزوح والفقد والأمل.
+                        سؤال واحد يغير كل شيء: ماذا لو لم تكن الحرب؟
+                    </p>
+                    <div class="hero-meta">
+                        <span><i class="fas fa-book"></i> 10 فصول</span>
+                        <span><i class="fas fa-user"></i> شادي رحال</span>
+                        <span><i class="fas fa-clock"></i> قراءة ساعة</span>
+                    </div>
+                    <button class="btn-pdf" id="downloadPdfBtn">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>تحميل الرواية PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTERS -->
+    <section class="chapters-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="title-group">
+                    <div class="title-icon">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <h2>الفصول</h2>
+                </div>
+                <span class="count">10 فصول + مقدمة + خاتمة</span>
+            </div>
+            <div class="chapters-grid" id="chaptersGrid"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="name">عدسة الروايات</div>
+                <div class="sub">LENS OF NOVELS</div>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="novels.html">الروايات</a>
+                <a href="episodes.html">الحلقات</a>
+                <a href="announcements.html">الإعلانات</a>
+                <a href="about.html">عن الفريق</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    ❤️ جميع الحقوق محفوظة &copy; 2026 <span class="author">عدسة الروايات</span>
+                </div>
+                <div>
+                    🔧 برمجة وتطوير: <span class="dev">بهاء الدين الحسين</span> | <span class="phone">0982520358</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHAPTER VIEW -->
+    <div class="chapter-view" id="chapterView">
+        <div class="chapter-view-inner">
+            <div class="chapter-view-header">
+                <div class="title-info">
+                    <span class="ch-num" id="viewNum">المقدمة</span>
+                    <span class="ch-title" id="viewTitle">عنوان الفصل</span>
+                </div>
+                <button class="btn-close" onclick="closeChapter()">
+                    <i class="fas fa-times"></i>
+                    <span>إغلاق</span>
+                </button>
+            </div>
+            <div class="chapter-body" id="viewBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // SIDEBAR
+        (function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuBtn.addEventListener('click', openSidebar);
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        })();
+
+        // ============================================================
+        //  DATA - فصول ماذا لو ما كانت الحرب؟
+        // ============================================================
+        const chapters = [{
+            id: 'intro',
+            title: 'المقدمة',
+            content: `هذه الرواية ليست عن الحرب. الحرب حدثت وانتهت في الأخبار، لكنها لم تنته في البيوت.
+
+    هذه الرواية عن سؤال واحد لا يفارقنا جميعاً، نسأله لأنفسنا كل ليلة قبل أن ننام، ولا نجرؤ على الإجابة عليه في الصباح.
+
+    ماذا لو؟
+
+    ماذا لو لم نخرج من بيتنا؟ ماذا لو لم نفترق؟ ماذا لو كان أبي هنا، وأخي هنا، وأنا لم أكبر بهذه السرعة؟
+
+    أنا لا أكتب لتغيير الماضي، فالماضي لا يتغير. أنا أكتب لكي أفهم كيف وصلت إلى هنا. أكتب لأنني تعبت من الهروب من السؤال.
+
+    كل شخصية في هذه الرواية تشبهني وتشبهك. كل بيت فيها هو بيتك. وكل "ماذا لو" فيها، هي "ماذا لو" التي في قلبك أيضاً.
+
+    إذا وجدت نفسك في هذه الصفحات، فاعلم أنك لست وحدك.
+
+    سليم
+
+    رواية "ماذا لو ما كانت الحرب؟"`
+        }, {
+            id: 1,
+            title: 'الفصل الأول: البيت',
+            content: `بيتي لا يزال واقفاً. هذه الجملة وحدها تحتاج إلى رواية كاملة.
+
+    في حارتنا في حلب القديمة، كل البيوت التي حولنا إما مهدمة أو تغير أصحابها، إلا بيتنا. بقي عندياً. بابه الخشب الأسود لا يزال هو نفسه، عليه نفس الخدش الذي صنعته بسكين المطبخ وأنا في السابعة، عندما كنت أحاول أن أكتب اسمي.
+
+    وضعت المفتاح في القفل. المفتاح صدئ، والقفل أصدر صوتاً كأنه يئن. فتحت.
+
+    الرائحة ضربتني أولاً. ليست رائحة خبز أمي كما كنت أتوقع. إنها رائحة رطوبة وغبار متراكم منذ ثماني سنوات. رائحة بيت نسي أن يسكنه أحد.
+
+    دخلت. المطبخ على اليمين. الحنفية تنقط. نقطة... نقطة... كل نقطة كانت تعد ثانية من عمري الذي ضاع هنا. الصحون لا تزال في مكانها، مغسولة ومرتبة، لأن أمي رتبتها قبل أن نخرج وكنا نظن أننا سنعود بعد يومين.
+
+    مشيت إلى غرفة المعيشة. السجادة نفسها، لكن لونها باهت. مكان التلفاز القديم لا يزال فارغاً على الحائط، وتحته بقعة أفتح من باقي الطلاء. أتذكر آخر مرة جلسنا هنا جميعاً، كنا نضحك على شيء تافه، ولم نكن نعلم أنها آخر مرة.
+
+    ذهبت إلى غرفتي. سريري لا يزال هناك. فراشي مطوي بعناية فوقه، كما تركته أمي. على الحائط، ورقة امتحان الصف التاسع معلقة بدبوس صدئ.
+
+    اقتربت وقرأت اسمي: سليم. ناديت بصوت خافت، كأنني أخشى أن أوقظ أحداً: "أمي؟"
+
+    لم يرد أحد. صدى صوتي عاد إلي وحيداً.
+
+    جلست على الأرض الباردة، في منتصف الغرفة الفارغة، وضعت رأسي بين يدي. لأول مرة منذ ثماني سنوات، سمحت لنفسي أن أسأل السؤال الذي كنت أهرب منه طوال الوقت، سألته بصوت عالٍ:
+
+    ماذا لو ما كانت الحرب؟
+
+    ماذا لو استيقظت الآن على صوت أمي وهي تصرخ من المطبخ: "سليم! قم، ستتأخر عن المدرسة!" بدلاً من أن استيقظ على صمت بيت فارغ يصم الآذان؟
+
+    ماذا لو كان أخي ياسر لا يزال نائماً بجانبي في الغرفة المجاورة ويشخر بصوت عالٍ، بدلاً من أن يكون في المانيا، أراه فقط عبر شاشة هاتف صغيرة كل شهرين؟
+
+    ماذا لو كان أبي لا يزال يجلس هنا، يضع جريدته ويضحك ضحكته العالية التي كانت تملأ البيت، بدلاً من صورته المعلقة على الحائط بإطار أسود؟
+
+    فتحت عيني. البيت لا يزال فارغاً. الغبار لا يزال في كل مكان. لكن السؤال بقي معلقاً في السقف، يدور مع الغبار.
+
+    قمت ببطء. مسحت الغبار عن ورقة الامتحان بأصابعي، ولم أنزعها. تركتها هناك.
+
+    خرجت من البيت. وقفت على العتبة ونظرت نظرة أخيرة.`
+        }, {
+            id: 2,
+            title: 'الفصل الثاني: المدرسة',
+            content: `لم أكن أنوي الذهاب إلى المدرسة. كنت أمشي في الشارع بلا هدف بعد أن خرجت من البيت، وقدماي قادتني وحدها إلى هناك. كأن الذاكرة أقوى مني.
+
+    مدرستي الإعدادية في حلب. السور نفسه، لكن لونه تغير. الباب الحديدي الكبير مفتوح، لا يوجد حارس. دخلت.
+
+    الساحة فارغة. لا صراخ أولاد، لا طابور صباحي، لا أحد يركض ليشتري شطيرة زعتر. فقط ورق شجر يابس يطير مع الهواء.
+
+    رفعت رأسي ونظرت إلى الطابق الثاني، إلى نافذة صفي. صف التاسع - الشعبة الثانية.
+
+    صعدت الدرج. كل خطوة كانت تخرج صوتاً عالياً. الخشب تحت الرخام يئن.
+
+    وصلت إلى الصف. الباب مكسور، نصف مفتوح. دخلت.
+
+    السبورة لا تزال هناك، عليها آثار طباشير قديمة لم يمسحها أحد. المقاعد الخشبية، متربة، بعضها مكسور، بعضها لا يزال مرتباً كأن الطالب سيعودون غداً.
+
+    ذهبت مباشرة إلى مقعدي. المقعد الثالث بجانب النافذة. مسحت الغبار عنه بيدي وجلست.
+
+    من هنا كنت أرى حارتنا كلها. من هنا كنت أحلم.
+
+    تذكرت أستاذ الرياضيات الأستاذ أحمد. كان يضع يده على كتفي ويقول: "سليم، أنت ستكون مهندساً، لا تضيع وقتك."
+
+    فتحت عيني. الصف لا يزال فارغاً. لكنني للمرة الأولى لم أشعر بالحزن فقط. شعرت بالامتنان. لأنني تذكرت.
+
+    قمت من مقعدي. أخذت قطعة طباشير صغيرة كانت ملقاة على الأرض، وكتبت على السبورة بخط كبير ومرتجف:
+
+    كنا هنا`
+        }, {
+            id: 3,
+            title: 'الفصل الثالث: الأصدقاء',
+            content: `بعد أن خرجت من المدرسة وكتبت على السبورة "كنا هنا"، لم أستطع العودة إلى البيت الفارغ. البيت كان يذكرني بما فقدته، أما المدرسة فذكرتني بما كنت أستطيع أن أكونه. لكن كان هناك مكان ثالث، مكان لم يكن بيتاً ولا مدرسة، بل كان وطننا الصغير نحن الأربعة.
+
+    ذهبت إلى "المقر".
+
+    كل حارة في حلب كان لها مقر سري لا يعرفه إلا الأولاد. مقرنا كان خلف فرن أبو خالد، عند الحائط المهدوم نصفه منذ قبل الحرب.
+
+    الطريق إليه لا يزال نفسه. نفس المحلات المغلقة، نفس الرائحة، رائحة الخبز مختلطة برائحة الغبار. لكن عندما وصلت، توقفت.
+
+    المقر لم يعد مقراً. كان مجرد زاوية مهجورة. كومة حجارة، كيس أسود، طائر وبعض قناني الكولا البلاستيكية الفارغة التي ملأها الغبار.
+
+    ومع ذلك، الحجر الكبير لا يزال هناك. جلست عليه. كان باردا. مسحت الغبار عنه.
+
+    نحن الأربعة.
+
+    ياسر. ياسر كان أكبر منا بشهرين فقط لكنه كان يتصرف كأنه أبونا جميعاً. هو صاحب الخطط.
+
+    ياسر الآن في برلين. وصل بعد رحلة طويلة عبر البحر، حدثني عنها مرة واحدة ولم يعد يريد الحديث عنها أبداً.
+
+    كريم. كريم الهادئ. كان أذكى واحد بيننا. كريم الآن في مدينة صغيرة في السويد. تزوج من بنت سورية تعرف عليها هناك، وأنجب طفلة جميلة اسمها سارة.
+
+    حسام. حسام...
+
+    حسام كان القلب. إذا تشاجرنا أنا وياسر، جاء حسام وصالحنا. كان يضحك بصوت عالٍ جداً، ضحكة تملأ الحارة كلها.
+
+    حسام لم يسافر. عائلته لم تستطع الخروج. في سنة 2015، سقطت قذيفة في حارتنا. ركضنا جميعاً. وجدنا حسام...
+
+    حسام الآن تحت حجر آخر في مقبرة الشهداء في طرف حلب.
+
+    أخرجت هاتفي. فتحت الواتساب. مجموعتنا اسمها "المقر - ممنوع دخول البنات".
+
+    كتبت: "أنا في المقر هلق"
+    أرسلتها.
+
+    مرت دقيقة كاملة. ثم ظهرت علامتان زرقاوان. ياسر قرأها.
+
+    وبقينا نتحدث لساعة كاملة على ذلك الحجر. لم نكن أربعة شباب متفرقين في أربع مدن مختلفة. كنا أربعة أولاد صغار مرة أخرى في مقرنا السري خلف الفرن.
+
+    عندما أغلقت الهاتف كانت الشمس قد بدأت تغيب. قمت عن الحجر. جمعت ثلاث حجارة صغيرة ووضعتها فوق الحجر الكبير، واحدة لياسر، واحدة لكريم، وواحدة لي. والحجر الرابع تركته فارغاً لحسام.
+
+    ومشيت عائداً إلى البيت وأنا لأول مرة لا أشعر أنني أمشي وحدي.`
+        }, {
+            id: 4,
+            title: 'الفصل الرابع: الجامعة التي لم أذهب إليها',
+            content: `لم أنس تاريخ 8 حزيران 2019. كان موعد أول امتحان بكالوريا لي. مادة الفيزياء. المادة التي كنت أحبها أكثر من أي مادة أخرى.
+
+    في الليلة التي قبلها، انقطعت الكهرباء في حارتنا كالعادة. لم يكن هناك مولدة. جلست على الأرض في بيتنا الجديد، ووضعت شمعة صغيرة أمامي.
+
+    أمي كانت تجلس بجانبي، لا تقول شيئاً، فقط تضع يدها على كتفي كل نصف ساعة، كأنها تقول لي: "أنا هنا، لا تخف."
+
+    كنت أحفظ القوانين. قانون نيوتن، قانون أوم، قانون الضغط. كنت أرددها بصوت عالٍ حتى لا أنساها، وحتى لا أسمع صوت الرصاص البعيد.
+
+    في الصباح، ذهبت إلى المركز الامتحاني. كان هناك جنود على الباب، يفتشون الحقائب. كان هناك أمهات كثيرات يبكين عند الباب.
+
+    دخلت القاعة. المقاعد خشبية قديمة. الورقة أمامي بيضاء. المراقب قال: "ابدأوا". وبدأت أكتب. كنت أكتب بسرعة، ويدي ترتجف. ليس من الخوف من الامتحان، بل من الصوت الذي كان يأتي من بعيد. صوت قذيفة سقطت في حي آخر. ارتجت النوافذ.
+
+    ركزت. كتبت كل شيء أعرفه. وعندما خرجت، لم أكن سعيداً ولا حزيناً. كنت فقط مرهقاً.
+
+    بعد شهر، ظهرت النتائج. نجحت. مجموعي كان 224 من 240. مجموع جيد جداً. كان يكفي لدخول كلية الهندسة المدنية في جامعة حلب.
+
+    لكن الفرح لم يستمر طويلاً.
+
+    عندما ذهبت للتسجيل في الجامعة، قال لي الموظف: "الأوراق ناقصة، بدك إخراج قيد جديد، وبدك رسوم تسجيل". رسوم التسجيل كانت 80 ألف ليرة. لم يكن معنا هذا المبلغ.
+
+    حاولت أن أعمل. عملت في محل موبايلات لمدة شهرين، أنظف وأرتب. جمعت 30 ألفاً فقط. وكان كل يوم يمر، كان التسجيل يقترب من الانتهاء.
+
+    وفي النهاية، انتهى موعد التسجيل، ولم أسجل.
+
+    لم أخبر أمي أن السبب هو المصاري. قلت لها: "ما بدي أدخل هالسنة، بدي أرتاح سنة." صدقتني، أو تظاهرت بأنها صدقتني.
+
+    ومع ذلك، ما زلت أحتفظ بورقة النتيجة مطوية في جيبي، حتى اليوم. كلما شعرت أنني لا شيء، أخرجها وأنظر إليها. 224 من 240. كأنها تقول لي: كنت تستطيع. وما زلت تستطيع.`
+        }, {
+            id: 5,
+            title: 'الفصل الخامس: أمي',
+            content: `إذا كانت الحرب قد أخذت مني كل شيء، فأمي هي الشيء الوحيد الذي لم تستطع الحرب أن تأخذه.
+
+    أما اسمها فاطمة. لكنني لم أنادها يوماً باسمها. دائماً "يَمَّا". كلمة واحدة، لكنها كانت تعني لي البيت كله، حتى بعد أن تهدم البيت.
+
+    أمي لم تكن امرأة متعلمة كثيراً. تركت المدرسة في الصف التاسع وتزوجت أبي وهي صغيرة. لكنها كانت تعرف أشياء لا تعلمها المدارس. كانت تعرف كيف تجعل رغيف خبز واحد يكفي ثلاثة أشخاص، وكيف تخيط بنطلوناً ممزقاً فيصبح كأنه جديد، وكيف تخبئ دموعها في المطبخ حتى لا أراها.
+
+    أتذكر يوم استشهد أبي. لم أراها تبكي بصوت عالٍ. جلست في زاوية الغرفة، ووضعت طرحتها على وجهها، وبكت بصمت.
+
+    في اليوم الثالث، قامت. غسلت وجهها، وربطت طرحتها، ودخلت المطبخ وبدأت تحضر الفطور. كأن شيئاً لم يكن. قالت لي: "قوم يا سليم، صار وقت المدرسة."
+
+    قلت لها: "ما بدي روح."
+    قالت لي جملة واحدة: "أبو ك كان بدو ياك تروح."
+    فقمت وذهبت.
+
+    منذ ذلك اليوم، أصبحت أمي هي الأب والأم والبيت والمدرسة.
+
+    كانت تعمل في بيوت الناس، تنظف وتغسل، مقابل 2000 ليرة في اليوم. كانت تعود في المساء ويداها حمراوان من مواد التنظيف، وظهرها يؤلمها. لكنها لم تشتك يوماً.
+
+    أمي لا تخاف من أي شيء، إلا من شيء واحد: أن تراني أبكي.
+
+    أجمل ذكرى لي معها ليست يوم نجاحي، ولا يوم عيد. أجمل ذكرى هي كل صباح. كل صباح، حتى في أسوأ أيام الحرب، كانت توقظني بنفس الطريقة. تضع يدها على جبيني، وتقول: "قوم يا حبيبي، الشمس طلعت، ولازم نحنا كمان نطلع."
+
+    كنت أكره هذه الجملة وأنا صغير. الآن، أفهمها. نحن لسنا الشمس. نحن نحاول فقط أن نطلع معها، كل يوم، رغم كل شيء.`
+        }, {
+            id: 6,
+            title: 'الفصل السادس: النزوح - أمي تحمل البيت',
+            content: `في شتاء 2016، لما قرر أبي أن ننزح، في ليلة النزوح الأخيرة، ونحن نجمع الحقائب، رأيتها تفعل شيئاً غريباً. لم تجمع ثيابها أولاً. ذهبت إلى المطبخ. فتحت الخزائن. أخذت فنجانين قهوة صغيرين، الفنجانين اللي كنا نشرب فيهم قهوة العيد، ووضعتهما في حقيبتها، ولفتهما بجريدة حتى لا ينكسرا.
+
+    ثم ذهبت إلى غرفة النوم، وأخذت طرحة عرسها البيضاء، وطوتها بعناية ووضعتها في الحقيبة. ثم ذهبت إلى الحائط الذي كان فيه مرآة صغيرة، ونزعت المرآة ووضعتها في الحقيبة أيضاً.
+
+    قلت لها: "يَمَا، شو عم تعملي؟ ما فينا نحمل كثير، أبي قال حقيبة وحدة لكل واحد بس"
+    قالت لي وهي مستمرة في وضع الأشياء: "أنا ما عم أحمل أغراض يا سليم، أنا عم أحمل البيت."
+
+    لم أفهم جملتها حينها. فهمتها بعد سنوات.
+
+    عندما خرجنا وأغلق أبي الباب بالمفاتيح، كانت أمي هي الوحيدة التي التفتت. نظرت إلى البيت طويلاً، ووضعت يدها على قلبها كأنها تحفظه في قلبها.
+
+    في الميكروباص، كانت أمي تجلس أمامي. كانت حقيبتها على حضنها، تحضنها كأنها طفل.
+
+    عندما وصلنا إلى بيت خالتي، أول شيء فعلته أمي، فتحت حقيبتها وأخرجت الفنجانين ووضعتهما على الرف. وأخرجت المرآة وعلقتها على الحائط بمسمار صغير.
+
+    وقالت: "هيك، صار عنا بيت."
+
+    في ذلك اليوم فهمت. أمي لم تنزح من البيت، هي حملت البيت معها.
+
+    وبعد شهرين، عندما استشهد أبي وهو راجع ليجلب السجاد الشتوي لأنه كان خائفاً علينا من البرد، كانت أمي هي التي ذهبت إلى المشفى لاستلام أغراضه. عادت ومعها كيس أسود صغير. فيه ساعته، ومحفظته، وحلقة المفاتيح. ثلاثة مفاتيح في حلقة حديدية.
+
+    أعطتني المفاتيح وقالت لي: "خليها معك انت، انت صرت رجال البيت هلق."`
+        }, {
+            id: 7,
+            title: 'الفصل السابع: أبي - ماذا لو لم يتوفى',
+            content: `في بيتنا القديم، كان لأبي كرسي أبيض، أمام الباب. لم أكن أفهم لماذا يحب الجلوس أمام الباب. الآن أفهم، كان يحرسنا ونحن نلعب.
+
+    أبي لم يبك أمامنا أبداً، حتى يوم أول قصف، حتى يوم النزوح. كان يمسك بيد أمي ويقول: "امشوا قدامي، أنا وراكم."
+
+    ثم في يوم واحد، مرض. ليلة واحدة فقط. سخونة، وتعب، وقال لنا: "أنا تعبان، بدي نام شوي." وفي الصباح، لم يصحى. الله يرحمه.
+
+    ومنذ ذلك اليوم، بيتنا بلا باب. يعني عندنا باب خشب، لكن ليس عندنا أبي ليجلس أمامه. صار الكرسي الأبيض فارغاً.
+
+    وأنا صرت أفكر كل يوم: ماذا لو أبي لم يتوفى؟
+
+    ماذا لو لم يتوفى؟ كنا بقينا في حلب. أنا متأكد. أبي لم يكن ليترك البيت. كان سيصلح الباب المكسور بيده ويقول: "هذا بيتنا."
+
+    ماذا لو لم يتوفى؟ كانت أمي ستظل تغني وهي تطبخ. الآن أمي تطبخ بصمت.
+
+    ماذا لو لم يتوفى؟ كنت سأبقى في المدرسة. كان سيقول لي: "ادرس يا سليم، أنا أشتغل عنك." كنت سأصبح أستاذاً كما كنت أحلم.
+
+    لكن الحقيقة هي أن أبي توفي، وأنا تركت المدرسة، وصرت أصلح موبايلات.
+
+    أحياناً، عندما أكون تعباناً من الشغل في الليل، أتخيل أنني أعود إلى حارتنا القديمة، وأرى الكرسي الأبيض، وأبي جالس عليه، يشرب الشاي، ويقول لي: "تعال يا سليم، احكيلي شو صلحت اليوم." فأجلس بجانبه على الأرض، كما كنت أفعل وأنا صغير، وأحكي له. وهذا يكفيني.`
+        }, {
+            id: 8,
+            title: 'الفصل الثامن: الموبايلات',
+            content: `بعد وفاة أبي، تركت المدرسة. لم يكن لدينا مال.
+
+    قال لي ابن خالتي: "تعال معي إلى المحل، نصلح الهواتف، عملها جيد."
+
+    في أول يوم، أعطاني هاتفاً قديماً، شاشته سوداء لا تعمل. قال لي: "فكَّه." أخذت المفك، وفتحته، وطار برغي صغير جداً وضاع تحت الطاولة. بقيت ساعة كاملة أبحث عنه على الأرض، على ركبتي، مثلما كنت أبحث عن الكرة عندما كنا صغاراً. ضحك ابن خالتي وقال لي: "هذا هو أول درس في هذا العمل، البرغي الصغير أهم من الهاتف كله."
+
+    تعلمت ببطء. في البداية كنت أخاف. كنت أظن أن كل هاتف هو قنبلة صغيرة، إذا لمست سلكاً خطأ سينفجر في يدي.
+
+    لكن بعد شهر، بدأت أفهم. كل هاتف له قلب، مثل الإنسان تماماً. البطارية هي قلبه. إذا كان قلبه متعباً، الهاتف لا يعمل. والشاشة هي وجهه.
+
+    وبدأت أحب العمل، ليس من أجل المال فقط، بل من أجل الناس. عندما يأتيني رجل بهاتفه مكسور، ويكون قلقاً، ثم أصلحه له ويفرح، هذه الفرحة الصغيرة كانت تنسيني كل تعبي.
+
+    مرة جاءت امرأة كبيرة في السن، هاتفها لا يعمل، وكانت تبكي. قالت لي: "فيه صور أولادي المسافرين، صار لي سنة لم أرهم." أخذت الهاتف، فتحته، كان فيه ماء. نظفته، غيرت شاشته، وشغلته. عندما ظهرت الصور، بكت المرأة كثيراً، ومسكت يدي وقالت: "الله يرحم أباك، أعدت لي أولادي."
+
+    في تلك اللحظة، تذكرت كلام أبي عندما كان يحاول أن يصلح الحنفية. قال لي: "تعلم أن تصلح كل شيء يتكسر بين يديك." لم يكن يقصد الحنفية فقط، كان يقصد قلوب الناس أيضاً.`
+        }, {
+            id: 9,
+            title: 'الفصل التاسع: الحب - ماذا لو بقيت',
+            content: `لم أكن أفكر في الحب. بعد الحرب والنزوح ووفاة أبي، كنت أظن أن الحب شيء للأفلام فقط، ليس لنا.
+
+    حتى جاءت هي.
+
+    كانت تأتي إلى المحل كل أسبوع. هاتفها دائماً مكسور. كنت أضحك في داخلي وأقول: هذه الفتاة لا تحافظ على أي شيء.
+
+    كان اسمها نور. من حلب أيضاً، من حارة قريبة من حارتنا. تعرفنا هنا، في مكان النزوح، في محل صغير لتصليح الهواتف.
+
+    كانت عندما تدخل المحل، تبتسم وتقول: "رجع خرب." وأنا أقول لها: "أنت تخربينه عمداً لكي تأتي." كانت تضحك.
+
+    مرة، تجرأت وسألتها: "نور، لماذا هاتفك يخرب دائماً؟"
+    قالت لي وهي تنظر إلى الأرض: "لأن أبي يضربني إذا بقيت أتكلم مع أمي المسافرة، فأنا أخربه لكي آتي إلى هنا وأنت تصلحه، وأبقى ساعة بدون صراخ."
+
+    سكت. لم أعرف ماذا أقول. لأول مرة، فهمت أن كل هاتف مكسور وراءه قصة، وأن قصتها هي أثقل من كل الهواتف التي صلحتها.
+
+    أحببتها. أحببتها بصمت، كما كان أبي يحب أمي بصمت، يجلس أمام الباب ليحرسها. ولم أقل لها.
+
+    ثم في يوم واحد، لم تأت. انتظرت الخميس، والخميس الذي بعده، والذي بعده. سألت عنها، قالوا لي: "رحلوا. ذهبوا إلى تركيا."
+
+    لم تودعني. تركت لي هاتفها المكسور الأخير على طاولة المحل، مع ورقة صغيرة كتبت عليها: "صلحه واحتفظ به."`
+        }, {
+            id: 10,
+            title: 'الفصل العاشر: العودة إلى حلب',
+            content: `أخذت الباص من الصباح الباكر. لم أخبر أحداً. جلست بجانب الشباك وكنت أتذكر الفصل الأول الذي كتبته لكم كلمة كلمة.
+
+    وصلت إلى حارتنا على الظهر. وقفت في أول الحارة ولم أعرفها. لم يكن هناك حارة. كان هناك شارع طويل من الركام.
+
+    مشیت ببطء، أعد الخطوات كما كنت أعدها وأنا طفل. عشرون خطوة من دكان الخبز إلى بيتنا. مشیت عشرين خطوة. وقفت.
+
+    هنا كان يجب أن يكون بيتنا.
+
+    لكن لم يكن هناك بيت. كان هناك كومة حجارة كبيرة. لا باب، لا شباك، لا كرسي أبيض.
+
+    جلست على حجر كبير بارد. لمست الحجر بيدي، وقلت بصوت عالٍ: ماذا لو لم يبقَ بيت؟
+
+    هذا "ماذا لو" لم يكن خيالاً هذه المرة. هذا صار حقيقة. لم يبقَ بيت.
+
+    جلست ساعة كاملة، ثم قمت وعدت.
+
+    عدت إلى مدينتي الجديدة، إلى محلي الصغير. وفي اليوم التالي، ذهبت إلى النجار وقلت له: "أريد أن تصنع لي كرسياً. أبيض، من خشب رخيص، بسيط جداً، مثل الكرسي الذي كان يجلس عليه أبي."
+
+    نظر إلي النجار باستغراب وقال لي: "لماذا؟ عندك كراسي في المحل، لماذا كرسي أبيض بلا طاولة؟"
+
+    قلت له جملة لم أفكر بها من قبل، خرجت من قلبي فجأة: "لأنه لم يبقَ بيت، فأريد أن أصنع باباً جديداً."
+
+    لم يفهم النجار. لكن أنا كنت أفهم قصدي جيداً. كنت أقصد أن البيت القديم انتهى، ولم يعد له باب أدخل منه. وطوال حياتي وأنا طفل، كان أبي يجلس على كرسيه الأبيض أمام الباب. كان كرسيه هو الباب.
+
+    أنا لم أعد أريد بيتاً يحميني. أنا أريد أن أكون أنا البيت الذي يحمي غيره.
+
+    صنع لي النجار الكرسي في يومين. كرسي أبيض، جديد، رائحته خشب جديد.
+
+    وضعته أمام محلي لتصليح الموبايلات. وفي المساء، بعد أن أنهيت عملي ومسحت طاولتي، جلست على الكرسي الأبيض وسكبت كأس شاي ونظرت إلى الشارع كما كان يفعل أبي.
+
+    مرّ طفل صغير يبيع المحارم، كان تعباناً. قلت له: "تعال." جاء وجلس على الأرض بجانب كرسيي، تماماً كما كنت أجلس بجانب كرسي أبي عندما كنت طفلاً.
+
+    في تلك اللحظة فهمت أنني لم أعد سليم الطفل الذي ينتظر أباه ليحرسه. أنا صرت سليم الرجل الذي يجلس على الكرسي ليحرس غيره. أنا صرت الباب الجديد.
+
+    لم يبقَ بيت في حلب. صحيح. لكن بقي كرسي. وصار عندي محل، وطاولة، وشاي، وطفل يجلس بجانبي. وهذا هو بيتي الجديد.`
+        }, {
+            id: 'outro',
+            title: 'الخاتمة',
+            content: `خلصت حكايتي.
+
+    عشر فصول كتبتها، وكل فصل كنت أقول فيه "ماذا لو". ماذا لو لم يتوفى أبي، ماذا لو لم ننزح، ماذا لو بقيت نور، ماذا لو بقي البيت.
+
+    وفي الآخر اكتشفت أن "ماذا لو" ما بتغير الماضي، بس بتعلمنا كيف نعيش الحاضر.
+
+    أنا اليوم سليم، عمري 22 سنة، أصلح موبايلات في محل صغير، وعندي كرسي أبيض جديد قدام المحل. أمي لساتها معي، تدعي لي كل صباح. أبي ليس معي بجسده، لكنه معي بكرسيه، بنصائحه، بصوته وهو يقول لي: "إذا خرب البيت كله، ابن بيتاً جديداً."
+
+    تعلمت أن البيت ليس حيطاناً وحجارة. البيت هو الكرسي الذي تجلس عليه، والطاولة التي تصلح عليها الهواتف، وكأس الشاي، والطفل الذي يجلس بجانبك.
+
+    وتعلمت أن الحب، والحرب، والنزوح، والموت، كلها براغي صغيرة في هاتف كبير اسمه الحياة. أحياناً يضيع برغي، وأحياناً ينكسر شيء، لكن الهاتف يبقى يعمل إذا أصلحته بحب.
+
+    هذه الرواية ليست عني فقط. هي عن كل واحد نزح، وكل واحد فقد بيته، وكل واحد فقد أباه، وكل واحد أحب ولم يستطع أن يقول أحبك.
+
+    إذا كنت تقرأ هذه الرواية وأنت نازح مثلي، أريد أن أقول لك: لم يبق بيت؟ اصنع باباً جديداً. اصنع كرسياً أبيض جديداً، واجلس عليه، وابدأ من جديد.
+
+    لأننا، رغم كل شيء، باقون.
+
+    تمت بحمد الله.
+
+    شادي`
+        }];
+
+        // RENDER
+        const gridContainer = document.getElementById('chaptersGrid');
+
+        function renderChapters() {
+            gridContainer.innerHTML = chapters.map((ch) => {
+                let label = ch.id;
+                if (ch.id === 'intro') label = 'م';
+                else if (ch.id === 'outro') label = 'خ';
+                return `
+                    <div class="chapter-card" data-id="${ch.id}" role="button" tabindex="0">
+                        <div class="num">${label}</div>
+                        <div class="title">${ch.title}</div>
+                        <i class="fas fa-arrow-left arrow"></i>
+                    </div>
+                `;
+            }).join('');
+
+            document.querySelectorAll('.chapter-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    openChapter(id);
+                });
+            });
+        }
+
+        const view = document.getElementById('chapterView');
+        const viewNum = document.getElementById('viewNum');
+        const viewTitle = document.getElementById('viewTitle');
+        const viewBody = document.getElementById('viewBody');
+
+        function openChapter(id) {
+            const ch = chapters.find(c => c.id === id);
+            if (!ch) return;
+
+            if (id === 'intro') viewNum.textContent = 'المقدمة';
+            else if (id === 'outro') viewNum.textContent = 'الخاتمة';
+            else viewNum.textContent = `الفصل ${id}`;
+
+            viewTitle.textContent = ch.title;
+
+            const paragraphs = ch.content.split('\n\n').filter(p => p.trim().length > 0);
+            let html = '';
+            paragraphs.forEach((p, i) => {
+                const trimmed = p.trim();
+                if (trimmed.length === 0) return;
+                if (i === 0) {
+                    const firstChar = trimmed.charAt(0);
+                    const rest = trimmed.slice(1);
+                    html += `<p><span class="first-letter">${firstChar}</span>${rest}</p>`;
+                } else {
+                    html += `<p>${trimmed}</p>`;
+                }
+            });
+            viewBody.innerHTML = html;
+            view.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            history.pushState({ id }, '', `#chapter-${id}`);
+            view.scrollTop = 0;
+        }
+
+        function closeChapter() {
+            view.classList.remove('active');
+            document.body.style.overflow = '';
+            history.pushState({}, '', window.location.pathname);
+        }
+
+        window.addEventListener('popstate', function() {
+            if (view.classList.contains('active')) {
+                view.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        window.addEventListener('load', function() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#chapter-')) {
+                const id = hash.replace('#chapter-', '');
+                if (chapters.find(c => c.id === id)) {
+                    setTimeout(() => openChapter(id), 100);
+                }
+            }
+        });
+
+        // DOWNLOAD PDF
+        document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+            const btn = this;
+            btn.classList.add('loading');
+            btn.innerHTML = '<i class="fas fa-spinner"></i> جاري التحميل...';
+
+            const pdfContainer = document.createElement('div');
+            pdfContainer.id = 'pdfContainer';
+            pdfContainer.style.cssText = 'padding: 40px; background: #fff; color: #000; direction: rtl; font-family: Cairo, sans-serif;';
+
+            pdfContainer.innerHTML = `
+                <div style="text-align:center; margin-bottom:40px; padding-bottom:20px; border-bottom:2px solid #F5B400;">
+                    <h1 style="font-size:32px; color:#0A0A0A; margin-bottom:8px; font-weight:900;">ماذا لو ما كانت الحرب؟</h1>
+                    <p style="color:#666; font-size:15px;">رواية تأملية عن النزوح والفقد والأمل</p>
+                    <p style="color:#F5B400; font-size:13px; margin-top:8px; font-weight:700;">عدسة الروايات - LENS OF NOVELS</p>
+                    <p style="color:#999; font-size:12px;">للكاتب شادي رحال</p>
+                </div>
+            `;
+
+            chapters.forEach((ch) => {
+                let label = ch.id;
+                if (ch.id === 'intro') label = 'المقدمة';
+                else if (ch.id === 'outro') label = 'الخاتمة';
+                else label = `الفصل ${ch.id}`;
+
+                const content = ch.content.replace(/\n/g, '<br>');
+                pdfContainer.innerHTML += `
+                    <div style="margin-bottom:30px; page-break-inside:avoid;">
+                        <h2 style="color:#0A0A0A; font-size:20px; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid #F5B400; font-weight:800;">
+                            ${label}: ${ch.title}
+                        </h2>
+                        <div style="line-height:2; font-size:15px; color:#333; text-align:justify;">${content}</div>
+                    </div>
+                `;
+            });
+
+            pdfContainer.innerHTML += `
+                <div style="text-align:center; color:#999; font-size:12px; margin-top:40px; padding-top:20px; border-top:1px solid #eee;">
+                    جميع الحقوق محفوظة &copy; 2026 عدسة الروايات<br>
+                    برمجة وتطوير: بهاء الدين الحسين - 0982520358
+                </div>
+            `;
+
+            document.body.appendChild(pdfContainer);
+
+            const opt = {
+                margin: [15, 15, 15, 15],
+                filename: 'ماذا_لو_ما_كانت_الحرب_عدسة_الروايات.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true, scrollY: 0 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(pdfContainer).save().then(() => {
+                document.body.removeChild(pdfContainer);
+                btn.classList.remove('loading');
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> <span>تحميل الرواية PDF</span>';
+            }).catch(() => {
+                document.body.removeChild(pdfContainer);
+                btn.classList.remove('loading');
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> <span>تحميل الرواية PDF</span>';
+                alert('حدث خطأ أثناء التحميل');
+            });
+        });
+
+        renderChapters();
+    </script>
+</body>
+</html>

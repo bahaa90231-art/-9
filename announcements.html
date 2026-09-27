@@ -1,0 +1,869 @@
+<!-- ============================================================
+     FILE: announcements.html (عدسة الروايات - الإعلانات)
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>الإعلانات - عدسة الروايات | LENS OF NOVELS</title>
+    <meta name="description" content="أحدث أخبار وإعلانات عدسة الروايات - إصدارات جديدة، حلقات قادمة، وأخبار الفريق" />
+    <meta name="keywords" content="إعلانات, أخبار, عدسة الروايات, روايات جديدة, حلقات جديدة" />
+    <meta name="author" content="شادي رحال" />
+    <meta property="og:title" content="الإعلانات - عدسة الروايات" />
+    <meta property="og:description" content="أحدث أخبار وإعلانات عدسة الروايات" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/announcements.html" />
+    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="apple-touch-icon" href="favicon.jfif" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-hover: #1F1F1F;
+            --gold: #F5B400;
+            --gold-light: #FFC933;
+            --gold-dark: #D49400;
+            --gold-glow: rgba(245, 180, 0, 0.15);
+            --text: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --text-muted: #7A7A7A;
+            --border: rgba(245, 180, 0, 0.12);
+            --border-hover: rgba(245, 180, 0, 0.3);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --shadow-gold: 0 8px 24px rgba(245, 180, 0, 0.25);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            min-height: 70px;
+        }
+
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 22px;
+            transition: all var(--transition);
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+        }
+
+        .menu-btn:active { background: var(--bg-hover); }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-brand .logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 0 20px var(--gold-glow);
+            flex-shrink: 0;
+            padding: 2px;
+            border: 2px solid var(--gold);
+        }
+
+        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
+
+        .header-brand .brand-text .name { font-weight: 800; font-size: 17px; color: var(--gold); letter-spacing: -0.01em; }
+
+        .header-brand .brand-text .tag { font-size: 9px; color: var(--text-muted); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
+
+        .header-spacer { width: 42px; flex-shrink: 0; }
+
+        /* SIDEBAR */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+        }
+
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            max-width: 85vw;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 999;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.active { right: 0; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7); }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
+
+        .sidebar-header .logo-mini .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            padding: 2px;
+        }
+
+        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
+
+        .sidebar-header .logo-mini .text .name { font-size: 15px; font-weight: 800; color: var(--gold); }
+
+        .sidebar-header .logo-mini .text .sub { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; }
+
+        .sidebar-close {
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            font-size: 14px;
+        }
+
+        .sidebar-close:hover { background: var(--bg-hover); color: var(--gold); border-color: var(--border-hover); }
+
+        .sidebar-nav { padding: 16px 0; flex: 1; }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all var(--transition);
+            border-right: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            color: var(--gold);
+            background: var(--bg-hover);
+            border-right-color: var(--gold);
+        }
+
+        .sidebar-nav a i { width: 22px; font-size: 17px; text-align: center; color: var(--text-muted); transition: color var(--transition); }
+
+        .sidebar-nav a:hover i, .sidebar-nav a.active i { color: var(--gold); }
+
+        .sidebar-footer {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .sidebar-footer .dev { color: var(--gold); font-weight: 700; }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 60px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, var(--gold-glow), transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .page-header .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1.5px solid rgba(245, 180, 0, 0.3);
+            border-radius: 50%;
+            color: var(--gold);
+            font-size: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 40px var(--gold-glow);
+        }
+
+        .page-header h1 {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .page-header h1 .gold {
+            background: linear-gradient(180deg, var(--gold-light), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: clamp(13px, 1.5vw, 15px);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px;
+            line-height: 1.8;
+        }
+
+        /* ANNOUNCEMENTS LIST */
+        .announcements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 32px 0 60px;
+        }
+
+        .announcement-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+            opacity: 0.8;
+        }
+
+        .announcement-card:active {
+            transform: scale(0.99);
+            border-color: var(--border-hover);
+        }
+
+        .announcement-card .header-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .announcement-card .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .announcement-card .badge.new {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22C55E;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .announcement-card .badge.important {
+            background: rgba(239, 68, 68, 0.15);
+            color: #EF4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .announcement-card .badge.update {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3B82F6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .announcement-card .badge.upcoming {
+            background: rgba(245, 180, 0, 0.15);
+            color: var(--gold);
+            border: 1px solid rgba(245, 180, 0, 0.3);
+        }
+
+        .announcement-card .date {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .announcement-card .date i { color: var(--gold); }
+
+        .announcement-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .announcement-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .announcement-card .actions {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .announcement-card .actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .announcement-card .actions a:hover {
+            gap: 10px;
+        }
+
+        /* EMPTY STATE */
+        .empty-state {
+            text-align: center;
+            padding: 80px 30px;
+            background: var(--bg-card);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-lg);
+            color: var(--text-muted);
+        }
+
+        .empty-state .icon-wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: rgba(245, 180, 0, 0.05);
+            border: 1px solid rgba(245, 180, 0, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            color: var(--gold);
+            opacity: 0.6;
+        }
+
+        .empty-state h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 420px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 60px;
+            padding: 40px 0 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-brand { text-align: center; margin-bottom: 24px; }
+
+        .footer-brand .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+
+        .footer-brand .sub { font-size: 10px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-bottom: 24px;
+            padding: 0 16px;
+        }
+
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 4px; transition: color var(--transition); }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom .author { color: var(--gold); font-weight: 700; }
+        .footer-bottom .dev { color: var(--text-secondary); font-weight: 600; }
+        .footer-bottom .phone { direction: ltr; color: var(--gold); font-weight: 700; }
+
+        /* RESPONSIVE */
+        @media (min-width: 600px) {
+            .container { padding: 0 28px; }
+            .page-header { padding: 80px 0 40px; }
+            .announcement-card { padding: 28px; }
+            .announcement-card h3 { font-size: 20px; }
+            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: right; padding-top: 20px; }
+        }
+
+        @media (min-width: 900px) {
+            .header-inner { padding: 16px 0; }
+            .menu-btn, .header-spacer { width: 46px; height: 46px; }
+            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .brand-text .name { font-size: 19px; }
+            .header-brand .brand-text .tag { font-size: 10px; }
+            .page-header { padding: 100px 0 60px; }
+            .announcement-card:hover {
+                transform: translateX(-4px);
+                border-color: var(--border-hover);
+                box-shadow: var(--shadow);
+            }
+        }
+
+        @media (max-width: 599px) and (min-width: 480px) {
+            .container { padding: 0 22px; }
+            .announcement-card { padding: 20px; }
+            .announcement-card h3 { font-size: 17px; }
+        }
+
+        @media (max-width: 479px) and (min-width: 375px) {
+            .container { padding: 0 16px; }
+            .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
+            .menu-btn, .header-spacer { width: 38px; height: 38px; }
+            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .brand-text .name { font-size: 15px; }
+            .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
+            .page-header { padding: 40px 0 24px; }
+            .page-header .icon-badge { width: 60px; height: 60px; font-size: 24px; margin-bottom: 14px; }
+            .page-header h1 { font-size: 26px; }
+            .page-header p { font-size: 13px; }
+            .announcements-list { padding: 24px 0 40px; gap: 14px; }
+            .announcement-card { padding: 18px; border-radius: var(--radius); }
+            .announcement-card h3 { font-size: 16px; margin-bottom: 8px; }
+            .announcement-card p { font-size: 13px; }
+            .announcement-card .badge { font-size: 9px; padding: 3px 10px; }
+            .announcement-card .date { font-size: 10px; }
+            .empty-state { padding: 60px 20px; }
+            .empty-state .icon-wrapper { width: 80px; height: 80px; font-size: 34px; }
+            .empty-state h3 { font-size: 18px; }
+            .empty-state p { font-size: 13px; }
+            .footer { margin-top: 40px; padding: 30px 0 20px; }
+            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .name { font-size: 16px; }
+            .footer-links { gap: 6px 16px; margin-bottom: 18px; }
+            .footer-links a { font-size: 12px; }
+        }
+
+        @media (max-width: 374px) {
+            .container { padding: 0 12px; }
+            .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
+            .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
+            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .brand-text .name { font-size: 14px; }
+            .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
+            .page-header { padding: 32px 0 20px; }
+            .page-header .icon-badge { width: 52px; height: 52px; font-size: 20px; }
+            .page-header h1 { font-size: 22px; }
+            .page-header p { font-size: 12px; }
+            .announcement-card { padding: 14px; }
+            .announcement-card h3 { font-size: 14px; }
+            .announcement-card p { font-size: 12px; }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .announcement-card:hover { transform: none; box-shadow: none; }
+            .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
+            .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="index.html" class="header-brand">
+                    <div class="logo">
+                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    </div>
+                    <div class="brand-text">
+                        <span class="name">عدسة الروايات</span>
+                        <span class="tag">LENS OF NOVELS</span>
+                    </div>
+                </a>
+
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mini">
+                <div class="icon">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="text">
+                    <span class="name">عدسة الروايات</span>
+                    <span class="sub">LENS OF NOVELS</span>
+                </div>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                <span>الصفحة الرئيسية</span>
+            </a>
+            <a href="novels.html">
+                <i class="fas fa-book"></i>
+                <span>الروايات</span>
+            </a>
+            <a href="episodes.html">
+                <i class="fas fa-film"></i>
+                <span>الحلقات والفيديوهات</span>
+            </a>
+            <a href="announcements.html" class="active">
+                <i class="fas fa-bullhorn"></i>
+                <span>الإعلانات</span>
+            </a>
+            <a href="about.html">
+                <i class="fas fa-users"></i>
+                <span>عن الفريق</span>
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                <span>تواصل معنا</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div>جميع الحقوق محفوظة &copy; 2026</div>
+            <div class="dev">بهاء الدين الحسين</div>
+            <div style="direction: ltr;">0982520358</div>
+        </div>
+    </aside>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <div class="icon-badge">
+                <i class="fas fa-bullhorn"></i>
+            </div>
+            <h1>
+                آخر <span class="gold">الأخبار والإعلانات</span>
+            </h1>
+            <p>
+                تابع أحدث أخبارنا وإعلاناتنا، من إصدارات جديدة، حلقات قادمة،
+                وأخبار فريق العمل.
+            </p>
+        </div>
+    </section>
+
+    <!-- ANNOUNCEMENTS -->
+    <section>
+        <div class="container">
+            <div class="announcements-list" id="announcementsList"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="name">عدسة الروايات</div>
+                <div class="sub">LENS OF NOVELS</div>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="novels.html">الروايات</a>
+                <a href="episodes.html">الحلقات</a>
+                <a href="announcements.html">الإعلانات</a>
+                <a href="about.html">عن الفريق</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    ❤️ جميع الحقوق محفوظة &copy; 2026 <span class="author">عدسة الروايات</span>
+                </div>
+                <div>
+                    🔧 برمجة وتطوير: <span class="dev">بهاء الدين الحسين</span> | <span class="phone">0982520358</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // SIDEBAR
+        (function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuBtn.addEventListener('click', openSidebar);
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        })();
+
+        // ============================================================
+        //  DATA - الإعلانات
+        //  ⚠️ أضف إعلاناتك هنا
+        //  الأنواع المتاحة: 'new' (جديد) | 'important' (مهم) | 'update' (تحديث) | 'upcoming' (قريباً)
+        // ============================================================
+        const announcements = [
+            {
+                id: 1,
+                type: 'new',
+                title: 'إطلاق موقع عدسة الروايات رسمياً',
+                content: 'يسعدنا أن نعلن عن إطلاق موقعنا الرسمي "عدسة الروايات" - منصتكم الأولى للروايات العربية المميزة بأسلوب سينمائي مبتكر. نبدأ رحلتنا بروايات الكاتب شادي رحال الثلاث: سكاي لاين، الأماكن، وماذا لو ما كانت الحرب؟',
+                date: '2026-09-27'
+            },
+            {
+                id: 2,
+                type: 'upcoming',
+                title: 'قريباً: إنتاج حلقات مرئية لرواية سكاي لاين',
+                content: 'نعمل حالياً على إنتاج حلقات مرئية بأسلوب سينمائي لرواية "سكاي لاين". سيتم إطلاق الحلقة الأولى قريباً على قناتنا الرسمية. تابعونا للاطلاع على الجديد.',
+                date: '2026-09-27'
+            }
+        ];
+
+        // ============================================================
+        //  RENDER
+        // ============================================================
+        const list = document.getElementById('announcementsList');
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('ar-EG', options);
+        }
+
+        function getTypeLabel(type) {
+            const labels = {
+                'new': 'جديد',
+                'important': 'مهم',
+                'update': 'تحديث',
+                'upcoming': 'قريباً'
+            };
+            return labels[type] || 'إعلان';
+        }
+
+        function getTypeIcon(type) {
+            const icons = {
+                'new': 'fa-star',
+                'important': 'fa-exclamation-triangle',
+                'update': 'fa-sync-alt',
+                'upcoming': 'fa-clock'
+            };
+            return icons[type] || 'fa-info-circle';
+        }
+
+        function render() {
+            if (announcements.length === 0) {
+                list.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3>لا توجد إعلانات حالياً</h3>
+                        <p>ترقبوا أخبارنا وإعلاناتنا القادمة قريباً.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // ترتيب الإعلانات من الأحدث للأقدم
+            const sorted = [...announcements].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            list.innerHTML = sorted.map(a => `
+                <div class="announcement-card">
+                    <div class="header-row">
+                        <span class="badge ${a.type}">
+                            <i class="fas ${getTypeIcon(a.type)}"></i>
+                            ${getTypeLabel(a.type)}
+                        </span>
+                        <span class="date">
+                            <i class="fas fa-calendar"></i>
+                            ${formatDate(a.date)}
+                        </span>
+                    </div>
+                    <h3>${a.title}</h3>
+                    <p>${a.content}</p>
+                </div>
+            `).join('');
+        }
+
+        render();
+    </script>
+
+</body>
+</html>

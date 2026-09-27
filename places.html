@@ -1,0 +1,1392 @@
+<!-- ============================================================
+     FILE: places.html (عدسة الروايات - رواية الأماكن)
+     ============================================================ -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>الأماكن - عدسة الروايات | LENS OF NOVELS</title>
+    <meta name="description" content="رواية الأماكن - أربع سنوات من الوفاء والانتظار | عدسة الروايات" />
+    <meta name="keywords" content="الأماكن, رواية الأماكن, عدسة الروايات, شادي رحال, رامي وعسل" />
+    <meta name="author" content="شادي رحال" />
+    <meta property="og:title" content="الأماكن - عدسة الروايات" />
+    <meta property="og:description" content="أربع سنوات من الوفاء والانتظار" />
+    <meta property="og:image" content="https://bahaa90231-art.github.io/-6575/places.jpg" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/places.html" />
+    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
+    <link rel="apple-touch-icon" href="favicon.jfif" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-card: #161616;
+            --bg-hover: #1F1F1F;
+            --gold: #F5B400;
+            --gold-light: #FFC933;
+            --gold-dark: #D49400;
+            --gold-glow: rgba(245, 180, 0, 0.15);
+            --text: #FFFFFF;
+            --text-secondary: #B8B8B8;
+            --text-muted: #7A7A7A;
+            --border: rgba(245, 180, 0, 0.12);
+            --border-hover: rgba(245, 180, 0, 0.3);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --shadow-gold: 0 8px 24px rgba(245, 180, 0, 0.25);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+            min-height: 70px;
+        }
+
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 22px;
+            transition: all var(--transition);
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+        }
+
+        .menu-btn:active { background: var(--bg-hover); }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-brand .logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 0 20px var(--gold-glow);
+            flex-shrink: 0;
+            padding: 2px;
+            border: 2px solid var(--gold);
+        }
+
+        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
+
+        .header-brand .brand-text .name { font-weight: 800; font-size: 17px; color: var(--gold); letter-spacing: -0.01em; }
+
+        .header-brand .brand-text .tag { font-size: 9px; color: var(--text-muted); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
+
+        .header-spacer { width: 42px; flex-shrink: 0; }
+
+        /* SIDEBAR */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+        }
+
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            max-width: 85vw;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            z-index: 999;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar.active { right: 0; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7); }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
+
+        .sidebar-header .logo-mini .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            padding: 2px;
+        }
+
+        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
+
+        .sidebar-header .logo-mini .text .name { font-size: 15px; font-weight: 800; color: var(--gold); }
+
+        .sidebar-header .logo-mini .text .sub { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; }
+
+        .sidebar-close {
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            font-size: 14px;
+        }
+
+        .sidebar-close:hover { background: var(--bg-hover); color: var(--gold); border-color: var(--border-hover); }
+
+        .sidebar-nav { padding: 16px 0; flex: 1; }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 24px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all var(--transition);
+            border-right: 3px solid transparent;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            color: var(--gold);
+            background: var(--bg-hover);
+            border-right-color: var(--gold);
+        }
+
+        .sidebar-nav a i { width: 22px; font-size: 17px; text-align: center; color: var(--text-muted); transition: color var(--transition); }
+
+        .sidebar-nav a:hover i, .sidebar-nav a.active i { color: var(--gold); }
+
+        .sidebar-footer {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .sidebar-footer .dev { color: var(--gold); font-weight: 700; }
+
+        /* BACK LINK */
+        .back-link-wrapper { padding: 20px 0 0; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .back-link:active { transform: scale(0.96); }
+
+        .back-link i { color: var(--gold); font-size: 12px; }
+
+        /* HERO */
+        .hero {
+            padding: 30px 0 30px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, var(--gold-glow), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .hero-cover {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .hero-cover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        .hero-text .novel-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.25);
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(28px, 6vw, 52px);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 14px;
+            background: linear-gradient(180deg, var(--text) 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .hero-meta span { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+
+        .hero-meta i { color: var(--gold); }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #0A0A0A;
+            border: none;
+            border-radius: 100px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-gold);
+            width: 100%;
+        }
+
+        .btn-pdf:active { transform: scale(0.97); }
+
+        .btn-pdf.loading { opacity: 0.7; pointer-events: none; }
+        .btn-pdf.loading i { animation: spin 1s linear infinite; }
+
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* CHAPTERS */
+        .chapters-section { padding: 24px 0 60px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+
+        .section-header .title-group { display: flex; align-items: center; gap: 12px; }
+
+        .section-header .title-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .section-header .count { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+
+        .chapters-grid {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .chapter-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 12px;
+            cursor: pointer;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .chapter-card:active {
+            transform: scale(0.97);
+            background: var(--bg-hover);
+            border-color: var(--border-hover);
+        }
+
+        .chapter-card .num {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .chapter-card .title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .chapter-card .arrow {
+            font-size: 11px;
+            color: var(--text-muted);
+            transition: all var(--transition);
+            margin-top: 2px;
+        }
+
+        /* CHAPTER VIEW */
+        .chapter-view {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: var(--bg);
+            overflow-y: auto;
+            padding: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .chapter-view.active { display: block; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chapter-view-inner { max-width: 800px; margin: 0 auto; }
+
+        .chapter-view-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 10;
+        }
+
+        .chapter-view-header .title-info { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; }
+
+        .chapter-view-header .ch-num {
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(245, 180, 0, 0.1);
+            color: var(--gold);
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            align-self: flex-start;
+        }
+
+        .chapter-view-header .ch-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-close {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px 12px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            flex-shrink: 0;
+        }
+
+        .btn-close:active { transform: scale(0.95); }
+
+        .chapter-body {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--text);
+            padding-bottom: 60px;
+        }
+
+        .chapter-body p { margin-bottom: 1.2rem; }
+
+        .chapter-body .first-letter {
+            font-size: 2.8rem;
+            font-weight: 900;
+            float: right;
+            margin-left: 10px;
+            margin-top: 4px;
+            color: var(--gold);
+            line-height: 0.9;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 40px;
+            padding: 40px 0 24px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-brand { text-align: center; margin-bottom: 24px; }
+
+        .footer-brand .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 30px var(--gold-glow);
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+        .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+
+        .footer-brand .sub { font-size: 10px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-bottom: 24px;
+            padding: 0 16px;
+        }
+
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 4px; transition: color var(--transition); }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom .author { color: var(--gold); font-weight: 700; }
+        .footer-bottom .dev { color: var(--text-secondary); font-weight: 600; }
+        .footer-bottom .phone { direction: ltr; color: var(--gold); font-weight: 700; }
+
+        /* RESPONSIVE */
+        @media (min-width: 600px) {
+            .container { padding: 0 28px; }
+            .hero { padding: 40px 0; }
+            .hero-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .hero-text h1 { font-size: 44px; }
+            .hero-text p { font-size: 15px; }
+            .btn-pdf { width: auto; padding: 14px 28px; }
+            .chapters-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+            .chapter-card { padding: 16px 14px; }
+            .chapter-card .num { font-size: 22px; }
+            .chapter-card .title { font-size: 13px; }
+            .chapter-view { padding: 24px; }
+            .chapter-body { font-size: 17px; }
+            .chapter-view-header { padding: 16px 0; margin-bottom: 28px; }
+            .chapter-view-header .ch-title { font-size: 17px; }
+            .footer-bottom { flex-direction: row; justify-content: space-between; text-align: right; padding-top: 20px; }
+        }
+
+        @media (min-width: 900px) {
+            .header-inner { padding: 16px 0; }
+            .menu-btn, .header-spacer { width: 46px; height: 46px; }
+            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .brand-text .name { font-size: 19px; }
+            .header-brand .brand-text .tag { font-size: 10px; }
+            .hero { padding: 60px 0; }
+            .hero-text h1 { font-size: 52px; }
+            .hero-text p { font-size: 16px; }
+            .chapter-card:hover {
+                transform: translateY(-4px);
+                border-color: var(--border-hover);
+                box-shadow: var(--shadow);
+            }
+            .chapter-card:hover .arrow {
+                transform: translateX(-4px);
+                color: var(--gold);
+            }
+            .btn-pdf:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 32px rgba(245, 180, 0, 0.4);
+            }
+        }
+
+        @media (max-width: 599px) and (min-width: 480px) {
+            .container { padding: 0 22px; }
+            .hero-text h1 { font-size: 34px; }
+            .chapters-grid { gap: 12px; }
+            .chapter-card { padding: 16px 14px; }
+            .chapter-card .num { font-size: 22px; }
+            .chapter-card .title { font-size: 13px; }
+            .chapter-view { padding: 20px; }
+        }
+
+        @media (max-width: 479px) and (min-width: 375px) {
+            .container { padding: 0 16px; }
+            .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
+            .menu-btn, .header-spacer { width: 38px; height: 38px; }
+            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .brand-text .name { font-size: 15px; }
+            .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
+            .back-link-wrapper { padding: 14px 0 0; }
+            .back-link { font-size: 12px; padding: 7px 14px; }
+            .hero { padding: 24px 0 20px; }
+            .hero-content { gap: 20px; }
+            .hero-text h1 { font-size: 30px; }
+            .hero-text p { font-size: 13px; }
+            .hero-meta { font-size: 11px; gap: 12px; }
+            .btn-pdf { padding: 13px 22px; font-size: 13px; }
+            .chapters-section { padding: 20px 0 40px; }
+            .section-header .title-icon { width: 36px; height: 36px; font-size: 15px; }
+            .section-header h2 { font-size: 18px; }
+            .chapters-grid { gap: 10px; }
+            .chapter-card { padding: 14px 12px; }
+            .chapter-card .num { font-size: 20px; }
+            .chapter-card .title { font-size: 12px; }
+            .chapter-view { padding: 14px; }
+            .chapter-view-header { padding: 10px 0; margin-bottom: 18px; }
+            .chapter-view-header .ch-title { font-size: 13px; }
+            .chapter-body { font-size: 15px; line-height: 1.9; }
+            .chapter-body .first-letter { font-size: 2.4rem; }
+            .btn-close span { display: none; }
+            .footer { margin-top: 30px; padding: 30px 0 20px; }
+            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .name { font-size: 16px; }
+            .footer-links { gap: 6px 16px; margin-bottom: 18px; }
+            .footer-links a { font-size: 12px; }
+        }
+
+        @media (max-width: 374px) {
+            .container { padding: 0 12px; }
+            .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
+            .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
+            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .brand-text .name { font-size: 14px; }
+            .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
+            .back-link { font-size: 11px; padding: 6px 12px; }
+            .hero { padding: 20px 0 16px; }
+            .hero-text h1 { font-size: 26px; }
+            .hero-text p { font-size: 12px; }
+            .hero-meta { font-size: 10px; gap: 10px; }
+            .btn-pdf { padding: 12px 18px; font-size: 12px; }
+            .section-header .title-icon { width: 32px; height: 32px; font-size: 13px; }
+            .section-header h2 { font-size: 16px; }
+            .chapters-grid { gap: 8px; }
+            .chapter-card { padding: 12px 10px; }
+            .chapter-card .num { font-size: 18px; }
+            .chapter-card .title { font-size: 11px; }
+            .chapter-view { padding: 12px; }
+            .chapter-view-header .ch-title { font-size: 12px; }
+            .chapter-body { font-size: 14px; line-height: 1.85; }
+            .chapter-body .first-letter { font-size: 2.2rem; }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .chapter-card:hover { transform: none; border-color: var(--border); box-shadow: none; }
+            .chapter-card:hover .arrow { transform: none; color: var(--text-muted); }
+            .btn-pdf:hover { transform: none; }
+            .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
+            .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="index.html" class="header-brand">
+                    <div class="logo">
+                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    </div>
+                    <div class="brand-text">
+                        <span class="name">عدسة الروايات</span>
+                        <span class="tag">LENS OF NOVELS</span>
+                    </div>
+                </a>
+
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-mini">
+                <div class="icon">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="text">
+                    <span class="name">عدسة الروايات</span>
+                    <span class="sub">LENS OF NOVELS</span>
+                </div>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="إغلاق">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                <span>الصفحة الرئيسية</span>
+            </a>
+            <a href="novels.html" class="active">
+                <i class="fas fa-book"></i>
+                <span>الروايات</span>
+            </a>
+            <a href="episodes.html">
+                <i class="fas fa-film"></i>
+                <span>الحلقات والفيديوهات</span>
+            </a>
+            <a href="announcements.html">
+                <i class="fas fa-bullhorn"></i>
+                <span>الإعلانات</span>
+            </a>
+            <a href="about.html">
+                <i class="fas fa-users"></i>
+                <span>عن الفريق</span>
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                <span>تواصل معنا</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div>جميع الحقوق محفوظة &copy; 2026</div>
+            <div class="dev">بهاء الدين الحسين</div>
+            <div style="direction: ltr;">0982520358</div>
+        </div>
+    </aside>
+
+    <!-- BACK LINK -->
+    <div class="container">
+        <div class="back-link-wrapper">
+            <a href="novels.html" class="back-link">
+                <i class="fas fa-arrow-right"></i>
+                <span>العودة للروايات</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-cover">
+                    <img src="places.jpg" alt="غلاف الأماكن" onerror="this.style.display='none'" />
+                </div>
+                <div class="hero-text">
+                    <span class="novel-tag">
+                        <i class="fas fa-heart"></i>
+                        رواية رومانسية
+                    </span>
+                    <h1>الأماكن</h1>
+                    <p>
+                        أربع سنوات من الوفاء والانتظار. رحلة عبر الأماكن التي شهدت حباً لا يموت،
+                        ومواجهة مع الزمن والذكريات.
+                    </p>
+                    <div class="hero-meta">
+                        <span><i class="fas fa-book"></i> 13 فصلاً</span>
+                        <span><i class="fas fa-user"></i> شادي رحال</span>
+                        <span><i class="fas fa-clock"></i> قراءة 1.5 ساعة</span>
+                    </div>
+                    <button class="btn-pdf" id="downloadPdfBtn">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>تحميل الرواية PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAPTERS -->
+    <section class="chapters-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="title-group">
+                    <div class="title-icon">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <h2>الفصول</h2>
+                </div>
+                <span class="count">13 فصلاً</span>
+            </div>
+            <div class="chapters-grid" id="chaptersGrid"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                </div>
+                <div class="name">عدسة الروايات</div>
+                <div class="sub">LENS OF NOVELS</div>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="novels.html">الروايات</a>
+                <a href="episodes.html">الحلقات</a>
+                <a href="announcements.html">الإعلانات</a>
+                <a href="about.html">عن الفريق</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    ❤️ جميع الحقوق محفوظة &copy; 2026 <span class="author">عدسة الروايات</span>
+                </div>
+                <div>
+                    🔧 برمجة وتطوير: <span class="dev">بهاء الدين الحسين</span> | <span class="phone">0982520358</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHAPTER VIEW -->
+    <div class="chapter-view" id="chapterView">
+        <div class="chapter-view-inner">
+            <div class="chapter-view-header">
+                <div class="title-info">
+                    <span class="ch-num" id="viewNum">الفصل 1</span>
+                    <span class="ch-title" id="viewTitle">عنوان الفصل</span>
+                </div>
+                <button class="btn-close" onclick="closeChapter()">
+                    <i class="fas fa-times"></i>
+                    <span>إغلاق</span>
+                </button>
+            </div>
+            <div class="chapter-body" id="viewBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // SIDEBAR
+        (function() {
+            const menuBtn = document.getElementById('menuBtn');
+            const sidebar = document.getElementById('sidebar');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            function openSidebar() {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            menuBtn.addEventListener('click', openSidebar);
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        })();
+
+        // ============================================================
+        //  DATA - فصول الأماكن (13 فصلاً)
+        // ============================================================
+        const chapters = [{
+            id: 1,
+            title: 'الفصل الأول: كنت صغيرة',
+            content: `بعد 4 سنين. معهد سكاي الين لساته بنفس المكان بوادي الياسمين. نفس الباب، نفس السبورة، بس الطالب تغيروا. الكراسي تغيرت. بس أول طاولتين... لساتهم فاضيين. رامي ما خال حدا يقعد فيهم من يوم راحت.
+
+    الساعة 8:03. الصف مليان، الكل عم يكتب. انفتح الباب بهدوء. فوتت وحدة البسة حجاب أبيض، شنطة شغل، وريحتها نفس ريحة الورد الأبيض. الكل لف. عسل. بس مو عسل تبع 2017. هاي وحدة تانية. أضحى، أهدى، وعيونها فيها ثقة.
+
+    رامي شافها وقلبه دق مثل أول يوم. القلم وقع من ايده. بس بسرعة رجع أستاذ قدام طالبه.
+    رامي: "أهلا أئسة عسل. تفضلي."
+    عسل: "أهلا أستاذ. أسفة قطعت الدرس، كنت مارقة من هون وحبيت سلم."
+    قعدت بآخر طاولة. هي بتعرف انو أول طاولتين إليهم حرمة.
+
+    كمل الدرس. بس هالمرة بالعكس. كل ما يشرح قاعدة، عينه بتروح لآخر طاولة. الحصة اللي كانت ناقصة لما تغيب، رجعت كاملة لما رجعت.
+
+    خلص الدرس. الطلاب طلعوا واحد ورا واحد. الصف فضى. المعهد فاضي. 2017/12/15 ضل هو وهي لحالهم. نفس مشهد. سكر الباب بهدوء. قعد على أول طاولة مقابيلها. ترك بيناتهم 4 صفوف احترام. 10 ثواني سكتوا. 10 ثواني كانوا 4 سنين.
+
+    عسل: "ليش ما اتزوجت؟"
+    رامي: "كنت عم استنى 3:14. وانتى؟"
+    عسل: "انخطبت 8 شهور وفسخت. ما قدرت."
+
+    قامت من آخر طاولة واجت على تاني طاولة. قربت.
+    "جيت قلك شي ما قدرت قلك ياه بـ 2018. كنت صغيرة وخفت. بتتذكر اليومين اللي تغيرت فيهم بعد العرس؟ بالعرس اجت خالتي وقالتلي قدام الكل: شو بدك بهاد الأستاذ العربي الكبير؟ بكرا بياخدك وبينسي أصل. أبوك رح يتبرا منك. خوفتني. حسيت حالي لحالي. واخترت أهلي لأنو كنت صغيرة. كنت مفكرة الحب بيروح... ما كنت بعرف انو بيضل 4 سنين بنفس الطاولة".
+
+    رامي سمعها للآخر. ما قاطعها.
+    رامي: "وجملة كلشي بيناتنا انتهى الساعة 3:13"
+    عسل: "كتبتها وأمي فوق راسي. قالتلي اكتبيها وخلصينا. كتبتها وأنا عم ارجف."
+
+    مدت. قام رامي فتح الدرج. نفس الدرج. طالع علبة صغيرة قديمة. فتحها. الخاتم الذهب.
+    رامي: "ساتها عندي. ما كبرته. خليته نفس المقاس."
+    ما لبسها ياه. حطه عالطاولة بالنص بيناتهم.
+    رامي: "أنا ما رح قلك ارجعي. انتي هال مو البنت القصيرة اللي بدها مين يقرر عنها. انتي أنسة عسل، الأولى عالدفعة، المتخرجة. إذا بدك تلبسيه... باب قلبي لساته مفتوح."
+
+    عملت مدت ايدها. ما ليست الخاتم. سكرت العلبة وحطتها بشنطتها.
+    عسل: "رح أخده معي. بس ما رح البسه هلا. رح البسه لما أجي المرة الجاية ومعي أمي."
+
+    وقفت عند الباب. التفتت وقالت: "كل سنة وانت بخير. انت بتستاهل."
+    وطلعت. ضل رامي قاعد لحاله بأول طاولتين. بس هالمرة مو موجود مبتسم. لأنو أول مرة من 4 سنين ...الساعة صارت 3:14.`
+        }, {
+            id: 2,
+            title: 'الفصل الثاني: عند أبوها',
+            content: `تاني يوم. الساعة 4 العصر. رامي واقف قدام بيت ما دخله من 4 سنين. نفس الحارة، نفس الباب الحديد.
+
+    دق الباب. فتحت أم عسل. شافته وعرفته فورا.
+    أم عسل: "أستاذ رامي؟"
+    رامي: "مرحبا خالة. عسل موجودة؟"
+    سكتت شوي وبعدين قالت بصوت واطي: "جوا... بس أبوها جوا".
+    رامي: "جاي مشانه هو".
+    فات.
+
+    أبو عسل: "بتعرف ليش كنت عنيد؟ لأنو أنا كردي وانت عربي. وأنا شفت بعيني شو عملت السياسة فينا. كنت مفكر انت رح تاخدها وتنساها وتنسى أصلها. بس من 8 شهور... لما فسخت خطبتها من ابن خالتها الكردي... قالتلي جملة واحدة: بابا انت اخترتلي قوميتي بس ما اخترتلي قلبي. وأنا بدي الاتنين. ساعتها فهمت إني كنت غلطان."
+
+    قرب أبوها وحط ايده على كتف رامي.
+    أبو عسل: "روح يا ابني. قلها أبوكي موافق يشوف قوميتها بعيون والدها... حتى لو أبوه مش عربي."
+
+    بهاللحظة... فاتت عسل من جوا. كانت سامعة كل شي. مو البسة الخاتم. ماسكته بايدها. ولأول مرة من 4 سنين، ليسته قدام أبوها. وكان على مقاسها تماما.`
+        }, {
+            id: 3,
+            title: 'الفصل الثالث: وبرجع للواقع',
+            content: `خلص الخيال. فتح رامي عيونه. هو لساته قاعد بنفس المعهد. الساعة 3:14 عنجد. بس الصف فاضي عنجد. ما في عسل، ما في أبوها، ما في خاتم على مقاسها. العلبة الفاضية لساتها بالدرج. مغبرة.
+
+    قام غسل وشه. حط مي باردة. وضحك لحاله:
+    "ولك رامي ...شفت شلون خيالك حلو؟ بتحل كل شي بدقيقتين. بتروح لعند أبوها، بيقلك ابني، بتلبس الخاتم... بالواقع القصة بدها 4 سنين تانية".
+
+    فتح دفتره وكتب تحت آخر صفحة من الفصل التاني:
+    تنويه للقارئ: كل شي قريته فوق هو خيال. خيال كتبته لأنو الواقع وجعني.
+
+    بس الخيال مو كذب. الخيال هو البروفة. هو تدريب القلب مشان إذا اجا يوم وصار عنجد... نكون جاهزين وما نخاف.
+
+    سكر الدفتر. وطلع من المعهد. وادي الياسمين فاضي. بس القمر فوقه. نفس القمر تبع 2017. وأول مرة ما قال: "ليتني لم أكبر." قال: "ليتني أضل أتخيل...لحتى يصير الخيال واقع".`
+        }, {
+            id: 4,
+            title: 'الفصل الرابع: الطالب القديم',
+            content: `الطالب القديم: "أستاذ لسائك تارك مكان عسل فاضي؟"
+    رامي (بصوت واطي): "اي."
+    الطالب: "ما حدا بيعرف قصتها غيرنا نحنا القدامى."
+    رامي: "وما لازم حدا يعرف. بتضل بيناتنا. الطالب الجداد بينفكروا اني تاركهم احتياط. خليهم يفكروا هيك أحسن."
+
+    رجع على الصف. مسح السبورة. وطالع بأول طاولتين وقال جواته، مو بصوت عالي:
+    لسائك الأولى. ولما مكانك محجوز. ما حدا بياخده. لا اليوم ولا بعد 10 سنين. لأنو في ناس بتنحجز بقلب الواحد مو بطاولة.
+
+    وبآخر الدوام، بعد ما راحوا كل الطالب، ضل لحاله بالصف. جاب كرسي وقعد قبال أول طاولتين. وفتح دفتر المذكرات وكتب:
+    اليوم 15 طالب جديد حاولوا يقعدوا مكانك. وما خليت حدا. مو لأنك كنتي طالبة شاطرة بس. لأنك كنتي انتي وبس.
+
+    سكر الدفتر وطفا الضو وطلع. وأول طاولتين ضلوا فاضيين. نضاف. محجوزين. بصمت.`
+        }, {
+            id: 5,
+            title: 'الفصل الخامس: مفتشة',
+            content: `حصة تعارف. أول حصة بكل كورس جديد. رامي متعود يسأل نفس السؤال كل سنة:
+    رامي: "كل واحد يقلي شو بده يصير بس يكبر".
+
+    الطالب بلشوا: "دكتور"، "مهندس"، "أستاذ متلك"، "ضابط".
+    وصل الدور لبنت قاعدة بآخر الصف. البسة حجاب أبيض. قصيرة. مو كتير بس قصيرة.
+    البنت (بخجل): "أنا بدي صير مفتشة".
+
+    الطبشورة وقعت من ايد رامي. صوت الطبشورة وهي عم توقع كان عالي كتير. الصف كله تطلع فيه.
+    نفس الجملة. نفس الكلمة. نفس الطريقة. من 4 سنين. عسل كانت تقعد بأول طاولتين وتقول: "أنا بدي صير مفتشة. بدي فتش على الحق".
+
+    وهلق بنت تانية بنفس الحجاب الأبيض عم تقول نفس الحلم. رامي ما حكى شي قدام الطالب. ما بيصير. هو أستاذ.
+    مسك الطبشورة عن الأرض بهدوء. وقال بصوت طبيعي:
+    رامي: "مفتشة؟ حلو. بدها دراسة كتير."
+
+    كمل يسأل باقي الطالب. كأنه ما صار شي. بس جواته...
+    جواته رجع ل 2017. عسل قاعدة بأول طاولة، عم تقله: "أستاذ بكرا إذا صرت مفتشة رح فتش على كل المدارس وشوف إذا الأساتذة عم يدرّسوا من قلبهم متلك ولا لا".`
+        }, {
+            id: 6,
+            title: 'الفصل السادس: الطاولة رقم 7',
+            content: `نفس الشباك الصغير اللي بيطل على الشارع. نفس الكرسيين الحديد. نفس الطاولة. هون. بهالطاولة بالضبط. قعد هو وعسل بآخر مرة كانوا فيها مناح مع بعض. 2018. كانوا يحبوا بعض. كتير. وكانوا عم يخططوا مستقبلهم. لبيتهم. لولادهم. كانوا راسمين كل شي على محرمة ورق تبع المطعم. بيت وولاد وحياة كاملة.
+
+    هلق هو واقف قدامها. والشلة وراه.
+    أحمد: "شو واقفت؟ يلا قعود".
+    رامي هز راسه.
+    رامي: "ما بدي هون. في هوا من الشباك. خلونا نقعد جوا أكثر".
+    ما قال انها طاولة عسل. ما جاب سيرتها قدام حدا. هاد وجعه لحاله.
+
+    قعدوا على طاولة تانية بعيدة. طول القعدة الشباب عم يحكوا وهو ساكت. كل شوي عينه بتسرق نظرة على الطاولة رقم 7. شايفها فاضية.`
+        }, {
+            id: 7,
+            title: 'الفصل السابع: نفس اللغة',
+            content: `تاني وقفة، المكتبة الصغيرة عالطريق. بيوقف ثواني قدامها. هون اشتريلها القلم الأزرق اللي لساته بجييته للهلق.
+
+    أول وقفة عالمعهد. بيفوت عالصف الفاضي. بيمسح أول طاولتين. بيعقد دقيقتين مكانها. نفس الريحة، نفس الذكرى.
+
+    تالت وقفة، الحديقة. نفس الكرسي. نفس الضحكة اللي ضحكتها بصوت عالي وخلت كل الناس تطلع فيهن. هلق بيضحك لحاله، والناس بتطلع فيه لأنه عم يضحك لحاله.
+
+    وآخر وقفة... المطعم. ما بيفوت لجوا. السور تبع المطعم بيوقف برا ورا الشباك. بيطلع من بعيد على الطاولة رقم 7. خمس دقايق واقف، ايده بجييه ماسك المحرمة المطوية. ويرجع عالبيت.
+
+    نفس اللغة. كل يوم. كأنه عم يقول لكل الأماكن: انا لساتني هون، بنفس الطريق، ناظر ترجع تمشي معي.`
+        }, {
+            id: 8,
+            title: 'الفصل الثامن: المحرمة',
+            content: `نفس اللغة. مثل كل يوم، من أربع سنين لهلق. المعهد. بيفوت، بيمسح أول طاولتين، بيعقد دقيقة مكانها ويبطلع. المكتبة. بيوقف قدامها، بيتذكر لما اشتريلها القلم الأزرق.
+
+    وهو طالع من الحديقة، رابح آخر محطة، لعند الطاولة رقم 7، سمع صوت من وراه:
+    "استاذ رامي؟"
+    لف بسرعة. قلبه صار يدق بسرعة كأنه رجع لورا سنة.
+    كانت هي. رفيقتها. أقرب رفيقة لها.
+    "أهلي" قلها. صوته كان رايح.
+    قربت لعنده. "صرلي زمان ما شفتك بهالطريق."
+    "أنا كل يوم هون. نفس الطريق. نفس اللغة."
+    سكتت. طلعت يمين وشمال. وبعدين قالت بنفس واحد:
+    "بدي قلك شغلة قبل ما تسمعها من برا... مشان انت... انت غير."
+    هو فهم. بس ما حكى.
+    "عسل... شالت الحجاب من شهرين تقريبا."
+    رامي ما تحرك. بس ايده نزلت على جيبه لحالها، مسكت المحرمة المطوية. شد عليها.
+    "ليش؟" سألها، صوته واطي كتير.
+
+    هزت كتافها. "ما بعرف. تغيرت كتير بعد ما ...بعد ما بعدتوا عن بعض."
+    سكتت شوي وكملت الكلمة الأصعب:
+    "وعرسها بعد شهرين. خطبوها ابن خالتها اللي بالضيعة متل ما بتعرف. رح تسكن بالضيعة".
+
+    الكلمة الأخيرة "رح تسكن بالضيعة" كانت أضرب من كلمة "عرسها."
+    رامي ضل واقف. الناس عم تمشي حواليه والد عم يركضوا، بالحديقة صوت سيارات... كلشي عم يتحرك طبيعي إلا هو.
+
+    وصل عالبيت. فات على غرفته. ما ضوى الضو. وطالع المحرمة، فتحها وقراها للمرة الألف:
+    "نحنا لبعض كل العمر و رح نكمل سوا للآخر"
+    وأول مرة حس انه هو لساته ماسك الكلمة... بس "الآخر" تبعها اجا.`
+        }, {
+            id: 9,
+            title: 'الفصل التاسع: المواجهة',
+            content: `تاني يوم ما عمل اللفة. ما راح عالمعهد. ما مر عالمكتبة. ما قعد بالحديقة. وما وقف ورا الشباك عند الطاولة رقم 7. ضل بغرفته للعصر.
+
+    كان عم يفكر بكلمة رفيقتها: "رح تسكن بالضيعة".
+    قام فجأة. لبس وطلع. راح لعند حارتها. الحارة اللي كان يتجنبها من أربع سنين كاملة. وقف بعيد. عند الدكانة اللي على أول الحارة. صار يستنى.
+
+    ساعة. ساعتين. الشمس بلشت تغيب. وفجأة انفتح باب بيتهن. طلعت هي. شعرها باين. لابسة بلوزة غير اللي متعود عليها. وماسكة موبايلها وعم تضحك. مو نفس البنت اللي كانت تستحي ترفع صوتها بالصف.
+
+    رامي تجمد ورا الدكانة. هي مشت شوي، وقفت سيارة، ركبت فيها وراحت. ما شافته. وهو ضل واقف. ما زعل لأنها شالت الحجاب. ولا زعل لأنها رايحة. زعل لأنه حسها مبسوطة بدونه. رجع عالبيت بالليل. ماشي لحاله.`
+        }, {
+            id: 10,
+            title: 'الفصل العاشر: رجع يتخيل',
+            content: `أربع سنين. مو سنة. أربع سنين وهو بيعمل نفس اللغة كل يوم. بعد ما شافها طالعة من بيتها بشعرها وراكبة السيارة ورايحة، بطل يطلع يومين. سكر على حاله بالغرفة.
+
+    باليوم الثالث، ما قدر يضل. الساعة 2 بالليل، لبس وطلع. الدنيا فاضية وبرد.
+    أول محطة، المعهد. مسكر. وقف قدام الباب الحديد. تذكر أول مرة شافها هنيك. كانت جديدة، ضايعة، وهو دلها على صفها.
+
+    تاني محطة، المكتبة. مسكرة. بس الضو جوا كان مبين. وقف ورا البلور. تخيلها جوا، عم تقلب الدفاتر، ورفعت راسها وشافته.
+
+    تالت محطة، الحديقة. أهم محطة. الكرسي فاضي، عليه ندى. راح قعد. الطقس بارد، بس هو مو حاسس. طالع المحرمة من جيبه. فتحها. قراها بصوت عالي، بالحديقة الفاضية الساعة 2 ونص بالليل.
+
+    ومن هداك اليوم، صارت هاي هي حياته. بالنهار، هي بنت تانية، شايلة حجابها، رح تتزوج بعد شهرين وتسافر وتنساه. بس بالليل، بعد الساعة 12، لما كل الناس بتنام، بيرجع رامي بيعمل لفته الأربع سنين.`
+        }, {
+            id: 11,
+            title: 'الفصل الحادي عشر: سلمى',
+            content: `أربع سنين. مو سنة، مو شهر، أربع سنين كاملين وهو بيعمل نفس اللفة كل ليلة. الساعة 2 بالليل، بيطلع من بيته، بيمشي لحاله بالشوارع الفاضية.
+
+    تالت محطة الحديقة. الكرسي. بيقعد. بيطالع المحرمة من جيبه. بيفتحها وبيقرا الجملة اللي حافظها أكثر من اسمه:
+    "نحنا لبعض كل العمر و رح نكمل سوا للآخر"
+
+    بهالليلة كان عم يقراها بصوت عالي شوي والبرد عم يضرب بوشه. فجأة سمع صوت من وراه:
+    "رامي؟ انت هون؟"
+    التفت. كانت هي. رفيقة عسل المقربة.
+    "لساتك ماسكها؟ صرلها أربع سنين هالمحرمة معك؟"
+    رامي سكرها بسرعة وحطها بجيبه. "اي."
+    قالت وهي عم تطلع فيه بشفقة: "رامي، بدي احكي معك كرفيقة. لازم تتخطى بقا."
+    ما رد.
+    كملت: "عسل تغيرت. انت شفتها. شالت الحجاب، قصت شعرها، ورح تتزوج بعد شهر وتسافر على الضيعة."
+
+    رامي رفع راسه وقال بصوت هادي بس قاسي:
+    "اتخطى شو؟ انسى شو؟ أنا ما وعدتها أنساها. أنا وعدتها أكمل معها للآخر. وهي اللي وعدتني. فإذا هي نسبت، هاد شي يرجع لها. بس أنا كل العمر تبعي لسه ما خلص."
+
+    بعد شوي، سمع صوت بكى خفيف جاية من أول الحديقة. بنت صغيرة جاية لحالها، البسة بيجامة وعم تبكي وترجف من البرد.
+    سألها بهدوء: "انت منهجة؟"
+    نطت من الخوف لما شافته. "أسفة... ما شفتك..."
+    "لا عادي. ليش عم تبكي؟"
+    قالت وهي عم تمسح دموعها: "تخانقت مع أمي. فهربت وجيت هون."
+
+    رامي بدون ما يفكر، طالع المحرمة من جيبه. وعطاها ياها.
+    "امسحي دموعك فيها."
+    البنت أخذتها. مسحت دموعها. وهديت.
+    قالتله: "شكراً. ريحتها حلوة. شو مكتوب عليها؟"
+    رامي أخذها منها بسرعة شوي. "لا شي. ذكرى قديمة."
+    "مبين غالبة عليك. صرلك زمان ماسكها."
+    "أربع سنين."
+
+    سلمى سمعته للآخر. ما ضحكت عليه. ما قالته انساها.
+    لما خلص، رجعته المحرمة بايدها وقالته جملة وحدة:
+    "اللي كتبتلك نحنا لبعض كل العمر، مستحيل تكون نسيئك."
+    رامي حس قلبه دق بسرعة.
+    سألها: "شو اسمك؟"
+    قالتله: "سلمى."`
+        }, {
+            id: 12,
+            title: 'الفصل الثاني عشر: تقبل الحقيقة والوداع',
+            content: `مرق شهرين ورامي وسلمى صاروا رفقة ليل ثابتة. الساعة 2، الكرسي، الشاي.
+
+    بهالليلة سلمى اجت متوترة.
+    قالتله: "رامي، لازم قلك شغلتين. شغلة حلوة وشغلة بشعة."
+    قالها: "البشعة."
+    تنهدت وقالت: "أنا ما جيت لعندك صدفة هداك اليوم. رفيقة عسل هي اللي بعتتني لعندك. شافتك كل يوم من أربع سنين وانت بتلف نفس اللفة."
+
+    سلمى سكت ونزلت راسها، عم تستنى رامي يعصب.
+    بس رامي قال بهدوء:
+    "كنت عارف."
+    رفعت راسها مصدومة: "كيف؟"
+    "مافي بنت بتهرب من بيتها الساعة 2 بالليل وبتجي بتقعد مع شاب غريب على نفس الكرسي. كانت مبينة خطة."
+
+    بعدين رامي قالها أهم جملة:
+    "سلمى، بدي تتفق على شغلة. انتي اختي. وبس. لا حب ولا بطيخ. انا قلبي تركته مع المحرمة."
+    سلمى ضحكت من قلبها: "اي اتفقنا، وانا هيك بدي، أخ وبس."
+
+    هون قالتله الشغلة الحلوة:
+    "الشغلة الحلوة... عرفت وين بيت عسل الجديد. رح تتزوج بعد 3 أيام وتسافر على الضيعة. إذا بدك تشوفها آخر مرة، هال هو الوقت."
+
+    رامي فكر كتير. بعدين قام. راحوا سوا على بيت عسل. بناية عالية. شافها من تحت، واقفة بدون حجاب، شعرها قصير، عم تحكي تلفون وعم تضحك.
+
+    طالع المحرمة آخر مرة. فتحها، قرأ "نحنا لبعض كل العمر و رح نكمل سوا للآخر" وحسها ثقيلة كثير. نزل، حطها قدام باب البناية، وحط فوقها حجرة صغيرة.`
+        }, {
+            id: 13,
+            title: 'الفصل الثالث عشر والأخير',
+            content: `ضحك وقعد جنبها. الكرسي لساته نفسه، بس صار خفيف. ما عاد تقيل بذكريات.
+    سألته: "ما رح تسألني إذا عسل لقت المحرمة؟"
+    قالها: "لا. أنا عملت اللي عليي. كملت سوا للآخر متل ما وعدتها. هالكل واحد يكمل لحاله."
+    سلمى قالتله: "رفيقة عسل حكت معي اليوم. قالتلي عسل لما شافت المحرمة بكت."
+    رامي سكت شوي بعدين قال:
+    "منيح. معناها تذكرت انه كان في مرة حدا حبها عنجد."
+
+    خلصت القصة هون. مو نهاية حزينة ومو نهاية سعيدة. نهاية واقعية.
+    رامي ما رجع لعسل، وعسل تزوجت وسافرت، وسلمى ضلت أخته، والمحرمة اللي صرلها أربع سنين رجعت لصاحبتها اللي كتبتها.
+
+    الخاتمة
+    نحن لا نحزن لأن أحدهم ذهب. نحن نحزن لأننا بقينا في نفس المكان الذي تركناه فيه، ننتظر أن يعود الزمن معه.
+
+    الوفاء ليس أن تبقى واقفاً أربع سنوات في نفس النقطة. الوفاء أن تكمل الطريق وأنت تحمل الدرس، لا أن تحمل الذكرى كحجر في جيبك.
+
+    بعض الوعود تُكتب بصدق لحظتها، وتموت بصدق أيضاً في لحظة أخرى. ليست خيانة، إنها حياة.
+
+    أنت لست مجبوراً أن تنسى، لكنك مجبور أن تعيش.
+
+    قم، اغسل قلبك، وامش. فالعمر لا ينتظر أحداً ليكمل معه للآخر، العمر يريدك أن تكمله مع نفسك أولاً.
+
+    ويبقى الحب كبيرا.
+
+    النهائية
+    رامي & عسل`
+        }];
+
+        // RENDER
+        const gridContainer = document.getElementById('chaptersGrid');
+
+        function renderChapters() {
+            gridContainer.innerHTML = chapters.map((ch) => `
+                <div class="chapter-card" data-id="${ch.id}" role="button" tabindex="0">
+                    <div class="num">${ch.id}</div>
+                    <div class="title">${ch.title}</div>
+                    <i class="fas fa-arrow-left arrow"></i>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.chapter-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    openChapter(id);
+                });
+            });
+        }
+
+        const view = document.getElementById('chapterView');
+        const viewNum = document.getElementById('viewNum');
+        const viewTitle = document.getElementById('viewTitle');
+        const viewBody = document.getElementById('viewBody');
+
+        function openChapter(id) {
+            const ch = chapters.find(c => c.id === id);
+            if (!ch) return;
+            viewNum.textContent = `الفصل ${ch.id}`;
+            viewTitle.textContent = ch.title;
+
+            const paragraphs = ch.content.split('\n\n').filter(p => p.trim().length > 0);
+            let html = '';
+            paragraphs.forEach((p, i) => {
+                const trimmed = p.trim();
+                if (trimmed.length === 0) return;
+                if (i === 0) {
+                    const firstChar = trimmed.charAt(0);
+                    const rest = trimmed.slice(1);
+                    html += `<p><span class="first-letter">${firstChar}</span>${rest}</p>`;
+                } else {
+                    html += `<p>${trimmed}</p>`;
+                }
+            });
+            viewBody.innerHTML = html;
+            view.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            history.pushState({ id }, '', `#chapter-${id}`);
+            view.scrollTop = 0;
+        }
+
+        function closeChapter() {
+            view.classList.remove('active');
+            document.body.style.overflow = '';
+            history.pushState({}, '', window.location.pathname);
+        }
+
+        window.addEventListener('popstate', function() {
+            if (view.classList.contains('active')) {
+                view.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        window.addEventListener('load', function() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#chapter-')) {
+                const id = parseInt(hash.replace('#chapter-', ''));
+                if (!isNaN(id) && chapters.find(c => c.id === id)) {
+                    setTimeout(() => openChapter(id), 100);
+                }
+            }
+        });
+
+        // DOWNLOAD PDF
+        document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+            const btn = this;
+            btn.classList.add('loading');
+            btn.innerHTML = '<i class="fas fa-spinner"></i> جاري التحميل...';
+
+            const pdfContainer = document.createElement('div');
+            pdfContainer.id = 'pdfContainer';
+            pdfContainer.style.cssText = 'padding: 40px; background: #fff; color: #000; direction: rtl; font-family: Cairo, sans-serif;';
+
+            pdfContainer.innerHTML = `
+                <div style="text-align:center; margin-bottom:40px; padding-bottom:20px; border-bottom:2px solid #F5B400;">
+                    <h1 style="font-size:32px; color:#0A0A0A; margin-bottom:8px; font-weight:900;">الأماكن</h1>
+                    <p style="color:#666; font-size:15px;">أربع سنوات من الوفاء والانتظار</p>
+                    <p style="color:#F5B400; font-size:13px; margin-top:8px; font-weight:700;">عدسة الروايات - LENS OF NOVELS</p>
+                    <p style="color:#999; font-size:12px;">للكاتب شادي رحال</p>
+                </div>
+            `;
+
+            chapters.forEach((ch) => {
+                const content = ch.content.replace(/\n/g, '<br>');
+                pdfContainer.innerHTML += `
+                    <div style="margin-bottom:30px; page-break-inside:avoid;">
+                        <h2 style="color:#0A0A0A; font-size:20px; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid #F5B400; font-weight:800;">
+                            الفصل ${ch.id}: ${ch.title}
+                        </h2>
+                        <div style="line-height:2; font-size:15px; color:#333; text-align:justify;">${content}</div>
+                    </div>
+                `;
+            });
+
+            pdfContainer.innerHTML += `
+                <div style="text-align:center; color:#999; font-size:12px; margin-top:40px; padding-top:20px; border-top:1px solid #eee;">
+                    جميع الحقوق محفوظة &copy; 2026 عدسة الروايات<br>
+                    برمجة وتطوير: بهاء الدين الحسين - 0982520358
+                </div>
+            `;
+
+            document.body.appendChild(pdfContainer);
+
+            const opt = {
+                margin: [15, 15, 15, 15],
+                filename: 'الأماكن_عدسة_الروايات.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true, scrollY: 0 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(pdfContainer).save().then(() => {
+                document.body.removeChild(pdfContainer);
+                btn.classList.remove('loading');
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> <span>تحميل الرواية PDF</span>';
+            }).catch(() => {
+                document.body.removeChild(pdfContainer);
+                btn.classList.remove('loading');
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> <span>تحميل الرواية PDF</span>';
+                alert('حدث خطأ أثناء التحميل');
+            });
+        });
+
+        renderChapters();
+    </script>
+</body>
+</html>
