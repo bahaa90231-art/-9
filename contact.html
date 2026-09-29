@@ -9,14 +9,14 @@
     <title>تواصل معنا - عدسة الروايات | LENS OF NOVELS</title>
     <meta name="description" content="تواصل مع فريق عدسة الروايات - نسعد بسماع اقتراحاتكم واستفساراتكم" />
     <meta name="keywords" content="تواصل, اتصل بنا, عدسة الروايات, دعم, استفسارات" />
-    <meta name="author" content="شادي رحال" />
+    <meta name="author" content="عدسة الروايات" />
     <meta property="og:title" content="تواصل معنا - عدسة الروايات" />
     <meta property="og:description" content="تواصل مع فريق عدسة الروايات" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/contact.html" />
-    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
-    <link rel="apple-touch-icon" href="favicon.jfif" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="shortcut icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="apple-touch-icon" href="logo.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -114,22 +114,26 @@
         }
 
         .header-brand .logo {
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             box-shadow: 0 0 20px var(--gold-glow);
             flex-shrink: 0;
-            padding: 2px;
-            border: 2px solid var(--gold);
+            position: relative;
         }
 
-        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .header-brand .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
 
@@ -183,20 +187,24 @@
         .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
 
         .sidebar-header .logo-mini .icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            border: 2px solid var(--gold);
-            overflow: hidden;
-            padding: 2px;
         }
 
-        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .sidebar-header .logo-mini .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
 
@@ -490,7 +498,7 @@
             right: 0;
             height: 3px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .contact-form-wrapper h3 {
@@ -658,22 +666,26 @@
         .footer-brand { text-align: center; margin-bottom: 24px; }
 
         .footer-brand .logo {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 12px;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 14px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
+            background: var(--bg-card);
             border: 3px solid var(--gold);
             box-shadow: 0 0 30px var(--gold-glow);
             overflow: hidden;
-            padding: 3px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .footer-brand .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
 
@@ -724,7 +736,7 @@
         @media (min-width: 900px) {
             .header-inner { padding: 16px 0; }
             .menu-btn, .header-spacer { width: 46px; height: 46px; }
-            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .logo { width: 50px; height: 50px; }
             .header-brand .brand-text .name { font-size: 19px; }
             .header-brand .brand-text .tag { font-size: 10px; }
             .page-header { padding: 100px 0 60px; }
@@ -736,17 +748,11 @@
             .contact-form-wrapper { padding: 40px 36px; }
         }
 
-        @media (max-width: 599px) and (min-width: 480px) {
-            .container { padding: 0 22px; }
-            .info-card { padding: 18px; }
-            .info-card .info-icon { width: 50px; height: 50px; font-size: 20px; }
-        }
-
-        @media (max-width: 479px) and (min-width: 375px) {
+        @media (max-width: 479px) {
             .container { padding: 0 16px; }
             .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
             .menu-btn, .header-spacer { width: 38px; height: 38px; }
-            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .logo { width: 40px; height: 40px; }
             .header-brand .brand-text .name { font-size: 15px; }
             .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
             .page-header { padding: 40px 0 24px; }
@@ -774,7 +780,7 @@
             .form-group textarea { min-height: 110px; }
             .submit-btn { padding: 14px 20px; font-size: 14px; }
             .footer { margin-top: 30px; padding: 30px 0 20px; }
-            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .logo { width: 60px; height: 60px; }
             .footer-brand .name { font-size: 16px; }
             .footer-links { gap: 6px 16px; margin-bottom: 18px; }
             .footer-links a { font-size: 12px; }
@@ -784,7 +790,7 @@
             .container { padding: 0 12px; }
             .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
             .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
-            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .logo { width: 36px; height: 36px; }
             .header-brand .brand-text .name { font-size: 14px; }
             .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
             .page-header { padding: 32px 0 20px; }
@@ -824,7 +830,7 @@
 
                 <a href="index.html" class="header-brand">
                     <div class="logo">
-                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                        <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                     </div>
                     <div class="brand-text">
                         <span class="name">عدسة الروايات</span>
@@ -843,7 +849,7 @@
         <div class="sidebar-header">
             <div class="logo-mini">
                 <div class="icon">
-                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                 </div>
                 <div class="text">
                     <span class="name">عدسة الروايات</span>
@@ -884,8 +890,7 @@
 
         <div class="sidebar-footer">
             <div>جميع الحقوق محفوظة &copy; 2026</div>
-            <div class="dev">بهاء الدين الحسين</div>
-            <div style="direction: ltr;">0982520358</div>
+            <div class="dev">عدسة الروايات</div>
         </div>
     </aside>
 
@@ -1034,7 +1039,7 @@
         <div class="container">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);font-size:28px;\'></i>';" />
                 </div>
                 <div class="name">عدسة الروايات</div>
                 <div class="sub">LENS OF NOVELS</div>
@@ -1156,8 +1161,6 @@
 
         // ============================================================
         //  FORM SUBMIT
-        //  ⚠️ نموذج تجريبي - يفتح بريدك الإلكتروني
-        //  للحل الاحترافي: استخدم Formspree أو أي خدمة إرسال
         // ============================================================
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
@@ -1171,28 +1174,21 @@
             const subject = form.subject.value;
             const message = form.message.value.trim();
 
-            // التحقق
             if (!name || !email || !subject || !message) {
                 showStatus('error', 'يرجى تعبئة جميع الحقول المطلوبة');
                 return;
             }
 
-            // تحقق من البريد
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showStatus('error', 'يرجى إدخال بريد إلكتروني صحيح');
                 return;
             }
 
-            // تعطيل الزر
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>جاري الإرسال...</span>';
 
-            // محاكاة الإرسال (استبدلها بالكود الحقيقي لاحقاً)
             setTimeout(() => {
-                // ✅ هنا يمكن ربط API أو خدمة إرسال مثل Formspree
-                // مثال: window.location.href = `mailto:info@lensnovels.com?subject=${subject}&body=${message}`;
-
                 showStatus('success', 'تم استلام رسالتك بنجاح! سنتواصل معك قريباً.');
                 form.reset();
 

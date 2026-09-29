@@ -8,65 +8,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>عدسة الروايات - LENS OF NOVELS | عالم الإبداع القصصي والإنتاج السينمائي</title>
     <meta name="description" content="عدسة الروايات - عالم الإبداع القصصي والإنتاج السينمائي. روايات عربية مميزة، حلقات حية، وإنتاجات مرئية بأسلوب مبتكر." />
-    <meta name="keywords" content="عدسة الروايات, Lens of Novels, روايات عربية, حلقات روايات, إنتاج سينمائي, شادي رحال" />
-    <meta name="author" content="شادي رحال" />
+    <meta name="keywords" content="عدسة الروايات, Lens of Novels, روايات عربية, حلقات روايات, إنتاج سينمائي" />
+    <meta name="author" content="عدسة الروايات" />
     <meta property="og:title" content="عدسة الروايات - LENS OF NOVELS" />
     <meta property="og:description" content="عالم الإبداع القصصي والإنتاج السينمائي" />
+    <meta property="og:image" content="https://bahaa90231-art.github.io/-6575/logo.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bahaa90231-art.github.io/-6575/index.html" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/index.html" />
-    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
-    <link rel="apple-touch-icon" href="favicon.jfif" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="shortcut icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="apple-touch-icon" href="logo.jpeg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ============================================================
-           RESET & ROOT
-           ============================================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            /* الألوان الأساسية - عدسة الروايات */
             --bg: #0A0A0A;
             --bg-secondary: #111111;
             --bg-card: #161616;
             --bg-hover: #1F1F1F;
-            
             --gold: #F5B400;
             --gold-light: #FFC933;
             --gold-dark: #D49400;
             --gold-glow: rgba(245, 180, 0, 0.15);
-            
             --text: #FFFFFF;
             --text-secondary: #B8B8B8;
             --text-muted: #7A7A7A;
-            
             --border: rgba(245, 180, 0, 0.12);
             --border-hover: rgba(245, 180, 0, 0.3);
-            
             --radius-sm: 8px;
             --radius: 12px;
             --radius-lg: 20px;
-            --radius-xl: 32px;
-            
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
             --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
             --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
             --shadow-gold: 0 8px 24px rgba(245, 180, 0, 0.25);
-            
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        html {
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: transparent;
-        }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -79,15 +64,9 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
 
-        /* ============================================================
-           HEADER
-           ============================================================ */
+        /* HEADER */
         .header {
             position: sticky;
             top: 0;
@@ -123,9 +102,7 @@
             flex-shrink: 0;
         }
 
-        .menu-btn:active {
-            background: var(--bg-hover);
-        }
+        .menu-btn:active { background: var(--bg-hover); }
 
         .header-brand {
             display: flex;
@@ -138,58 +115,36 @@
         }
 
         .header-brand .logo {
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             box-shadow: 0 0 20px var(--gold-glow);
             flex-shrink: 0;
-            padding: 2px;
-            border: 2px solid var(--gold);
+            position: relative;
         }
 
         .header-brand .logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+            object-position: center 35%;
         }
 
-        .header-brand .brand-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.15;
-            text-align: center;
-        }
+        .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
 
-        .header-brand .brand-text .name {
-            font-weight: 800;
-            font-size: 17px;
-            color: var(--gold);
-            letter-spacing: -0.01em;
-        }
+        .header-brand .brand-text .name { font-weight: 800; font-size: 17px; color: var(--gold); letter-spacing: -0.01em; }
 
-        .header-brand .brand-text .tag {
-            font-size: 9px;
-            color: var(--text-muted);
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
+        .header-brand .brand-text .tag { font-size: 9px; color: var(--text-muted); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
 
-        .header-spacer {
-            width: 42px;
-            flex-shrink: 0;
-        }
+        .header-spacer { width: 42px; flex-shrink: 0; }
 
-        /* ============================================================
-           SIDEBAR
-           ============================================================ */
+        /* SIDEBAR */
         .sidebar-overlay {
             position: fixed;
             inset: 0;
@@ -202,10 +157,7 @@
             transition: all var(--transition);
         }
 
-        .sidebar-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
 
         .sidebar {
             position: fixed;
@@ -223,10 +175,7 @@
             flex-direction: column;
         }
 
-        .sidebar.active {
-            right: 0;
-            box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7);
-        }
+        .sidebar.active { right: 0; box-shadow: -20px 0 60px rgba(0, 0, 0, 0.7); }
 
         .sidebar-header {
             display: flex;
@@ -236,49 +185,33 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .sidebar-header .logo-mini {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
 
         .sidebar-header .logo-mini .icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            border: 2px solid var(--gold);
-            overflow: hidden;
-            padding: 2px;
         }
 
         .sidebar-header .logo-mini .icon img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+            object-position: center 35%;
         }
 
-        .sidebar-header .logo-mini .text {
-            display: flex;
-            flex-direction: column;
-        }
+        .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
 
-        .sidebar-header .logo-mini .text .name {
-            font-size: 15px;
-            font-weight: 800;
-            color: var(--gold);
-        }
+        .sidebar-header .logo-mini .text .name { font-size: 15px; font-weight: 800; color: var(--gold); }
 
-        .sidebar-header .logo-mini .text .sub {
-            font-size: 9px;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-        }
+        .sidebar-header .logo-mini .text .sub { font-size: 9px; color: var(--text-muted); letter-spacing: 2px; }
 
         .sidebar-close {
             width: 36px;
@@ -295,16 +228,9 @@
             font-size: 14px;
         }
 
-        .sidebar-close:hover {
-            background: var(--bg-hover);
-            color: var(--gold);
-            border-color: var(--border-hover);
-        }
+        .sidebar-close:hover { background: var(--bg-hover); color: var(--gold); border-color: var(--border-hover); }
 
-        .sidebar-nav {
-            padding: 16px 0;
-            flex: 1;
-        }
+        .sidebar-nav { padding: 16px 0; flex: 1; }
 
         .sidebar-nav a {
             display: flex;
@@ -317,28 +243,17 @@
             font-weight: 600;
             transition: all var(--transition);
             border-right: 3px solid transparent;
-            position: relative;
         }
 
-        .sidebar-nav a:hover,
-        .sidebar-nav a.active {
+        .sidebar-nav a:hover, .sidebar-nav a.active {
             color: var(--gold);
             background: var(--bg-hover);
             border-right-color: var(--gold);
         }
 
-        .sidebar-nav a i {
-            width: 22px;
-            font-size: 17px;
-            text-align: center;
-            color: var(--text-muted);
-            transition: color var(--transition);
-        }
+        .sidebar-nav a i { width: 22px; font-size: 17px; text-align: center; color: var(--text-muted); transition: color var(--transition); }
 
-        .sidebar-nav a:hover i,
-        .sidebar-nav a.active i {
-            color: var(--gold);
-        }
+        .sidebar-nav a:hover i, .sidebar-nav a.active i { color: var(--gold); }
 
         .sidebar-footer {
             padding: 20px 24px;
@@ -349,14 +264,9 @@
             line-height: 1.7;
         }
 
-        .sidebar-footer .dev {
-            color: var(--gold);
-            font-weight: 700;
-        }
+        .sidebar-footer .dev { color: var(--gold); font-weight: 700; }
 
-        /* ============================================================
-           HERO
-           ============================================================ */
+        /* HERO */
         .hero {
             padding: 60px 0 40px;
             text-align: center;
@@ -390,10 +300,6 @@
             letter-spacing: 0.5px;
         }
 
-        .hero-badge i {
-            font-size: 13px;
-        }
-
         .hero h1 {
             font-size: clamp(28px, 7vw, 68px);
             font-weight: 900;
@@ -422,9 +328,6 @@
             padding: 0 12px;
         }
 
-        /* ============================================================
-           HERO BUTTONS
-           ============================================================ */
         .hero-buttons {
             display: flex;
             flex-direction: column;
@@ -454,13 +357,7 @@
             letter-spacing: 0.02em;
         }
 
-        .btn-primary:active {
-            transform: scale(0.97);
-        }
-
-        .btn-primary i {
-            font-size: 16px;
-        }
+        .btn-primary:active { transform: scale(0.97); }
 
         .btn-secondary {
             display: flex;
@@ -486,14 +383,9 @@
             color: var(--gold);
         }
 
-        .btn-secondary i {
-            font-size: 16px;
-            color: var(--gold);
-        }
+        .btn-secondary i { color: var(--gold); font-size: 16px; }
 
-        /* ============================================================
-           STATS
-           ============================================================ */
+        /* STATS */
         .stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -525,10 +417,6 @@
             opacity: 0.5;
         }
 
-        .stat-card:active {
-            transform: scale(0.98);
-        }
-
         .stat-card .number {
             font-size: clamp(28px, 6vw, 40px);
             font-weight: 900;
@@ -545,12 +433,8 @@
             line-height: 1.5;
         }
 
-        /* ============================================================
-           SECTIONS
-           ============================================================ */
-        .section {
-            padding: 60px 0 40px;
-        }
+        /* SECTIONS */
+        .section { padding: 60px 0 40px; }
 
         .section-header {
             display: flex;
@@ -561,11 +445,7 @@
             gap: 16px;
         }
 
-        .section-header .title-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .section-header .title-group { display: flex; align-items: center; gap: 12px; }
 
         .section-header .title-icon {
             width: 42px;
@@ -608,9 +488,7 @@
             border-color: var(--gold);
         }
 
-        /* ============================================================
-           NOVELS GRID
-           ============================================================ */
+        /* NOVELS GRID */
         .novels-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -702,20 +580,11 @@
             flex-wrap: wrap;
         }
 
-        .novel-card .body .meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
+        .novel-card .body .meta span { display: flex; align-items: center; gap: 4px; }
 
-        .novel-card .body .meta i {
-            color: var(--gold);
-            font-size: 10px;
-        }
+        .novel-card .body .meta i { color: var(--gold); font-size: 10px; }
 
-        /* ============================================================
-           EMPTY STATE
-           ============================================================ */
+        /* EMPTY STATE */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
@@ -747,9 +616,37 @@
             margin: 0 auto;
         }
 
-        /* ============================================================
-           FOOTER
-           ============================================================ */
+        /* TEAM POSTER */
+        .team-poster-section {
+            padding: 40px 0 20px;
+        }
+
+        .team-poster {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .team-poster img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .team-poster::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 70%, rgba(0, 0, 0, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        /* FOOTER */
         .footer {
             margin-top: 60px;
             padding: 40px 0 24px;
@@ -757,47 +654,33 @@
             border-top: 1px solid var(--border);
         }
 
-        .footer-brand {
-            text-align: center;
-            margin-bottom: 24px;
-        }
+        .footer-brand { text-align: center; margin-bottom: 24px; }
 
         .footer-brand .logo {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 12px;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 14px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
+            background: var(--bg-card);
             border: 3px solid var(--gold);
             box-shadow: 0 0 30px var(--gold-glow);
             overflow: hidden;
-            padding: 3px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .footer-brand .logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
+            object-position: center 35%;
         }
 
-        .footer-brand .name {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 4px;
-        }
+        .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
 
-        .footer-brand .sub {
-            font-size: 10px;
-            color: var(--text-muted);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
+        .footer-brand .sub { font-size: 10px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; }
 
         .footer-links {
             display: flex;
@@ -808,18 +691,9 @@
             padding: 0 16px;
         }
 
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 6px 4px;
-            transition: color var(--transition);
-        }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 6px 4px; transition: color var(--transition); }
 
-        .footer-links a:hover {
-            color: var(--gold);
-        }
+        .footer-links a:hover { color: var(--gold); }
 
         .footer-bottom {
             padding-top: 20px;
@@ -833,26 +707,13 @@
             color: var(--text-muted);
         }
 
-        .footer-bottom .author {
-            color: var(--gold);
-            font-weight: 700;
-        }
+        .footer-bottom .author { color: var(--gold); font-weight: 700; }
 
-        .footer-bottom .dev {
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
+        .footer-bottom .dev { color: var(--text-secondary); font-weight: 600; }
 
-        .footer-bottom .phone {
-            direction: ltr;
-            color: var(--gold);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
+        .footer-bottom .phone { direction: ltr; color: var(--gold); font-weight: 700; }
 
-        /* ============================================================
-           RESPONSIVE - TABLET & DESKTOP
-           ============================================================ */
+        /* RESPONSIVE */
         @media (min-width: 600px) {
             .container { padding: 0 28px; }
             .hero { padding: 80px 0 60px; }
@@ -861,21 +722,10 @@
                 max-width: 560px;
                 gap: 16px;
             }
-            .btn-primary, .btn-secondary {
-                flex: 1;
-                padding: 16px 24px;
-            }
-            .stats {
-                max-width: 600px;
-                gap: 24px;
-            }
-            .stat-card {
-                padding: 32px 20px;
-            }
-            .novels-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-            }
+            .btn-primary, .btn-secondary { flex: 1; padding: 16px 24px; }
+            .stats { max-width: 600px; gap: 24px; }
+            .stat-card { padding: 32px 20px; }
+            .novels-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
             .novel-card .body h3 { font-size: 16px; }
             .footer-bottom {
                 flex-direction: row;
@@ -888,51 +738,30 @@
         @media (min-width: 900px) {
             .header-inner { padding: 16px 0; }
             .menu-btn, .header-spacer { width: 46px; height: 46px; }
-            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .logo { width: 50px; height: 50px; }
             .header-brand .brand-text .name { font-size: 19px; }
             .header-brand .brand-text .tag { font-size: 10px; }
             .hero { padding: 100px 0 80px; }
             .section { padding: 80px 0 60px; }
-            .novels-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 24px;
-            }
+            .novels-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
             .novel-card:hover {
                 transform: translateY(-6px);
                 border-color: var(--border-hover);
                 box-shadow: var(--shadow-lg);
             }
-            .novel-card:hover .cover img {
-                transform: scale(1.05);
-            }
-            .btn-primary:hover, .btn-secondary:hover {
-                transform: translateY(-2px);
-            }
+            .novel-card:hover .cover img { transform: scale(1.05); }
+            .btn-primary:hover, .btn-secondary:hover { transform: translateY(-2px); }
         }
 
         @media (min-width: 1200px) {
             .hero { padding: 120px 0 100px; }
         }
 
-        /* ============================================================
-           MOBILE LARGE (480-599)
-           ============================================================ */
-        @media (max-width: 599px) and (min-width: 480px) {
-            .container { padding: 0 22px; }
-            .hero h1 { font-size: 34px; }
-            .novels-grid { gap: 14px; }
-            .novel-card .body { padding: 12px; }
-            .novel-card .body h3 { font-size: 14px; }
-        }
-
-        /* ============================================================
-           MOBILE (375-479)
-           ============================================================ */
-        @media (max-width: 479px) and (min-width: 375px) {
+        @media (max-width: 479px) {
             .container { padding: 0 16px; }
             .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
             .menu-btn, .header-spacer { width: 38px; height: 38px; }
-            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .logo { width: 40px; height: 40px; }
             .header-brand .brand-text .name { font-size: 15px; }
             .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
             .hero { padding: 40px 0 30px; }
@@ -956,75 +785,41 @@
             .novel-card .body .meta { font-size: 10px; gap: 8px; }
             .novel-card .cover .category-tag { font-size: 9px; padding: 3px 10px; top: 8px; right: 8px; }
             .footer { margin-top: 40px; padding: 30px 0 20px; }
-            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .logo { width: 60px; height: 60px; }
             .footer-brand .name { font-size: 16px; }
             .footer-links { gap: 6px 16px; margin-bottom: 18px; }
             .footer-links a { font-size: 12px; }
         }
 
-        /* ============================================================
-           MOBILE SMALL (< 375)
-           ============================================================ */
         @media (max-width: 374px) {
             .container { padding: 0 12px; }
             .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
             .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
-            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .logo { width: 36px; height: 36px; }
             .header-brand .brand-text .name { font-size: 14px; }
             .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
             .hero { padding: 32px 0 24px; }
-            .hero-badge { font-size: 10px; padding: 5px 12px; margin-bottom: 14px; }
             .hero h1 { font-size: 24px; }
-            .hero p { font-size: 12px; margin: 14px auto 20px; }
-            .hero-buttons { gap: 8px; margin-bottom: 28px; }
-            .btn-primary, .btn-secondary { padding: 13px 20px; font-size: 13px; }
+            .hero p { font-size: 12px; }
             .stats { gap: 10px; }
             .stat-card { padding: 18px 10px; }
             .stat-card .number { font-size: 24px; }
             .stat-card .label { font-size: 10px; }
-            .section { padding: 32px 0 24px; }
-            .section-header .title-icon { width: 32px; height: 32px; font-size: 13px; }
-            .section-header h2 { font-size: 18px; }
-            .section-header .view-all { font-size: 11px; padding: 5px 10px; }
             .novel-card .body h3 { font-size: 12px; }
-            .novel-card .body .meta { font-size: 9px; }
-            .footer-brand .logo { width: 46px; height: 46px; font-size: 20px; }
-            .footer-brand .name { font-size: 14px; }
-            .footer-links a { font-size: 11px; }
         }
 
-        /* ============================================================
-           TOUCH DEVICES
-           ============================================================ */
         @media (hover: none) and (pointer: coarse) {
-            .novel-card:hover {
-                transform: none;
-                box-shadow: none;
-            }
-            .novel-card:hover .cover img {
-                transform: none;
-            }
-            .btn-primary:hover, .btn-secondary:hover {
-                transform: none;
-            }
-            .sidebar-nav a:hover {
-                background: transparent;
-                color: var(--text-secondary);
-                border-right-color: transparent;
-            }
-            .sidebar-nav a.active {
-                background: var(--bg-hover);
-                color: var(--gold);
-                border-right-color: var(--gold);
-            }
+            .novel-card:hover { transform: none; box-shadow: none; }
+            .novel-card:hover .cover img { transform: none; }
+            .btn-primary:hover, .btn-secondary:hover { transform: none; }
+            .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
+            .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================================
-         HEADER
-         ============================================================ -->
+    <!-- HEADER -->
     <header class="header">
         <div class="container">
             <div class="header-inner">
@@ -1034,7 +829,7 @@
 
                 <a href="index.html" class="header-brand">
                     <div class="logo">
-                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                        <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                     </div>
                     <div class="brand-text">
                         <span class="name">عدسة الروايات</span>
@@ -1047,15 +842,13 @@
         </div>
     </header>
 
-    <!-- ============================================================
-         SIDEBAR
-         ============================================================ -->
+    <!-- SIDEBAR -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-mini">
                 <div class="icon">
-                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    <img src="logo.jpeg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                 </div>
                 <div class="text">
                     <span class="name">عدسة الروايات</span>
@@ -1096,14 +889,11 @@
 
         <div class="sidebar-footer">
             <div>جميع الحقوق محفوظة &copy; 2026</div>
-            <div class="dev">بهاء الدين الحسين</div>
-            <div style="direction: ltr;">0982520358</div>
+            <div class="dev">عدسة الروايات</div>
         </div>
     </aside>
 
-    <!-- ============================================================
-         HERO
-         ============================================================ -->
+    <!-- HERO -->
     <section class="hero">
         <div class="container">
             <div class="hero-badge">
@@ -1145,9 +935,7 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         NOVELS SECTION
-         ============================================================ -->
+    <!-- NOVELS SECTION -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -1167,9 +955,7 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         EPISODES SECTION
-         ============================================================ -->
+    <!-- EPISODES SECTION -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -1193,14 +979,21 @@
         </div>
     </section>
 
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
+    <!-- TEAM POSTER SECTION -->
+    <section class="team-poster-section">
+        <div class="container">
+            <div class="team-poster">
+                <img src="الفريق.jpeg" alt="فريق عدسة الروايات" onerror="this.style.display='none'" />
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);font-size:28px;\'></i>';" />
                 </div>
                 <div class="name">عدسة الروايات</div>
                 <div class="sub">LENS OF NOVELS</div>
@@ -1227,9 +1020,7 @@
     </footer>
 
     <script>
-        // ============================================================
-        //  SIDEBAR TOGGLE
-        // ============================================================
+        // SIDEBAR
         (function() {
             const menuBtn = document.getElementById('menuBtn');
             const sidebar = document.getElementById('sidebar');
@@ -1241,7 +1032,6 @@
                 sidebarOverlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
-
             function closeSidebar() {
                 sidebar.classList.remove('active');
                 sidebarOverlay.classList.remove('active');
@@ -1283,9 +1073,6 @@
             }
         ];
 
-        // ============================================================
-        //  RENDER NOVELS
-        // ============================================================
         const grid = document.getElementById('novelsGrid');
 
         function renderNovels() {

@@ -8,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>عن الفريق - عدسة الروايات | LENS OF NOVELS</title>
     <meta name="description" content="تعرّف على فريق عمل عدسة الروايات - فريق متكامل من الكتاب والمبرمجين والفنانين" />
-    <meta name="keywords" content="عن الفريق, فريق العمل, عدسة الروايات, شادي رحال, بهاء الدين الحسين" />
-    <meta name="author" content="شادي رحال" />
+    <meta name="keywords" content="عن الفريق, فريق العمل, عدسة الروايات" />
+    <meta name="author" content="عدسة الروايات" />
     <meta property="og:title" content="عن الفريق - عدسة الروايات" />
     <meta property="og:description" content="تعرّف على فريق عمل عدسة الروايات" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/about.html" />
-    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
-    <link rel="apple-touch-icon" href="favicon.jfif" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="shortcut icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="apple-touch-icon" href="logo.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -112,22 +112,26 @@
         }
 
         .header-brand .logo {
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             box-shadow: 0 0 20px var(--gold-glow);
             flex-shrink: 0;
-            padding: 2px;
-            border: 2px solid var(--gold);
+            position: relative;
         }
 
-        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .header-brand .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
 
@@ -181,20 +185,24 @@
         .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
 
         .sidebar-header .logo-mini .icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            border: 2px solid var(--gold);
-            overflow: hidden;
-            padding: 2px;
         }
 
-        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .sidebar-header .logo-mini .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
 
@@ -319,8 +327,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 30px 24px;
-            text-align: center;
+            padding: 32px 24px;
             max-width: 900px;
             margin: 0 auto 48px;
             position: relative;
@@ -335,14 +342,15 @@
             right: 0;
             height: 3px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .about-content h2 {
-            font-size: clamp(20px, 3vw, 28px);
+            font-size: clamp(22px, 3.5vw, 32px);
             font-weight: 900;
             color: var(--text);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            text-align: center;
             line-height: 1.3;
         }
 
@@ -353,224 +361,130 @@
             background-clip: text;
         }
 
+        .about-content .intro {
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.9;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .about-content .intro i {
+            color: var(--gold);
+            margin: 0 6px;
+        }
+
         .about-content p {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.9;
-            max-width: 700px;
-            margin: 0 auto 12px;
+            line-height: 1.95;
+            margin-bottom: 16px;
         }
 
-        /* SECTION HEADER */
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .section-header .title-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(245, 180, 0, 0.08);
-            border: 1px solid rgba(245, 180, 0, 0.2);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .about-content p strong {
             color: var(--gold);
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .section-header h2 {
-            font-size: clamp(20px, 3vw, 28px);
-            font-weight: 900;
-            color: var(--text);
-        }
-
-        /* TEAM GRID */
-        .team-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            padding-bottom: 60px;
-        }
-
-        .team-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 32px 24px;
-            text-align: center;
-            transition: all var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 0%, var(--gold-glow), transparent 70%);
-            opacity: 0;
-            transition: opacity var(--transition);
-            pointer-events: none;
-        }
-
-        .team-card:active {
-            transform: scale(0.98);
-            border-color: var(--border-hover);
-        }
-
-        .team-card .avatar {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: 900;
-            color: #0A0A0A;
-            border: 3px solid var(--gold);
-            box-shadow: 0 0 30px var(--gold-glow);
-            padding: 3px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .team-card .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .team-card .role-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 14px;
-            background: rgba(245, 180, 0, 0.08);
-            border: 1px solid rgba(245, 180, 0, 0.25);
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 12px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .team-card .role-badge i { font-size: 10px; }
-
-        .team-card h3 {
-            font-size: 20px;
-            font-weight: 900;
-            color: var(--text);
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .team-card .bio {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 18px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .team-card .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .team-card .social-links a {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 15px;
-            transition: all var(--transition);
-        }
-
-        .team-card .social-links a:hover {
-            background: var(--gold);
-            color: #0A0A0A;
-            border-color: var(--gold);
-            transform: translateY(-3px);
-        }
-
-        /* VALUES SECTION */
-        .values-section {
-            padding: 30px 0 60px;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        .value-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 24px 20px;
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-            transition: all var(--transition);
-        }
-
-        .value-card:active {
-            transform: scale(0.99);
-            border-color: var(--border-hover);
-        }
-
-        .value-card .value-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(245, 180, 0, 0.08);
-            border: 1px solid rgba(245, 180, 0, 0.2);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .value-card .value-content h4 {
-            font-size: 16px;
             font-weight: 800;
-            color: var(--text);
-            margin-bottom: 6px;
         }
 
-        .value-card .value-content p {
+        .about-content .member-list {
+            margin: 24px 0;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .about-content .member-list .member-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-content .member-list .member-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .about-content .member-list .member-item:first-child {
+            padding-top: 0;
+        }
+
+        .about-content .member-list .member-item .member-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(245, 180, 0, 0.08);
+            border: 1px solid rgba(245, 180, 0, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .about-content .member-list .member-item .member-content {
+            flex: 1;
+        }
+
+        .about-content .member-list .member-item .member-content h4 {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .about-content .member-list .member-item .member-content p {
             font-size: 13px;
             color: var(--text-secondary);
             line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .about-content .closing {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(245, 180, 0, 0.05);
+            border: 1px solid rgba(245, 180, 0, 0.15);
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .about-content .closing p {
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .about-content .closing p:last-child {
+            color: var(--gold);
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        /* TEAM POSTER */
+        .team-poster-section {
+            padding: 20px 0 60px;
+        }
+
+        .team-poster {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .team-poster img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* FOOTER */
@@ -584,22 +498,26 @@
         .footer-brand { text-align: center; margin-bottom: 24px; }
 
         .footer-brand .logo {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 12px;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 14px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
+            background: var(--bg-card);
             border: 3px solid var(--gold);
             box-shadow: 0 0 30px var(--gold-glow);
             overflow: hidden;
-            padding: 3px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .footer-brand .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
 
@@ -638,48 +556,29 @@
         @media (min-width: 600px) {
             .container { padding: 0 28px; }
             .page-header { padding: 80px 0 40px; }
-            .about-content { padding: 40px 32px; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-content { padding: 48px 40px; }
+            .about-content .intro { font-size: 17px; }
+            .about-content p { font-size: 15px; }
+            .about-content .member-list .member-item .member-content h4 { font-size: 16px; }
+            .about-content .member-list .member-item .member-content p { font-size: 14px; }
             .footer-bottom { flex-direction: row; justify-content: space-between; text-align: right; padding-top: 20px; }
         }
 
         @media (min-width: 900px) {
             .header-inner { padding: 16px 0; }
             .menu-btn, .header-spacer { width: 46px; height: 46px; }
-            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .logo { width: 50px; height: 50px; }
             .header-brand .brand-text .name { font-size: 19px; }
             .header-brand .brand-text .tag { font-size: 10px; }
             .page-header { padding: 100px 0 60px; }
-            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-            .values-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .team-card:hover {
-                transform: translateY(-6px);
-                border-color: var(--border-hover);
-                box-shadow: var(--shadow-lg);
-            }
-            .team-card:hover::before { opacity: 1; }
-            .value-card:hover {
-                border-color: var(--border-hover);
-                box-shadow: var(--shadow);
-            }
+            .about-content { padding: 56px 48px; }
         }
 
-        @media (min-width: 1200px) {
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 599px) and (min-width: 480px) {
-            .container { padding: 0 22px; }
-            .team-card { padding: 28px 20px; }
-            .team-card .avatar { width: 90px; height: 90px; font-size: 34px; }
-        }
-
-        @media (max-width: 479px) and (min-width: 375px) {
+        @media (max-width: 479px) {
             .container { padding: 0 16px; }
             .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
             .menu-btn, .header-spacer { width: 38px; height: 38px; }
-            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .logo { width: 40px; height: 40px; }
             .header-brand .brand-text .name { font-size: 15px; }
             .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
             .page-header { padding: 40px 0 24px; }
@@ -688,25 +587,18 @@
             .page-header p { font-size: 13px; }
             .about-section { padding: 30px 0 20px; }
             .about-content { padding: 24px 18px; margin-bottom: 32px; }
-            .about-content h2 { font-size: 20px; }
+            .about-content h2 { font-size: 22px; margin-bottom: 16px; }
+            .about-content .intro { font-size: 14px; }
             .about-content p { font-size: 13px; }
-            .section-header { gap: 10px; margin-bottom: 24px; }
-            .section-header .title-icon { width: 42px; height: 42px; font-size: 17px; }
-            .section-header h2 { font-size: 18px; }
-            .team-grid { gap: 16px; padding-bottom: 40px; }
-            .team-card { padding: 24px 18px; }
-            .team-card .avatar { width: 80px; height: 80px; font-size: 30px; margin-bottom: 16px; }
-            .team-card h3 { font-size: 17px; }
-            .team-card .bio { font-size: 12px; }
-            .team-card .role-badge { font-size: 10px; padding: 4px 12px; }
-            .values-section { padding: 20px 0 40px; }
-            .values-grid { gap: 12px; }
-            .value-card { padding: 18px 16px; }
-            .value-card .value-icon { width: 42px; height: 42px; font-size: 17px; }
-            .value-card .value-content h4 { font-size: 14px; }
-            .value-card .value-content p { font-size: 12px; }
+            .about-content .member-list { padding: 14px; margin: 18px 0; }
+            .about-content .member-list .member-item { padding: 12px 0; gap: 12px; }
+            .about-content .member-list .member-item .member-icon { width: 38px; height: 38px; font-size: 16px; }
+            .about-content .member-list .member-item .member-content h4 { font-size: 14px; }
+            .about-content .member-list .member-item .member-content p { font-size: 12px; }
+            .about-content .closing { padding: 16px; }
+            .about-content .closing p { font-size: 13px; }
             .footer { margin-top: 30px; padding: 30px 0 20px; }
-            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .logo { width: 60px; height: 60px; }
             .footer-brand .name { font-size: 16px; }
             .footer-links { gap: 6px 16px; margin-bottom: 18px; }
             .footer-links a { font-size: 12px; }
@@ -716,7 +608,7 @@
             .container { padding: 0 12px; }
             .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
             .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
-            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .logo { width: 36px; height: 36px; }
             .header-brand .brand-text .name { font-size: 14px; }
             .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
             .page-header { padding: 32px 0 20px; }
@@ -725,18 +617,13 @@
             .page-header p { font-size: 12px; }
             .about-content { padding: 20px 14px; }
             .about-content h2 { font-size: 18px; }
+            .about-content .intro { font-size: 13px; }
             .about-content p { font-size: 12px; }
-            .team-card { padding: 20px 14px; }
-            .team-card .avatar { width: 70px; height: 70px; font-size: 26px; }
-            .team-card h3 { font-size: 15px; }
-            .value-card { padding: 16px 12px; }
-            .value-card .value-icon { width: 38px; height: 38px; font-size: 15px; }
+            .about-content .member-list .member-item .member-content h4 { font-size: 13px; }
+            .about-content .member-list .member-item .member-content p { font-size: 11px; }
         }
 
         @media (hover: none) and (pointer: coarse) {
-            .team-card:hover { transform: none; box-shadow: none; }
-            .team-card:hover::before { opacity: 0; }
-            .value-card:hover { border-color: var(--border); box-shadow: none; }
             .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
             .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
         }
@@ -754,7 +641,7 @@
 
                 <a href="index.html" class="header-brand">
                     <div class="logo">
-                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                        <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                     </div>
                     <div class="brand-text">
                         <span class="name">عدسة الروايات</span>
@@ -773,7 +660,7 @@
         <div class="sidebar-header">
             <div class="logo-mini">
                 <div class="icon">
-                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                 </div>
                 <div class="text">
                     <span class="name">عدسة الروايات</span>
@@ -814,8 +701,7 @@
 
         <div class="sidebar-footer">
             <div>جميع الحقوق محفوظة &copy; 2026</div>
-            <div class="dev">بهاء الدين الحسين</div>
-            <div style="direction: ltr;">0982520358</div>
+            <div class="dev">عدسة الروايات</div>
         </div>
     </aside>
 
@@ -839,45 +725,105 @@
     <section class="about-section">
         <div class="container">
             <div class="about-content">
-                <h2>من <span class="gold">نحن؟</span></h2>
-                <p>
-                    عدسة الروايات هي منصة عربية متخصصة في عالم الإبداع القصصي والإنتاج السينمائي.
-                    نأخذ الروايات المكتوبة ونحوّلها إلى تجارب بصرية وسماعية استثنائية،
-                    من خلال حلقات مرئية وحكايات سينمائية مبتكرة.
+                <h2>
+                    <span class="gold">من نحن</span>
+                </h2>
+
+                <p class="intro">
+                    نحن لسنا دار نشر، ولسنا مجرد كُتّاب.<br />
+                    نحن <i class="fas fa-eye"></i> <strong>عدسة الروايات</strong>
                 </p>
+
                 <p>
-                    نؤمن بأن كل قصة تستحق أن تُروى بأسلوب فريد، وأن كل كلمة مكتوبة
-                    يمكن أن تتحول إلى مشهد حي ينبض بالمشاعر.
+                    خمسة أشخاص قررنا أن الرواية العربية تستحق أكثر من أن تُقرأ على عجل وتنتهي،
+                    تستحق أن <strong>تُحترم</strong>، أن <strong>تُسمع</strong>، وأن تبقى في الذاكرة طويلاً.
                 </p>
+
+                <p>
+                    قررنا أن نجعلها <strong>تُسمع، تُرى، وتُعاش</strong>.
+                    أن لا تكون مجرد حروف على ورق، بل عالم كامل تدخله بكل حواسك.
+                </p>
+
+                <p>
+                    في فريقنا، كل واحد هو حكاية بحد ذاته، وكل واحد هو قطعة أساسية من هذا الحلم:
+                </p>
+
+                <div class="member-list">
+                    <div class="member-item">
+                        <div class="member-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <div class="member-content">
+                            <h4>كاتب</h4>
+                            <p>يحوّل الأفكار المبعثرة والخيالات العابرة إلى عالم متكامل، يبني المدن والشخصيات بكل تفاصيلها.</p>
+                        </div>
+                    </div>
+
+                    <div class="member-item">
+                        <div class="member-icon">
+                            <i class="fas fa-feather-alt"></i>
+                        </div>
+                        <div class="member-content">
+                            <h4>كاتبة</h4>
+                            <p>تضع لمستها الرقيقة والصادقة لتجعل تلك الشخصيات تنبض بالحياة، لتجعل القارئ يبكي معها ويضحك معها ويحب معها.</p>
+                        </div>
+                    </div>
+
+                    <div class="member-item">
+                        <div class="member-icon">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="member-content">
+                            <h4>معلقة صوتية</h4>
+                            <p>بصوتها الدافئ تمنح الكلمات روحاً، هي لا تقرأ النص فقط، هي تعيشه، فتجعلك تشعر بكل همسة وكل صرخة وكل لحظة حب.</p>
+                        </div>
+                    </div>
+
+                    <div class="member-item">
+                        <div class="member-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="member-content">
+                            <h4>مبرمج</h4>
+                            <p>يحوّل هذا الحلم الكبير من فكرة في دفتر إلى منصة حقيقية تصلكم أينما كنتم، هو من يبني البيت الذي ستسكن فيه رواياتنا.</p>
+                        </div>
+                    </div>
+
+                    <div class="member-item">
+                        <div class="member-icon">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                        <div class="member-content">
+                            <h4>مصور ومونتير</h4>
+                            <p>بعينه الفنية، يحوّل المشهد المكتوب إلى لقطة سينمائية، يجعل الخيال مرئياً أمامكم بكل احترافية وجمال.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    <strong>فكرتنا بسيطة وعميقة في نفس الوقت:</strong>
+                    أن لا تعود الرواية حبيسة الورق، وأن لا تعود القراءة عادة قديمة.
+                </p>
+
+                <p>
+                    نحن هنا لنأخذكم داخل الصفحات، لنمسك بيدكم ونقول لكم:
+                    تعالوا، هذه ليست روايتنا وحدنا، هذه روايتكم أنتم أيضاً.
+                </p>
+
+                <div class="closing">
+                    <p>إذا كنت من عشاق القصص التي لا تُنسى، من أولئك الذين يبحثون عن حكاية تلمس القلب وتبقى،</p>
+                    <p>فأهلاً بك في عالمنا، نحن كنا ننتظرك. ✨</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- TEAM -->
-    <section>
+    <!-- TEAM POSTER -->
+    <section class="team-poster-section">
         <div class="container">
-            <div class="section-header">
-                <div class="title-icon">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h2>أعضاء الفريق</h2>
+            <div class="team-poster">
+                <img src="logo.jpg" alt="فريق عدسة الروايات" onerror="this.style.display='none'" />
             </div>
-
-            <div class="team-grid" id="teamGrid"></div>
-        </div>
-    </section>
-
-    <!-- VALUES -->
-    <section class="values-section">
-        <div class="container">
-            <div class="section-header">
-                <div class="title-icon">
-                    <i class="fas fa-gem"></i>
-                </div>
-                <h2>قيمنا</h2>
-            </div>
-
-            <div class="values-grid" id="valuesGrid"></div>
         </div>
     </section>
 
@@ -886,7 +832,7 @@
         <div class="container">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);font-size:28px;\'></i>';" />
                 </div>
                 <div class="name">عدسة الروايات</div>
                 <div class="sub">LENS OF NOVELS</div>
@@ -935,123 +881,6 @@
             sidebarClose.addEventListener('click', closeSidebar);
             sidebarOverlay.addEventListener('click', closeSidebar);
         })();
-
-        // ============================================================
-        //  DATA - الفريق
-        //  ⚠️ عدّل الأعضاء هنا
-        // ============================================================
-        const team = [
-            {
-                name: 'شادي رحال',
-                role: 'كاتب ومؤلف',
-                roleIcon: 'fa-pen-fancy',
-                bio: 'كاتب الروايات العربية المميزة. صاحب أسلوب فريد يجمع بين الرومانسية والعمق الاجتماعي. مؤلف روايات: سكاي لاين، الأماكن، وماذا لو ما كانت الحرب؟',
-                avatar: 'ش',
-                image: null,
-                social: {
-                    facebook: null,
-                    instagram: null,
-                    youtube: null,
-                    email: null
-                }
-            },
-            {
-                name: 'بهاء الدين الحسين',
-                role: 'مطور ومبرمج',
-                roleIcon: 'fa-code',
-                bio: 'المسؤول عن تطوير وبرمجة الموقع. متخصص في تطوير الويب وتصميم تجربة مستخدم احترافية تلائم جميع الأجهزة.',
-                avatar: 'ب',
-                image: null,
-                social: {
-                    facebook: null,
-                    instagram: null,
-                    youtube: null,
-                    email: null,
-                    phone: '0982520358'
-                }
-            }
-        ];
-
-        // ============================================================
-        //  DATA - القيم
-        // ============================================================
-        const values = [
-            {
-                icon: 'fa-heart',
-                title: 'الشغف',
-                description: 'نحب ما نفعله، وكل قصة نرويها هي جزء منا.'
-            },
-            {
-                icon: 'fa-lightbulb',
-                title: 'الإبداع',
-                description: 'نبحث دائماً عن أساليب جديدة ومبتكرة في السرد.'
-            },
-            {
-                icon: 'fa-star',
-                title: 'الجودة',
-                description: 'نقدم محتوى عالي الجودة يليق بجمهورنا.'
-            },
-            {
-                icon: 'fa-handshake',
-                title: 'الأصالة',
-                description: 'نحترم تراثنا العربي ونقدمه بأسلوب عصري.'
-            }
-        ];
-
-        // ============================================================
-        //  RENDER TEAM
-        // ============================================================
-        const teamGrid = document.getElementById('teamGrid');
-
-        function renderTeam() {
-            teamGrid.innerHTML = team.map(member => `
-                <div class="team-card">
-                    <div class="avatar">
-                        ${member.image
-                            ? `<img src="${member.image}" alt="${member.name}" onerror="this.parentElement.innerHTML='${member.avatar}';" />`
-                            : member.avatar
-                        }
-                    </div>
-                    <div class="role-badge">
-                        <i class="fas ${member.roleIcon}"></i>
-                        <span>${member.role}</span>
-                    </div>
-                    <h3>${member.name}</h3>
-                    <p class="bio">${member.bio}</p>
-                    ${member.social && (member.social.facebook || member.social.instagram || member.social.youtube || member.social.email || member.social.phone) ? `
-                        <div class="social-links">
-                            ${member.social.facebook ? `<a href="${member.social.facebook}" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>` : ''}
-                            ${member.social.instagram ? `<a href="${member.social.instagram}" target="_blank" rel="noopener" aria-label="إنستغرام"><i class="fab fa-instagram"></i></a>` : ''}
-                            ${member.social.youtube ? `<a href="${member.social.youtube}" target="_blank" rel="noopener" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>` : ''}
-                            ${member.social.email ? `<a href="mailto:${member.social.email}" aria-label="البريد"><i class="fas fa-envelope"></i></a>` : ''}
-                            ${member.social.phone ? `<a href="tel:${member.social.phone}" aria-label="الهاتف"><i class="fas fa-phone"></i></a>` : ''}
-                        </div>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
-
-        // ============================================================
-        //  RENDER VALUES
-        // ============================================================
-        const valuesGrid = document.getElementById('valuesGrid');
-
-        function renderValues() {
-            valuesGrid.innerHTML = values.map(v => `
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas ${v.icon}"></i>
-                    </div>
-                    <div class="value-content">
-                        <h4>${v.title}</h4>
-                        <p>${v.description}</p>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        renderTeam();
-        renderValues();
     </script>
 
 </body>

@@ -9,14 +9,14 @@
     <title>الإعلانات - عدسة الروايات | LENS OF NOVELS</title>
     <meta name="description" content="أحدث أخبار وإعلانات عدسة الروايات - إصدارات جديدة، حلقات قادمة، وأخبار الفريق" />
     <meta name="keywords" content="إعلانات, أخبار, عدسة الروايات, روايات جديدة, حلقات جديدة" />
-    <meta name="author" content="شادي رحال" />
+    <meta name="author" content="عدسة الروايات" />
     <meta property="og:title" content="الإعلانات - عدسة الروايات" />
     <meta property="og:description" content="أحدث أخبار وإعلانات عدسة الروايات" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/announcements.html" />
-    <link rel="icon" type="image/jpeg" href="favicon.jfif" />
-    <link rel="shortcut icon" type="image/jpeg" href="favicon.jfif" />
-    <link rel="apple-touch-icon" href="favicon.jfif" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="shortcut icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="apple-touch-icon" href="logo.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -112,22 +112,26 @@
         }
 
         .header-brand .logo {
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             box-shadow: 0 0 20px var(--gold-glow);
             flex-shrink: 0;
-            padding: 2px;
-            border: 2px solid var(--gold);
+            position: relative;
         }
 
-        .header-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .header-brand .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .header-brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; text-align: center; }
 
@@ -181,20 +185,24 @@
         .sidebar-header .logo-mini { display: flex; align-items: center; gap: 10px; }
 
         .sidebar-header .logo-mini .icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            background: var(--bg-card);
+            border: 2px solid var(--gold);
+            overflow: hidden;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            border: 2px solid var(--gold);
-            overflow: hidden;
-            padding: 2px;
         }
 
-        .sidebar-header .logo-mini .icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .sidebar-header .logo-mini .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .sidebar-header .logo-mini .text { display: flex; flex-direction: column; }
 
@@ -413,31 +421,6 @@
             line-height: 1.85;
         }
 
-        .announcement-card .actions {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .announcement-card .actions a {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--gold);
-            text-decoration: none;
-            transition: all var(--transition);
-        }
-
-        .announcement-card .actions a:hover {
-            gap: 10px;
-        }
-
         /* EMPTY STATE */
         .empty-state {
             text-align: center;
@@ -489,22 +472,26 @@
         .footer-brand { text-align: center; margin-bottom: 24px; }
 
         .footer-brand .logo {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 12px;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 14px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
+            background: var(--bg-card);
             border: 3px solid var(--gold);
             box-shadow: 0 0 30px var(--gold-glow);
             overflow: hidden;
-            padding: 3px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .footer-brand .logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .footer-brand .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
 
         .footer-brand .name { font-size: 18px; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
 
@@ -551,7 +538,7 @@
         @media (min-width: 900px) {
             .header-inner { padding: 16px 0; }
             .menu-btn, .header-spacer { width: 46px; height: 46px; }
-            .header-brand .logo { width: 46px; height: 46px; }
+            .header-brand .logo { width: 50px; height: 50px; }
             .header-brand .brand-text .name { font-size: 19px; }
             .header-brand .brand-text .tag { font-size: 10px; }
             .page-header { padding: 100px 0 60px; }
@@ -562,17 +549,11 @@
             }
         }
 
-        @media (max-width: 599px) and (min-width: 480px) {
-            .container { padding: 0 22px; }
-            .announcement-card { padding: 20px; }
-            .announcement-card h3 { font-size: 17px; }
-        }
-
-        @media (max-width: 479px) and (min-width: 375px) {
+        @media (max-width: 479px) {
             .container { padding: 0 16px; }
             .header-inner { padding: 10px 0; min-height: 62px; gap: 10px; }
             .menu-btn, .header-spacer { width: 38px; height: 38px; }
-            .header-brand .logo { width: 38px; height: 38px; }
+            .header-brand .logo { width: 40px; height: 40px; }
             .header-brand .brand-text .name { font-size: 15px; }
             .header-brand .brand-text .tag { font-size: 8px; letter-spacing: 2px; }
             .page-header { padding: 40px 0 24px; }
@@ -590,7 +571,7 @@
             .empty-state h3 { font-size: 18px; }
             .empty-state p { font-size: 13px; }
             .footer { margin-top: 40px; padding: 30px 0 20px; }
-            .footer-brand .logo { width: 52px; height: 52px; font-size: 24px; }
+            .footer-brand .logo { width: 60px; height: 60px; }
             .footer-brand .name { font-size: 16px; }
             .footer-links { gap: 6px 16px; margin-bottom: 18px; }
             .footer-links a { font-size: 12px; }
@@ -600,7 +581,7 @@
             .container { padding: 0 12px; }
             .header-inner { padding: 8px 0; min-height: 56px; gap: 8px; }
             .menu-btn, .header-spacer { width: 36px; height: 36px; font-size: 18px; }
-            .header-brand .logo { width: 34px; height: 34px; }
+            .header-brand .logo { width: 36px; height: 36px; }
             .header-brand .brand-text .name { font-size: 14px; }
             .header-brand .brand-text .tag { font-size: 7px; letter-spacing: 1.5px; }
             .page-header { padding: 32px 0 20px; }
@@ -631,7 +612,7 @@
 
                 <a href="index.html" class="header-brand">
                     <div class="logo">
-                        <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                        <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                     </div>
                     <div class="brand-text">
                         <span class="name">عدسة الروايات</span>
@@ -650,7 +631,7 @@
         <div class="sidebar-header">
             <div class="logo-mini">
                 <div class="icon">
-                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                 </div>
                 <div class="text">
                     <span class="name">عدسة الروايات</span>
@@ -691,8 +672,7 @@
 
         <div class="sidebar-footer">
             <div>جميع الحقوق محفوظة &copy; 2026</div>
-            <div class="dev">بهاء الدين الحسين</div>
-            <div style="direction: ltr;">0982520358</div>
+            <div class="dev">عدسة الروايات</div>
         </div>
     </aside>
 
@@ -724,7 +704,7 @@
         <div class="container">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="favicon.jfif" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\'></i>';" />
+                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);font-size:28px;\'></i>';" />
                 </div>
                 <div class="name">عدسة الروايات</div>
                 <div class="sub">LENS OF NOVELS</div>
@@ -776,8 +756,7 @@
 
         // ============================================================
         //  DATA - الإعلانات
-        //  ⚠️ أضف إعلاناتك هنا
-        //  الأنواع المتاحة: 'new' (جديد) | 'important' (مهم) | 'update' (تحديث) | 'upcoming' (قريباً)
+        //  الأنواع المتاحة: 'new' | 'important' | 'update' | 'upcoming'
         // ============================================================
         const announcements = [
             {
@@ -841,7 +820,6 @@
                 return;
             }
 
-            // ترتيب الإعلانات من الأحدث للأقدم
             const sorted = [...announcements].sort((a, b) => new Date(b.date) - new Date(a.date));
 
             list.innerHTML = sorted.map(a => `
