@@ -15,9 +15,9 @@
     <meta property="og:description" content="حلقات مرئية وصوتية لرواياتنا" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="https://bahaa90231-art.github.io/-6575/episodes.html" />
-    <link rel="icon" type="image/jpeg" href="logo.jpg" />
-    <link rel="shortcut icon" type="image/jpeg" href="logo.jpg" />
-    <link rel="apple-touch-icon" href="logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="logo.jpeg" />
+    <link rel="shortcut icon" type="image/jpeg" href="logo.jpeg" />
+    <link rel="apple-touch-icon" href="logo.jpeg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -574,7 +574,7 @@
         }
 
         /* ============================================================
-           VIDEO MODAL - مشغل الفيديو الداخلي
+           VIDEO MODAL
            ============================================================ */
         .video-modal {
             display: none;
@@ -700,7 +700,7 @@
         .video-modal-body .video-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 */
+            padding-top: 56.25%;
         }
 
         .video-modal-body iframe,
@@ -891,7 +891,7 @@
 
                 <a href="index.html" class="header-brand">
                     <div class="logo">
-                        <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
+                        <img src="logo.jpeg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                     </div>
                     <div class="brand-text">
                         <span class="name">عدسة الروايات</span>
@@ -910,7 +910,7 @@
         <div class="sidebar-header">
             <div class="logo-mini">
                 <div class="icon">
-                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
+                    <img src="logo.jpeg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);\'></i>';" />
                 </div>
                 <div class="text">
                     <span class="name">عدسة الروايات</span>
@@ -951,7 +951,8 @@
 
         <div class="sidebar-footer">
             <div>جميع الحقوق محفوظة &copy; 2026</div>
-            <div class="dev">عدسة الروايات</div>
+            <div class="dev">بهاء الدين الحسين</div>
+            <div style="direction: ltr;">0982520358</div>
         </div>
     </aside>
 
@@ -1033,7 +1034,7 @@
         <div class="container">
             <div class="footer-brand">
                 <div class="logo">
-                    <img src="logo.jpg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);font-size:28px;\'></i>';" />
+                    <img src="logo.jpeg" alt="عدسة الروايات" onerror="this.parentElement.innerHTML='<i class=\'fas fa-eye\' style=\'color:var(--gold);font-size:28px;\'></i>';" />
                 </div>
                 <div class="name">عدسة الروايات</div>
                 <div class="sub">LENS OF NOVELS</div>
@@ -1085,11 +1086,6 @@
 
         // ============================================================
         //  DATA - الحلقات
-        //  المصادر المدعومة:
-        //  - 'streamable' → فيديو Streamable (يعمل داخل الموقع) ✅
-        //  - 'dailymotion' → فيديو Dailymotion (قد لا يعمل)
-        //  - 'youtube' → فيديو YouTube (قد لا يعمل للفيديوهات القصيرة)
-        //  - 'mp4' → ملف فيديو محلي
         // ============================================================
         const episodes = [
             {
@@ -1102,9 +1098,20 @@
                 description: 'فيديو تعريفي عن فريق عمل عدسة الروايات، رسالتنا، ورؤيتنا في عالم الإبداع القصصي والإنتاج السينمائي.',
                 source: 'streamable',
                 streamableId: '8oo8f4',
-                date: '2026-09-27'
+                date: '2026-09-24'
+            },
+            {
+                id: 2,
+                title: 'رواية سكاي لاين: قصة رامي وعسل - حين يصبح الحب درساً',
+                novel: 'سكاي لاين',
+                episodeNum: 1,
+                duration: '00:30',
+                image: 'https://cdn-cf-east.streamable.com/image/9hwcrx.jpg',
+                description: 'رواية سكاي لاين: قصة رامي وعسل - حين يصبح الحب درساً. نظرة على الرواية التي أبكت وألهمت القراء.',
+                source: 'streamable',
+                streamableId: '9hwcrx',
+                date: '2026-09-25'
             }
-            // لإضافة المزيد من الحلقات، انسخ الكود أعلاه وعدّل القيم
         ];
 
         // ============================================================
@@ -1164,7 +1171,6 @@
                 </div>
             `).join('');
 
-            // ربط أحداث النقر
             document.querySelectorAll('.episode-card').forEach(card => {
                 card.addEventListener('click', function() {
                     const id = parseInt(this.dataset.id);
@@ -1230,7 +1236,6 @@
             }
 
             videoWrapper.innerHTML = videoHTML;
-
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }

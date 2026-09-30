@@ -12,7 +12,7 @@
     <meta name="author" content="عدسة الروايات" />
     <meta property="og:title" content="عدسة الروايات - LENS OF NOVELS" />
     <meta property="og:description" content="عالم الإبداع القصصي والإنتاج السينمائي" />
-    <meta property="og:image" content="https://bahaa90231-art.github.io/-6575/logo.jpg" />
+    <meta property="og:image" content="https://bahaa90231-art.github.io/-6575/logo.jpeg" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://bahaa90231-art.github.io/-6575/index.html" />
     <meta name="robots" content="index, follow" />
@@ -333,7 +333,7 @@
             flex-direction: column;
             gap: 12px;
             max-width: 420px;
-            margin: 0 auto 48px;
+            margin: 0 auto;
             padding: 0 16px;
         }
 
@@ -384,54 +384,6 @@
         }
 
         .btn-secondary i { color: var(--gold); font-size: 16px; }
-
-        /* STATS */
-        .stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 0 16px 20px;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 24px 16px;
-            text-align: center;
-            transition: all var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0.5;
-        }
-
-        .stat-card .number {
-            font-size: clamp(28px, 6vw, 40px);
-            font-weight: 900;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
-        }
-
-        .stat-card .label {
-            font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 600;
-            line-height: 1.5;
-        }
 
         /* SECTIONS */
         .section { padding: 60px 0 40px; }
@@ -584,36 +536,320 @@
 
         .novel-card .body .meta i { color: var(--gold); font-size: 10px; }
 
-        /* EMPTY STATE */
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--bg-card);
-            border: 1px dashed var(--border);
-            border-radius: var(--radius-lg);
-            color: var(--text-muted);
+        /* ============================================================
+           EPISODES GRID (في الصفحة الرئيسية)
+           ============================================================ */
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
-        .empty-state i {
-            font-size: 48px;
+        .episode-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .episode-card:active {
+            transform: scale(0.98);
+            border-color: var(--border-hover);
+        }
+
+        .episode-card .thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .episode-card .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .episode-card .thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .episode-card .thumb .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: rgba(245, 180, 0, 0.95);
+            color: #0A0A0A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 2;
+            transition: all var(--transition);
+            box-shadow: 0 0 30px rgba(245, 180, 0, 0.5), 0 0 0 8px rgba(245, 180, 0, 0.15);
+            padding-left: 5px;
+        }
+
+        .episode-card:active .play-btn {
+            transform: translate(-50%, -50%) scale(0.9);
+        }
+
+        .episode-card .thumb .duration {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            z-index: 2;
+            direction: ltr;
+        }
+
+        .episode-card .thumb .category-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(245, 180, 0, 0.9);
+            color: #0A0A0A;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 800;
+            z-index: 2;
+        }
+
+        .episode-card .body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .episode-card .body .episode-num {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 800;
             color: var(--gold);
-            opacity: 0.3;
-            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .episode-card .body .episode-num i { font-size: 10px; }
+
+        .episode-card .body h3 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.35;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .episode-card .body .description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .episode-card .body .meta {
+            display: flex;
+            gap: 14px;
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+            flex-wrap: wrap;
+            margin-top: 4px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        .episode-card .body .meta span { display: flex; align-items: center; gap: 5px; }
+
+        .episode-card .body .meta i { color: var(--gold); font-size: 10px; }
+
+        /* ============================================================
+           VIDEO MODAL
+           ============================================================ */
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .video-modal.active {
+            display: flex;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .video-modal-inner {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            max-height: 95vh;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .video-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        .video-modal-header .title-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .video-modal-header .episode-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 10px;
+            background: rgba(245, 180, 0, 0.1);
+            color: var(--gold);
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            align-self: flex-start;
+        }
+
+        .video-modal-header .title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .video-modal-close {
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .video-modal-close:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #0A0A0A;
+            transform: rotate(90deg);
+        }
+
+        .video-modal-body {
+            position: relative;
+            width: 100%;
+            background: #000;
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-body .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+
+        .video-modal-body iframe,
+        .video-modal-body video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
             display: block;
         }
 
-        .empty-state h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
+        .video-modal-description {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
         }
 
-        .empty-state p {
+        .video-modal-description p {
             font-size: 13px;
+            color: var(--text-secondary);
             line-height: 1.7;
-            max-width: 400px;
-            margin: 0 auto;
         }
 
         /* TEAM POSTER */
@@ -723,10 +959,11 @@
                 gap: 16px;
             }
             .btn-primary, .btn-secondary { flex: 1; padding: 16px 24px; }
-            .stats { max-width: 600px; gap: 24px; }
-            .stat-card { padding: 32px 20px; }
             .novels-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
             .novel-card .body h3 { font-size: 16px; }
+            .episodes-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .episode-card .body { padding: 20px; }
+            .episode-card .body h3 { font-size: 17px; }
             .footer-bottom {
                 flex-direction: row;
                 justify-content: space-between;
@@ -751,6 +988,14 @@
             }
             .novel-card:hover .cover img { transform: scale(1.05); }
             .btn-primary:hover, .btn-secondary:hover { transform: translateY(-2px); }
+            .episodes-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+            .episode-card:hover {
+                transform: translateY(-6px);
+                border-color: var(--border-hover);
+                box-shadow: var(--shadow-lg);
+            }
+            .episode-card:hover .thumb img { transform: scale(1.05); }
+            .episode-card:hover .play-btn { transform: translate(-50%, -50%) scale(1.1); }
         }
 
         @media (min-width: 1200px) {
@@ -768,12 +1013,8 @@
             .hero-badge { font-size: 11px; padding: 6px 14px; margin-bottom: 18px; }
             .hero h1 { font-size: 28px; }
             .hero p { font-size: 13px; margin: 16px auto 24px; }
-            .hero-buttons { margin-bottom: 32px; gap: 10px; }
+            .hero-buttons { gap: 10px; }
             .btn-primary, .btn-secondary { padding: 14px 22px; font-size: 14px; }
-            .stats { gap: 12px; padding: 0 12px 16px; }
-            .stat-card { padding: 20px 12px; border-radius: var(--radius); }
-            .stat-card .number { font-size: 28px; }
-            .stat-card .label { font-size: 11px; }
             .section { padding: 40px 0 30px; }
             .section-header { margin-bottom: 20px; gap: 10px; }
             .section-header .title-icon { width: 36px; height: 36px; font-size: 15px; }
@@ -784,6 +1025,17 @@
             .novel-card .body h3 { font-size: 13px; }
             .novel-card .body .meta { font-size: 10px; gap: 8px; }
             .novel-card .cover .category-tag { font-size: 9px; padding: 3px 10px; top: 8px; right: 8px; }
+            .episodes-grid { gap: 16px; }
+            .episode-card .body { padding: 14px; gap: 8px; }
+            .episode-card .body h3 { font-size: 14px; }
+            .episode-card .body .description { font-size: 12px; }
+            .episode-card .thumb .play-btn { width: 56px; height: 56px; font-size: 20px; }
+            .video-modal { padding: 10px; }
+            .video-modal-header { padding: 10px 14px; }
+            .video-modal-header .title { font-size: 13px; }
+            .video-modal-close { width: 34px; height: 34px; font-size: 14px; }
+            .video-modal-description { padding: 12px 14px; }
+            .video-modal-description p { font-size: 12px; }
             .footer { margin-top: 40px; padding: 30px 0 20px; }
             .footer-brand .logo { width: 60px; height: 60px; }
             .footer-brand .name { font-size: 16px; }
@@ -801,17 +1053,18 @@
             .hero { padding: 32px 0 24px; }
             .hero h1 { font-size: 24px; }
             .hero p { font-size: 12px; }
-            .stats { gap: 10px; }
-            .stat-card { padding: 18px 10px; }
-            .stat-card .number { font-size: 24px; }
-            .stat-card .label { font-size: 10px; }
             .novel-card .body h3 { font-size: 12px; }
+            .episode-card .body h3 { font-size: 13px; }
+            .episode-card .body .description { font-size: 11px; }
         }
 
         @media (hover: none) and (pointer: coarse) {
             .novel-card:hover { transform: none; box-shadow: none; }
             .novel-card:hover .cover img { transform: none; }
             .btn-primary:hover, .btn-secondary:hover { transform: none; }
+            .episode-card:hover { transform: none; box-shadow: none; }
+            .episode-card:hover .thumb img { transform: none; }
+            .episode-card:hover .play-btn { transform: translate(-50%, -50%); }
             .sidebar-nav a:hover { background: transparent; color: var(--text-secondary); border-right-color: transparent; }
             .sidebar-nav a.active { background: var(--bg-hover); color: var(--gold); border-right-color: var(--gold); }
         }
@@ -889,7 +1142,8 @@
 
         <div class="sidebar-footer">
             <div>جميع الحقوق محفوظة &copy; 2026</div>
-            <div class="dev">عدسة الروايات</div>
+            <div class="dev">بهاء الدين الحسين</div>
+            <div style="direction: ltr;">0982520358</div>
         </div>
     </aside>
 
@@ -920,17 +1174,6 @@
                     <i class="fas fa-book-open"></i>
                     <span>استكشف الروايات</span>
                 </a>
-            </div>
-
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="number">+100K</div>
-                    <div class="label">متابع وشغوف بالقصص</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">+50</div>
-                    <div class="label">رواية مراجعة ومصورة</div>
-                </div>
             </div>
         </div>
     </section>
@@ -971,11 +1214,7 @@
                 </a>
             </div>
 
-            <div class="empty-state">
-                <i class="fas fa-video"></i>
-                <h3>قريباً...</h3>
-                <p>نعمل حالياً على إنتاج حلقات مميزة لرواياتنا. تابعنا للاطلاع على جديدنا!</p>
-            </div>
+            <div class="episodes-grid" id="episodesGrid"></div>
         </div>
     </section>
 
@@ -983,10 +1222,34 @@
     <section class="team-poster-section">
         <div class="container">
             <div class="team-poster">
-                <img src="الفريق.jpeg" alt="فريق عدسة الروايات" onerror="this.style.display='none'" />
+                <img src="logo.jpeg" alt="فريق عدسة الروايات" onerror="this.style.display='none'" />
             </div>
         </div>
     </section>
+
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-inner">
+            <div class="video-modal-header">
+                <div class="title-info">
+                    <span class="episode-label" id="modalEpisodeLabel">
+                        <i class="fas fa-circle"></i>
+                        <span>الحلقة</span>
+                    </span>
+                    <span class="title" id="modalTitle">عنوان الحلقة</span>
+                </div>
+                <button class="video-modal-close" id="modalClose" aria-label="إغلاق">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-modal-body">
+                <div class="video-wrapper" id="videoWrapper"></div>
+            </div>
+            <div class="video-modal-description" id="modalDescription">
+                <p></p>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -1073,10 +1336,43 @@
             }
         ];
 
-        const grid = document.getElementById('novelsGrid');
+        // ============================================================
+        //  DATA - الفيديوهات (أحدث الحلقات)
+        // ============================================================
+        const episodes = [
+            {
+                id: 1,
+                title: 'تعريف عن فريق عدسة الروايات',
+                novel: 'تعريف',
+                episodeNum: 1,
+                duration: '00:30',
+                image: 'https://cdn-cf-east.streamable.com/image/8oo8f4.jpg',
+                description: 'فيديو تعريفي عن فريق عمل عدسة الروايات، رسالتنا، ورؤيتنا في عالم الإبداع القصصي والإنتاج السينمائي.',
+                source: 'streamable',
+                streamableId: '8oo8f4',
+                date: '2026-09-24'
+            },
+            {
+                id: 2,
+                title: 'رواية سكاي لاين: قصة رامي وعسل - حين يصبح الحب درساً',
+                novel: 'سكاي لاين',
+                episodeNum: 1,
+                duration: '00:30',
+                image: 'https://cdn-cf-east.streamable.com/image/9hwcrx.jpg',
+                description: 'رواية سكاي لاين: قصة رامي وعسل - حين يصبح الحب درساً. نظرة على الرواية التي أبكت وألهمت القراء.',
+                source: 'streamable',
+                streamableId: '9hwcrx',
+                date: '2026-09-25'
+            }
+        ];
+
+        // ============================================================
+        //  RENDER NOVELS
+        // ============================================================
+        const novelsGrid = document.getElementById('novelsGrid');
 
         function renderNovels() {
-            grid.innerHTML = novels.map(n => `
+            novelsGrid.innerHTML = novels.map(n => `
                 <a href="${n.file}" class="novel-card">
                     <div class="cover">
                         <img src="${n.image}" alt="غلاف ${n.title}" loading="lazy" onerror="this.style.display='none'" />
@@ -1093,7 +1389,104 @@
             `).join('');
         }
 
+        // ============================================================
+        //  RENDER EPISODES
+        // ============================================================
+        const episodesGrid = document.getElementById('episodesGrid');
+
+        function renderEpisodes() {
+            episodesGrid.innerHTML = episodes.map(ep => `
+                <div class="episode-card" data-id="${ep.id}" role="button" tabindex="0">
+                    <div class="thumb">
+                        <img src="${ep.image}" alt="${ep.title}" loading="lazy" onerror="this.style.display='none'" />
+                        <span class="category-badge">${ep.novel}</span>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span class="duration">${ep.duration}</span>
+                    </div>
+                    <div class="body">
+                        <div class="episode-num">
+                            <i class="fas fa-circle"></i>
+                            <span>الحلقة ${ep.episodeNum}</span>
+                        </div>
+                        <h3>${ep.title}</h3>
+                        <p class="description">${ep.description}</p>
+                        <div class="meta">
+                            <span><i class="fas fa-calendar"></i> ${ep.date}</span>
+                            <span><i class="fas fa-clock"></i> ${ep.duration}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.episode-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const id = parseInt(this.dataset.id);
+                    openVideo(id);
+                });
+            });
+        }
+
+        // ============================================================
+        //  VIDEO MODAL
+        // ============================================================
+        const modal = document.getElementById('videoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalEpisodeLabel = document.getElementById('modalEpisodeLabel');
+        const modalDescription = document.getElementById('modalDescription');
+        const videoWrapper = document.getElementById('videoWrapper');
+        const modalClose = document.getElementById('modalClose');
+
+        function openVideo(id) {
+            const ep = episodes.find(e => e.id === id);
+            if (!ep) return;
+
+            modalTitle.textContent = ep.title;
+            modalEpisodeLabel.querySelector('span').textContent = `الحلقة ${ep.episodeNum} • ${ep.novel}`;
+            modalDescription.querySelector('p').textContent = ep.description;
+
+            let videoHTML = '';
+
+            if (ep.source === 'streamable') {
+                videoHTML = `
+                    <iframe 
+                        src="https://streamable.com/e/${ep.streamableId}?autoplay=1"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen
+                        frameborder="0"
+                    ></iframe>
+                `;
+            }
+
+            videoWrapper.innerHTML = videoHTML;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideo() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                videoWrapper.innerHTML = '';
+            }, 300);
+        }
+
+        modalClose.addEventListener('click', closeVideo);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeVideo();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeVideo();
+            }
+        });
+
         renderNovels();
+        renderEpisodes();
     </script>
 
 </body>
