@@ -18,6 +18,7 @@
   --white:#ffffff;
   --success:#10b981;
   --danger:#ef4444;
+  --warning:#f59e0b;
   --sham:#8b5cf6;
   --usd:#059669;
   --border:#e5e7eb;
@@ -59,8 +60,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .top-bar i{color:var(--gold);margin-left:4px}
 .nav{
   display:flex;align-items:center;
-  padding:8px 12px;gap:8px;
-  min-height:52px;
+  padding:8px 12px;gap:8px;min-height:52px;
 }
 .menu-toggle{
   width:40px;height:40px;border-radius:10px;
@@ -71,10 +71,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   box-shadow:0 3px 10px rgba(220,38,38,0.25);
 }
 .menu-toggle:active{transform:scale(0.92)}
-.logo{
-  display:flex;align-items:center;gap:8px;
-  flex:1;cursor:pointer;min-width:0;
-}
+.logo{display:flex;align-items:center;gap:8px;flex:1;cursor:pointer;min-width:0}
 .logo-icon{
   width:38px;height:38px;border-radius:10px;
   overflow:hidden;flex-shrink:0;
@@ -86,10 +83,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 }
 .logo-icon img{width:100%;height:100%;object-fit:cover}
 .logo-text{display:flex;flex-direction:column;line-height:1.15;min-width:0}
-.logo-text strong{
-  font-size:.9rem;font-weight:900;color:var(--dark);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
+.logo-text strong{font-size:.9rem;font-weight:900;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .logo-text small{font-size:.6rem;color:var(--gray);font-weight:600}
 .nav-actions{display:flex;align-items:center;gap:2px;flex-shrink:0}
 .icon-btn{
@@ -107,14 +101,12 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   display:flex;align-items:center;justify-content:center;
   padding:0 3px;border:2px solid var(--white);
 }
-.badge.gold{background:var(--gold);color:var(--dark)}
 .avatar-btn{
   width:38px;height:38px;border-radius:50%;
   background:linear-gradient(135deg,var(--primary),var(--gold));
   color:var(--white);font-weight:900;font-size:.85rem;
   display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  box-shadow:0 3px 10px rgba(220,38,38,0.25);
+  flex-shrink:0;box-shadow:0 3px 10px rgba(220,38,38,0.25);
 }
 .avatar-btn:active{transform:scale(0.92)}
 
@@ -128,10 +120,33 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   transition:var(--transition);
 }
 .search-bar input:focus{border-color:var(--primary);background:var(--white);box-shadow:0 0 0 3px rgba(220,38,38,0.08)}
-.search-bar i{
-  position:absolute;right:14px;top:50%;
-  transform:translateY(-50%);color:var(--gray);font-size:.85rem;
+.search-bar i{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gray);font-size:.85rem}
+
+/* ===== Track Order Strip ===== */
+.track-strip{
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border-radius:12px;padding:12px 14px;
+  margin:0 12px 14px;
+  display:flex;align-items:center;gap:10px;
+  cursor:pointer;
+  border:1.5px solid #86efac;
 }
+.track-strip:active{transform:scale(0.98)}
+.track-strip .track-icon{
+  width:40px;height:40px;border-radius:11px;
+  background:linear-gradient(135deg,var(--success),#059669);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:1.05rem;flex-shrink:0;
+}
+.track-strip .track-text{flex:1;min-width:0}
+.track-strip .track-text strong{
+  font-size:.85rem;font-weight:900;color:#065f46;
+  display:block;margin-bottom:2px;
+}
+.track-strip .track-text small{
+  font-size:.7rem;color:#047857;font-weight:600;
+}
+.track-strip i.track-arrow{color:#059669;font-size:.9rem}
 
 /* ===== Hero ===== */
 .hero{padding:16px 12px}
@@ -160,10 +175,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   box-shadow:0 3px 10px rgba(0,0,0,0.06);
 }
 .hero-tag i{color:var(--gold)}
-.hero h1{
-  font-size:1.35rem;font-weight:900;
-  line-height:1.3;margin-bottom:10px;
-}
+.hero h1{font-size:1.35rem;font-weight:900;line-height:1.3;margin-bottom:10px}
 .hero h1 span{
   background:linear-gradient(135deg,var(--primary),var(--gold));
   -webkit-background-clip:text;background-clip:text;
@@ -174,9 +186,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   margin-bottom:16px;line-height:1.6;
   max-width:400px;margin-left:auto;margin-right:auto;
 }
-.hero-actions{
-  display:flex;gap:8px;justify-content:center;flex-wrap:wrap;
-}
+.hero-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .btn{
   padding:10px 18px;border-radius:50px;
   font-weight:800;font-size:.8rem;
@@ -186,8 +196,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .btn:active{transform:scale(0.96)}
 .btn-primary{
   background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-  color:var(--white);
-  box-shadow:0 5px 15px rgba(220,38,38,0.25);
+  color:var(--white);box-shadow:0 5px 15px rgba(220,38,38,0.25);
 }
 .btn-outline{
   background:var(--white);color:var(--dark);
@@ -214,8 +223,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 /* ===== Categories ===== */
 .cats-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
+  grid-template-columns:repeat(3,1fr);gap:8px;
 }
 .cat-card{
   background:var(--white);border-radius:12px;
@@ -244,10 +252,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .cat-card p{font-size:.6rem;color:var(--gray);font-weight:600}
 
 /* ===== Sub Chips ===== */
-.sub-chips{
-  display:flex;flex-wrap:wrap;gap:6px;
-  margin-top:12px;
-}
+.sub-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .chip{
   padding:6px 12px;border-radius:50px;
   background:var(--white);border:1.5px solid var(--border);
@@ -268,9 +273,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 
 /* ===== Products ===== */
 .products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
 }
 .product-card{
   background:var(--white);border-radius:12px;
@@ -280,13 +283,9 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 }
 .product-card:active{transform:scale(0.98)}
 .product-media{
-  position:relative;aspect-ratio:1/1;overflow:hidden;
-  background:#f1f5f9;
+  position:relative;aspect-ratio:1/1;overflow:hidden;background:#f1f5f9;
 }
-.product-media img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .4s;
-}
+.product-media img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .badge-pill{
   position:absolute;top:6px;right:6px;
   padding:3px 9px;border-radius:50px;
@@ -309,8 +308,8 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .product-cat{
   font-size:.6rem;color:var(--primary);
   font-weight:800;text-transform:uppercase;
-  letter-spacing:.3px;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  letter-spacing:.3px;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap;
 }
 .product-title{
   font-size:.78rem;font-weight:700;
@@ -319,19 +318,14 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   -webkit-box-orient:vertical;overflow:hidden;
   min-height:2.05em;
 }
-.product-rating{
-  display:flex;align-items:center;gap:3px;
-  font-size:.65rem;
-}
+.product-rating{display:flex;align-items:center;gap:3px;font-size:.65rem}
 .product-rating .stars{color:var(--gold);font-size:.62rem}
 .product-rating .reviews{color:var(--gray);font-weight:600}
 .price-tag{
   display:flex;align-items:baseline;gap:6px;
   margin-top:2px;flex-wrap:wrap;
 }
-.price-current{
-  font-size:1rem;font-weight:900;color:var(--usd);
-}
+.price-current{font-size:1rem;font-weight:900;color:var(--usd)}
 .price-old{
   font-size:.7rem;color:var(--gray);
   text-decoration:line-through;font-weight:600;
@@ -345,7 +339,6 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 }
 .add-btn:active{transform:scale(0.96)}
 
-/* Empty */
 .empty{
   grid-column:1/-1;text-align:center;padding:40px 20px;
   background:var(--white);border-radius:12px;
@@ -360,9 +353,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   background:var(--white);border-radius:14px;
   padding:18px;border:1.5px solid var(--border);
 }
-.about-card h2{
-  font-size:1.1rem;font-weight:900;margin-bottom:10px;
-}
+.about-card h2{font-size:1.1rem;font-weight:900;margin-bottom:10px}
 .about-card h2 span{
   background:linear-gradient(135deg,var(--primary),var(--gold));
   -webkit-background-clip:text;background-clip:text;
@@ -373,10 +364,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:8px;margin-top:12px;
 }
-.stat{
-  background:var(--light);padding:12px 6px;
-  border-radius:10px;text-align:center;
-}
+.stat{background:var(--light);padding:12px 6px;border-radius:10px;text-align:center}
 .stat .num{font-size:1.05rem;font-weight:900;color:var(--primary)}
 .stat .lbl{font-size:.62rem;color:var(--gray);font-weight:700;margin-top:2px}
 
@@ -384,7 +372,6 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .info-card{
   background:var(--white);border-radius:14px;
   padding:16px;border:1.5px solid var(--border);
-  display:flex;flex-direction:column;gap:0;
 }
 .info-row{
   display:flex;align-items:flex-start;gap:12px;
@@ -407,13 +394,12 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .info-text .val{font-size:.85rem;font-weight:800;color:var(--dark);word-break:break-word;line-height:1.5}
 .info-text .val.link{color:var(--primary);text-decoration:underline}
 
-/* Sham Box */
 .sham-box{
   background:linear-gradient(135deg,#f5f3ff,#ede9fe);
   border:2px dashed var(--sham);
   border-radius:14px;padding:16px;
-  margin-top:12px;
-  display:flex;flex-direction:column;gap:12px;
+  margin-top:12px;display:flex;
+  flex-direction:column;gap:12px;
   align-items:center;text-align:center;
 }
 .sham-header{
@@ -434,8 +420,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   color:var(--sham);letter-spacing:.3px;
   direction:ltr;word-break:break-all;
   display:flex;align-items:center;justify-content:space-between;
-  gap:8px;cursor:pointer;
-  border:2px solid transparent;
+  gap:8px;cursor:pointer;border:2px solid transparent;
 }
 .sham-id:active{border-color:var(--sham)}
 .sham-id i{color:var(--gray);font-size:.85rem}
@@ -449,14 +434,13 @@ footer{
 .footer-inner{display:flex;flex-direction:column;gap:20px}
 .footer-brand{
   display:flex;align-items:center;gap:10px;
-  padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.08);
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
   justify-content:center;
 }
 .footer-brand-text strong{color:var(--white);font-size:.95rem;font-weight:900;display:block}
 .footer-brand-text small{color:#94a3b8;font-size:.68rem;font-weight:600}
-.footer-social{
-  display:flex;gap:8px;justify-content:center;padding:8px 0;
-}
+.footer-social{display:flex;gap:8px;justify-content:center;padding:8px 0}
 .footer-social a{
   width:40px;height:40px;border-radius:50%;
   background:rgba(255,255,255,0.08);
@@ -469,16 +453,14 @@ footer{
 .footer-social a.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
 .footer-social a.email{background:var(--primary)}
 .footer-links{
-  display:grid;grid-template-columns:1fr 1fr;gap:20px;
-  padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:20px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,0.08);
 }
 .footer-col h4{color:var(--white);font-size:.85rem;margin-bottom:10px;font-weight:800}
 .footer-col ul{list-style:none}
 .footer-col ul li{margin-bottom:8px}
-.footer-col ul li a{
-  font-size:.78rem;color:#cbd5e1;
-  display:inline-flex;align-items:center;gap:6px;
-}
+.footer-col ul li a{font-size:.78rem;color:#cbd5e1;display:inline-flex;align-items:center;gap:6px}
 .footer-col ul li a:active{color:var(--gold)}
 .footer-copy{
   text-align:center;font-size:.72rem;color:var(--gray);
@@ -494,32 +476,24 @@ footer{
 }
 .overlay.active{opacity:1;visibility:visible}
 
-/* ===== SIDE MENU - FIXED ===== */
+/* ===== SIDE MENU ===== */
 .side-menu{
-  position:fixed;
-  top:0;
-  right:0;
-  width:85%;
-  max-width:320px;
-  height:100vh;
-  height:100dvh;
-  background:var(--white);
-  z-index:999;
+  position:fixed;top:0;right:0;
+  width:85%;max-width:320px;
+  height:100vh;height:100dvh;
+  background:var(--white);z-index:999;
   transform:translateX(100%);
   transition:transform .3s cubic-bezier(0.4,0,0.2,1);
-  display:flex;
-  flex-direction:column;
+  display:flex;flex-direction:column;
   box-shadow:-10px 0 40px rgba(0,0,0,0.2);
-  overflow:hidden;
-  will-change:transform;
+  overflow:hidden;will-change:transform;
 }
 .side-menu.active{transform:translateX(0)}
 .side-header{
   padding:16px;
   background:linear-gradient(135deg,rgba(220,38,38,0.06),rgba(234,179,8,0.06));
   display:flex;align-items:center;gap:10px;
-  border-bottom:1px solid var(--border);
-  flex-shrink:0;
+  border-bottom:1px solid var(--border);flex-shrink:0;
 }
 .side-header .logo-icon{width:46px;height:46px;font-size:1.2rem}
 .side-header .logo-text strong{font-size:1rem}
@@ -539,9 +513,9 @@ footer{
 }
 .side-section{margin-bottom:14px}
 .side-title{
-  font-size:.68rem;font-weight:800;
-  color:var(--gray);text-transform:uppercase;
-  letter-spacing:.5px;padding:8px 14px 6px;
+  font-size:.68rem;font-weight:800;color:var(--gray);
+  text-transform:uppercase;letter-spacing:.5px;
+  padding:8px 14px 6px;
 }
 .side-item{
   display:flex;align-items:center;gap:12px;
@@ -550,8 +524,7 @@ footer{
   color:var(--dark);cursor:pointer;
   transition:var(--transition);
   background:transparent;width:100%;
-  text-align:right;border:none;
-  font-family:inherit;
+  text-align:right;border:none;font-family:inherit;
 }
 .side-item:active{background:var(--light);transform:scale(0.98)}
 .side-item.active{
@@ -562,8 +535,7 @@ footer{
   width:36px;height:36px;border-radius:10px;
   background:linear-gradient(135deg,rgba(220,38,38,0.08),rgba(234,179,8,0.08));
   display:flex;align-items:center;justify-content:center;
-  font-size:.9rem;color:var(--primary);
-  flex-shrink:0;
+  font-size:.9rem;color:var(--primary);flex-shrink:0;
 }
 .side-item.active i{
   background:linear-gradient(135deg,var(--primary),var(--primary-dark));
@@ -630,9 +602,7 @@ footer{
   padding:14px 16px;border-top:1px solid var(--border);
   background:var(--light);flex-shrink:0;
 }
-.cart-empty{
-  text-align:center;padding:50px 16px;color:var(--gray);
-}
+.cart-empty{text-align:center;padding:50px 16px;color:var(--gray)}
 .cart-empty i{font-size:2.8rem;color:#cbd5e1;margin-bottom:12px;display:block}
 .cart-empty p{font-size:.85rem;margin-bottom:14px}
 .cart-item{
@@ -683,6 +653,8 @@ footer{
   margin-top:10px;border:none;
 }
 .checkout-btn:active{transform:scale(0.97)}
+
+/* Order card */
 .order-card{
   background:var(--white);border-radius:12px;
   padding:12px;margin-bottom:10px;
@@ -692,7 +664,7 @@ footer{
   display:flex;justify-content:space-between;
   align-items:center;margin-bottom:8px;gap:8px;flex-wrap:wrap;
 }
-.order-id{font-size:.75rem;font-weight:900;direction:ltr;color:var(--dark);word-break:break-all}
+.order-id{font-size:.72rem;font-weight:900;direction:ltr;color:var(--dark);word-break:break-all}
 .status-pill{
   padding:3px 9px;border-radius:50px;
   font-size:.6rem;font-weight:800;color:var(--white);flex-shrink:0;
@@ -707,6 +679,110 @@ footer{
   font-size:.72rem;color:var(--gray);margin-bottom:3px;
 }
 .order-info-row .val{color:var(--dark);font-weight:700}
+.order-card-actions{
+  display:flex;gap:6px;margin-top:10px;
+}
+.order-card-actions button{
+  flex:1;padding:8px;border-radius:9px;
+  font-size:.72rem;font-weight:700;border:none;font-family:inherit;
+}
+.order-btn-view{background:var(--light);color:var(--dark)}
+.order-btn-view:active{background:var(--primary);color:var(--white)}
+
+/* ===== Tracking Result ===== */
+.tracking-header{
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border-radius:14px;padding:16px;
+  margin-bottom:16px;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:10px;
+}
+.tracking-header .oid{
+  font-size:.78rem;font-weight:900;
+  direction:ltr;color:#065f46;
+  word-break:break-all;
+}
+.tracking-timeline{
+  position:relative;padding-right:28px;
+  margin-bottom:16px;
+}
+.tracking-timeline::before{
+  content:'';position:absolute;
+  top:10px;bottom:10px;right:13px;
+  width:2px;background:#e2e8f0;
+}
+.track-step{
+  position:relative;padding:0 0 20px 0;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.track-step:last-child{padding-bottom:0}
+.track-step::before{
+  content:'';position:absolute;right:7px;top:4px;
+  width:14px;height:14px;border-radius:50%;
+  background:#e2e8f0;border:3px solid var(--white);
+  box-shadow:0 0 0 2px #e2e8f0;z-index:1;
+}
+.track-step.completed::before{background:var(--success);box-shadow:0 0 0 2px var(--success)}
+.track-step.active::before{
+  background:var(--primary);box-shadow:0 0 0 2px var(--primary);
+  animation:pulseDot 1.5s ease-in-out infinite;
+}
+.track-step.cancelled::before{background:var(--danger);box-shadow:0 0 0 2px var(--danger)}
+@keyframes pulseDot{
+  0%,100%{box-shadow:0 0 0 2px var(--primary)}
+  50%{box-shadow:0 0 0 8px rgba(220,38,38,0.2)}
+}
+.track-step-info{flex:1}
+.track-step-info h4{
+  font-size:.85rem;font-weight:800;
+  margin-bottom:2px;color:var(--dark);
+}
+.track-step.completed .track-step-info h4{color:var(--success)}
+.track-step.active .track-step-info h4{color:var(--primary)}
+.track-step.cancelled .track-step-info h4{color:var(--danger)}
+.track-step-info p{font-size:.72rem;color:var(--gray);line-height:1.5}
+
+/* ===== Upload Box ===== */
+.upload-box{
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border:2px dashed var(--success);
+  border-radius:12px;padding:16px;
+  margin-bottom:14px;text-align:center;
+  transition:var(--transition);cursor:pointer;
+}
+.upload-box:active{border-color:#059669;transform:scale(0.99)}
+.upload-box.dragover{
+  border-color:#059669;
+  background:linear-gradient(135deg,#dcfce7,#bbf7d0);
+  transform:scale(1.02);
+}
+.upload-icon{
+  width:56px;height:56px;margin:0 auto 10px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--success),#047857);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;color:var(--white);
+  box-shadow:0 8px 20px rgba(16,185,129,0.3);
+}
+.upload-box h3{color:#065f46;font-size:.92rem;font-weight:900;margin-bottom:4px}
+.upload-box p{color:#047857;font-size:.75rem;margin-bottom:10px}
+.upload-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 18px;border-radius:50px;
+  background:linear-gradient(135deg,var(--success),#047857);
+  color:var(--white);font-weight:800;font-size:.78rem;
+  cursor:pointer;border:none;
+}
+.upload-preview{margin-top:12px;display:none}
+.upload-preview img{
+  max-width:180px;max-height:180px;
+  border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.1);
+  margin:0 auto;border:3px solid var(--white);
+}
+.upload-preview .file-name{
+  margin-top:8px;font-size:.72rem;
+  color:#065f46;font-weight:800;word-break:break-all;
+}
 
 /* ===== Modal ===== */
 .modal{
@@ -721,12 +797,11 @@ footer{
   background:var(--white);
   border-radius:20px 20px 0 0;
   width:100%;max-width:520px;
-  max-height:90vh;max-height:90dvh;
+  max-height:92vh;max-height:92dvh;
   overflow-y:auto;
   transform:translateY(40px);
   transition:transform .3s cubic-bezier(0.4,0,0.2,1);
-  position:relative;
-  -webkit-overflow-scrolling:touch;
+  position:relative;-webkit-overflow-scrolling:touch;
 }
 .modal.active .modal-content{transform:translateY(0)}
 .modal-handle{
@@ -745,21 +820,17 @@ footer{
 
 /* Product Modal */
 .product-modal-img{
-  width:100%;aspect-ratio:1/1;object-fit:cover;
-  background:#f1f5f9;
+  width:100%;aspect-ratio:1/1;object-fit:cover;background:#f1f5f9;
 }
 .product-modal-info{padding:18px}
 .product-modal-info .cat{
   color:var(--primary);font-size:.68rem;
   font-weight:800;text-transform:uppercase;margin-bottom:6px;
 }
-.product-modal-info h2{
-  font-size:1.1rem;font-weight:900;
-  line-height:1.3;margin-bottom:8px;
-}
+.product-modal-info h2{font-size:1.1rem;font-weight:900;line-height:1.3;margin-bottom:8px}
 .product-modal-info .rating{
-  color:var(--gold);font-size:.85rem;
-  margin-bottom:12px;display:flex;align-items:center;gap:6px;
+  color:var(--gold);font-size:.85rem;margin-bottom:12px;
+  display:flex;align-items:center;gap:6px;
 }
 .product-modal-info .rating span{color:var(--gray);font-size:.72rem}
 .product-modal-info .desc{
@@ -769,9 +840,9 @@ footer{
 .price-box{
   background:linear-gradient(135deg,#f0fdf4,#dcfce7);
   border-radius:12px;padding:14px;
-  margin-bottom:14px;
-  display:flex;justify-content:space-between;
-  align-items:center;gap:10px;flex-wrap:wrap;
+  margin-bottom:14px;display:flex;
+  justify-content:space-between;align-items:center;
+  gap:10px;flex-wrap:wrap;
 }
 .price-box .cur{font-size:1.4rem;font-weight:900;color:var(--usd)}
 .price-box .old{
@@ -800,15 +871,18 @@ footer{
 .auth-tab{
   flex:1;padding:10px;border-radius:8px;
   background:transparent;color:var(--gray);
-  font-weight:800;font-size:.8rem;border:none;
-  font-family:inherit;
+  font-weight:800;font-size:.8rem;
+  border:none;font-family:inherit;
 }
-.auth-tab.active{background:var(--white);color:var(--primary);box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+.auth-tab.active{
+  background:var(--white);color:var(--primary);
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
+}
 .auth-form{padding:0 18px 20px;display:flex;flex-direction:column;gap:10px}
 .auth-field{position:relative}
 .auth-field i{
-  position:absolute;right:14px;top:50%;transform:translateY(-50%);
-  color:var(--gray);font-size:.85rem;
+  position:absolute;right:14px;top:50%;
+  transform:translateY(-50%);color:var(--gray);font-size:.85rem;
 }
 .auth-field input{
   width:100%;padding:12px 42px 12px 12px;
@@ -816,7 +890,10 @@ footer{
   font-size:16px;background:var(--white);
   transition:var(--transition);font-family:inherit;
 }
-.auth-field input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(220,38,38,0.08)}
+.auth-field input:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(220,38,38,0.08);
+}
 .auth-submit{
   padding:13px;border-radius:11px;
   background:linear-gradient(135deg,var(--primary),var(--primary-dark));
@@ -863,9 +940,10 @@ footer{
   .menu-toggle{width:44px;height:44px;font-size:1.15rem}
   .logo-icon{width:42px;height:42px;font-size:1.15rem}
   .logo-text strong{font-size:1rem}
-  .logo-text small{font-size:.65rem}
   .icon-btn{width:42px;height:42px;font-size:1rem}
+  .avatar-btn{width:42px;height:42px;font-size:.9rem}
   .search-wrap{padding:0 16px 12px}
+  .track-strip{margin:0 16px 16px}
   .hero{padding:20px 16px}
   .hero-inner{padding:28px 22px}
   .hero h1{font-size:1.6rem}
@@ -890,13 +968,11 @@ footer{
   .footer-links{grid-template-columns:1fr 1fr 1fr}
 }
 @media(min-width:768px){
-  body{font-size:15px}
   .nav{max-width:1400px;margin:0 auto;padding:12px 24px;gap:16px;min-height:64px}
   .logo-icon{width:46px;height:46px;font-size:1.25rem}
   .logo-text strong{font-size:1.1rem}
-  .logo-text small{font-size:.68rem}
   .search-wrap{max-width:1400px;margin:0 auto;padding:0 24px 14px}
-  .search-bar input{padding:11px 42px 11px 16px;font-size:.92rem}
+  .track-strip{max-width:1400px;margin:0 auto 16px;padding:14px 20px;border-radius:14px}
   .hero{max-width:1400px;margin:0 auto;padding:30px 24px}
   .hero-inner{text-align:right;padding:36px 30px}
   .hero h1{font-size:2rem}
@@ -907,9 +983,7 @@ footer{
   .products{grid-template-columns:repeat(4,1fr);gap:14px}
   .cats-grid{grid-template-columns:repeat(6,1fr)}
   .about-card{padding:24px}
-  .about-card p{font-size:.9rem}
   .info-card{padding:24px}
-  .info-text .val{font-size:.92rem}
   .modal{align-items:center;padding:20px}
   .modal-content{border-radius:20px;max-width:900px}
   .modal-handle{display:none}
@@ -919,7 +993,7 @@ footer{
     display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
     gap:30px;
   }
-  .footer-brand{justify-content:flex-start;grid-column:1/-1;padding-bottom:20px;margin-bottom:0}
+  .footer-brand{justify-content:flex-start;grid-column:1/-1}
   .footer-social{grid-column:1/-1;justify-content:center}
   .footer-links{display:contents}
 }
@@ -930,7 +1004,6 @@ footer{
   .hero-inner{padding:50px 40px}
   .hero h1{font-size:2.5rem}
   .products{grid-template-columns:repeat(5,1fr);gap:16px}
-  .cats-grid{grid-template-columns:repeat(6,1fr)}
 }
 </style>
 </head>
@@ -976,6 +1049,16 @@ footer{
   </div>
 </header>
 
+<!-- Track Order Strip -->
+<div class="track-strip" onclick="openTracking()">
+  <div class="track-icon"><i class="fas fa-map-location-dot"></i></div>
+  <div class="track-text">
+    <strong>تتبّع طلبك</strong>
+    <small>اضغط لمعرفة حالة طلبك الحالية</small>
+  </div>
+  <i class="fas fa-chevron-left track-arrow"></i>
+</div>
+
 <!-- Hero -->
 <section class="hero">
   <div class="hero-inner">
@@ -986,8 +1069,8 @@ footer{
       <button class="btn btn-primary" onclick="scrollToProducts()">
         <i class="fas fa-shopping-cart"></i> تسوق الآن
       </button>
-      <button class="btn btn-outline" onclick="scrollToInfo()">
-        <i class="fas fa-info-circle"></i> معلومات التواصل
+      <button class="btn btn-outline" onclick="openTracking()">
+        <i class="fas fa-map-location-dot"></i> تتبع طلب
       </button>
     </div>
   </div>
@@ -1088,17 +1171,17 @@ footer{
       </div>
     </div>
     <div class="footer-social">
-      <a class="fb" href="https://www.facebook.com/share/1DqxSRPvxK/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a class="wa" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a class="ig" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a class="email" href="mailto:mohammedshekho1155@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a class="fb" href="https://www.facebook.com/share/1DqxSRPvxK/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+      <a class="wa" href="https://wa.me/" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+      <a class="ig" href="#"><i class="fab fa-instagram"></i></a>
+      <a class="email" href="mailto:mohammedshekho1155@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
     <div class="footer-links">
       <div class="footer-col">
         <h4>روابط سريعة</h4>
         <ul>
           <li><a href="javascript:void(0)" onclick="scrollToProducts()"><i class="fas fa-angle-left"></i> المنتجات</a></li>
-          <li><a href="javascript:void(0)" onclick="scrollToInfo()"><i class="fas fa-angle-left"></i> التواصل</a></li>
+          <li><a href="javascript:void(0)" onclick="openTracking()"><i class="fas fa-angle-left"></i> تتبع الطلب</a></li>
           <li><a href="javascript:void(0)" onclick="openMyOrders()"><i class="fas fa-angle-left"></i> طلباتي</a></li>
         </ul>
       </div>
@@ -1133,7 +1216,6 @@ footer{
     </button>
   </div>
   <div class="side-body">
-    <!-- User Section -->
     <div id="sideUserSection"></div>
     
     <div class="side-section">
@@ -1143,6 +1225,9 @@ footer{
       </button>
       <button class="side-item" onclick="closeSideMenu();scrollToProducts()">
         <i class="fas fa-store"></i> المنتجات
+      </button>
+      <button class="side-item" onclick="closeSideMenu();openTracking()">
+        <i class="fas fa-map-location-dot"></i> تتبع الطلب
       </button>
       <button class="side-item" onclick="closeSideMenu();openMyOrders()">
         <i class="fas fa-receipt"></i> طلباتي
@@ -1214,6 +1299,31 @@ footer{
     <button class="close-btn" onclick="closeMyOrders()"><i class="fas fa-times"></i></button>
   </div>
   <div class="drawer-body" id="ordersBody"></div>
+</div>
+
+<!-- Tracking Drawer -->
+<div class="drawer" id="trackingDrawer">
+  <div class="drawer-header">
+    <h3><i class="fas fa-map-location-dot" style="color:var(--primary)"></i> تتبع الطلب</h3>
+    <button class="close-btn" onclick="closeTracking()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="drawer-body">
+    <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:12px;padding:12px;margin-bottom:14px;display:flex;gap:10px;align-items:center">
+      <i class="fas fa-info-circle" style="color:var(--success);font-size:1.2rem"></i>
+      <div style="font-size:.78rem;color:#065f46;font-weight:700;line-height:1.5">
+        أدخل رقم الطلب لمعرفة حالته الحالية
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:16px">
+      <input type="text" id="trackInput" placeholder="CM-XXXXXXXX-XXXX" 
+        style="flex:1;padding:12px 14px;border:1.5px solid var(--border);border-radius:11px;font-size:16px;text-align:center;direction:ltr;font-family:inherit">
+      <button onclick="trackOrder()" 
+        style="padding:12px 18px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);font-weight:800;border:none;font-family:inherit">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    <div id="trackingResult"></div>
+  </div>
 </div>
 
 <!-- Product Modal -->
@@ -1322,6 +1432,7 @@ let users = JSON.parse(localStorage.getItem('cm_users')) || [];
 let currentUser = JSON.parse(localStorage.getItem('cm_current_user')) || null;
 let allOrders = JSON.parse(localStorage.getItem('cm_orders')) || [];
 let authMode = 'login';
+let receiptImageData = null;
 
 function saveCart(){localStorage.setItem('cm_cart', JSON.stringify(cart))}
 function saveWishlist(){localStorage.setItem('cm_wishlist', JSON.stringify(wishlist))}
@@ -1372,7 +1483,6 @@ function renderCategories(){
     </div>
   `).join('');
   
-  // Side menu categories
   document.getElementById('sideMenuCats').innerHTML = mainCategories.map(c =>
     `<button class="side-item" onclick="closeSideMenu();selectMain('${c.id}')">
       <i class="fas ${c.icon}"></i> ${c.name}
@@ -1479,15 +1589,6 @@ function selectMain(id){
 }
 function selectSub(id){
   currentSub = id;
-  renderSubChips();
-  renderProducts();
-}
-function clearFilters(){
-  currentMain = 'all';
-  currentSub = 'all';
-  searchQuery = '';
-  document.getElementById('searchInput').value = '';
-  renderCategories();
   renderSubChips();
   renderProducts();
 }
@@ -1710,8 +1811,6 @@ function updateAuthUI(){
   
   if (currentUser){
     btn.textContent = currentUser.name.charAt(0).toUpperCase();
-    btn.style.background = 'linear-gradient(135deg, var(--primary), var(--gold))';
-    btn.style.color = 'var(--white)';
     sideUser.innerHTML = `
       <div class="side-user">
         <div class="side-user-avatar">${currentUser.name.charAt(0).toUpperCase()}</div>
@@ -1723,8 +1822,6 @@ function updateAuthUI(){
     `;
   } else {
     btn.textContent = '؟';
-    btn.style.background = 'linear-gradient(135deg, var(--primary), var(--gold))';
-    btn.style.color = 'var(--white)';
     sideUser.innerHTML = `
       <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
         <button class="btn btn-primary" style="justify-content:center" onclick="closeSideMenu();openAuth('login')">
@@ -1785,14 +1882,152 @@ function renderMyOrders(){
         <span class="status-pill ${o.status}">${o.statusLabel}</span>
       </div>
       <div class="order-info-row"><span>التاريخ:</span><span class="val">${o.dateFormatted}</span></div>
-      <div class="order-info-row"><span>المنتجات:</span><span class="val">${o.items.length}</span></div>
+      <div class="order-info-row"><span>المنتجات:</span><span class="val">${o.items.length} منتج</span></div>
       <div class="order-info-row"><span>الإجمالي:</span><span class="val" style="color:var(--usd)">${formatUSD(o.totalUSD)}</span></div>
+      <div class="order-card-actions">
+        <button class="order-btn-view" onclick="viewOrderTracking('${o.id}')">
+          <i class="fas fa-map-location-dot"></i> تتبع
+        </button>
+      </div>
     </div>
   `).join('');
 }
+function viewOrderTracking(orderId){
+  closeMyOrders();
+  openTracking(orderId);
+}
 
 /* =========================================================
-   CHECKOUT
+   TRACKING SYSTEM
+   ========================================================= */
+function openTracking(orderId){
+  openDrawer('trackingDrawer');
+  document.getElementById('trackingResult').innerHTML = '';
+  if (orderId){
+    document.getElementById('trackInput').value = orderId;
+    setTimeout(trackOrder, 300);
+  } else if (currentUser){
+    // Show latest order automatically if user logged in
+    const userOrders = allOrders.filter(o => o.userId === currentUser.id);
+    if (userOrders.length > 0){
+      const lastOrder = userOrders[userOrders.length - 1];
+      document.getElementById('trackInput').value = lastOrder.id;
+    }
+  }
+}
+function closeTracking(){closeDrawer('trackingDrawer')}
+function trackOrder(){
+  const input = document.getElementById('trackInput').value.trim().toUpperCase();
+  const result = document.getElementById('trackingResult');
+  
+  if (!input){
+    showToast('⚠️ أدخل رقم الطلب','error');
+    return;
+  }
+  
+  const order = allOrders.find(o => o.id.toUpperCase() === input);
+  
+  if (!order){
+    result.innerHTML = `
+      <div style="text-align:center;padding:40px 20px;background:var(--white);border-radius:14px;border:1.5px dashed var(--border)">
+        <i class="fas fa-search-minus" style="font-size:2.5rem;color:#cbd5e1;margin-bottom:12px;display:block"></i>
+        <h3 style="font-size:.95rem;font-weight:900;margin-bottom:6px">لم يتم العثور على الطلب</h3>
+        <p style="font-size:.78rem;color:var(--gray)">تأكد من رقم الطلب وحاول مرة أخرى</p>
+      </div>
+    `;
+    return;
+  }
+  
+  const statusSteps = {
+    pending: 1,
+    processing: 2,
+    shipping: 3,
+    delivered: 4,
+    cancelled: -1
+  };
+  const currentStep = statusSteps[order.status] || 1;
+  const isCancelled = order.status === 'cancelled';
+  
+  const steps = [
+    {label:'تم استلام الطلب', desc:'طلبك وصل إلينا بنجاح'},
+    {label:'قيد المراجعة', desc:'جاري التحقق من إشعار الدفع'},
+    {label:'قيد التجهيز', desc:'جاري تجهيز منتجاتك'},
+    {label:'في الطريق', desc:'طلبك في طريقه إليك'},
+    {label:'تم التسليم', desc:'تم تسليم الطلب بنجاح'}
+  ];
+  
+  const statusColors = {
+    pending: 'var(--warning)',
+    processing: '#8b5cf6',
+    shipping: 'var(--primary)',
+    delivered: 'var(--success)',
+    cancelled: 'var(--danger)'
+  };
+  
+  result.innerHTML = `
+    <div style="animation:fadeIn .3s">
+      <div class="tracking-header" style="${isCancelled ? 'background:linear-gradient(135deg,#fef2f2,#fee2e2)' : ''}">
+        <div>
+          <div style="font-size:.68rem;color:var(--gray);margin-bottom:4px;font-weight:700">رقم الطلب</div>
+          <div class="oid" style="${isCancelled ? 'color:var(--danger)' : ''}">${order.id}</div>
+        </div>
+        <div style="padding:4px 12px;border-radius:50px;font-size:.68rem;font-weight:800;color:#fff;background:${statusColors[order.status]}">
+          ${order.statusLabel}
+        </div>
+      </div>
+      
+      ${isCancelled ? `
+        <div style="background:linear-gradient(135deg,#fef2f2,#fee2e2);border-radius:12px;padding:16px;margin-bottom:16px;text-align:center;border:1.5px solid #fecaca">
+          <i class="fas fa-times-circle" style="font-size:2.5rem;color:var(--danger);margin-bottom:8px;display:block"></i>
+          <h3 style="font-weight:900;color:var(--danger);margin-bottom:4px;font-size:.95rem">تم إلغاء الطلب</h3>
+          <p style="font-size:.78rem;color:#7f1d1d">${order.cancelReason || 'لم يتم التحقق من إشعار الدفع'}</p>
+        </div>
+      ` : ''}
+      
+      <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:12px;padding:14px;margin-bottom:16px;font-size:.8rem">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+          <span style="color:var(--gray);font-weight:700">التاريخ:</span>
+          <span style="font-weight:800">${order.dateFormatted}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+          <span style="color:var(--gray);font-weight:700">المنتجات:</span>
+          <span style="font-weight:800">${order.items.length} منتج</span>
+        </div>
+        <div style="display:flex;justify-content:space-between">
+          <span style="color:var(--gray);font-weight:700">الإجمالي:</span>
+          <span style="font-weight:900;color:var(--usd)">${formatUSD(order.totalUSD)}</span>
+        </div>
+      </div>
+      
+      ${!isCancelled ? `
+        <div class="tracking-timeline">
+          ${steps.map((step, i) => {
+            const stepNum = i + 1;
+            const cls = stepNum < currentStep ? 'completed' : stepNum === currentStep ? 'active' : '';
+            return `
+              <div class="track-step ${cls}">
+                <div class="track-step-info">
+                  <h4>${step.label}</h4>
+                  <p>${step.desc}</p>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      ` : ''}
+      
+      <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:12px;font-size:.75rem;color:#92400e;font-weight:700;line-height:1.6;display:flex;gap:8px">
+        <i class="fas fa-info-circle" style="font-size:1.1rem;flex-shrink:0;margin-top:2px"></i>
+        <div>
+          <strong>ملاحظة:</strong> يتم تجهيز الطلب بعد التأكد من صحة إشعار الدفع من قبل الإدارة. في حال عدم صحة الإشعار، يتم إلغاء الطلب.
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/* =========================================================
+   CHECKOUT WITH RECEIPT UPLOAD
    ========================================================= */
 function openCheckout(){
   if (cart.length === 0){ showToast('سلتك فارغة!','error'); return; }
@@ -1803,29 +2038,31 @@ function openCheckout(){
     return;
   }
   closeCart();
+  receiptImageData = null;
   const total = cart.reduce((s,i)=>s+i.priceUSD*i.qty,0);
+  
   document.getElementById('checkoutBody').innerHTML = `
     <h2 style="font-size:1.15rem;font-weight:900;margin-bottom:6px;display:flex;align-items:center;gap:8px">
       <i class="fas fa-credit-card" style="color:var(--sham)"></i> إتمام الشراء
     </h2>
-    <p style="font-size:.8rem;color:var(--gray);margin-bottom:16px">حوّل المبلغ عبر شام كاش ثم أدخل بياناتك</p>
+    <p style="font-size:.78rem;color:var(--gray);margin-bottom:14px">حوّل المبلغ عبر شام كاش ثم ارفع صورة الإشعار</p>
     
-    <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px dashed var(--sham);border-radius:12px;padding:14px;margin-bottom:14px;text-align:center">
-      <div style="color:#5b21b6;font-weight:900;font-size:.95rem;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px">
+    <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px dashed var(--sham);border-radius:12px;padding:14px;margin-bottom:12px;text-align:center">
+      <div style="color:#5b21b6;font-weight:900;font-size:.9rem;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px">
         <i class="fas fa-wallet"></i> شام كاش
       </div>
-      <div style="background:#fff;border-radius:10px;padding:10px;font-size:.7rem;font-weight:900;color:var(--sham);letter-spacing:.3px;direction:ltr;cursor:pointer;margin-bottom:8px;word-break:break-all" onclick="copyShamId()">
+      <div style="background:#fff;border-radius:10px;padding:10px;font-size:.68rem;font-weight:900;color:var(--sham);letter-spacing:.3px;direction:ltr;cursor:pointer;margin-bottom:8px;word-break:break-all" onclick="copyShamId()">
         ${SHAM_ID}
       </div>
-      <div style="font-size:.68rem;color:#5b21b6;font-weight:700"><i class="fas fa-info-circle"></i> اضغط لنسخ المعرف</div>
+      <div style="font-size:.66rem;color:#5b21b6;font-weight:700"><i class="fas fa-copy"></i> اضغط لنسخ المعرف</div>
     </div>
     
-    <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:11px;padding:12px;margin-bottom:14px;text-align:center">
-      <div style="font-size:.72rem;color:var(--gray);font-weight:700;margin-bottom:2px">المبلغ الإجمالي</div>
+    <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:11px;padding:12px;margin-bottom:12px;text-align:center">
+      <div style="font-size:.7rem;color:var(--gray);font-weight:700;margin-bottom:2px">المبلغ الإجمالي</div>
       <div style="font-size:1.4rem;font-weight:900;color:var(--usd)">${formatUSD(total)}</div>
     </div>
     
-    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px">
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:12px">
       <input type="text" id="cName" placeholder="الاسم الكامل" value="${currentUser.name}" required
         style="padding:12px 14px;border:1.5px solid var(--border);border-radius:11px;font-size:16px;font-family:inherit">
       <input type="tel" id="cPhone" placeholder="رقم الهاتف (واتساب)" required
@@ -1834,16 +2071,54 @@ function openCheckout(){
         style="padding:12px 14px;border:1.5px solid var(--border);border-radius:11px;font-size:16px;font-family:inherit">
     </div>
     
+    <div style="background:rgba(245,158,11,0.1);border-right:3px solid var(--warning);padding:10px 12px;border-radius:8px;font-size:.75rem;color:#92400e;font-weight:700;line-height:1.6;margin-bottom:12px">
+      <i class="fas fa-exclamation-triangle"></i>
+      <strong>مهم:</strong> يجب رفع صورة إشعار الدفع لإتمام الطلب. سيتم مراجعة الطلب والتأكد من صحة الإشعار قبل تجهيزه.
+    </div>
+    
+    <div class="upload-box" id="uploadBox">
+      <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+      <h3>رفع صورة إشعار الدفع *</h3>
+      <p>اضغط لاختيار الصورة أو اسحبها هنا</p>
+      <button type="button" class="upload-btn" onclick="document.getElementById('receiptInput').click()">
+        <i class="fas fa-image"></i> اختر صورة
+      </button>
+      <input type="file" id="receiptInput" accept="image/*" style="display:none" onchange="handleReceiptUpload(event)">
+      <div class="upload-preview" id="uploadPreview">
+        <img id="previewImg" src="" alt="Preview">
+        <div class="file-name" id="fileName"></div>
+        <button type="button" class="upload-btn" style="background:linear-gradient(135deg,#dc2626,#b91c1c);margin-top:10px" onclick="removeReceipt(event)">
+          <i class="fas fa-trash"></i> إزالة الصورة
+        </button>
+      </div>
+    </div>
+    
     <button class="checkout-btn" onclick="confirmOrder()">
-      <i class="fas fa-check-circle"></i> تأكيد الطلب
+      <i class="fas fa-check-circle"></i> تأكيد الطلب ورفع الإشعار
     </button>
   `;
   document.getElementById('checkoutModal').classList.add('active');
   document.body.style.overflow='hidden';
+  
+  // Setup drag & drop
+  const uploadBox = document.getElementById('uploadBox');
+  uploadBox.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadBox.classList.add('dragover');
+  });
+  uploadBox.addEventListener('dragleave', () => uploadBox.classList.remove('dragover'));
+  uploadBox.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadBox.classList.remove('dragover');
+    if (e.dataTransfer.files.length > 0) {
+      processReceiptFile(e.dataTransfer.files[0]);
+    }
+  });
 }
 function closeCheckout(){
   document.getElementById('checkoutModal').classList.remove('active');
   document.body.style.overflow='';
+  receiptImageData = null;
 }
 function copyShamId(){
   if (navigator.clipboard){
@@ -1855,29 +2130,96 @@ function copyShamId(){
     showToast('✓ تم نسخ المعرف');
   }
 }
+function handleReceiptUpload(event){
+  const file = event.target.files[0];
+  if (file) processReceiptFile(file);
+}
+function processReceiptFile(file){
+  if (!file.type.startsWith('image/')){
+    showToast('⚠️ الرجاء اختيار صورة صحيحة','error');
+    return;
+  }
+  if (file.size > 5 * 1024 * 1024){
+    showToast('⚠️ حجم الصورة كبير جداً (الحد 5MB)','error');
+    return;
+  }
+  
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const maxSize = 800;
+      let w = img.width, h = img.height;
+      if (w > h){ if (w > maxSize){ h = h * maxSize / w; w = maxSize; } }
+      else { if (h > maxSize){ w = w * maxSize / h; h = maxSize; } }
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      receiptImageData = canvas.toDataURL('image/jpeg', 0.75);
+      
+      document.getElementById('previewImg').src = receiptImageData;
+      document.getElementById('fileName').textContent = file.name;
+      document.getElementById('uploadPreview').style.display = 'block';
+      document.querySelector('#uploadBox h3').textContent = '✓ تم رفع الصورة';
+      document.querySelector('#uploadBox p').textContent = 'اضغط لتغيير الصورة';
+      showToast('✓ تم رفع الصورة بنجاح');
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function removeReceipt(event){
+  if (event) event.stopPropagation();
+  receiptImageData = null;
+  document.getElementById('uploadPreview').style.display = 'none';
+  document.getElementById('receiptInput').value = '';
+  document.querySelector('#uploadBox h3').textContent = 'رفع صورة إشعار الدفع *';
+  document.querySelector('#uploadBox p').textContent = 'اضغط لاختيار الصورة أو اسحبها هنا';
+  showToast('تم إزالة الصورة','info');
+}
 function confirmOrder(){
   const name = document.getElementById('cName').value.trim();
   const phone = document.getElementById('cPhone').value.trim();
   const address = document.getElementById('cAddress').value.trim();
+  
   if (!name || !phone || !address){
     showToast('⚠️ أكمل جميع البيانات','error');
     return;
   }
+  
+  if (!receiptImageData){
+    showToast('⚠️ يجب رفع صورة إشعار الدفع لإتمام الطلب','error');
+    // Scroll to upload box
+    document.getElementById('uploadBox').scrollIntoView({behavior:'smooth', block:'center'});
+    // Shake animation
+    const ub = document.getElementById('uploadBox');
+    ub.style.animation = 'none';
+    setTimeout(() => {
+      ub.style.animation = 'shake 0.5s';
+    }, 10);
+    return;
+  }
+  
   const totalUSD = cart.reduce((s,i)=>s+i.priceUSD*i.qty,0);
   const now = new Date();
   const order = {
     id: genOrderId(),
     userId: currentUser.id,
+    customerName: currentUser.name,
+    customerEmail: currentUser.email,
+    shippingName: name,
+    shippingPhone: phone,
+    shippingAddress: address,
     date: now.toISOString(),
     dateFormatted: now.toLocaleDateString('ar-EG', {day:'numeric',month:'short',year:'numeric'}),
-    customerName: name,
-    customerPhone: phone,
-    customerAddress: address,
     items: cart.map(i => ({id:i.id, name:i.name, qty:i.qty, priceUSD:i.priceUSD})),
     totalUSD,
+    receiptImage: receiptImageData,
     status: 'pending',
     statusLabel: 'قيد المراجعة'
   };
+  
   allOrders.push(order);
   saveOrders();
   cart = [];
@@ -1888,33 +2230,37 @@ function confirmOrder(){
 }
 function showOrderSuccess(order){
   document.getElementById('checkoutBody').innerHTML = `
-    <div style="text-align:center;padding:20px 0">
-      <div style="width:80px;height:80px;margin:0 auto 16px;border-radius:50%;background:linear-gradient(135deg,var(--success),#059669);display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:#fff;box-shadow:0 10px 25px rgba(16,185,129,0.35)">
-        <i class="fas fa-check"></i>
+    <div style="text-align:center;padding:16px 0">
+      <div style="width:80px;height:80px;margin:0 auto 16px;border-radius:50%;background:linear-gradient(135deg,var(--warning),#d97706);display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:#fff;box-shadow:0 10px 25px rgba(245,158,11,0.35);animation:popIn .5s">
+        <i class="fas fa-hourglass-half"></i>
       </div>
-      <h2 style="font-size:1.2rem;font-weight:900;margin-bottom:6px;color:var(--success)">تم استلام طلبك!</h2>
-      <p style="font-size:.82rem;color:var(--gray);margin-bottom:14px">سيتم التواصل معك عبر الواتساب قريباً</p>
-      <div style="background:var(--light);border-radius:11px;padding:12px;margin:0 auto 16px;font-size:.82rem;font-weight:900;direction:ltr;letter-spacing:.5px;color:var(--primary);word-break:break-all">
+      <h2 style="font-size:1.15rem;font-weight:900;margin-bottom:6px;color:var(--warning)">طلبك قيد المراجعة</h2>
+      <p style="font-size:.78rem;color:var(--gray);margin-bottom:14px;line-height:1.6">
+        تم استلام طلبك مع إشعار الدفع. سيتم مراجعته من قبل الإدارة والتأكد من صحة الإشعار قبل البدء بتجهيزه.
+      </p>
+      <div style="background:var(--light);border-radius:11px;padding:12px;margin:0 auto 14px;font-size:.78rem;font-weight:900;direction:ltr;letter-spacing:.5px;color:var(--primary);word-break:break-all">
         ${order.id}
       </div>
-      <p style="font-size:.72rem;color:var(--gray);margin-bottom:16px"><i class="fas fa-info-circle"></i> احتفظ برقم الطلب</p>
+      <p style="font-size:.7rem;color:var(--gray);margin-bottom:16px">
+        <i class="fas fa-info-circle"></i> احتفظ برقم الطلب لتتبعه
+      </p>
       <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-primary" onclick="closeCheckout();openMyOrders()">
-          <i class="fas fa-receipt"></i> طلباتي
+        <button class="btn btn-primary" onclick="closeCheckout();openTracking('${order.id}')">
+          <i class="fas fa-map-location-dot"></i> تتبع الطلب
         </button>
-        <button class="btn btn-outline" onclick="closeCheckout();scrollToProducts()">
-          <i class="fas fa-shopping-bag"></i> متابعة
+        <button class="btn btn-outline" onclick="closeCheckout();openMyOrders()">
+          <i class="fas fa-receipt"></i> طلباتي
         </button>
       </div>
     </div>
   `;
   document.getElementById('checkoutModal').classList.add('active');
   document.body.style.overflow='hidden';
-  showToast('🎉 تم تأكيد طلبك!','success');
+  showToast('🎉 تم استلام طلبك، قيد المراجعة','success');
 }
 
 /* =========================================================
-   SIDE MENU - FIXED FUNCTIONS
+   SIDE MENU
    ========================================================= */
 function openSideMenu(){
   document.getElementById('sideMenu').classList.add('active');
@@ -1935,7 +2281,7 @@ function toggleSideMenu(event){
 }
 
 /* =========================================================
-   DRAWERS CONTROL
+   DRAWERS
    ========================================================= */
 function openDrawer(id){
   document.getElementById(id).classList.add('active');
@@ -1969,6 +2315,10 @@ document.getElementById('searchInput').addEventListener('input', e => {
   renderProducts();
 });
 
+document.getElementById('trackInput')?.addEventListener('keypress', e => {
+  if (e.key === 'Enter') trackOrder();
+});
+
 window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
 }, {passive:true});
@@ -1981,6 +2331,25 @@ document.addEventListener('keydown', e => {
     closeCheckout();
   }
 });
+
+/* Shake animation for upload box */
+const shakeStyle = document.createElement('style');
+shakeStyle.textContent = `
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+`;
+document.head.appendChild(shakeStyle);
 
 /* =========================================================
    INIT
