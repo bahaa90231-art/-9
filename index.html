@@ -44,7 +44,7 @@ input,textarea,select{font-family:inherit;outline:none;font-size:16px}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:10px}
 
-/* Loading */
+/* Loading Overlay */
 .loading-overlay{
   position:fixed;inset:0;z-index:9999;
   background:var(--white);
@@ -60,6 +60,7 @@ input,textarea,select{font-family:inherit;outline:none;font-size:16px}
   animation:spin 1s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
+.loading-overlay p{font-size:.85rem;color:var(--gray);font-weight:700}
 
 /* Header */
 header{
@@ -160,13 +161,62 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .track-strip .track-text small{font-size:.7rem;color:#047857;font-weight:600}
 .track-strip i.track-arrow{color:#059669;font-size:.9rem}
 
-/* Main Content Sections */
-.main-content{
-  transition:opacity .3s;
+/* ===== Delivery Notice ===== */
+.delivery-notice{
+  background:linear-gradient(135deg,#dbeafe,#bfdbfe);
+  border:2px solid #3b82f6;
+  border-radius:12px;
+  padding:12px 14px;
+  margin-bottom:14px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
 }
-.main-content.hidden{
-  display:none;
+.delivery-notice-icon{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#3b82f6,#1d4ed8);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+  box-shadow:0 4px 12px rgba(59,130,246,0.3);
 }
+.delivery-notice-content{flex:1;min-width:0}
+.delivery-notice-content h4{
+  font-size:.85rem;
+  font-weight:900;
+  color:#1e40af;
+  margin-bottom:4px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.delivery-notice-content p{
+  font-size:.76rem;
+  color:#1e3a8a;
+  line-height:1.6;
+  font-weight:700;
+}
+.delivery-notice-content p strong{color:#1e40af}
+.delivery-notice-content .price-range{
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  background:rgba(255,255,255,0.7);
+  padding:2px 8px;
+  border-radius:50px;
+  font-weight:900;
+  color:#1d4ed8;
+  margin:0 2px;
+}
+
+/* Main Content */
+.main-content{transition:opacity .3s}
+.main-content.hidden{display:none}
 
 /* Top Deal Section */
 .top-deal-section{
@@ -358,7 +408,6 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   -webkit-text-fill-color:transparent;
 }
 
-/* Back to shop button */
 .back-to-shop{
   display:none;
   align-items:center;
@@ -372,7 +421,6 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   border:2px solid var(--border);
   cursor:pointer;
   transition:var(--transition);
-  margin-bottom:14px;
 }
 .back-to-shop:hover{
   border-color:var(--primary);
@@ -410,7 +458,6 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .cat-card h3{font-size:.72rem;font-weight:800;line-height:1.2}
 .cat-card p{font-size:.6rem;color:var(--gray);font-weight:600}
 
-/* Special Offers Card */
 .cat-card[data-cat="offers"]{
   border-color:var(--primary);
   background:linear-gradient(135deg,rgba(220,38,38,0.08),rgba(234,179,8,0.08));
@@ -465,6 +512,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   overflow:hidden;border:1px solid var(--border);
   transition:var(--transition);
   display:flex;flex-direction:column;
+  position:relative;
 }
 .product-card:active{transform:scale(0.98)}
 .product-media{
@@ -534,7 +582,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .empty h3{font-size:.9rem;font-weight:800;margin-bottom:4px}
 .empty p{font-size:.78rem;color:var(--gray)}
 
-/* Offers Header Banner (when in offers mode) */
+/* Offers Mode Banner */
 .offers-mode-banner{
   background:linear-gradient(135deg,#dc2626,#b91c1c);
   color:var(--white);
@@ -574,7 +622,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .offers-mode-stat .num{font-size:1.1rem;font-weight:900;color:var(--gold);line-height:1}
 .offers-mode-stat .lbl{font-size:.65rem;opacity:.9;margin-top:2px;font-weight:700}
 
-/* Offer item ranking */
+/* Offer ranking */
 .offer-rank-1{
   border:2px solid #fbbf24 !important;
   box-shadow:0 10px 30px rgba(251,191,36,0.4) !important;
@@ -1200,6 +1248,29 @@ footer{
 .toast.info{background:var(--sham)}
 @keyframes toastIn{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
 
+/* Delivery Toast */
+.delivery-toast{
+  background:linear-gradient(135deg,#1e40af,#3b82f6) !important;
+  max-width:420px;
+  padding:14px 16px;
+}
+.delivery-toast .toast-icon-box{
+  width:38px;height:38px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+  flex-shrink:0;
+}
+.delivery-toast .toast-text{flex:1;min-width:0}
+.delivery-toast .toast-text strong{
+  font-size:.88rem;font-weight:900;display:block;margin-bottom:2px;
+}
+.delivery-toast .toast-text small{
+  font-size:.72rem;opacity:.9;font-weight:600;line-height:1.4;
+  display:block;
+}
+
 /* Responsive */
 @media(min-width:480px){
   body{font-size:15px}
@@ -1325,7 +1396,6 @@ footer{
   </div>
 </header>
 
-<!-- Track Strip -->
 <div class="track-strip" onclick="openTracking()" id="trackStrip">
   <div class="track-icon"><i class="fas fa-map-location-dot"></i></div>
   <div class="track-text">
@@ -1335,10 +1405,8 @@ footer{
   <i class="fas fa-chevron-left track-arrow"></i>
 </div>
 
-<!-- Main Content (يظهر في الوضع العادي) -->
 <div class="main-content" id="mainContent">
 
-  <!-- Top Deal Section -->
   <section class="top-deal-section" id="topDealSection" style="display:none">
     <div class="top-deal-card">
       <div class="top-deal-label">
@@ -1349,7 +1417,6 @@ footer{
     </div>
   </section>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-tag"><i class="fas fa-star"></i> الأفضل بأسعار لا تُقاوم</div>
@@ -1367,7 +1434,6 @@ footer{
   </section>
 </div>
 
-<!-- Categories Section (ثابت - يظهر في الحالتين لكن يتغير محتواه) -->
 <section class="section" id="categoriesSection">
   <div class="section-head">
     <h2><i class="fas fa-th-large"></i> تصفّح <span id="sectionTitle">الأقسام</span></h2>
@@ -1379,7 +1445,6 @@ footer{
   <div class="sub-chips" id="subChips" style="display:none"></div>
 </section>
 
-<!-- Offers Mode Banner (يظهر فقط في وضع العروضات) -->
 <div class="offers-mode-banner" id="offersBanner" style="display:none">
   <h2><i class="fas fa-fire"></i> العروضات الحصرية</h2>
   <p>أقوى الخصومات على أفضل المنتجات — لفترة محدودة!</p>
@@ -1399,7 +1464,6 @@ footer{
   </div>
 </div>
 
-<!-- Products Section -->
 <section class="section" id="productsSection">
   <div class="section-head">
     <h2><i class="fas fa-shopping-bag"></i> <span id="productsTitle">منتجاتنا المميزة</span></h2>
@@ -1407,7 +1471,6 @@ footer{
   <div class="products" id="productsGrid"></div>
 </section>
 
-<!-- About Section (يختفي في وضع العروضات) -->
 <section class="section main-content" id="aboutSection">
   <div class="about-card">
     <h2>عن <span>السوق الصيني</span></h2>
@@ -1421,7 +1484,6 @@ footer{
   </div>
 </section>
 
-<!-- Info Section (يختفي في وضع العروضات) -->
 <section class="section main-content" id="infoSection">
   <div class="section-head">
     <h2><i class="fas fa-headset"></i> معلومات <span>التواصل والدفع</span></h2>
@@ -1843,6 +1905,35 @@ function showToast(msg, type='success'){
 }
 
 /* =========================================================
+   DELIVERY NOTICE TOAST
+   ========================================================= */
+function showDeliveryToast(orderId){
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = 'toast delivery-toast';
+  t.innerHTML = `
+    <div class="toast-icon-box">
+      <i class="fas fa-truck-fast"></i>
+    </div>
+    <div class="toast-text">
+      <strong>✓ تم استلام طلبك بنجاح!</strong>
+      <small>
+        <i class="fas fa-map-marker-alt"></i> التوصيل متاح داخل عفرين فقط
+        <br>
+        <i class="fas fa-dollar-sign"></i> رسوم التوصيل: 1$ - 10$ حسب حجم الفاتورة والمسافة
+      </small>
+    </div>
+  `;
+  c.appendChild(t);
+  setTimeout(() => {
+    t.style.opacity = '0';
+    t.style.transform = 'translateY(-15px)';
+    t.style.transition = 'all .3s';
+    setTimeout(() => t.remove(), 300);
+  }, 5500);
+}
+
+/* =========================================================
    LOGO HANDLING
    ========================================================= */
 function initLogos() {
@@ -1948,7 +2039,7 @@ async function saveOrderToSupabase(order) {
 }
 
 /* =========================================================
-   TOP DEAL - أعلى منتج خصماً
+   TOP DEAL
    ========================================================= */
 function findTopDeal() {
   const discountedProducts = products.filter(p => {
@@ -2076,28 +2167,24 @@ function renderSubChips(){
 }
 
 /* =========================================================
-   TOGGLE OFFERS MODE
+   OFFERS MODE
    ========================================================= */
 function enterOffersMode() {
   offersMode = true;
   currentMain = 'offers';
   currentSub = 'all';
   
-  // إخفاء المحتوى الرئيسي
   document.getElementById('mainContent').classList.add('hidden');
   document.getElementById('trackStrip').style.display = 'none';
   document.getElementById('aboutSection').style.display = 'none';
   document.getElementById('infoSection').style.display = 'none';
   
-  // إظهار شارة العروضات
   document.getElementById('offersBanner').style.display = 'block';
   document.getElementById('backToShopBtn').classList.add('show');
   document.getElementById('sectionTitle').textContent = 'العروضات';
   
-  // إخفاء top deal
   document.getElementById('topDealSection').style.display = 'none';
   
-  // حساب الإحصائيات
   const offerProducts = products.filter(isProductOnOffer);
   let maxDiscount = 0;
   let totalSave = 0;
@@ -2117,7 +2204,6 @@ function enterOffersMode() {
   renderSubChips();
   renderProducts();
   
-  // Scroll to top
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
@@ -2126,20 +2212,16 @@ function showMainContent() {
   currentMain = 'all';
   currentSub = 'all';
   
-  // إظهار المحتوى الرئيسي
   document.getElementById('mainContent').classList.remove('hidden');
   document.getElementById('trackStrip').style.display = 'flex';
   document.getElementById('aboutSection').style.display = 'block';
   document.getElementById('infoSection').style.display = 'block';
   
-  // إخفاء شارة العروضات
   document.getElementById('offersBanner').style.display = 'none';
   document.getElementById('backToShopBtn').classList.remove('show');
   document.getElementById('sectionTitle').textContent = 'الأقسام';
   
-  // إظهار top deal
   renderTopDeal();
-  
   renderCategories();
   renderSubChips();
   renderProducts();
@@ -2157,9 +2239,7 @@ function renderProducts(){
   let filtered;
   
   if (offersMode) {
-    // وضع العروضات: فقط المنتجات التي عليها خصم
     filtered = products.filter(isProductOnOffer);
-    // ترتيب حسب نسبة الخصم (الأعلى أولاً)
     filtered.sort((a, b) => getDiscountPercent(b) - getDiscountPercent(a));
     titleEl.innerHTML = '🔥 العروضات الحصرية';
   } else {
@@ -2192,7 +2272,6 @@ function renderProducts(){
     return;
   }
   
-  // في وضع العروضات، نضيف rank للـ top 3
   grid.innerHTML = filtered.map((p, index) => {
     let rankClass = '';
     if (offersMode && getDiscountPercent(p) > 0) {
@@ -2216,7 +2295,7 @@ function productCard(p, rankClass = ''){
     }</span>` : '';
   
   return `
-    <div class="product-card ${rankClass}" style="position:relative">
+    <div class="product-card ${rankClass}">
       <div class="product-media">
         <img src="${p.img}" alt="${p.name}" loading="lazy" onclick="openProduct(${p.id})" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">
         ${badgeHTML}
@@ -2254,10 +2333,8 @@ function selectMain(id){
     return;
   }
   
-  // إذا كنا في وضع العروضات وخترنا قسم آخر، نرجع للوضع العادي
   if (offersMode) {
     showMainContent();
-    // ثم نختار القسم
     setTimeout(() => {
       currentMain = id;
       currentSub = 'all';
@@ -2576,22 +2653,39 @@ function renderMyOrders(){
     </div>`;
     return;
   }
-  body.innerHTML = userOrders.map(o => `
-    <div class="order-card">
-      <div class="order-card-header">
-        <span class="order-id">${o.id}</span>
-        <span class="status-pill ${o.status}">${o.statusLabel}</span>
+  
+  // ✅ إشعار التوصيل + قائمة الطلبات
+  body.innerHTML = `
+    <div class="delivery-notice" style="margin-bottom:14px">
+      <div class="delivery-notice-icon">
+        <i class="fas fa-truck-fast"></i>
       </div>
-      <div class="order-info-row"><span>التاريخ:</span><span class="val">${o.dateFormatted}</span></div>
-      <div class="order-info-row"><span>المنتجات:</span><span class="val">${o.items.length} منتج</span></div>
-      <div class="order-info-row"><span>الإجمالي:</span><span class="val" style="color:var(--usd)">${formatUSD(o.totalUSD)}</span></div>
-      <div class="order-card-actions">
-        <button class="order-btn-view" onclick="viewOrderTracking('${o.id}')">
-          <i class="fas fa-map-location-dot"></i> تتبع
-        </button>
+      <div class="delivery-notice-content">
+        <h4><i class="fas fa-map-marker-alt"></i> التوصيل متاح داخل عفرين</h4>
+        <p>
+          رسوم التوصيل:
+          <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 10$</span>
+          حسب حجم الفاتورة والمسافة.
+        </p>
       </div>
     </div>
-  `).join('');
+    ${userOrders.map(o => `
+      <div class="order-card">
+        <div class="order-card-header">
+          <span class="order-id">${o.id}</span>
+          <span class="status-pill ${o.status}">${o.statusLabel}</span>
+        </div>
+        <div class="order-info-row"><span>التاريخ:</span><span class="val">${o.dateFormatted}</span></div>
+        <div class="order-info-row"><span>المنتجات:</span><span class="val">${o.items.length} منتج</span></div>
+        <div class="order-info-row"><span>الإجمالي:</span><span class="val" style="color:var(--usd)">${formatUSD(o.totalUSD)}</span></div>
+        <div class="order-card-actions">
+          <button class="order-btn-view" onclick="viewOrderTracking('${o.id}')">
+            <i class="fas fa-map-location-dot"></i> تتبع
+          </button>
+        </div>
+      </div>
+    `).join('')}
+  `;
 }
 function viewOrderTracking(orderId){
   closeMyOrders();
@@ -2833,6 +2927,23 @@ function openCheckout(){
         style="padding:12px 14px;border:1.5px solid var(--border);border-radius:11px;font-size:16px;font-family:inherit">
     </div>
     
+    <!-- ✅ إشعار خدمة التوصيل -->
+    <div class="delivery-notice">
+      <div class="delivery-notice-icon">
+        <i class="fas fa-truck-fast"></i>
+      </div>
+      <div class="delivery-notice-content">
+        <h4><i class="fas fa-map-marker-alt"></i> خدمة التوصيل متاحة الآن</h4>
+        <p>
+          متوفرة داخل مدينة <strong>عفرين</strong> فقط.
+          <br>
+          التوصيل من
+          <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 10$</span>
+          حسب حجم الفاتورة والمسافة المقطوعة.
+        </p>
+      </div>
+    </div>
+    
     <div style="background:rgba(245,158,11,0.1);border-right:3px solid var(--warning);padding:10px 12px;border-radius:8px;font-size:.75rem;color:#92400e;font-weight:700;line-height:1.6;margin-bottom:12px">
       <i class="fas fa-exclamation-triangle"></i>
       <strong>مهم:</strong> يجب رفع صورة إشعار الدفع لإتمام الطلب.
@@ -3005,7 +3116,25 @@ function showOrderSuccess(order){
       <div style="background:var(--light);border-radius:11px;padding:12px;margin:0 auto 14px;font-size:.78rem;font-weight:900;direction:ltr;letter-spacing:.5px;color:var(--primary);word-break:break-all">
         ${order.id}
       </div>
-      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      
+      <!-- ✅ إشعار خدمة التوصيل في صفحة النجاح -->
+      <div class="delivery-notice" style="text-align:right;margin-top:14px">
+        <div class="delivery-notice-icon">
+          <i class="fas fa-truck-fast"></i>
+        </div>
+        <div class="delivery-notice-content">
+          <h4><i class="fas fa-map-marker-alt"></i> خدمة التوصيل متاحة</h4>
+          <p>
+            داخل مدينة <strong>عفرين</strong> فقط.
+            <br>
+            رسوم التوصيل من
+            <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 10$</span>
+            حسب حجم الفاتورة والمسافة.
+          </p>
+        </div>
+      </div>
+      
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px">
         <button class="btn btn-primary" onclick="closeCheckout();openTracking('${order.id}')">
           <i class="fas fa-map-location-dot"></i> تتبع الطلب
         </button>
@@ -3017,7 +3146,9 @@ function showOrderSuccess(order){
   `;
   document.getElementById('checkoutModal').classList.add('active');
   document.body.style.overflow='hidden';
-  showToast('🎉 تم استلام طلبك','success');
+  
+  // ✅ Toast مميز بمعلومات التوصيل
+  showDeliveryToast(order.id);
 }
 
 /* =========================================================
@@ -3116,8 +3247,7 @@ window.addEventListener('load', async () => {
   
   console.log('');
   console.log('%c🎯 السوق الصيني - جاهز','background:#dc2626;color:white;padding:4px 8px;border-radius:4px;font-weight:bold');
-  console.log('%c🔥 أعلى خصم يظهر تلقائياً في أعلى الصفحة','color:#eab308;font-weight:bold');
-  console.log('%c📄 اضغط على قسم العروضات لتصفية المنتجات المخفضة','color:#8b5cf6;font-weight:bold');
+  console.log('%c🚚 ميزة إشعار التوصيل نشطة (عفرين: $1-$10)','color:#3b82f6;font-weight:bold');
   console.log('');
 });
 </script>
