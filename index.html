@@ -44,7 +44,7 @@ input,textarea,select{font-family:inherit;outline:none;font-size:16px}
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:10px}
 
-/* Loading Overlay */
+/* Loading */
 .loading-overlay{
   position:fixed;inset:0;z-index:9999;
   background:var(--white);
@@ -60,7 +60,6 @@ input,textarea,select{font-family:inherit;outline:none;font-size:16px}
   animation:spin 1s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-.loading-overlay p{font-size:.85rem;color:var(--gray);font-weight:700}
 
 /* Header */
 header{
@@ -161,6 +160,137 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .track-strip .track-text small{font-size:.7rem;color:#047857;font-weight:600}
 .track-strip i.track-arrow{color:#059669;font-size:.9rem}
 
+/* Main Content Sections */
+.main-content{
+  transition:opacity .3s;
+}
+.main-content.hidden{
+  display:none;
+}
+
+/* Top Deal Section */
+.top-deal-section{
+  max-width:1400px;
+  margin:16px auto 0;
+  padding:0 12px;
+}
+.top-deal-card{
+  background:linear-gradient(135deg,#dc2626,#b91c1c);
+  border-radius:20px;
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(220,38,38,0.35);
+  border:3px solid var(--gold);
+}
+.top-deal-card::before{
+  content:'';position:absolute;
+  top:-50%;right:-10%;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(234,179,8,0.3),transparent 70%);
+  animation:float 8s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(-20px,20px)}
+}
+.top-deal-label{
+  position:absolute;top:-3px;right:20px;
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  color:#7f1d1d;
+  padding:6px 16px;
+  border-radius:0 0 12px 12px;
+  font-size:.75rem;font-weight:900;
+  display:flex;align-items:center;gap:6px;
+  z-index:3;box-shadow:0 6px 16px rgba(0,0,0,0.2);
+}
+.top-deal-label i{animation:ring 1.5s ease-in-out infinite}
+@keyframes ring{
+  0%,100%{transform:rotate(0)}
+  10%,30%{transform:rotate(-15deg)}
+  20%,40%{transform:rotate(15deg)}
+}
+.top-deal-inner{
+  display:grid;grid-template-columns:1fr;
+  gap:16px;position:relative;z-index:2;align-items:center;
+}
+.top-deal-media{
+  position:relative;border-radius:14px;overflow:hidden;
+  aspect-ratio:1/1;background:var(--white);
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  max-width:280px;margin:0 auto;cursor:pointer;
+}
+.top-deal-media img{width:100%;height:100%;object-fit:cover}
+.top-deal-discount-badge{
+  position:absolute;top:12px;left:12px;
+  background:linear-gradient(135deg,#dc2626,#b91c1c);
+  color:#fff;width:70px;height:70px;border-radius:50%;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  font-weight:900;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  border:3px solid var(--gold);
+  animation:pulseDeal 2s ease-in-out infinite;
+}
+@keyframes pulseDeal{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+.top-deal-discount-badge .num{font-size:1.3rem;line-height:1}
+.top-deal-discount-badge .lbl{font-size:.6rem;opacity:.9}
+.top-deal-info{color:#fff}
+.top-deal-info .cat{
+  display:inline-flex;align-items:center;gap:4px;
+  background:rgba(255,255,255,0.15);
+  color:#fef3c7;padding:4px 12px;
+  border-radius:50px;font-size:.7rem;font-weight:800;
+  margin-bottom:10px;backdrop-filter:blur(10px);
+}
+.top-deal-info h2{
+  font-size:1.4rem;font-weight:900;line-height:1.3;
+  margin-bottom:10px;text-shadow:0 3px 10px rgba(0,0,0,0.3);
+  display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden;
+}
+.top-deal-prices{
+  display:flex;align-items:baseline;gap:12px;
+  margin-bottom:12px;flex-wrap:wrap;
+}
+.top-deal-current{
+  font-size:2rem;font-weight:900;color:#fbbf24;
+  text-shadow:0 3px 10px rgba(0,0,0,0.3);
+}
+.top-deal-old{
+  font-size:1rem;color:rgba(255,255,255,0.7);
+  text-decoration:line-through;font-weight:700;
+}
+.top-deal-save{
+  background:linear-gradient(135deg,#10b981,#059669);
+  color:#fff;padding:6px 14px;border-radius:50px;
+  font-size:.78rem;font-weight:900;
+  display:inline-flex;align-items:center;gap:5px;
+  box-shadow:0 6px 16px rgba(16,185,129,0.4);
+}
+.top-deal-actions{
+  display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;
+}
+.top-deal-actions .btn{
+  flex:1;justify-content:center;min-width:140px;
+  padding:12px 20px;font-size:.85rem;border-radius:50px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.top-deal-btn-primary{
+  background:var(--white);color:var(--primary-dark);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);font-weight:900;
+}
+.top-deal-btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,0.35)}
+.top-deal-btn-outline{
+  background:rgba(255,255,255,0.15);color:#fff;
+  border:2px solid rgba(255,255,255,0.3);
+  backdrop-filter:blur(10px);
+}
+.top-deal-btn-outline:hover{background:rgba(255,255,255,0.25)}
+
 /* Hero */
 .hero{padding:16px 12px}
 .hero-inner{
@@ -228,6 +358,29 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   -webkit-text-fill-color:transparent;
 }
 
+/* Back to shop button */
+.back-to-shop{
+  display:none;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border-radius:50px;
+  background:var(--white);
+  color:var(--dark);
+  font-weight:800;
+  font-size:.85rem;
+  border:2px solid var(--border);
+  cursor:pointer;
+  transition:var(--transition);
+  margin-bottom:14px;
+}
+.back-to-shop:hover{
+  border-color:var(--primary);
+  color:var(--primary);
+  transform:translateX(-4px);
+}
+.back-to-shop.show{display:inline-flex}
+
 /* Categories */
 .cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .cat-card{
@@ -236,6 +389,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   border:1.5px solid var(--border);cursor:pointer;
   transition:var(--transition);
   display:flex;flex-direction:column;align-items:center;gap:6px;
+  position:relative;
 }
 .cat-card:active{transform:scale(0.95)}
 .cat-card.active{
@@ -256,7 +410,35 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .cat-card h3{font-size:.72rem;font-weight:800;line-height:1.2}
 .cat-card p{font-size:.6rem;color:var(--gray);font-weight:600}
 
-/* Sub Chips */
+/* Special Offers Card */
+.cat-card[data-cat="offers"]{
+  border-color:var(--primary);
+  background:linear-gradient(135deg,rgba(220,38,38,0.08),rgba(234,179,8,0.08));
+  overflow:visible;
+}
+.cat-card[data-cat="offers"] .cat-icon{
+  background:linear-gradient(135deg,#f59e0b,#dc2626);
+  animation:pulseOffer 2s ease-in-out infinite;
+}
+@keyframes pulseOffer{
+  0%,100%{box-shadow:0 4px 12px rgba(220,38,38,0.3)}
+  50%{box-shadow:0 4px 20px rgba(245,158,11,0.6), 0 0 0 8px rgba(245,158,11,0.15)}
+}
+.cat-card[data-cat="offers"]::after{
+  content:'HOT';
+  position:absolute;top:-4px;left:-4px;
+  background:linear-gradient(135deg,#dc2626,#b91c1c);
+  color:white;font-size:.55rem;font-weight:900;
+  padding:3px 8px;border-radius:50px;
+  letter-spacing:.5px;
+  animation:blink 1.5s ease-in-out infinite;
+  box-shadow:0 3px 8px rgba(220,38,38,0.4);
+  border:2px solid var(--white);
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
+.cat-card[data-cat="offers"] h3{color:var(--primary-dark);font-size:.78rem}
+.cat-card[data-cat="offers"]:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 8px 24px rgba(220,38,38,0.2)}
+
 .sub-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .chip{
   padding:6px 12px;border-radius:50px;
@@ -352,6 +534,88 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .empty h3{font-size:.9rem;font-weight:800;margin-bottom:4px}
 .empty p{font-size:.78rem;color:var(--gray)}
 
+/* Offers Header Banner (when in offers mode) */
+.offers-mode-banner{
+  background:linear-gradient(135deg,#dc2626,#b91c1c);
+  color:var(--white);
+  padding:24px 16px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:16px;
+}
+.offers-mode-banner::before{
+  content:'🔥';position:absolute;
+  top:15px;left:20px;font-size:4rem;
+  opacity:.15;animation:float 6s ease-in-out infinite;
+}
+.offers-mode-banner::after{
+  content:'🎉';position:absolute;
+  bottom:15px;right:20px;font-size:4rem;
+  opacity:.15;animation:float 8s ease-in-out infinite reverse;
+}
+.offers-mode-banner h2{
+  font-size:1.5rem;font-weight:900;
+  margin-bottom:6px;position:relative;z-index:2;
+  text-shadow:0 3px 10px rgba(0,0,0,0.3);
+}
+.offers-mode-banner h2 i{color:var(--gold);animation:ring 1.5s ease-in-out infinite}
+.offers-mode-banner p{font-size:.85rem;opacity:.9;position:relative;z-index:2}
+.offers-mode-stats{
+  display:flex;justify-content:center;gap:20px;
+  margin-top:16px;position:relative;z-index:2;flex-wrap:wrap;
+}
+.offers-mode-stat{
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  padding:8px 16px;border-radius:12px;
+  border:1px solid rgba(255,255,255,0.2);
+}
+.offers-mode-stat .num{font-size:1.1rem;font-weight:900;color:var(--gold);line-height:1}
+.offers-mode-stat .lbl{font-size:.65rem;opacity:.9;margin-top:2px;font-weight:700}
+
+/* Offer item ranking */
+.offer-rank-1{
+  border:2px solid #fbbf24 !important;
+  box-shadow:0 10px 30px rgba(251,191,36,0.4) !important;
+  order:-999;
+}
+.offer-rank-1::before{
+  content:'👑 أعلى خصم';
+  position:absolute;top:-3px;right:20px;
+  background:linear-gradient(135deg,#fbbf24,#f59e0b);
+  color:#7f1d1d;padding:6px 16px;
+  border-radius:0 0 12px 12px;
+  font-size:.72rem;font-weight:900;
+  z-index:5;box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+.offer-rank-2{
+  border:2px solid #94a3b8 !important;
+  order:-998;
+}
+.offer-rank-2::before{
+  content:'🥈 ثاني أعلى';
+  position:absolute;top:-3px;right:20px;
+  background:linear-gradient(135deg,#cbd5e1,#94a3b8);
+  color:#1e293b;padding:6px 14px;
+  border-radius:0 0 12px 12px;
+  font-size:.7rem;font-weight:900;
+  z-index:5;
+}
+.offer-rank-3{
+  border:2px solid #d97706 !important;
+  order:-997;
+}
+.offer-rank-3::before{
+  content:'🥉 ثالث أعلى';
+  position:absolute;top:-3px;right:20px;
+  background:linear-gradient(135deg,#fb923c,#d97706);
+  color:#fff;padding:6px 14px;
+  border-radius:0 0 12px 12px;
+  font-size:.7rem;font-weight:900;
+  z-index:5;
+}
+
 /* About */
 .about-card{
   background:var(--white);border-radius:14px;
@@ -384,8 +648,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
   width:42px;height:42px;border-radius:12px;
   background:linear-gradient(135deg,var(--primary),var(--primary-dark));
   color:var(--white);font-size:1rem;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
 .info-row:nth-child(2) .info-icon{background:linear-gradient(135deg,#1877f2,#0d5bcc)}
 .info-row:nth-child(3) .info-icon{background:linear-gradient(135deg,var(--wa),#128c7e)}
@@ -553,8 +816,7 @@ footer{
   width:44px;height:44px;border-radius:50%;
   background:linear-gradient(135deg,var(--primary),var(--gold));
   display:flex;align-items:center;justify-content:center;
-  color:var(--white);font-weight:900;font-size:1rem;
-  flex-shrink:0;
+  color:var(--white);font-weight:900;font-size:1rem;flex-shrink:0;
 }
 .side-user-info{flex:1;min-width:0}
 .side-user-info strong{
@@ -563,8 +825,7 @@ footer{
 }
 .side-user-info small{
   font-size:.7rem;color:var(--gray);font-weight:600;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  display:block;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block;
 }
 
 /* Drawers */
@@ -580,8 +841,7 @@ footer{
 .drawer.active{transform:translateX(0)}
 .drawer-header{
   padding:14px 16px;border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
 }
 .drawer-header h3{
   font-size:.95rem;font-weight:900;
@@ -697,12 +957,10 @@ footer{
 }
 .tracking-header .oid{
   font-size:.75rem;font-weight:900;
-  direction:ltr;color:#065f46;
-  word-break:break-all;
+  direction:ltr;color:#065f46;word-break:break-all;
 }
 .tracking-timeline{
-  display:flex;flex-direction:column;gap:0;
-  padding:0;margin-bottom:14px;
+  display:flex;flex-direction:column;gap:0;padding:0;margin-bottom:14px;
 }
 .track-step{
   display:flex;align-items:flex-start;gap:12px;
@@ -829,7 +1087,6 @@ footer{
 }
 .modal-close:active{background:var(--primary);color:var(--white)}
 .modal-body{padding:20px}
-
 .product-modal-img{
   width:100%;aspect-ratio:1/1;object-fit:cover;background:#f1f5f9;
 }
@@ -954,27 +1211,22 @@ footer{
   .avatar-btn{width:42px;height:42px;font-size:.9rem}
   .search-wrap{padding:0 16px 12px}
   .track-strip{margin:0 16px 16px}
+  .top-deal-section{padding:0 16px;margin-top:20px}
+  .top-deal-inner{grid-template-columns:240px 1fr;gap:24px}
+  .top-deal-media{max-width:100%}
+  .top-deal-info h2{font-size:1.6rem}
   .hero{padding:20px 16px}
   .hero-inner{padding:28px 22px}
   .hero h1{font-size:1.6rem}
-  .hero p{font-size:.88rem}
   .section{padding:24px 16px}
-  .section-head h2{font-size:1.15rem}
-  .cats-grid{grid-template-columns:repeat(3,1fr);gap:10px}
-  .cat-icon{width:50px;height:50px;font-size:1.2rem}
-  .cat-card h3{font-size:.8rem}
   .products{grid-template-columns:repeat(2,1fr);gap:12px}
   .product-body{padding:12px}
   .product-title{font-size:.85rem}
-  .price-current{font-size:1.1rem}
   .add-btn{font-size:.82rem;padding:10px}
-  .side-menu{max-width:340px}
-  .sham-qr{width:200px;height:200px}
 }
 @media(min-width:640px){
-  .cats-grid{grid-template-columns:repeat(5,1fr)}
+  .cats-grid{grid-template-columns:repeat(3,1fr)}
   .products{grid-template-columns:repeat(3,1fr)}
-  .hero h1{font-size:1.8rem}
   .footer-links{grid-template-columns:1fr 1fr 1fr}
 }
 @media(min-width:768px){
@@ -983,6 +1235,14 @@ footer{
   .logo-text strong{font-size:1.1rem}
   .search-wrap{max-width:1400px;margin:0 auto;padding:0 24px 14px}
   .track-strip{max-width:1400px;margin:0 auto 16px;padding:14px 20px;border-radius:14px}
+  .top-deal-section{max-width:1400px;padding:0 24px;margin-top:30px}
+  .top-deal-card{padding:28px 32px}
+  .top-deal-inner{grid-template-columns:300px 1fr;gap:36px}
+  .top-deal-info h2{font-size:2rem}
+  .top-deal-current{font-size:2.5rem}
+  .top-deal-label{font-size:.85rem;padding:8px 20px}
+  .top-deal-discount-badge{width:85px;height:85px}
+  .top-deal-discount-badge .num{font-size:1.6rem}
   .hero{max-width:1400px;margin:0 auto;padding:30px 24px}
   .hero-inner{text-align:right;padding:36px 30px}
   .hero h1{font-size:2rem}
@@ -1006,6 +1266,8 @@ footer{
   .footer-brand{justify-content:flex-start;grid-column:1/-1}
   .footer-social{grid-column:1/-1;justify-content:center}
   .footer-links{display:contents}
+  .offers-mode-banner{padding:40px 24px}
+  .offers-mode-banner h2{font-size:2rem}
 }
 @media(min-width:1024px){
   .nav{min-height:70px;padding:14px 24px}
@@ -1063,7 +1325,8 @@ footer{
   </div>
 </header>
 
-<div class="track-strip" onclick="openTracking()">
+<!-- Track Strip -->
+<div class="track-strip" onclick="openTracking()" id="trackStrip">
   <div class="track-icon"><i class="fas fa-map-location-dot"></i></div>
   <div class="track-text">
     <strong>تتبّع طلبك</strong>
@@ -1072,30 +1335,71 @@ footer{
   <i class="fas fa-chevron-left track-arrow"></i>
 </div>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag"><i class="fas fa-star"></i> الأفضل بأسعار لا تُقاوم</div>
-    <h1>تسوّق بسلاسة من <span>السوق الصيني</span></h1>
-    <p>منتجات مختارة بعناية، أسعار بالدولار، وتوصيل سريع إلى باب منزلك</p>
-    <div class="hero-actions">
-      <button class="btn btn-primary" onclick="scrollToProducts()">
-        <i class="fas fa-shopping-cart"></i> تسوق الآن
-      </button>
-      <button class="btn btn-outline" onclick="openTracking()">
-        <i class="fas fa-map-location-dot"></i> تتبع طلب
-      </button>
-    </div>
-  </div>
-</section>
+<!-- Main Content (يظهر في الوضع العادي) -->
+<div class="main-content" id="mainContent">
 
-<section class="section">
+  <!-- Top Deal Section -->
+  <section class="top-deal-section" id="topDealSection" style="display:none">
+    <div class="top-deal-card">
+      <div class="top-deal-label">
+        <i class="fas fa-fire"></i>
+        أعلى خصم اليوم
+      </div>
+      <div class="top-deal-inner" id="topDealInner"></div>
+    </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag"><i class="fas fa-star"></i> الأفضل بأسعار لا تُقاوم</div>
+      <h1>تسوّق بسلاسة من <span>السوق الصيني</span></h1>
+      <p>منتجات مختارة بعناية، أسعار بالدولار، وتوصيل سريع إلى باب منزلك</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="scrollToProducts()">
+          <i class="fas fa-shopping-cart"></i> تسوق الآن
+        </button>
+        <button class="btn btn-outline" onclick="openTracking()">
+          <i class="fas fa-map-location-dot"></i> تتبع طلب
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Categories Section (ثابت - يظهر في الحالتين لكن يتغير محتواه) -->
+<section class="section" id="categoriesSection">
   <div class="section-head">
-    <h2><i class="fas fa-th-large"></i> تصفّح <span>الأقسام</span></h2>
+    <h2><i class="fas fa-th-large"></i> تصفّح <span id="sectionTitle">الأقسام</span></h2>
+    <button class="back-to-shop" onclick="selectMain('all')" id="backToShopBtn">
+      <i class="fas fa-arrow-right"></i> العودة للمتجر
+    </button>
   </div>
   <div class="cats-grid" id="catsGrid"></div>
   <div class="sub-chips" id="subChips" style="display:none"></div>
 </section>
 
+<!-- Offers Mode Banner (يظهر فقط في وضع العروضات) -->
+<div class="offers-mode-banner" id="offersBanner" style="display:none">
+  <h2><i class="fas fa-fire"></i> العروضات الحصرية</h2>
+  <p>أقوى الخصومات على أفضل المنتجات — لفترة محدودة!</p>
+  <div class="offers-mode-stats">
+    <div class="offers-mode-stat">
+      <div class="num" id="offersStatCount">0</div>
+      <div class="lbl">منتج مُخفّض</div>
+    </div>
+    <div class="offers-mode-stat">
+      <div class="num" id="offersStatMax">0%</div>
+      <div class="lbl">أعلى خصم</div>
+    </div>
+    <div class="offers-mode-stat">
+      <div class="num" id="offersStatSave">$0</div>
+      <div class="lbl">إجمالي التوفير</div>
+    </div>
+  </div>
+</div>
+
+<!-- Products Section -->
 <section class="section" id="productsSection">
   <div class="section-head">
     <h2><i class="fas fa-shopping-bag"></i> <span id="productsTitle">منتجاتنا المميزة</span></h2>
@@ -1103,7 +1407,8 @@ footer{
   <div class="products" id="productsGrid"></div>
 </section>
 
-<section class="section">
+<!-- About Section (يختفي في وضع العروضات) -->
+<section class="section main-content" id="aboutSection">
   <div class="about-card">
     <h2>عن <span>السوق الصيني</span></h2>
     <p>متجرك الإلكتروني الموثوق لأفضل المنتجات الصينية الأصلية. نوفر لك تشكيلة واسعة من الأدوات الكهربائية والمنزلية والهدايا والألعاب والمكتبة، بجودة عالية وأسعار منافسة.</p>
@@ -1116,7 +1421,8 @@ footer{
   </div>
 </section>
 
-<section class="section" id="infoSection">
+<!-- Info Section (يختفي في وضع العروضات) -->
+<section class="section main-content" id="infoSection">
   <div class="section-head">
     <h2><i class="fas fa-headset"></i> معلومات <span>التواصل والدفع</span></h2>
   </div>
@@ -1237,8 +1543,11 @@ footer{
     
     <div class="side-section">
       <div class="side-title">القائمة</div>
-      <button class="side-item" onclick="closeSideMenu();scrollTop()">
+      <button class="side-item" onclick="closeSideMenu();showMainContent()">
         <i class="fas fa-home"></i> الرئيسية
+      </button>
+      <button class="side-item danger" onclick="closeSideMenu();selectMain('offers')">
+        <i class="fas fa-fire"></i> العروضات 🔥
       </button>
       <button class="side-item" onclick="closeSideMenu();scrollToProducts()">
         <i class="fas fa-store"></i> المنتجات
@@ -1259,9 +1568,6 @@ footer{
     
     <div class="side-section">
       <div class="side-title">الأقسام</div>
-      <button class="side-item active" onclick="closeSideMenu();selectMain('all')">
-        <i class="fas fa-th-large"></i> كل المنتجات
-      </button>
       <div id="sideMenuCats"></div>
     </div>
     
@@ -1405,41 +1711,16 @@ let db = null;
 try {
   if (window.supabase && window.supabase.createClient) {
     db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    console.log('✅ Supabase initialized:', SUPABASE_URL);
+    console.log('✅ Supabase initialized');
   }
 } catch(e) {
   console.error('❌ Supabase init error:', e);
 }
 
-/* =========================================================
-   DIAGNOSTICS
-   ========================================================= */
-async function checkSupabaseConnection() {
-  if (!db) return console.error('❌ db غير مُهيأ');
-  console.log('🔍 فحص الاتصال...');
-  try {
-    const { data, error, count } = await db.from('products').select('*', { count: 'exact' }).limit(3);
-    if (error) throw error;
-    console.log(`✅ products: (${count ?? data?.length ?? 0} منتج)`);
-  } catch(err) {
-    console.error('❌ products:', err.message);
-  }
-  try {
-    const { data, error } = await db.from('orders').select('*').limit(3);
-    if (error) throw error;
-    console.log(`✅ orders: (${data?.length || 0} طلب)`);
-  } catch(err) {
-    console.error('❌ orders:', err.message);
-  }
-}
-window.checkSupabase = checkSupabaseConnection;
-
-/* =========================================================
-   CONSTANTS
-   ========================================================= */
 const SHAM_ID = 'f0f1de509939474be71094579523fb3d';
 
 const mainCategories = [
+  {id:'offers',      name:'العروضات', icon:'fa-fire',  isSpecial:true},
   {id:'electronics', name:'كهربائية', icon:'fa-plug'},
   {id:'home',        name:'منزلية',  icon:'fa-home'},
   {id:'gifts',       name:'هدايا',   icon:'fa-gift'},
@@ -1447,15 +1728,12 @@ const mainCategories = [
   {id:'library',     name:'مكتبة',   icon:'fa-book'}
 ];
 
-/* =========================================================
-   SUB CATEGORIES - قراءة من localStorage (مشاركة مع لوحة التحكم)
-   ========================================================= */
 const DEFAULT_SUBCATEGORIES = {
   electronics:[{id:'chargers',name:'شواحن'},{id:'headphones',name:'سماعات'},{id:'powerbanks',name:'باور بانك'},{id:'lights',name:'إضاءة'}],
   home:[{id:'kitchen',name:'مطبخ'},{id:'cleaning',name:'تنظيف'},{id:'decor',name:'ديكور'}],
   gifts:[{id:'birthday',name:'عيد ميلاد'},{id:'wedding',name:'زفاف'},{id:'watches',name:'ساعات'}],
   toys:[{id:'cars',name:'سيارات'},{id:'blocks',name:'مكعبات'},{id:'dolls',name:'دمى'}],
-  library:[{id:'pens',name:'أقلام'},{id:'notebooks',name:'دفاتر'},{id:'bags',name:'حقالئب'}]
+  library:[{id:'pens',name:'أقلام'},{id:'notebooks',name:'دفاتر'},{id:'bags',name:'حقائب'}]
 };
 
 function loadSubCategoriesFromStorage() {
@@ -1465,7 +1743,6 @@ function loadSubCategoriesFromStorage() {
   } catch(e) {}
   return JSON.parse(JSON.stringify(DEFAULT_SUBCATEGORIES));
 }
-
 const subCategories = loadSubCategoriesFromStorage();
 
 const FALLBACK_PRODUCTS = [
@@ -1485,9 +1762,6 @@ const FALLBACK_PRODUCTS = [
 
 const IMG_PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23e2e8f0' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%2394a3b8' font-family='Arial' font-size='20'%3Eلا توجد صورة%3C/text%3E%3C/svg%3E";
 
-/* =========================================================
-   STATE
-   ========================================================= */
 let products = [];
 let currentMain = 'all';
 let currentSub = 'all';
@@ -1499,6 +1773,7 @@ let currentUser = safeLocalGet('cm_current_user', null);
 let allOrders = safeLocalGet('cm_orders', []);
 let authMode = 'login';
 let receiptImageData = null;
+let offersMode = false;
 
 function safeLocalGet(key, fallback) {
   try {
@@ -1540,6 +1815,18 @@ function getStatusLabelFromStatus(status) {
   };
   return labels[status] || null;
 }
+function getDiscountPercent(p) {
+  const price = p.price_usd ?? p.priceUSD ?? 0;
+  const oldPrice = p.old_price_usd ?? p.oldUSD ?? 0;
+  if (oldPrice > price && oldPrice > 0) {
+    return Math.round(((oldPrice - price) / oldPrice) * 100);
+  }
+  return 0;
+}
+function isProductOnOffer(p) {
+  const discount = getDiscountPercent(p);
+  return discount > 0 || p.badge === 'discount' || p.badge === 'hot';
+}
 function showToast(msg, type='success'){
   const c = document.getElementById('toastContainer');
   const t = document.createElement('div');
@@ -1556,65 +1843,41 @@ function showToast(msg, type='success'){
 }
 
 /* =========================================================
-   LOGO HANDLING - استخدام الأسماء العربية
+   LOGO HANDLING
    ========================================================= */
 function initLogos() {
   const logoIds = ['logoIcon', 'footerLogoIcon', 'sideLogoIcon'];
-  
-  // ترتيب الأسماء: العربي أولاً ثم الاحتياطية
   const logoNames = ['الشعار.jpeg', 'الشعار.jpg', 'logo.jpeg', 'logo.jpg'];
   let currentIndex = 0;
-  
   function tryLoad() {
-    if (currentIndex >= logoNames.length) {
-      console.warn('⚠️ لم يتم العثور على شعار');
-      return;
-    }
-    
+    if (currentIndex >= logoNames.length) return;
     const testImg = new Image();
     testImg.onload = () => {
       logoIds.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.innerHTML = `<img src="${encodeURI(logoNames[currentIndex])}" alt="شعار">`;
       });
-      console.log('✅ تم تحميل الشعار:', logoNames[currentIndex]);
     };
-    testImg.onerror = () => {
-      currentIndex++;
-      tryLoad();
-    };
+    testImg.onerror = () => { currentIndex++; tryLoad(); };
     testImg.src = encodeURI(logoNames[currentIndex]);
   }
-  
   tryLoad();
 }
 
 function initShamQR() {
   const box = document.getElementById('shamQrBox');
   if (!box) return;
-  
-  // ترتيب الأسماء: العربي أولاً
-  const qrNames = ['شام كاش.jpeg', 'شام كاش.jpg', 'شام كاش.png', 'sham-qr.png', 'sham-qr.jpeg'];
+  const qrNames = ['شام كاش.jpeg', 'شام كاش.jpg', 'شام كاش.png', 'sham-qr.png'];
   let currentIndex = 0;
-  
   function tryLoad() {
-    if (currentIndex >= qrNames.length) {
-      console.warn('⚠️ لم يتم العثور على باركود');
-      return;
-    }
-    
+    if (currentIndex >= qrNames.length) return;
     const testImg = new Image();
     testImg.onload = () => {
       box.innerHTML = `<img src="${encodeURI(qrNames[currentIndex])}" alt="شام كاش">`;
-      console.log('✅ تم تحميل باركود شام كاش:', qrNames[currentIndex]);
     };
-    testImg.onerror = () => {
-      currentIndex++;
-      tryLoad();
-    };
+    testImg.onerror = () => { currentIndex++; tryLoad(); };
     testImg.src = encodeURI(qrNames[currentIndex]);
   }
-  
   tryLoad();
 }
 
@@ -1623,17 +1886,18 @@ function initShamQR() {
    ========================================================= */
 async function fetchProducts() {
   const overlay = document.getElementById('loadingOverlay');
-  
   if (!db) {
     products = [...FALLBACK_PRODUCTS];
     setTimeout(() => overlay.classList.add('hide'), 400);
+    renderCategories();
+    renderSubChips();
+    renderProducts();
+    renderTopDeal();
     return;
   }
-
   try {
     const { data, error } = await db.from('products').select('*').order('id', { ascending: true });
     if (error) throw error;
-
     if (data && data.length > 0) {
       products = data.map(p => ({
         id: p.id,
@@ -1649,24 +1913,20 @@ async function fetchProducts() {
         desc: p.desc || p.description || '',
         stock: p.stock ?? null
       }));
-      console.log(`✅ تم تحميل ${products.length} منتج`);
     } else {
       products = [...FALLBACK_PRODUCTS];
     }
   } catch (err) {
-    console.error('❌ خطأ:', err.message);
     products = [...FALLBACK_PRODUCTS];
   } finally {
     setTimeout(() => overlay.classList.add('hide'), 300);
     renderCategories();
     renderSubChips();
     renderProducts();
+    renderTopDeal();
   }
 }
 
-/* =========================================================
-   SAVE ORDER TO SUPABASE
-   ========================================================= */
 async function saveOrderToSupabase(order) {
   if (!db) return false;
   try {
@@ -1682,37 +1942,98 @@ async function saveOrderToSupabase(order) {
       status: order.status || 'pending',
       status_label: order.statusLabel || 'مراجعة الدفع'
     };
-    
-    console.log('📤 إرسال الطلب...');
-    const { data, error } = await db.from('orders').insert([orderPayload]).select();
-    
-    if (error) {
-      console.error('❌ فشل الحفظ:', error);
-      return false;
-    }
-    
-    console.log('✅ تم الحفظ:', data);
-    return true;
-  } catch (err) {
-    console.error('❌ خطأ:', err);
-    return false;
-  }
+    const { error } = await db.from('orders').insert([orderPayload]).select();
+    return !error;
+  } catch (err) { return false; }
 }
 
 /* =========================================================
-   RENDER FUNCTIONS
+   TOP DEAL - أعلى منتج خصماً
+   ========================================================= */
+function findTopDeal() {
+  const discountedProducts = products.filter(p => {
+    const price = p.price_usd ?? p.priceUSD ?? 0;
+    const oldPrice = p.old_price_usd ?? p.oldUSD ?? 0;
+    return oldPrice > 0 && oldPrice > price;
+  });
+  if (discountedProducts.length === 0) return null;
+  discountedProducts.sort((a, b) => getDiscountPercent(b) - getDiscountPercent(a));
+  return discountedProducts[0];
+}
+
+function renderTopDeal() {
+  const section = document.getElementById('topDealSection');
+  const container = document.getElementById('topDealInner');
+  if (!section || !container) return;
+  
+  const topProduct = findTopDeal();
+  if (!topProduct || offersMode) {
+    section.style.display = 'none';
+    return;
+  }
+  
+  section.style.display = 'block';
+  
+  const price = topProduct.price_usd ?? topProduct.priceUSD ?? 0;
+  const oldPrice = topProduct.old_price_usd ?? topProduct.oldUSD ?? 0;
+  const save = oldPrice - price;
+  const discountPercent = getDiscountPercent(topProduct);
+  const catLabel = getCatLabel(topProduct);
+  
+  container.innerHTML = `
+    <div class="top-deal-media" onclick="openProduct(${topProduct.id})">
+      <img src="${topProduct.img}" alt="${topProduct.name}" 
+        onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">
+      <div class="top-deal-discount-badge">
+        <div class="num">${discountPercent}%</div>
+        <div class="lbl">خصم</div>
+      </div>
+    </div>
+    <div class="top-deal-info">
+      <div class="cat"><i class="fas fa-tag"></i> ${catLabel}</div>
+      <h2>${topProduct.name}</h2>
+      <div class="top-deal-prices">
+        <div class="top-deal-current">${formatUSD(price)}</div>
+        <div class="top-deal-old">${formatUSD(oldPrice)}</div>
+        <div class="top-deal-save">
+          <i class="fas fa-piggy-bank"></i>
+          وفّر ${formatUSD(save)}
+        </div>
+      </div>
+      <div class="top-deal-actions">
+        <button class="btn top-deal-btn-primary" onclick="addToCart(${topProduct.id})">
+          <i class="fas fa-cart-plus"></i> أضف للسلة
+        </button>
+        <button class="btn top-deal-btn-outline" onclick="openProduct(${topProduct.id})">
+          <i class="fas fa-eye"></i> تفاصيل
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+/* =========================================================
+   RENDER CATEGORIES
    ========================================================= */
 function renderCategories(){
   const grid = document.getElementById('catsGrid');
   const items = [
     {id:'all', name:'الكل', icon:'fa-th-large', count: products.length},
-    ...mainCategories.map(c => ({
-      ...c, 
-      count: products.filter(p => (p.main_cat || p.mainCat) === c.id).length
-    }))
+    ...mainCategories.map(c => {
+      let count = 0;
+      if (c.id === 'offers') {
+        count = products.filter(isProductOnOffer).length;
+      } else {
+        count = products.filter(p => (p.main_cat || p.mainCat) === c.id).length;
+      }
+      return {...c, count};
+    })
   ];
+  
   grid.innerHTML = items.map(c => `
-    <div class="cat-card ${c.id===currentMain?'active':''}" onclick="selectMain('${c.id}')">
+    <div class="cat-card ${c.id===currentMain?'active':''}" 
+         data-cat="${c.id}"
+         onclick="selectMain('${c.id}')">
       <div class="cat-icon"><i class="fas ${c.icon}"></i></div>
       <h3>${c.name}</h3>
       <p>${c.count} منتج</p>
@@ -1720,7 +2041,7 @@ function renderCategories(){
   `).join('');
   
   document.getElementById('sideMenuCats').innerHTML = mainCategories.map(c =>
-    `<button class="side-item" onclick="closeSideMenu();selectMain('${c.id}')">
+    `<button class="side-item ${c.id==='offers'?'danger':''}" onclick="closeSideMenu();selectMain('${c.id}')">
       <i class="fas ${c.icon}"></i> ${c.name}
     </button>`
   ).join('');
@@ -1728,7 +2049,10 @@ function renderCategories(){
 
 function renderSubChips(){
   const wrap = document.getElementById('subChips');
-  if (currentMain === 'all'){ wrap.style.display='none'; return; }
+  if (currentMain === 'all' || currentMain === 'offers'){ 
+    wrap.style.display='none'; 
+    return; 
+  }
   const subs = subCategories[currentMain] || [];
   if (subs.length === 0){ wrap.style.display='none'; return; }
   wrap.style.display='flex';
@@ -1751,45 +2075,140 @@ function renderSubChips(){
   `).join('');
 }
 
+/* =========================================================
+   TOGGLE OFFERS MODE
+   ========================================================= */
+function enterOffersMode() {
+  offersMode = true;
+  currentMain = 'offers';
+  currentSub = 'all';
+  
+  // إخفاء المحتوى الرئيسي
+  document.getElementById('mainContent').classList.add('hidden');
+  document.getElementById('trackStrip').style.display = 'none';
+  document.getElementById('aboutSection').style.display = 'none';
+  document.getElementById('infoSection').style.display = 'none';
+  
+  // إظهار شارة العروضات
+  document.getElementById('offersBanner').style.display = 'block';
+  document.getElementById('backToShopBtn').classList.add('show');
+  document.getElementById('sectionTitle').textContent = 'العروضات';
+  
+  // إخفاء top deal
+  document.getElementById('topDealSection').style.display = 'none';
+  
+  // حساب الإحصائيات
+  const offerProducts = products.filter(isProductOnOffer);
+  let maxDiscount = 0;
+  let totalSave = 0;
+  offerProducts.forEach(p => {
+    const d = getDiscountPercent(p);
+    if (d > maxDiscount) maxDiscount = d;
+    const oldPrice = p.old_price_usd ?? p.oldUSD ?? 0;
+    const price = p.price_usd ?? p.priceUSD ?? 0;
+    if (oldPrice > price) totalSave += (oldPrice - price);
+  });
+  
+  document.getElementById('offersStatCount').textContent = offerProducts.length;
+  document.getElementById('offersStatMax').textContent = maxDiscount + '%';
+  document.getElementById('offersStatSave').textContent = '$' + Math.round(totalSave);
+  
+  renderCategories();
+  renderSubChips();
+  renderProducts();
+  
+  // Scroll to top
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function showMainContent() {
+  offersMode = false;
+  currentMain = 'all';
+  currentSub = 'all';
+  
+  // إظهار المحتوى الرئيسي
+  document.getElementById('mainContent').classList.remove('hidden');
+  document.getElementById('trackStrip').style.display = 'flex';
+  document.getElementById('aboutSection').style.display = 'block';
+  document.getElementById('infoSection').style.display = 'block';
+  
+  // إخفاء شارة العروضات
+  document.getElementById('offersBanner').style.display = 'none';
+  document.getElementById('backToShopBtn').classList.remove('show');
+  document.getElementById('sectionTitle').textContent = 'الأقسام';
+  
+  // إظهار top deal
+  renderTopDeal();
+  
+  renderCategories();
+  renderSubChips();
+  renderProducts();
+  
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* =========================================================
+   RENDER PRODUCTS
+   ========================================================= */
 function renderProducts(){
   const grid = document.getElementById('productsGrid');
   const titleEl = document.getElementById('productsTitle');
   
-  const filtered = products.filter(p => {
-    const pMain = p.main_cat || p.mainCat;
-    const pSub = p.sub_cat || p.subCat;
-    const okMain = currentMain==='all' || pMain===currentMain;
-    const okSub = currentSub==='all' || pSub===currentSub;
-    const okSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
-    return okMain && okSub && okSearch;
-  });
+  let filtered;
   
-  if (currentMain === 'all') titleEl.textContent = 'منتجاتنا المميزة';
-  else {
-    const mn = mainCategories.find(c=>c.id===currentMain)?.name || '';
-    if (currentSub === 'all') titleEl.textContent = mn;
+  if (offersMode) {
+    // وضع العروضات: فقط المنتجات التي عليها خصم
+    filtered = products.filter(isProductOnOffer);
+    // ترتيب حسب نسبة الخصم (الأعلى أولاً)
+    filtered.sort((a, b) => getDiscountPercent(b) - getDiscountPercent(a));
+    titleEl.innerHTML = '🔥 العروضات الحصرية';
+  } else {
+    filtered = products.filter(p => {
+      const pMain = p.main_cat || p.mainCat;
+      const pSub = p.sub_cat || p.subCat;
+      const okMain = currentMain==='all' || pMain===currentMain;
+      const okSub = currentSub==='all' || pSub===currentSub;
+      const okSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
+      return okMain && okSub && okSearch;
+    });
+    
+    if (currentMain === 'all') titleEl.textContent = 'منتجاتنا المميزة';
     else {
-      const sn = (subCategories[currentMain]||[]).find(s=>s.id===currentSub)?.name || '';
-      titleEl.textContent = `${mn} — ${sn}`;
+      const mn = mainCategories.find(c=>c.id===currentMain)?.name || '';
+      if (currentSub === 'all') titleEl.textContent = mn;
+      else {
+        const sn = (subCategories[currentMain]||[]).find(s=>s.id===currentSub)?.name || '';
+        titleEl.textContent = `${mn} — ${sn}`;
+      }
     }
   }
   
   if (filtered.length === 0){
     grid.innerHTML = `<div class="empty">
-      <i class="fas fa-box-open"></i>
-      <h3>لا توجد منتجات</h3>
-      <p>جرب تصفح قسم آخر</p>
+      <i class="fas fa-${offersMode ? 'fire' : 'box-open'}"></i>
+      <h3>${offersMode ? 'لا توجد عروضات حالياً' : 'لا توجد منتجات'}</h3>
+      <p>${offersMode ? 'ترقبوا عروضاً جديدة قريباً 🔥' : 'جرب تصفح قسم آخر'}</p>
     </div>`;
     return;
   }
   
-  grid.innerHTML = filtered.map(p => productCard(p)).join('');
+  // في وضع العروضات، نضيف rank للـ top 3
+  grid.innerHTML = filtered.map((p, index) => {
+    let rankClass = '';
+    if (offersMode && getDiscountPercent(p) > 0) {
+      if (index === 0) rankClass = 'offer-rank-1';
+      else if (index === 1) rankClass = 'offer-rank-2';
+      else if (index === 2) rankClass = 'offer-rank-3';
+    }
+    return productCard(p, rankClass);
+  }).join('');
 }
 
-function productCard(p){
+function productCard(p, rankClass = ''){
   const priceUSD = p.price_usd ?? p.priceUSD ?? 0;
   const oldUSD = p.old_price_usd ?? p.oldUSD ?? null;
   const isOut = p.stock !== null && p.stock !== undefined && p.stock <= 0;
+  const discount = getDiscountPercent(p);
   
   const badgeHTML = p.badge ? 
     `<span class="badge-pill ${p.badge}">${
@@ -1797,7 +2216,7 @@ function productCard(p){
     }</span>` : '';
   
   return `
-    <div class="product-card">
+    <div class="product-card ${rankClass}" style="position:relative">
       <div class="product-media">
         <img src="${p.img}" alt="${p.name}" loading="lazy" onclick="openProduct(${p.id})" onerror="this.onerror=null;this.src='${IMG_PLACEHOLDER}'">
         ${badgeHTML}
@@ -1817,6 +2236,7 @@ function productCard(p){
           <span class="price-current">${formatUSD(priceUSD)}</span>
           ${oldUSD?`<span class="price-old">${formatUSD(oldUSD)}</span>`:''}
         </div>
+        ${discount > 0 ? `<div style="font-size:.7rem;color:#059669;font-weight:800;display:flex;align-items:center;gap:4px;margin-top:2px"><i class="fas fa-piggy-bank"></i> وفّر ${formatUSD(oldUSD - priceUSD)}</div>` : ''}
         <button class="add-btn" onclick="addToCart(${p.id})" ${isOut?'disabled style="opacity:.5;cursor:not-allowed"':''}>
           <i class="fas fa-cart-plus"></i> ${isOut?'نفذت الكمية':'أضف للسلة'}
         </button>
@@ -1829,6 +2249,26 @@ function productCard(p){
    FILTERS
    ========================================================= */
 function selectMain(id){
+  if (id === 'offers') {
+    enterOffersMode();
+    return;
+  }
+  
+  // إذا كنا في وضع العروضات وخترنا قسم آخر، نرجع للوضع العادي
+  if (offersMode) {
+    showMainContent();
+    // ثم نختار القسم
+    setTimeout(() => {
+      currentMain = id;
+      currentSub = 'all';
+      renderCategories();
+      renderSubChips();
+      renderProducts();
+      document.getElementById('productsSection').scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+    return;
+  }
+  
   currentMain = id;
   currentSub = 'all';
   renderCategories();
@@ -1838,6 +2278,7 @@ function selectMain(id){
     document.getElementById('productsSection').scrollIntoView({behavior:'smooth', block:'start'});
   }, 100);
 }
+
 function selectSub(id){
   currentSub = id;
   renderSubChips();
@@ -2110,7 +2551,7 @@ function logout(){
 }
 
 /* =========================================================
-   ORDERS (My Orders)
+   ORDERS
    ========================================================= */
 function openMyOrders(){
   if (!currentUser){
@@ -2158,7 +2599,7 @@ function viewOrderTracking(orderId){
 }
 
 /* =========================================================
-   TRACKING - 4 خطوات فقط
+   TRACKING
    ========================================================= */
 function openTracking(orderId){
   openDrawer('trackingDrawer');
@@ -2195,9 +2636,6 @@ async function trackOrder(){
   let order = null;
   let source = 'local';
   
-  console.log('🔍 البحث عن:', input);
-  
-  // البحث في Supabase - order_number فقط
   if (db) {
     try {
       const { data, error } = await db
@@ -2206,12 +2644,8 @@ async function trackOrder(){
         .eq('order_number', input)
         .limit(1);
       
-      if (error) {
-        console.warn('⚠️ خطأ Supabase:', error.message);
-      } else if (data && data.length > 0) {
+      if (!error && data && data.length > 0) {
         const d = data[0];
-        console.log('✅ وجد الطلب في Supabase');
-        
         let items = [];
         try {
           items = typeof d.items === 'string' ? JSON.parse(d.items) : (d.items || []);
@@ -2226,17 +2660,11 @@ async function trackOrder(){
           }) : '-',
           items: items,
           totalUSD: parseFloat(d.total_usd || 0),
-          customerName: d.customer_name || '-',
-          shippingPhone: d.customer_phone || '',
-          shippingAddress: d.customer_address || '',
-          cancelReason: d.cancel_reason || '',
-          userId: d.customer_email || null
+          cancelReason: d.cancel_reason || ''
         };
         source = 'supabase';
       }
-    } catch(err) {
-      console.error('❌ خطأ:', err);
-    }
+    } catch(err) {}
   }
   
   if (!order) {
@@ -2245,7 +2673,6 @@ async function trackOrder(){
       (o.order_number && o.order_number.toUpperCase() === input)
     );
     if (localOrder) {
-      console.log('📦 وجد الطلب محلياً');
       order = {
         id: localOrder.id,
         status: localOrder.status,
@@ -2253,13 +2680,8 @@ async function trackOrder(){
         dateFormatted: localOrder.dateFormatted,
         items: localOrder.items || [],
         totalUSD: localOrder.totalUSD || 0,
-        customerName: localOrder.customerName,
-        shippingPhone: localOrder.shippingPhone,
-        shippingAddress: localOrder.shippingAddress,
-        cancelReason: localOrder.cancelReason || '',
-        userId: localOrder.userId
+        cancelReason: localOrder.cancelReason || ''
       };
-      source = 'local';
     }
   }
   
@@ -2274,7 +2696,6 @@ async function trackOrder(){
     return;
   }
   
-  // ✅ 4 خطوات فقط: مراجعة الدفع → قيد التجهيز → في الطريق → تم التسليم
   const statusSteps = {pending: 1, processing: 2, shipping: 3, delivered: 4, cancelled: -1};
   const currentStep = statusSteps[order.status] || 1;
   const isCancelled = order.status === 'cancelled';
@@ -2349,20 +2770,9 @@ async function trackOrder(){
         </div>
       ` : ''}
       
-      <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:12px;font-size:.75rem;color:#92400e;font-weight:700;line-height:1.6;display:flex;gap:8px;margin-bottom:12px">
-        <i class="fas fa-info-circle" style="font-size:1.1rem;flex-shrink:0;margin-top:2px"></i>
-        <div>
-          <strong>ملاحظة:</strong> يتم تجهيز الطلب بعد التأكد من صحة إشعار الدفع من قبل الإدارة.
-        </div>
-      </div>
-      
-      <button onclick="trackOrder()" style="width:100%;padding:12px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;font-weight:800;border:none;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px">
+      <button onclick="trackOrder()" style="width:100%;padding:12px;border-radius:11px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;font-weight:800;border:none;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px">
         <i class="fas fa-sync-alt"></i> تحديث الحالة
       </button>
-      
-      <div style="text-align:center;font-size:.65rem;color:var(--gray);margin-top:8px">
-        ${source === 'supabase' ? '✅ بيانات مباشرة من السيرفر' : '📦 بيانات محلية'}
-      </div>
     </div>
   `;
   
@@ -2542,9 +2952,6 @@ async function confirmOrder(){
   if (!receiptImageData){
     showToast('⚠️ يجب رفع صورة إشعار الدفع','error');
     document.getElementById('uploadBox').scrollIntoView({behavior:'smooth', block:'center'});
-    const ub = document.getElementById('uploadBox');
-    ub.style.animation = 'none';
-    setTimeout(() => { ub.style.animation = 'shake 0.5s'; }, 10);
     return;
   }
   
@@ -2564,9 +2971,7 @@ async function confirmOrder(){
     date: now.toISOString(),
     dateFormatted: now.toLocaleDateString('ar-EG', {day:'numeric',month:'short',year:'numeric'}),
     items: cart.map(i => ({
-      id: i.id, 
-      name: i.name, 
-      qty: i.qty, 
+      id: i.id, name: i.name, qty: i.qty, 
       priceUSD: i.price_usd ?? i.priceUSD ?? 0
     })),
     totalUSD,
@@ -2579,9 +2984,7 @@ async function confirmOrder(){
   saveOrders();
   
   showToast('جاري حفظ الطلب...', 'info');
-  const saved = await saveOrderToSupabase(order);
-  if (saved) console.log('✅ تم حفظ الطلب في Supabase');
-  else console.warn('⚠️ تم حفظ الطلب محلياً فقط');
+  await saveOrderToSupabase(order);
   
   cart = [];
   saveCart();
@@ -2602,9 +3005,6 @@ function showOrderSuccess(order){
       <div style="background:var(--light);border-radius:11px;padding:12px;margin:0 auto 14px;font-size:.78rem;font-weight:900;direction:ltr;letter-spacing:.5px;color:var(--primary);word-break:break-all">
         ${order.id}
       </div>
-      <p style="font-size:.7rem;color:var(--gray);margin-bottom:16px">
-        <i class="fas fa-info-circle"></i> احتفظ برقم الطلب لتتبعه
-      </p>
       <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
         <button class="btn btn-primary" onclick="closeCheckout();openTracking('${order.id}')">
           <i class="fas fa-map-location-dot"></i> تتبع الطلب
@@ -2654,16 +3054,10 @@ function closeAll(){
   document.getElementById('overlay').classList.remove('active');
 }
 
-/* =========================================================
-   HELPERS
-   ========================================================= */
 function scrollTop(){window.scrollTo({top:0,behavior:'smooth'})}
 function scrollToProducts(){document.getElementById('productsSection').scrollIntoView({behavior:'smooth'})}
 function scrollToInfo(){document.getElementById('infoSection').scrollIntoView({behavior:'smooth'})}
 
-/* =========================================================
-   EVENTS
-   ========================================================= */
 document.getElementById('searchInput').addEventListener('input', e => {
   searchQuery = e.target.value;
   renderProducts();
@@ -2704,9 +3098,6 @@ extraStyles.textContent = `
 `;
 document.head.appendChild(extraStyles);
 
-/* =========================================================
-   INIT
-   ========================================================= */
 window.addEventListener('load', async () => {
   initLogos();
   initShamQR();
@@ -2715,6 +3106,7 @@ window.addEventListener('load', async () => {
   renderCategories();
   renderSubChips();
   renderProducts();
+  renderTopDeal();
   updateCartUI();
   updateWishUI();
   updateAuthUI();
@@ -2724,8 +3116,8 @@ window.addEventListener('load', async () => {
   
   console.log('');
   console.log('%c🎯 السوق الصيني - جاهز','background:#dc2626;color:white;padding:4px 8px;border-radius:4px;font-weight:bold');
-  console.log('%c📝 للفحص: checkSupabase()','color:#059669;font-weight:bold');
-  console.log('%c🖼️ الشعار: الشعار.jpeg | الباركود: شام كاش.jpeg','color:#8b5cf6;font-weight:bold');
+  console.log('%c🔥 أعلى خصم يظهر تلقائياً في أعلى الصفحة','color:#eab308;font-weight:bold');
+  console.log('%c📄 اضغط على قسم العروضات لتصفية المنتجات المخفضة','color:#8b5cf6;font-weight:bold');
   console.log('');
 });
 </script>
