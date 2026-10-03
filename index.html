@@ -161,7 +161,7 @@ header.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
 .track-strip .track-text small{font-size:.7rem;color:#047857;font-weight:600}
 .track-strip i.track-arrow{color:#059669;font-size:.9rem}
 
-/* ===== Delivery Notice ===== */
+/* Delivery Notice */
 .delivery-notice{
   background:linear-gradient(135deg,#dbeafe,#bfdbfe);
   border:2px solid #3b82f6;
@@ -1248,7 +1248,6 @@ footer{
 .toast.info{background:var(--sham)}
 @keyframes toastIn{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
 
-/* Delivery Toast */
 .delivery-toast{
   background:linear-gradient(135deg,#1e40af,#3b82f6) !important;
   max-width:420px;
@@ -1361,7 +1360,7 @@ footer{
 
 <header id="header">
   <div class="top-bar">
-    <i class="fas fa-truck"></i> توصيل مجاني فوق 30$ | <i class="fas fa-percent"></i> خصومات 70% | <i class="fas fa-headset"></i> دعم 24/7
+    <i class="fas fa-truck"></i> <i class="fas fa-percent"></i> خصومات 70% | <i class="fas fa-headset"></i> دعم 24/7
   </div>
   <div class="nav">
     <button class="menu-toggle" onclick="toggleSideMenu(event)" aria-label="القائمة">
@@ -1905,7 +1904,7 @@ function showToast(msg, type='success'){
 }
 
 /* =========================================================
-   DELIVERY NOTICE TOAST
+   DELIVERY TOAST - سعر التوصيل 1$ - 5$
    ========================================================= */
 function showDeliveryToast(orderId){
   const c = document.getElementById('toastContainer');
@@ -1920,7 +1919,7 @@ function showDeliveryToast(orderId){
       <small>
         <i class="fas fa-map-marker-alt"></i> التوصيل متاح داخل عفرين فقط
         <br>
-        <i class="fas fa-dollar-sign"></i> رسوم التوصيل: 1$ - 10$ حسب حجم الفاتورة والمسافة
+        <i class="fas fa-dollar-sign"></i> رسوم التوصيل: 1$ - 5$ حسب حجم الفاتورة والمسافة
       </small>
     </div>
   `;
@@ -2654,7 +2653,6 @@ function renderMyOrders(){
     return;
   }
   
-  // ✅ إشعار التوصيل + قائمة الطلبات
   body.innerHTML = `
     <div class="delivery-notice" style="margin-bottom:14px">
       <div class="delivery-notice-icon">
@@ -2664,7 +2662,7 @@ function renderMyOrders(){
         <h4><i class="fas fa-map-marker-alt"></i> التوصيل متاح داخل عفرين</h4>
         <p>
           رسوم التوصيل:
-          <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 10$</span>
+          <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 5$</span>
           حسب حجم الفاتورة والمسافة.
         </p>
       </div>
@@ -2927,7 +2925,6 @@ function openCheckout(){
         style="padding:12px 14px;border:1.5px solid var(--border);border-radius:11px;font-size:16px;font-family:inherit">
     </div>
     
-    <!-- ✅ إشعار خدمة التوصيل -->
     <div class="delivery-notice">
       <div class="delivery-notice-icon">
         <i class="fas fa-truck-fast"></i>
@@ -2938,7 +2935,7 @@ function openCheckout(){
           متوفرة داخل مدينة <strong>عفرين</strong> فقط.
           <br>
           التوصيل من
-          <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 10$</span>
+          <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 5$</span>
           حسب حجم الفاتورة والمسافة المقطوعة.
         </p>
       </div>
@@ -3117,7 +3114,6 @@ function showOrderSuccess(order){
         ${order.id}
       </div>
       
-      <!-- ✅ إشعار خدمة التوصيل في صفحة النجاح -->
       <div class="delivery-notice" style="text-align:right;margin-top:14px">
         <div class="delivery-notice-icon">
           <i class="fas fa-truck-fast"></i>
@@ -3128,7 +3124,7 @@ function showOrderSuccess(order){
             داخل مدينة <strong>عفرين</strong> فقط.
             <br>
             رسوم التوصيل من
-            <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 10$</span>
+            <span class="price-range"><i class="fas fa-dollar-sign"></i>1 - 5$</span>
             حسب حجم الفاتورة والمسافة.
           </p>
         </div>
@@ -3147,7 +3143,6 @@ function showOrderSuccess(order){
   document.getElementById('checkoutModal').classList.add('active');
   document.body.style.overflow='hidden';
   
-  // ✅ Toast مميز بمعلومات التوصيل
   showDeliveryToast(order.id);
 }
 
@@ -3247,7 +3242,7 @@ window.addEventListener('load', async () => {
   
   console.log('');
   console.log('%c🎯 السوق الصيني - جاهز','background:#dc2626;color:white;padding:4px 8px;border-radius:4px;font-weight:bold');
-  console.log('%c🚚 ميزة إشعار التوصيل نشطة (عفرين: $1-$10)','color:#3b82f6;font-weight:bold');
+  console.log('%c🚚 إشعار التوصيل: عفرين فقط - 1$ إلى 5$','color:#3b82f6;font-weight:bold');
   console.log('');
 });
 </script>
