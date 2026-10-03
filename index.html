@@ -1447,13 +1447,26 @@ const mainCategories = [
   {id:'library',     name:'مكتبة',   icon:'fa-book'}
 ];
 
-const subCategories = {
+/* =========================================================
+   SUB CATEGORIES - قراءة من localStorage (مشاركة مع لوحة التحكم)
+   ========================================================= */
+const DEFAULT_SUBCATEGORIES = {
   electronics:[{id:'chargers',name:'شواحن'},{id:'headphones',name:'سماعات'},{id:'powerbanks',name:'باور بانك'},{id:'lights',name:'إضاءة'}],
   home:[{id:'kitchen',name:'مطبخ'},{id:'cleaning',name:'تنظيف'},{id:'decor',name:'ديكور'}],
   gifts:[{id:'birthday',name:'عيد ميلاد'},{id:'wedding',name:'زفاف'},{id:'watches',name:'ساعات'}],
   toys:[{id:'cars',name:'سيارات'},{id:'blocks',name:'مكعبات'},{id:'dolls',name:'دمى'}],
-  library:[{id:'pens',name:'أقلام'},{id:'notebooks',name:'دفاتر'},{id:'bags',name:'حقائب'}]
+  library:[{id:'pens',name:'أقلام'},{id:'notebooks',name:'دفاتر'},{id:'bags',name:'حقالئب'}]
 };
+
+function loadSubCategoriesFromStorage() {
+  try {
+    const raw = localStorage.getItem('cm_subcategories');
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return JSON.parse(JSON.stringify(DEFAULT_SUBCATEGORIES));
+}
+
+const subCategories = loadSubCategoriesFromStorage();
 
 const FALLBACK_PRODUCTS = [
   {id:1,name:"شاحن سريع 65W GaN",main_cat:"electronics",sub_cat:"chargers",price_usd:12.99,old_price_usd:19.99,img:"https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500",rating:4.8,reviews:234,badge:"discount",desc:"شاحن سريع بتقنية GaN، 65W."},
@@ -1543,30 +1556,66 @@ function showToast(msg, type='success'){
 }
 
 /* =========================================================
-   LOGO HANDLING
+   LOGO HANDLING - استخدام الأسماء العربية
    ========================================================= */
 function initLogos() {
   const logoIds = ['logoIcon', 'footerLogoIcon', 'sideLogoIcon'];
-  const testImg = new Image();
-  testImg.onload = () => {
-    logoIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.innerHTML = '<img src="logo.jpeg" alt="Logo">';
-    });
-  };
-  testImg.onerror = () => {};
-  testImg.src = 'logo.jpeg';
+  
+  // ترتيب الأسماء: العربي أولاً ثم الاحتياطية
+  const logoNames = ['الشعار.jpeg', 'الشعار.jpg', 'logo.jpeg', 'logo.jpg'];
+  let currentIndex = 0;
+  
+  function tryLoad() {
+    if (currentIndex >= logoNames.length) {
+      console.warn('⚠️ لم يتم العثور على شعار');
+      return;
+    }
+    
+    const testImg = new Image();
+    testImg.onload = () => {
+      logoIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = `<img src="${encodeURI(logoNames[currentIndex])}" alt="شعار">`;
+      });
+      console.log('✅ تم تحميل الشعار:', logoNames[currentIndex]);
+    };
+    testImg.onerror = () => {
+      currentIndex++;
+      tryLoad();
+    };
+    testImg.src = encodeURI(logoNames[currentIndex]);
+  }
+  
+  tryLoad();
 }
 
 function initShamQR() {
   const box = document.getElementById('shamQrBox');
   if (!box) return;
-  const testImg = new Image();
-  testImg.onload = () => {
-    box.innerHTML = '<img src="sham-qr.png" alt="QR">';
-  };
-  testImg.onerror = () => {};
-  testImg.src = 'sham-qr.png';
+  
+  // ترتيب الأسماء: العربي أولاً
+  const qrNames = ['شام كاش.jpeg', 'شام كاش.jpg', 'شام كاش.png', 'sham-qr.png', 'sham-qr.jpeg'];
+  let currentIndex = 0;
+  
+  function tryLoad() {
+    if (currentIndex >= qrNames.length) {
+      console.warn('⚠️ لم يتم العثور على باركود');
+      return;
+    }
+    
+    const testImg = new Image();
+    testImg.onload = () => {
+      box.innerHTML = `<img src="${encodeURI(qrNames[currentIndex])}" alt="شام كاش">`;
+      console.log('✅ تم تحميل باركود شام كاش:', qrNames[currentIndex]);
+    };
+    testImg.onerror = () => {
+      currentIndex++;
+      tryLoad();
+    };
+    testImg.src = encodeURI(qrNames[currentIndex]);
+  }
+  
+  tryLoad();
 }
 
 /* =========================================================
@@ -1634,8 +1683,7 @@ async function saveOrderToSupabase(order) {
       status_label: order.statusLabel || 'مراجعة الدفع'
     };
     
-    console.log('📤 إرسال الطلب...', orderPayload);
-    
+    console.log('📤 إرسال الطلب...');
     const { data, error } = await db.from('orders').insert([orderPayload]).select();
     
     if (error) {
@@ -2110,7 +2158,7 @@ function viewOrderTracking(orderId){
 }
 
 /* =========================================================
-   TRACKING - 4 خطوات فقط (بدون "تم استلام الطلب")
+   TRACKING - 4 خطوات فقط
    ========================================================= */
 function openTracking(orderId){
   openDrawer('trackingDrawer');
@@ -2191,7 +2239,6 @@ async function trackOrder(){
     }
   }
   
-  // Fallback: البحث المحلي
   if (!order) {
     const localOrder = allOrders.find(o => 
       (o.id || '').toUpperCase() === input || 
@@ -2678,6 +2725,7 @@ window.addEventListener('load', async () => {
   console.log('');
   console.log('%c🎯 السوق الصيني - جاهز','background:#dc2626;color:white;padding:4px 8px;border-radius:4px;font-weight:bold');
   console.log('%c📝 للفحص: checkSupabase()','color:#059669;font-weight:bold');
+  console.log('%c🖼️ الشعار: الشعار.jpeg | الباركود: شام كاش.jpeg','color:#8b5cf6;font-weight:bold');
   console.log('');
 });
 </script>
