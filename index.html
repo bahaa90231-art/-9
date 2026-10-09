@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>سُطور — منظّم المستندات الذكي</title>
+
+<!-- ✅ أيقونة الموقع في تبويب المتصفح (favicon) -->
+<link rel="icon" type="image/jfif" href="الشعار.jfif">
+<link rel="apple-touch-icon" href="الشعار.jfif">
+<link rel="shortcut icon" href="الشعار.jfif">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -38,28 +44,15 @@
     -webkit-mask-image:radial-gradient(circle at 50% 50%, black 30%, transparent 80%);
     pointer-events:none;
   }
-  .bg-orb{
-    position:fixed; border-radius:50%; filter:blur(80px);
-    opacity:0.35; pointer-events:none; z-index:-1;
-    animation: float 20s ease-in-out infinite;
-  }
-  .orb-1{ width:400px; height:400px; background:#6366f1; top:-100px; right:-100px; }
-  .orb-2{ width:500px; height:500px; background:#ec4899; bottom:-150px; left:-150px; animation-delay:-7s; }
-  .orb-3{ width:350px; height:350px; background:#f59e0b; top:50%; right:20%; animation-delay:-14s; }
-  @keyframes float{
-    0%,100%{ transform:translate(0,0) scale(1); }
-    33%{ transform:translate(40px,-30px) scale(1.05); }
-    66%{ transform:translate(-30px,40px) scale(0.95); }
-  }
 
   /* ============================================
-     شاشة الترحيب — الشعار يملأ الشاشة
+     شاشة الترحيب — الشعار يملأ الشاشة كخلفية
      ============================================ */
   .splash-screen{
     position:fixed;
     inset:0;
     z-index:99999;
-    background:radial-gradient(ellipse at center, #15103a 0%, #0a0a1a 70%, #05050f 100%);
+    background:#0a0a1a;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -73,91 +66,123 @@
     visibility:hidden;
   }
 
+  /* الشعار كخلفية كاملة للشاشة */
+  .splash-bg-image{
+    position:absolute;
+    inset:0;
+    background-image:url('الشعار.jfif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.95;
+    filter: blur(0px) brightness(0.85) saturate(1.2);
+    animation: splashZoom 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes splashZoom{
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+  }
+
+  /* تراكب داكن فوق الصورة لإبراز المحتوى */
+  .splash-overlay{
+    position:absolute;
+    inset:0;
+    background: 
+      radial-gradient(circle at center, rgba(10,10,26,0.3) 0%, rgba(10,10,26,0.75) 70%, rgba(10,10,26,0.95) 100%);
+    z-index:1;
+  }
+
+  /* جزيئات متحركة */
   .splash-bg-particles{
     position:absolute;
     inset:0;
     overflow:hidden;
-    z-index:0;
+    z-index:2;
   }
 
   .splash-particle{
     position:absolute;
     border-radius:50%;
-    background:linear-gradient(135deg, #6366f1, #ec4899);
-    opacity:0.4;
+    background:linear-gradient(135deg, #a5b4fc, #f0abfc);
+    opacity:0.6;
     animation: floatParticle 15s infinite ease-in-out;
-    filter: blur(1px);
+    box-shadow: 0 0 10px rgba(165,180,252,0.8);
   }
   @keyframes floatParticle{
     0%, 100%{ transform: translate(0, 0) scale(1); opacity:0.3; }
-    25%{ transform: translate(30px, -50px) scale(1.2); opacity:0.6; }
+    25%{ transform: translate(30px, -50px) scale(1.3); opacity:0.8; }
     50%{ transform: translate(-20px, -100px) scale(0.8); opacity:0.4; }
-    75%{ transform: translate(40px, -50px) scale(1.1); opacity:0.5; }
+    75%{ transform: translate(40px, -50px) scale(1.2); opacity:0.7; }
   }
 
-  .splash-glow{
-    position:absolute;
-    border-radius:50%;
-    filter: blur(100px);
-    opacity:0.5;
-    z-index:0;
-    animation: pulseGlow 4s infinite ease-in-out;
-  }
-  .splash-glow-1{ width:500px; height:500px; background:#6366f1; top:-150px; right:-150px; }
-  .splash-glow-2{ width:600px; height:600px; background:#ec4899; bottom:-200px; left:-200px; animation-delay:1s; }
-  .splash-glow-3{ width:400px; height:400px; background:#f59e0b; top:40%; right:10%; animation-delay:2s; }
-  @keyframes pulseGlow{
-    0%, 100%{ opacity:0.3; transform: scale(1); }
-    50%{ opacity:0.6; transform: scale(1.15); }
-  }
-
-  .splash-logo-fullscreen{
+  /* اسم الأداة فوق الصورة */
+  .splash-content{
     position:relative;
-    z-index:2;
-    width: 100vw;
-    height: 100vh;
+    z-index:3;
+    text-align:center;
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    padding: 0;
-    animation: splashLogoIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    gap:24px;
+    padding:40px;
+    animation: splashContentIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  @keyframes splashLogoIn{
-    from{ opacity:0; transform: scale(0.85); }
-    to{ opacity:1; transform: scale(1); }
+  @keyframes splashContentIn{
+    from{ opacity:0; transform: translateY(40px) scale(0.95); }
+    to{ opacity:1; transform: translateY(0) scale(1); }
   }
 
-  .splash-logo-img{
-    max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 60px rgba(99,102,241,0.6))
-            drop-shadow(0 0 120px rgba(236,72,153,0.4));
-    animation: logoFullscreenPulse 3s ease-in-out infinite;
+  .splash-title{
+    font-size: clamp(60px, 15vw, 140px);
+    font-weight: 900;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 40%, #f0abfc 70%, #fcd34d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -3px;
+    line-height: 1;
+    font-family: 'Cairo', sans-serif;
+    text-shadow: 0 0 80px rgba(165,180,252,0.5);
+    animation: titleShine 3s infinite;
+    background-size: 200% 200%;
   }
 
-  @keyframes logoFullscreenPulse{
-    0%, 100%{
-      transform: scale(1);
-      filter: drop-shadow(0 0 60px rgba(99,102,241,0.6))
-              drop-shadow(0 0 120px rgba(236,72,153,0.4));
-    }
-    50%{
-      transform: scale(1.03);
-      filter: drop-shadow(0 0 80px rgba(236,72,153,0.7))
-              drop-shadow(0 0 160px rgba(99,102,241,0.5));
-    }
+  @keyframes titleShine{
+    0%, 100%{ background-position: 0% 50%; }
+    50%{ background-position: 100% 50%; }
   }
 
+  .splash-title-en{
+    font-size: clamp(20px, 4vw, 36px);
+    font-weight: 700;
+    letter-spacing: 12px;
+    color: rgba(255,255,255,0.75);
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+    margin-top: -10px;
+  }
+
+  .splash-tagline{
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.08);
+    padding: 10px 26px;
+    border-radius: 999px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    margin-top: 10px;
+  }
+
+  /* شريط التحميل */
   .splash-loader-bottom{
     position:absolute;
-    bottom: 60px;
+    bottom: 70px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 3;
+    z-index: 4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,11 +194,12 @@
   .splash-loader-bar-wrapper{
     width: 100%;
     height: 4px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.12);
     border-radius: 999px;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
   }
 
   .splash-loader-bar{
@@ -185,7 +211,7 @@
     animation: 
       loaderProgress 3s cubic-bezier(0.4, 0, 0.2, 1) forwards,
       loaderShine 1.5s linear infinite;
-    box-shadow: 0 0 20px rgba(236,72,153,0.6);
+    box-shadow: 0 0 20px rgba(236,72,153,0.8);
   }
 
   @keyframes loaderProgress{
@@ -202,7 +228,7 @@
 
   .splash-status{
     font-size: 14px;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.75);
     font-weight: 600;
     letter-spacing: 1px;
     min-height: 20px;
@@ -222,17 +248,17 @@
     transform: translateX(-50%);
     padding: 10px 26px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
     font-size: 13px;
     font-weight: 700;
     cursor: pointer;
     font-family: 'Cairo', sans-serif;
     transition: all 0.3s;
-    z-index: 4;
+    z-index: 5;
     animation: fadeInTop 1s ease 1.2s both;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
   }
 
   @keyframes fadeInTop{
@@ -241,17 +267,12 @@
   }
 
   .splash-skip:hover{
-    background: rgba(255,255,255,0.15);
-    color: #fff;
+    background: rgba(255,255,255,0.2);
     transform: translateX(-50%) translateY(-2px);
-    box-shadow: 0 10px 30px rgba(99,102,241,0.4);
+    box-shadow: 0 10px 30px rgba(99,102,241,0.5);
   }
 
   @media (max-width:600px){
-    .splash-logo-img{
-      max-width: 92vw;
-      max-height: 75vh;
-    }
     .splash-loader-bottom{
       bottom: 40px;
       width: 80vw;
@@ -261,6 +282,10 @@
       top: 20px;
       padding: 8px 20px;
       font-size: 12px;
+    }
+    .splash-tagline{
+      font-size: 13px;
+      padding: 8px 18px;
     }
   }
 
@@ -280,34 +305,60 @@
   /* ============ الصفحة الرئيسية ============ */
   nav{
     position:fixed; top:0; left:0; right:0; z-index:100;
-    padding:16px 40px;
+    padding:12px 40px;
     display:flex; justify-content:space-between; align-items:center;
     transition:all 0.4s cubic-bezier(.4,0,.2,1);
     backdrop-filter:blur(0px);
   }
   nav.scrolled{
-    background:rgba(10,10,26,0.75);
+    background:rgba(10,10,26,0.85);
     backdrop-filter:blur(20px);
     border-bottom:1px solid rgba(255,255,255,0.08);
-    padding:12px 40px;
+    padding:10px 40px;
   }
-  .logo{
-    font-size:24px; font-weight:900;
+
+  /* ✅ الشعار في الزاوية العلوية مثل التطبيقات */
+  .logo-with-image{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    transition:all 0.3s;
+  }
+  .logo-with-image:hover{
+    transform: scale(1.05);
+  }
+
+  .logo-img{
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 12px;
+    filter: drop-shadow(0 4px 12px rgba(99,102,241,0.6));
+    transition: all 0.3s;
+  }
+
+  .logo-text{
+    font-size:22px;
+    font-weight:900;
     background:linear-gradient(135deg,#a5b4fc,#f0abfc,#fcd34d);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     background-clip:text;
-    display:flex; align-items:center; gap:10px;
-    font-family:'Space Grotesk','Cairo',sans-serif;
+    font-family:'Cairo',sans-serif;
     letter-spacing:-0.5px;
-    cursor:pointer;
+    line-height: 1;
   }
-  .logo .dot{
-    width:8px; height:8px; border-radius:50%;
-    background:#10b981;
-    box-shadow:0 0 10px #10b981;
-    animation:pulse 2s infinite;
+
+  .logo-text small{
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.5);
+    -webkit-text-fill-color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+    font-family: 'Space Grotesk', sans-serif;
   }
-  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
 
   .nav-links{ display:flex; gap:32px; align-items:center; }
   .nav-links a{
@@ -365,19 +416,7 @@
     box-shadow:0 0 8px #10b981;
     animation:pulse 2s infinite;
   }
-
-  .hero-logo{
-    width:180px;
-    height:180px;
-    object-fit:contain;
-    margin-bottom:24px;
-    filter: drop-shadow(0 20px 40px rgba(99,102,241,0.4));
-    animation: heroLogoFloat 4s ease-in-out infinite;
-  }
-  @keyframes heroLogoFloat{
-    0%, 100%{ transform: translateY(0); }
-    50%{ transform: translateY(-10px); }
-  }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
 
   .hero h1{
     font-size:clamp(38px, 7vw, 88px);
@@ -685,7 +724,7 @@
     background:rgba(10,10,26,0.85);
     backdrop-filter:blur(20px);
     border-bottom:1px solid rgba(255,255,255,0.08);
-    padding:14px 30px;
+    padding:12px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -1112,6 +1151,7 @@
   /* ============ Responsive ============ */
   @media (max-width:900px){
     nav{ padding:14px 20px; }
+    nav.scrolled{ padding:12px 20px; }
     .nav-links{
       display:none; position:absolute; top:100%; left:0; right:0;
       flex-direction:column; gap:0;
@@ -1136,6 +1176,9 @@
     .dev-avatar{ max-width:220px; margin:0 auto; font-size:80px; }
     .dev-info .role{ justify-content:center; }
     footer .footer-content{ flex-direction:column; text-align:center; }
+    .logo-img{ width: 42px; height: 42px; }
+    .logo-text{ font-size: 18px; }
+    .logo-text small{ font-size: 8px; letter-spacing: 3px; }
   }
   @media (max-width:1200px){
     .app-layout{
@@ -1161,7 +1204,6 @@
     .editor-panel textarea{ min-height:200px; }
     .tool-header{ padding:12px 16px; }
     .hdr-btn{ padding:7px 12px; font-size:12px; }
-    .logo{ font-size:18px; }
     .btn-hero{ padding:14px 24px; font-size:14.5px; width:100%; justify-content:center; }
   }
   @media (max-width:500px){
@@ -1171,20 +1213,18 @@
 </head>
 <body>
 
-<div class="bg-aurora"></div>
-<div class="bg-grid"></div>
-<div class="bg-orb orb-1"></div>
-<div class="bg-orb orb-2"></div>
-<div class="bg-orb orb-3"></div>
-
 <!-- ============================================
-     شاشة الترحيب — الشعار يملأ الشاشة
+     شاشة الترحيب — الشعار كخلفية كاملة
      ============================================ -->
 <div id="splashScreen" class="splash-screen">
+  <div class="splash-bg-image"></div>
+  <div class="splash-overlay"></div>
   <div class="splash-bg-particles" id="splashParticles"></div>
   
-  <div class="splash-logo-fullscreen">
-    <img src="الشعار.jfif" alt="سُطور" class="splash-logo-img">
+  <div class="splash-content">
+    <div class="splash-title">سُطور</div>
+    <div class="splash-title-en">SOTOOR</div>
+    <div class="splash-tagline">منظّم المستندات الذكي</div>
   </div>
   
   <div class="splash-loader-bottom">
@@ -1205,9 +1245,12 @@
 <div class="page active" id="homePage">
 
   <nav id="navbar">
-    <div class="logo" onclick="scrollTo({top:0,behavior:'smooth'})">
-      <span class="dot"></span>
-      <span>سُطور</span>
+    <div class="logo-with-image" onclick="scrollTo({top:0,behavior:'smooth'})">
+      <img src="الشعار.jfif" alt="سُطور" class="logo-img">
+      <div class="logo-text">
+        سُطور
+        <small>SOTOOR</small>
+      </div>
     </div>
     <div class="nav-links" id="navLinks">
       <a href="#home">الرئيسية</a>
@@ -1223,9 +1266,6 @@
       <span class="dot"></span>
       <span>أداة عربية فريدة · بدون تسجيل · حفظ تلقائي</span>
     </div>
-    
-    <img src="الشعار.jfif" alt="سُطور" class="hero-logo">
-    
     <h1>
       سُطور — رتّب نصوصك<br>
       <span class="highlight">في مستندات PDF</span> أنيقة
@@ -1375,9 +1415,12 @@
 <div class="page" id="toolPage">
 
   <div class="tool-header">
-    <div class="logo" onclick="goHome()" style="cursor:pointer;">
-      <span class="dot"></span>
-      <span>سُطور</span>
+    <div class="logo-with-image" onclick="goHome()">
+      <img src="الشعار.jfif" alt="سُطور" class="logo-img">
+      <div class="logo-text">
+        سُطور
+        <small>SOTOOR</small>
+      </div>
     </div>
     <div class="header-actions">
       <button class="back-home-btn" onclick="goHome()">
@@ -1491,10 +1534,10 @@ const $ = (id) => document.getElementById(id);
   const splash = document.getElementById('splashScreen');
   
   if(particlesContainer){
-    for(let i = 0; i < 20; i++){
+    for(let i = 0; i < 30; i++){
       const particle = document.createElement('div');
       particle.className = 'splash-particle';
-      const size = Math.random() * 5 + 2;
+      const size = Math.random() * 6 + 2;
       particle.style.width = size + 'px';
       particle.style.height = size + 'px';
       particle.style.left = Math.random() * 100 + '%';
@@ -1504,16 +1547,6 @@ const $ = (id) => document.getElementById(id);
       particlesContainer.appendChild(particle);
     }
   }
-  
-  const glow1 = document.createElement('div');
-  glow1.className = 'splash-glow splash-glow-1';
-  const glow2 = document.createElement('div');
-  glow2.className = 'splash-glow splash-glow-2';
-  const glow3 = document.createElement('div');
-  glow3.className = 'splash-glow splash-glow-3';
-  splash.insertBefore(glow3, splash.firstChild);
-  splash.insertBefore(glow2, splash.firstChild);
-  splash.insertBefore(glow1, splash.firstChild);
   
   const statusMessages = [
     'جاري التحميل...',
