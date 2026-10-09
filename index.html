@@ -499,6 +499,9 @@
     position:relative; z-index:1;
   }
 
+  /* ============================================
+     ✅ قسم المطور — مع صورة المبرمج
+     ============================================ */
   .dev-card{
     display:grid;
     grid-template-columns:340px 1fr;
@@ -516,19 +519,28 @@
     width:100%;
     aspect-ratio:1;
     border-radius:32px;
-    background:linear-gradient(135deg,#6366f1,#ec4899,#f59e0b);
-    display:flex; align-items:center; justify-content:center;
-    font-size:110px; font-weight:900;
-    color:#fff;
-    box-shadow:0 30px 80px rgba(99,102,241,0.4);
-    font-family:'Space Grotesk',sans-serif;
-    position:relative;
     overflow:hidden;
+    box-shadow:0 30px 80px rgba(99,102,241,0.5);
+    position:relative;
+    border: 3px solid rgba(165,180,252,0.4);
+  }
+  .dev-avatar img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+  }
+  .dev-avatar:hover img{
+    transform: scale(1.05);
   }
   .dev-avatar::after{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(135deg, transparent 40%, rgba(99,102,241,0.15) 50%, transparent 60%);
     animation: shimmer 3s infinite;
+    pointer-events: none;
   }
   @keyframes shimmer{ 0%{transform:translateX(-100%);} 100%{transform:translateX(100%);} }
 
@@ -1182,7 +1194,7 @@
       gap:30px;
       text-align:center;
     }
-    .dev-avatar{ max-width:220px; margin:0 auto; font-size:80px; }
+    .dev-avatar{ max-width:280px; margin:0 auto; }
     .dev-info .role{ justify-content:center; }
     footer .footer-content{ flex-direction:column; text-align:center; }
     .logo-img{ width: 44px; height: 44px; }
@@ -1318,6 +1330,7 @@
     </div>
   </section>
 
+  <!-- ✅ قسم المطور — مع صورة المبرمج -->
   <section class="section-wrap" id="developer">
     <div class="section-title reveal">
       <div class="eyebrow">◆ المطور ◆</div>
@@ -1326,13 +1339,21 @@
     </div>
 
     <div class="dev-card reveal">
-      <div class="dev-avatar">ب</div>
+      <div class="dev-avatar">
+        <img src="المبرمج.png" alt="بهاء الدين الحسين">
+      </div>
       <div class="dev-info">
         <h3>بهاء الدين الحسين</h3>
         <div class="role">مطوّر ويب · مصمم واجهات · صانع أدوات</div>
         <p>
           مرحباً! أنا <b>بهاء الدين الحسين</b>، مطوّر ويب متخصص في بناء الأدوات التفاعلية
-          وتصميم الواجهات العربية الحديثة.
+          وتصميم الواجهات العربية الحديثة. أؤمن بأن المحتوى العربي يستحق أدوات بجودة عالمية،
+          ولهذا بنيت "سُطور" — أداة عربية من نوعها.
+        </p>
+        <p>
+          أهتم بالتفاصيل الصغيرة التي تصنع الفرق: الحروف المتصلة، تدرّج الألوان،
+          سلاسة الحركات، وسرعة الاستجابة. هدفي أن يستخدم كل كاتب عربي أدوات تعكس جودة
+          فكره ومحتواه.
         </p>
         <div class="dev-skills">
           <span class="skill-tag">HTML5</span>
@@ -2004,7 +2025,7 @@ function renderBlock(block, palette, style){
 
 /* تقسيم المحتوى على صفحات */
 function paginateContent(blocks, palette, style){
-  const USABLE_HEIGHT = 1123 - 120; // 120 = هوامش
+  const USABLE_HEIGHT = 1123 - 120;
   
   function estimateHeight(block){
     const chars = (block.text || '').length;
@@ -2109,9 +2130,7 @@ function getStyleName(style){
   return names[style] || style;
 }
 
-/* ============================================================
-   ✅ تنزيل PDF — كل الصفحات في ملف واحد
-   ============================================================ */
+/* تنزيل PDF */
 downloadBtn.addEventListener('click', async () => {
   const raw = textInput.value.trim();
   if(!raw){
@@ -2137,7 +2156,6 @@ downloadBtn.addEventListener('click', async () => {
   await new Promise(r => setTimeout(r, 500));
 
   try{
-    // إنشاء PDF
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({
       unit: 'px',
@@ -2147,7 +2165,6 @@ downloadBtn.addEventListener('click', async () => {
       compress: true
     });
 
-    // حاوية مؤقتة
     const exportWrapper = document.createElement('div');
     exportWrapper.style.position = 'fixed';
     exportWrapper.style.top = '0';
@@ -2157,7 +2174,6 @@ downloadBtn.addEventListener('click', async () => {
     exportWrapper.style.zIndex = '-99999';
     document.body.appendChild(exportWrapper);
 
-    // معالجة كل صفحة
     for(let i = 0; i < pages.length; i++){
       const pageBlocks = pages[i];
       
@@ -2194,7 +2210,6 @@ downloadBtn.addEventListener('click', async () => {
       pdf.addImage(imgData, 'JPEG', 0, 0, 794, 1123, undefined, 'FAST');
     }
 
-    // حفظ
     pdf.save(fileName);
 
     document.body.removeChild(exportWrapper);
