@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نَظْم — منظّم المستندات الذكي</title>
+<title>سُطور — منظّم المستندات الذكي</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -17,8 +15,10 @@
     color:#fff;
     overflow-x:hidden;
     line-height:1.7;
+    min-height:100vh;
   }
 
+  /* ============ الخلفيات ============ */
   .bg-aurora{
     position:fixed; inset:0; z-index:-2;
     background:
@@ -52,6 +52,232 @@
     66%{ transform:translate(-30px,40px) scale(0.95); }
   }
 
+  /* ============================================
+     شاشة الترحيب — الشعار يملأ الشاشة
+     ============================================ */
+  .splash-screen{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:radial-gradient(ellipse at center, #15103a 0%, #0a0a1a 70%, #05050f 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    transition:opacity 0.8s ease, visibility 0.8s ease;
+    opacity:1;
+    visibility:visible;
+  }
+  .splash-screen.hide{
+    opacity:0;
+    visibility:hidden;
+  }
+
+  .splash-bg-particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+  }
+
+  .splash-particle{
+    position:absolute;
+    border-radius:50%;
+    background:linear-gradient(135deg, #6366f1, #ec4899);
+    opacity:0.4;
+    animation: floatParticle 15s infinite ease-in-out;
+    filter: blur(1px);
+  }
+  @keyframes floatParticle{
+    0%, 100%{ transform: translate(0, 0) scale(1); opacity:0.3; }
+    25%{ transform: translate(30px, -50px) scale(1.2); opacity:0.6; }
+    50%{ transform: translate(-20px, -100px) scale(0.8); opacity:0.4; }
+    75%{ transform: translate(40px, -50px) scale(1.1); opacity:0.5; }
+  }
+
+  .splash-glow{
+    position:absolute;
+    border-radius:50%;
+    filter: blur(100px);
+    opacity:0.5;
+    z-index:0;
+    animation: pulseGlow 4s infinite ease-in-out;
+  }
+  .splash-glow-1{ width:500px; height:500px; background:#6366f1; top:-150px; right:-150px; }
+  .splash-glow-2{ width:600px; height:600px; background:#ec4899; bottom:-200px; left:-200px; animation-delay:1s; }
+  .splash-glow-3{ width:400px; height:400px; background:#f59e0b; top:40%; right:10%; animation-delay:2s; }
+  @keyframes pulseGlow{
+    0%, 100%{ opacity:0.3; transform: scale(1); }
+    50%{ opacity:0.6; transform: scale(1.15); }
+  }
+
+  .splash-logo-fullscreen{
+    position:relative;
+    z-index:2;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding: 0;
+    animation: splashLogoIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes splashLogoIn{
+    from{ opacity:0; transform: scale(0.85); }
+    to{ opacity:1; transform: scale(1); }
+  }
+
+  .splash-logo-img{
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 60px rgba(99,102,241,0.6))
+            drop-shadow(0 0 120px rgba(236,72,153,0.4));
+    animation: logoFullscreenPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes logoFullscreenPulse{
+    0%, 100%{
+      transform: scale(1);
+      filter: drop-shadow(0 0 60px rgba(99,102,241,0.6))
+              drop-shadow(0 0 120px rgba(236,72,153,0.4));
+    }
+    50%{
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 80px rgba(236,72,153,0.7))
+              drop-shadow(0 0 160px rgba(99,102,241,0.5));
+    }
+  }
+
+  .splash-loader-bottom{
+    position:absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    width: min(340px, 80vw);
+    animation: fadeIn 1.5s ease 0.8s both;
+  }
+
+  .splash-loader-bar-wrapper{
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .splash-loader-bar{
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #6366f1, #ec4899, #f59e0b, #6366f1);
+    background-size: 200% 100%;
+    border-radius: 999px;
+    animation: 
+      loaderProgress 3s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+      loaderShine 1.5s linear infinite;
+    box-shadow: 0 0 20px rgba(236,72,153,0.6);
+  }
+
+  @keyframes loaderProgress{
+    0%{ width:0%; }
+    30%{ width:35%; }
+    60%{ width:70%; }
+    100%{ width:100%; }
+  }
+
+  @keyframes loaderShine{
+    0%{ background-position: 0% 0%; }
+    100%{ background-position: 200% 0%; }
+  }
+
+  .splash-status{
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 600;
+    letter-spacing: 1px;
+    min-height: 20px;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  @keyframes fadeIn{
+    from{ opacity:0; transform: translateX(-50%) translateY(20px); }
+    to{ opacity:1; transform: translateX(-50%) translateY(0); }
+  }
+
+  .splash-skip{
+    position:absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 26px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s;
+    z-index: 4;
+    animation: fadeInTop 1s ease 1.2s both;
+    backdrop-filter: blur(10px);
+  }
+
+  @keyframes fadeInTop{
+    from{ opacity:0; transform: translateX(-50%) translateY(-15px); }
+    to{ opacity:1; transform: translateX(-50%) translateY(0); }
+  }
+
+  .splash-skip:hover{
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 10px 30px rgba(99,102,241,0.4);
+  }
+
+  @media (max-width:600px){
+    .splash-logo-img{
+      max-width: 92vw;
+      max-height: 75vh;
+    }
+    .splash-loader-bottom{
+      bottom: 40px;
+      width: 80vw;
+    }
+    .splash-status{ font-size: 13px; }
+    .splash-skip{
+      top: 20px;
+      padding: 8px 20px;
+      font-size: 12px;
+    }
+  }
+
+  /* ============ الصفحات (SPA) ============ */
+  .page{
+    display:none;
+    min-height:100vh;
+    animation: fadeInPage 0.5s cubic-bezier(.4,0,.2,1);
+  }
+  .page.active{ display:block; }
+
+  @keyframes fadeInPage{
+    from{ opacity:0; transform:translateY(20px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* ============ الصفحة الرئيسية ============ */
   nav{
     position:fixed; top:0; left:0; right:0; z-index:100;
     padding:16px 40px;
@@ -66,12 +292,14 @@
     padding:12px 40px;
   }
   .logo{
-    font-size:22px; font-weight:900;
+    font-size:24px; font-weight:900;
     background:linear-gradient(135deg,#a5b4fc,#f0abfc,#fcd34d);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     background-clip:text;
-    display:flex; align-items:center; gap:8px;
+    display:flex; align-items:center; gap:10px;
     font-family:'Space Grotesk','Cairo',sans-serif;
+    letter-spacing:-0.5px;
+    cursor:pointer;
   }
   .logo .dot{
     width:8px; height:8px; border-radius:50%;
@@ -89,6 +317,7 @@
     font-weight:600;
     transition:all 0.25s;
     position:relative;
+    cursor:pointer;
   }
   .nav-links a:hover{ color:#fff; }
   .nav-links a::after{
@@ -137,6 +366,19 @@
     animation:pulse 2s infinite;
   }
 
+  .hero-logo{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    margin-bottom:24px;
+    filter: drop-shadow(0 20px 40px rgba(99,102,241,0.4));
+    animation: heroLogoFloat 4s ease-in-out infinite;
+  }
+  @keyframes heroLogoFloat{
+    0%, 100%{ transform: translateY(0); }
+    50%{ transform: translateY(-10px); }
+  }
+
   .hero h1{
     font-size:clamp(38px, 7vw, 88px);
     font-weight:900;
@@ -170,9 +412,9 @@
     animation: fadeUp 1s ease 0.3s both;
   }
   .btn-hero{
-    padding:16px 34px;
+    padding:18px 40px;
     border-radius:14px;
-    font-size:16px; font-weight:800;
+    font-size:17px; font-weight:800;
     text-decoration:none;
     display:inline-flex; align-items:center; gap:10px;
     transition:all 0.3s cubic-bezier(.4,0,.2,1);
@@ -290,134 +532,6 @@
     font-size:14.5px; line-height:1.8;
     position:relative; z-index:1;
   }
-
-  .tool-container{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:32px;
-    padding:40px;
-    backdrop-filter:blur(20px);
-    box-shadow:0 40px 100px rgba(0,0,0,0.5);
-    max-width:1200px; margin:0 auto;
-  }
-
-  .styles-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
-    gap:12px;
-    margin-bottom:24px;
-  }
-  .style-card{
-    border:2px solid rgba(255,255,255,0.08);
-    border-radius:16px;
-    padding:16px 8px;
-    text-align:center;
-    cursor:pointer;
-    transition:all 0.25s cubic-bezier(.4,0,.2,1);
-    background:rgba(255,255,255,0.03);
-    position:relative; overflow:hidden;
-  }
-  .style-card:hover{
-    transform:translateY(-3px);
-    border-color:rgba(165,180,252,0.5);
-    background:rgba(255,255,255,0.06);
-  }
-  .style-card.active{
-    border-color:#a5b4fc;
-    background:linear-gradient(135deg, rgba(99,102,241,0.25), rgba(236,72,153,0.15));
-    box-shadow:0 10px 30px rgba(99,102,241,0.35);
-  }
-  .style-card.active::after{
-    content:'✓'; position:absolute; top:6px; left:8px;
-    background:linear-gradient(135deg,#6366f1,#ec4899);
-    color:#fff; width:20px; height:20px; border-radius:50%;
-    font-size:12px; display:flex; align-items:center; justify-content:center;
-    font-weight:900;
-  }
-  .style-card .icon{ font-size:24px; display:block; margin-bottom:6px; }
-  .style-card .name{ font-size:13px; font-weight:700; color:rgba(255,255,255,0.85); }
-
-  textarea{
-    width:100%; min-height:280px;
-    padding:22px 26px;
-    border:2px solid rgba(255,255,255,0.1);
-    border-radius:18px;
-    font-size:15.5px; line-height:1.9;
-    resize:vertical; outline:none;
-    background:rgba(0,0,0,0.3);
-    color:#fff;
-    transition:all 0.3s;
-    font-family:'Cairo',sans-serif;
-  }
-  textarea::placeholder{ color:rgba(255,255,255,0.35); }
-  textarea:focus{
-    border-color:#a5b4fc;
-    background:rgba(0,0,0,0.4);
-    box-shadow:0 0 0 5px rgba(99,102,241,0.15);
-  }
-
-  .stats-bar{
-    display:flex; justify-content:space-between; align-items:center;
-    margin:14px 4px 22px;
-    font-size:13px; color:rgba(255,255,255,0.6);
-    flex-wrap:wrap; gap:10px;
-  }
-  .stats-bar .chips{ display:flex; gap:10px; flex-wrap:wrap; }
-  .chip{
-    background:rgba(255,255,255,0.06);
-    padding:6px 14px; border-radius:999px;
-    font-weight:600; color:rgba(255,255,255,0.75);
-    border:1px solid rgba(255,255,255,0.08);
-  }
-  .chip b{ color:#a5b4fc; }
-
-  .actions{ display:flex; gap:12px; flex-wrap:wrap; }
-  .actions button{
-    flex:1; min-width:160px;
-    padding:16px 24px;
-    border:none; border-radius:14px;
-    font-size:15px; font-weight:800;
-    cursor:pointer; transition:all 0.3s cubic-bezier(.4,0,.2,1);
-    display:flex; align-items:center; justify-content:center; gap:8px;
-    font-family:'Cairo',sans-serif;
-    position:relative; overflow:hidden;
-  }
-  .btn-ai{
-    background:linear-gradient(135deg,#f59e0b,#ec4899);
-    color:#fff;
-    box-shadow:0 12px 30px rgba(236,72,153,0.35);
-  }
-  .btn-ai:hover{ transform:translateY(-3px); box-shadow:0 18px 40px rgba(236,72,153,0.5); }
-
-  .btn-primary{
-    background:linear-gradient(135deg,#6366f1,#ec4899);
-    color:#fff;
-    box-shadow:0 12px 30px rgba(99,102,241,0.4);
-    background-size:200% 200%;
-    animation: gradientMove 4s ease infinite;
-  }
-  @keyframes gradientMove{ 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
-  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 18px 40px rgba(99,102,241,0.55); }
-
-  .btn-secondary{
-    background:rgba(255,255,255,0.06);
-    color:#fff;
-    border:1px solid rgba(255,255,255,0.12);
-  }
-  .btn-secondary:hover{ background:rgba(255,255,255,0.12); transform:translateY(-2px); }
-
-  .actions button:disabled{ opacity:0.55; cursor:not-allowed; transform:none !important; }
-
-  .status{
-    margin-top:20px; padding:16px 20px;
-    border-radius:12px; font-size:14.5px; font-weight:700;
-    display:none; text-align:center;
-    animation: slideIn 0.4s ease;
-  }
-  @keyframes slideIn{ from{opacity:0; transform:translateY(-8px);} to{opacity:1; transform:none;} }
-  .status.success{ background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); display:block; }
-  .status.error{ background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.3); display:block; }
-  .status.loading{ background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3); display:block; }
 
   .dev-card{
     display:grid;
@@ -565,6 +679,437 @@
   }
   .reveal.visible{ opacity:1; transform:translateY(0); }
 
+  /* ============ صفحة الأداة ============ */
+  .tool-header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(10,10,26,0.85);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    padding:14px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .header-actions{
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+  }
+  .hdr-btn{
+    padding:9px 16px;
+    border-radius:10px;
+    border:none;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    font-family:'Cairo',sans-serif;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:all 0.25s;
+    background:rgba(255,255,255,0.06);
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.12);
+  }
+  .hdr-btn:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateY(-2px);
+  }
+  .hdr-btn.primary{
+    background:linear-gradient(135deg,#6366f1,#ec4899);
+    border:none;
+    box-shadow:0 8px 20px rgba(236,72,153,0.35);
+  }
+  .hdr-btn.primary:hover{
+    box-shadow:0 12px 28px rgba(236,72,153,0.55);
+  }
+
+  .back-home-btn{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 16px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.12);
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all 0.25s;
+    font-family:'Cairo',sans-serif;
+  }
+  .back-home-btn:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateY(-2px);
+  }
+
+  .save-indicator{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    color:rgba(255,255,255,0.6);
+    font-weight:600;
+    padding:6px 12px;
+    background:rgba(16,185,129,0.1);
+    border:1px solid rgba(16,185,129,0.3);
+    border-radius:999px;
+    transition:all 0.3s;
+  }
+  .save-indicator.saving{
+    background:rgba(245,158,11,0.1);
+    border-color:rgba(245,158,11,0.3);
+    color:#fbbf24;
+  }
+  .save-indicator .dot-save{
+    width:6px; height:6px; border-radius:50%;
+    background:#10b981;
+    box-shadow:0 0 6px #10b981;
+  }
+  .save-indicator.saving .dot-save{
+    background:#fbbf24;
+    box-shadow:0 0 6px #fbbf24;
+    animation:pulse 0.6s infinite;
+  }
+
+  .app-layout{
+    display:grid;
+    grid-template-columns: 300px 1fr 1fr;
+    gap:16px;
+    padding:16px;
+    min-height:calc(100vh - 70px);
+  }
+
+  .sidebar{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:16px;
+    backdrop-filter:blur(20px);
+    display:flex;
+    flex-direction:column;
+    max-height:calc(100vh - 110px);
+    position:sticky;
+    top:80px;
+  }
+  .sidebar-title{
+    font-size:14px;
+    font-weight:800;
+    color:#a5b4fc;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .sidebar-title .count-badge{
+    font-size:11px;
+    background:linear-gradient(135deg,#6366f1,#ec4899);
+    color:#fff;
+    padding:2px 10px;
+    border-radius:999px;
+    font-weight:800;
+  }
+  .sections-list{
+    flex:1;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    padding-left:4px;
+  }
+  .sections-list::-webkit-scrollbar{ width:6px; }
+  .sections-list::-webkit-scrollbar-track{ background:transparent; }
+  .sections-list::-webkit-scrollbar-thumb{
+    background:rgba(165,180,252,0.3);
+    border-radius:3px;
+  }
+
+  .section-item{
+    padding:12px 14px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:12px;
+    cursor:pointer;
+    transition:all 0.25s;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:13.5px;
+    font-weight:600;
+    color:rgba(255,255,255,0.8);
+    text-align:right;
+  }
+  .section-item:hover{
+    background:rgba(99,102,241,0.15);
+    border-color:rgba(165,180,252,0.4);
+    transform:translateX(-4px);
+  }
+  .section-item.active{
+    background:linear-gradient(135deg, rgba(99,102,241,0.3), rgba(236,72,153,0.2));
+    border-color:#a5b4fc;
+    color:#fff;
+    box-shadow:0 8px 20px rgba(99,102,241,0.3);
+  }
+  .section-item .num{
+    width:26px; height:26px;
+    border-radius:8px;
+    background:linear-gradient(135deg,#6366f1,#ec4899);
+    color:#fff;
+    font-size:11px;
+    font-weight:900;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .section-item .title{
+    flex:1;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .empty-sections{
+    text-align:center;
+    padding:30px 20px;
+    color:rgba(255,255,255,0.4);
+    font-size:13px;
+    line-height:1.8;
+  }
+
+  .editor-panel{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:20px;
+    backdrop-filter:blur(20px);
+    display:flex;
+    flex-direction:column;
+    max-height:calc(100vh - 110px);
+    position:sticky;
+    top:80px;
+  }
+  .panel-title{
+    font-size:14px;
+    font-weight:800;
+    color:#a5b4fc;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .panel-title .auto-badge{
+    font-size:11px;
+    background:linear-gradient(135deg,#10b981,#059669);
+    color:#fff;
+    padding:3px 10px;
+    border-radius:999px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    gap:4px;
+  }
+  .panel-title .auto-badge .dot-save{
+    width:5px; height:5px; border-radius:50%;
+    background:#fff;
+    animation:pulse 1.5s infinite;
+  }
+
+  textarea{
+    width:100%;
+    flex:1;
+    min-height:200px;
+    padding:16px 18px;
+    border:2px solid rgba(255,255,255,0.1);
+    border-radius:14px;
+    font-size:14.5px;
+    line-height:1.9;
+    resize:none;
+    outline:none;
+    background:rgba(0,0,0,0.3);
+    color:#fff;
+    transition:all 0.3s;
+    font-family:'Cairo',sans-serif;
+  }
+  textarea::placeholder{ color:rgba(255,255,255,0.3); }
+  textarea:focus{
+    border-color:#a5b4fc;
+    background:rgba(0,0,0,0.4);
+    box-shadow:0 0 0 4px rgba(99,102,241,0.15);
+  }
+
+  .editor-stats{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+    flex-wrap:wrap;
+    font-size:11px;
+  }
+  .stat-chip{
+    background:rgba(255,255,255,0.06);
+    padding:4px 10px;
+    border-radius:999px;
+    color:rgba(255,255,255,0.7);
+    font-weight:600;
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  .stat-chip b{ color:#a5b4fc; }
+
+  .preview-panel{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:20px;
+    backdrop-filter:blur(20px);
+    display:flex;
+    flex-direction:column;
+    max-height:calc(100vh - 110px);
+    position:sticky;
+    top:80px;
+  }
+  .preview-panel .panel-title .section-badge{
+    font-size:11px;
+    background:linear-gradient(135deg,#6366f1,#ec4899);
+    color:#fff;
+    padding:3px 10px;
+    border-radius:999px;
+    font-weight:800;
+    max-width:180px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .preview-wrapper{
+    flex:1;
+    background:#e2e8f0;
+    border-radius:12px;
+    padding:16px;
+    overflow-y:auto;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    scrollbar-width:thin;
+  }
+  .preview-wrapper::-webkit-scrollbar{ width:6px; }
+  .preview-wrapper::-webkit-scrollbar-thumb{
+    background:rgba(165,180,252,0.4);
+    border-radius:3px;
+  }
+
+  .paper{
+    background:white;
+    width:100%;
+    max-width:520px;
+    border-radius:4px;
+    box-shadow:0 20px 40px -12px rgba(0,0,0,0.4);
+    overflow:hidden;
+  }
+
+  .empty-preview{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:400px;
+    color:#94a3b8;
+    gap:14px;
+    text-align:center;
+    padding:30px;
+  }
+  .empty-preview .big-icon{
+    font-size:3rem;
+    background:linear-gradient(135deg,#6366f1,#ec4899);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .empty-preview p{
+    font-size:14px;
+    color:#64748b;
+    font-weight:600;
+  }
+
+  .preview-content{
+    padding:40px 44px;
+    font-family:'Cairo','Tajawal',sans-serif;
+    color:#1e293b;
+    line-height:1.8;
+  }
+
+  .styles-mini-bar{
+    display:flex;
+    gap:6px;
+    padding:10px 16px;
+    background:rgba(10,10,26,0.85);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .styles-mini-bar::-webkit-scrollbar{ display:none; }
+
+  .style-mini{
+    padding:8px 16px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    color:rgba(255,255,255,0.75);
+    cursor:pointer;
+    transition:all 0.25s;
+    white-space:nowrap;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-family:'Cairo',sans-serif;
+  }
+  .style-mini:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateY(-2px);
+  }
+  .style-mini.active{
+    background:linear-gradient(135deg,#6366f1,#ec4899);
+    color:#fff;
+    border-color:transparent;
+    box-shadow:0 6px 16px rgba(99,102,241,0.4);
+  }
+
+  .toast{
+    position:fixed;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%) translateY(100px);
+    background:rgba(15,23,42,0.95);
+    backdrop-filter:blur(20px);
+    color:#fff;
+    padding:14px 24px;
+    border-radius:14px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    border:1px solid rgba(255,255,255,0.1);
+    font-size:14px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    z-index:9999;
+    transition:transform 0.4s cubic-bezier(.4,0,.2,1);
+    max-width:90%;
+  }
+  .toast.show{
+    transform:translateX(-50%) translateY(0);
+  }
+  .toast.success{ border-color:rgba(16,185,129,0.4); }
+  .toast.error{ border-color:rgba(239,68,68,0.4); }
+  .toast.info{ border-color:rgba(99,102,241,0.4); }
+
+  /* ============ Responsive ============ */
   @media (max-width:900px){
     nav{ padding:14px 20px; }
     .nav-links{
@@ -582,7 +1127,6 @@
     .hero-stats{ gap:30px; }
     .stat .num{ font-size:28px; }
     .section-wrap{ padding:70px 20px; }
-    .tool-container{ padding:24px 18px; }
     .dev-card{
       grid-template-columns:1fr;
       padding:36px 24px;
@@ -593,18 +1137,35 @@
     .dev-info .role{ justify-content:center; }
     footer .footer-content{ flex-direction:column; text-align:center; }
   }
+  @media (max-width:1200px){
+    .app-layout{
+      grid-template-columns: 260px 1fr;
+    }
+    .preview-panel{
+      grid-column: 1 / -1;
+      position:static;
+      max-height:none;
+    }
+  }
+  @media (max-width:768px){
+    .app-layout{
+      grid-template-columns: 1fr;
+      padding:12px;
+      gap:12px;
+    }
+    .sidebar, .editor-panel, .preview-panel{
+      position:static;
+      max-height:none;
+    }
+    .sidebar{ max-height:280px; }
+    .editor-panel textarea{ min-height:200px; }
+    .tool-header{ padding:12px 16px; }
+    .hdr-btn{ padding:7px 12px; font-size:12px; }
+    .logo{ font-size:18px; }
+    .btn-hero{ padding:14px 24px; font-size:14.5px; width:100%; justify-content:center; }
+  }
   @media (max-width:500px){
     .hero h1{ letter-spacing:-1px; }
-    .btn-hero{ padding:14px 24px; font-size:14.5px; width:100%; justify-content:center; }
-    .actions button{ min-width:100%; }
-  }
-
-  /* ============ PDF Template ============ */
-  #pdfTemplate{
-    position:fixed; top:0; left:0;
-    width:794px;
-    opacity:0; pointer-events:none; z-index:-9999;
-    background:#ffffff;
   }
 </style>
 </head>
@@ -616,327 +1177,486 @@
 <div class="bg-orb orb-2"></div>
 <div class="bg-orb orb-3"></div>
 
-<nav id="navbar">
-  <div class="logo">
-    <span class="dot"></span>
-    <span>نَظْم</span>
+<!-- ============================================
+     شاشة الترحيب — الشعار يملأ الشاشة
+     ============================================ -->
+<div id="splashScreen" class="splash-screen">
+  <div class="splash-bg-particles" id="splashParticles"></div>
+  
+  <div class="splash-logo-fullscreen">
+    <img src="الشعار.jfif" alt="سُطور" class="splash-logo-img">
   </div>
-  <div class="nav-links" id="navLinks">
-    <a href="#home">الرئيسية</a>
-    <a href="#about">عن الأداة</a>
-    <a href="#tool">الأداة</a>
-    <a href="#developer">المطور</a>
-    <a href="#contact" class="nav-cta">تواصل معي</a>
+  
+  <div class="splash-loader-bottom">
+    <div class="splash-loader-bar-wrapper">
+      <div class="splash-loader-bar"></div>
+    </div>
+    <p class="splash-status" id="splashStatus">جاري التحميل...</p>
   </div>
-  <button class="mobile-toggle" id="mobileToggle">☰</button>
-</nav>
+  
+  <button class="splash-skip" id="splashSkip">
+    تخطي ←
+  </button>
+</div>
 
-<section class="hero" id="home">
-  <div class="hero-badge">
-    <span class="dot"></span>
-    <span>أداة عربية فريدة · بدون تسجيل · تدفق طبيعي للنص</span>
-  </div>
-  <h1>
-    نَظْم — رتّب نصوصك<br>
-    <span class="highlight">في مستندات PDF</span> أنيقة
-  </h1>
-  <p>
-    نَظْم — أداة عربية فريدة تحوّل نصك العادي إلى مستند PDF منسّق تلقائياً بتدفق طبيعي،
-    بدون أي علامات مائية أو إضافات مزعجة — نصّك فقط، بأناقة.
-  </p>
-  <div class="hero-buttons">
-    <a href="#tool" class="btn-hero primary">🚀 ابدأ الآن مجاناً</a>
-    <a href="#about" class="btn-hero secondary">📖 تعرّف على المميزات</a>
-  </div>
-  <div class="hero-stats">
-    <div class="stat">
-      <div class="num">6</div>
-      <div class="label">أنماط تصميم</div>
-    </div>
-    <div class="stat">
-      <div class="num">100%</div>
-      <div class="label">مجاني</div>
-    </div>
-    <div class="stat">
-      <div class="num">0</div>
-      <div class="label">علامة مائية</div>
-    </div>
-    <div class="stat">
-      <div class="num">∞</div>
-      <div class="label">مستندات</div>
-    </div>
-  </div>
-</section>
+<!-- ============================================
+     الصفحة الرئيسية
+     ============================================ -->
+<div class="page active" id="homePage">
 
-<section class="section-wrap" id="about">
-  <div class="section-title reveal">
-    <div class="eyebrow">◆ عن الأداة ◆</div>
-    <h2>نَظْم — الاسم الفريد</h2>
-    <p>"نَظْم" كلمة عربية تعني التنظيم والتأليف — اخترناها لأنها تصف بدقة ما تفعله الأداة</p>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card reveal">
-      <div class="feature-icon">🧠</div>
-      <h3>تحليل ذكي للنص</h3>
-      <p>تتعرّف الأداة تلقائياً على العناوين والنقاط والاقتباسات وتعيد تنظيمها في أقسام واضحة.</p>
+  <nav id="navbar">
+    <div class="logo" onclick="scrollTo({top:0,behavior:'smooth'})">
+      <span class="dot"></span>
+      <span>سُطور</span>
     </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">📄</div>
-      <h3>تدفق طبيعي للنص</h3>
-      <p>النص يتدفق بشكل طبيعي عبر الصفحات كالكتب الحقيقية — بدون فواصل مصطنعة بين الأقسام.</p>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">الرئيسية</a>
+      <a href="#about">عن الأداة</a>
+      <a href="#developer">المطور</a>
+      <a href="#contact" class="nav-cta">تواصل معي</a>
     </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">🎨</div>
-      <h3>6 أنماط احترافية</h3>
-      <p>اختر من بين 6 أنماط: عصري، فاخر، إبداعي، بسيط، تقني، ومجلة — كل نمط بتصميم فريد.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">✨</div>
-      <h3>بدون علامات مائية</h3>
-      <p>مستندك نظيف تماماً — لا اسم أداة، لا شعار، لا تذييل — نصّك فقط كما كتبته.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">👁️</div>
-      <h3>معاينة قبل التنزيل</h3>
-      <p>شاهد المستند النهائي قبل تنزيله في نافذة منفصلة لضمان الرضا التام.</p>
-    </div>
-    <div class="feature-card reveal">
-      <div class="feature-icon">🔒</div>
-      <h3>خصوصية كاملة</h3>
-      <p>كل شيء يعمل في متصفحك فقط — لا يتم إرسال أي بيانات إلى أي خادم خارجي.</p>
-    </div>
-  </div>
-</section>
+    <button class="mobile-toggle" id="mobileToggle">☰</button>
+  </nav>
 
-<section class="section-wrap" id="tool">
-  <div class="section-title reveal">
-    <div class="eyebrow">◆ الأداة ◆</div>
-    <h2>جرّبها الآن</h2>
-    <p>الصق نصك، اختر النمط، ثم حمّل مستندك الاحترافي — نصّك فقط، بلا علامات مائية</p>
-  </div>
+  <section class="hero" id="home">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span>أداة عربية فريدة · بدون تسجيل · حفظ تلقائي</span>
+    </div>
+    
+    <img src="الشعار.jfif" alt="سُطور" class="hero-logo">
+    
+    <h1>
+      سُطور — رتّب نصوصك<br>
+      <span class="highlight">في مستندات PDF</span> أنيقة
+    </h1>
+    <p>
+      سُطور — أداة عربية فريدة تحوّل نصك العادي إلى مستند PDF منسّق تلقائياً، مع حفظ تلقائي فوري، 
+      وإمكانية حفظ ملفك للتعديل عليه لاحقاً، بدون أي علامات مائية.
+    </p>
+    <div class="hero-buttons">
+      <button class="btn-hero primary" onclick="openTool()">🚀 ابدأ الآن مجاناً</button>
+      <a href="#about" class="btn-hero secondary">📖 تعرّف على المميزات</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="num">6</div>
+        <div class="label">أنماط تصميم</div>
+      </div>
+      <div class="stat">
+        <div class="num">100%</div>
+        <div class="label">مجاني</div>
+      </div>
+      <div class="stat">
+        <div class="num">0</div>
+        <div class="label">علامة مائية</div>
+      </div>
+      <div class="stat">
+        <div class="num">💾</div>
+        <div class="label">حفظ تلقائي</div>
+      </div>
+    </div>
+  </section>
 
-  <div class="tool-container reveal">
-    <div class="styles-grid" id="stylesGrid">
-      <div class="style-card active" data-style="modern">
-        <span class="icon">🚀</span>
-        <span class="name">عصري</span>
+  <section class="section-wrap" id="about">
+    <div class="section-title reveal">
+      <div class="eyebrow">◆ عن الأداة ◆</div>
+      <h2>كل ما تحتاجه في أداة واحدة</h2>
+      <p>صُمّمت "سُطور" لتكون الحل الأمثل لمن يريد مستندات PDF احترافية مع حفظ تلقائي وحفظ للملفات</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">🧠</div>
+        <h3>تحليل ذكي للنص</h3>
+        <p>تتعرّف الأداة تلقائياً على العناوين والنقاط والاقتباسات وتعيد تنظيمها في أقسام واضحة.</p>
       </div>
-      <div class="style-card" data-style="elegant">
-        <span class="icon">👑</span>
-        <span class="name">فاخر</span>
+      <div class="feature-card reveal">
+        <div class="feature-icon">💾</div>
+        <h3>حفظ تلقائي فوري</h3>
+        <p>كل حرف تكتبه يُحفظ فوراً في متصفحك — لن تفقد عملك حتى لو أغلقت الصفحة.</p>
       </div>
-      <div class="style-card" data-style="creative">
-        <span class="icon">🎨</span>
-        <span class="name">إبداعي</span>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📁</div>
+        <h3>حفظ الملف للتعديل</h3>
+        <p>احفظ ملفك كـ "ملف سُطور" واستعده لاحقاً للاستمرار في التعديل عليه.</p>
       </div>
-      <div class="style-card" data-style="minimal">
-        <span class="icon">◻️</span>
-        <span class="name">بسيط</span>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📑</div>
+        <h3>عرض كل قسم وحده</h3>
+        <p>الأقسام تُعرض في صفحات منفصلة، ويمكنك النقر على أي قسم لعرضه وحده.</p>
       </div>
-      <div class="style-card" data-style="tech">
-        <span class="icon">💻</span>
-        <span class="name">تقني</span>
+      <div class="feature-card reveal">
+        <div class="feature-icon">✨</div>
+        <h3>بدون علامات مائية</h3>
+        <p>مستندك نظيف تماماً — لا اسم أداة، لا شعار، لا تذييل — نصّك فقط كما كتبته.</p>
       </div>
-      <div class="style-card" data-style="magazine">
-        <span class="icon">📰</span>
-        <span class="name">مجلة</span>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🔒</div>
+        <h3>خصوصية كاملة</h3>
+        <p>كل شيء يعمل في متصفحك فقط — لا يتم إرسال أي بيانات إلى أي خادم خارجي.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="developer">
+    <div class="section-title reveal">
+      <div class="eyebrow">◆ المطور ◆</div>
+      <h2>من يقف خلف الأداة؟</h2>
+      <p>مطوّر شغوف ببناء أدوات ويب عربية احترافية</p>
     </div>
 
-    <div class="editor-wrap">
+    <div class="dev-card reveal">
+      <div class="dev-avatar">ب</div>
+      <div class="dev-info">
+        <h3>بهاء الدين الحسين</h3>
+        <div class="role">مطوّر ويب · مصمم واجهات · صانع أدوات</div>
+        <p>
+          مرحباً! أنا <b>بهاء الدين الحسين</b>، مطوّر ويب متخصص في بناء الأدوات التفاعلية
+          وتصميم الواجهات العربية الحديثة. أؤمن بأن المحتوى العربي يستحق أدوات بجودة عالمية،
+          ولهذا بنيت "سُطور" — أول أداة عربية من نوعها.
+        </p>
+        <p>
+          أهتم بالتفاصيل الصغيرة التي تصنع الفرق: الحروف المتصلة، تدرّج الألوان،
+          سلاسة الحركات، وسرعة الاستجابة. هدفي أن يستخدم كل كاتب عربي أدوات تعكس جودة
+          فكره ومحتواه.
+        </p>
+        <div class="dev-skills">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">UI/UX Design</span>
+          <span class="skill-tag">Arabic RTL</span>
+          <span class="skill-tag">PDF Generation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="contact">
+    <div class="section-title reveal">
+      <div class="eyebrow">◆ تواصل ◆</div>
+      <h2>هل لديك سؤال أو اقتراح؟</h2>
+      <p>تواصل معي مباشرة — يسعدني سماع ملاحظاتك واقتراحاتك</p>
+    </div>
+
+    <div class="contact-wrap reveal">
+      <div class="contact-cards">
+        <a href="tel:0982520358" class="contact-card">
+          <div class="contact-icon">📞</div>
+          <h4>اتصال مباشر</h4>
+          <span>0982520358</span>
+        </a>
+        <a href="https://wa.me/963982520358" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">💬</div>
+          <h4>واتساب</h4>
+          <span>0982520358</span>
+        </a>
+        <a href="sms:0982520358" class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <h4>رسالة نصية</h4>
+          <span>0982520358</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 <span class="footer-brand">سُطور — منظّم المستندات الذكي</span> — جميع الحقوق محفوظة</p>
+      <p>صُنع بـ ❤️ بواسطة <b>بهاء الدين الحسين</b> · <span style="direction:ltr; display:inline-block;">0982520358</span></p>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ============================================
+     صفحة الأداة
+     ============================================ -->
+<div class="page" id="toolPage">
+
+  <div class="tool-header">
+    <div class="logo" onclick="goHome()" style="cursor:pointer;">
+      <span class="dot"></span>
+      <span>سُطور</span>
+    </div>
+    <div class="header-actions">
+      <button class="back-home-btn" onclick="goHome()">
+        ← الرئيسية
+      </button>
+      <div class="save-indicator" id="saveIndicator">
+        <span class="dot-save"></span>
+        <span id="saveText">محفوظ تلقائياً</span>
+      </div>
+      <button class="hdr-btn" id="saveFileBtn" title="حفظ الملف للتعديل لاحقاً">
+        💾 <span>حفظ الملف</span>
+      </button>
+      <button class="hdr-btn" id="loadFileBtn" title="استعادة ملف محفوظ">
+        📂 <span>استعادة</span>
+      </button>
+      <input type="file" id="fileInput" accept=".sutoor,.json" style="display:none;">
+      <button class="hdr-btn primary" id="downloadBtn" title="تنزيل PDF">
+        ⬇️ <span>تنزيل PDF</span>
+      </button>
+      <button class="hdr-btn" id="clearBtn" title="مسح الكل">
+        🗑️
+      </button>
+    </div>
+  </div>
+
+  <div class="styles-mini-bar" id="stylesMiniBar">
+    <button class="style-mini active" data-style="modern">🚀 عصري</button>
+    <button class="style-mini" data-style="elegant">👑 فاخر</button>
+    <button class="style-mini" data-style="creative">🎨 إبداعي</button>
+    <button class="style-mini" data-style="minimal">◻️ بسيط</button>
+    <button class="style-mini" data-style="tech">💻 تقني</button>
+    <button class="style-mini" data-style="magazine">📰 مجلة</button>
+  </div>
+
+  <div class="app-layout">
+
+    <div class="sidebar">
+      <div class="sidebar-title">
+        <span>📑 الأقسام</span>
+        <span class="count-badge" id="sectionsCount">0</span>
+      </div>
+      <div class="sections-list" id="sectionsList">
+        <div class="empty-sections">
+          اكتب نصك وستظهر الأقسام هنا تلقائياً
+        </div>
+      </div>
+    </div>
+
+    <div class="editor-panel">
+      <div class="panel-title">
+        <span>✍️ اكتب النص</span>
+        <span class="auto-badge">
+          <span class="dot-save"></span>
+          حفظ فوري
+        </span>
+      </div>
       <textarea id="textInput" placeholder="اكتب أو الصق نصك هنا…
 
 مثال:
 عنوان الموضوع
 
-هذه فكرة أولى تشرح الموضوع بشكل عام. يمكنك كتابة عدة جمل هنا وسيتم تنسيقها كفقرة كاملة.
+هذه فكرة أولى تشرح الموضوع بشكل عام.
 
-هذه الفكرة الثانية تتعلق بجانب آخر. ويمكن تقسيمها إلى نقاط:
-- نقطة أولى مهمة
+هذه الفكرة الثانية تتعلق بجانب آخر:
+- نقطة أولى
 - نقطة ثانية
-- نقطة ثالثة
 
-وأخيراً خاتمة تختصر كل ما سبق وتضع النقاط على الحروف.
+وأخيراً خاتمة.
 
-سيتم توزيع النص بشكل طبيعي على الصفحات، وكل صفحة تمتلئ تلقائياً!"></textarea>
-    </div>
-
-    <div class="stats-bar">
-      <div class="chips">
-        <span class="chip">الأحرف: <b id="charCount">0</b></span>
-        <span class="chip">الكلمات: <b id="wordCount">0</b></span>
-        <span class="chip">الأقسام: <b id="sectionCount">0</b></span>
-      </div>
-      <span class="chip" id="styleLabel">النمط: 🚀 عصري</span>
-    </div>
-
-    <div class="actions">
-      <button class="btn-ai" id="analyzeBtn">✨ تنسيق ذكي فوري</button>
-      <button class="btn-primary" id="downloadBtn">⬇️ تنزيل PDF</button>
-      <button class="btn-secondary" id="previewBtn">👁️ معاينة</button>
-      <button class="btn-secondary" id="clearBtn">🗑️ مسح</button>
-    </div>
-
-    <div class="status" id="status"></div>
-  </div>
-</section>
-
-<section class="section-wrap" id="developer">
-  <div class="section-title reveal">
-    <div class="eyebrow">◆ المطور ◆</div>
-    <h2>من يقف خلف الأداة؟</h2>
-    <p>مطوّر شغوف ببناء أدوات ويب عربية احترافية</p>
-  </div>
-
-  <div class="dev-card reveal">
-    <div class="dev-avatar">ب</div>
-    <div class="dev-info">
-      <h3>بهاء الدين الحسين</h3>
-      <div class="role">مطوّر ويب · مصمم واجهات · صانع أدوات</div>
-      <p>
-        مرحباً! أنا <b>بهاء الدين الحسين</b>، مطوّر ويب متخصص في بناء الأدوات التفاعلية
-        وتصميم الواجهات العربية الحديثة. أؤمن بأن المحتوى العربي يستحق أدوات بجودة عالمية،
-        ولهذا بنيت "نَظْم" — أول أداة عربية من نوعها.
-      </p>
-      <p>
-        أهتم بالتفاصيل الصغيرة التي تصنع الفرق: الحروف المتصلة، تدرّج الألوان،
-        سلاسة الحركات، وسرعة الاستجابة. هدفي أن يستخدم كل كاتب عربي أدوات تعكس جودة
-        فكره ومحتواه.
-      </p>
-      <div class="dev-skills">
-        <span class="skill-tag">HTML5</span>
-        <span class="skill-tag">CSS3</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">UI/UX Design</span>
-        <span class="skill-tag">Arabic RTL</span>
-        <span class="skill-tag">PDF Generation</span>
+💡 كل حرف تكتبه يُحفظ تلقائياً في متصفحك"></textarea>
+      <div class="editor-stats">
+        <span class="stat-chip">الأحرف: <b id="charCount">0</b></span>
+        <span class="stat-chip">الكلمات: <b id="wordCount">0</b></span>
+        <span class="stat-chip">الأقسام: <b id="sectionCount">0</b></span>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section-wrap" id="contact">
-  <div class="section-title reveal">
-    <div class="eyebrow">◆ تواصل ◆</div>
-    <h2>هل لديك سؤال أو اقتراح؟</h2>
-    <p>تواصل معي مباشرة — يسعدني سماع ملاحظاتك واقتراحاتك</p>
-  </div>
-
-  <div class="contact-wrap reveal">
-    <div class="contact-cards">
-      <a href="tel:0982520358" class="contact-card">
-        <div class="contact-icon">📞</div>
-        <h4>اتصال مباشر</h4>
-        <span>0982520358</span>
-      </a>
-      <a href="https://wa.me/963982520358" target="_blank" rel="noopener" class="contact-card">
-        <div class="contact-icon">💬</div>
-        <h4>واتساب</h4>
-        <span>0982520358</span>
-      </a>
-      <a href="sms:0982520358" class="contact-card">
-        <div class="contact-icon">✉️</div>
-        <h4>رسالة نصية</h4>
-        <span>0982520358</span>
-      </a>
+    <div class="preview-panel">
+      <div class="panel-title">
+        <span>👁️ معاينة القسم</span>
+        <span class="section-badge" id="previewSectionBadge">— لا يوجد —</span>
+      </div>
+      <div class="preview-wrapper" id="previewWrapper">
+        <div class="empty-preview">
+          <div class="big-icon">📄</div>
+          <p>اختر قسماً من الشريط الجانبي لعرضه</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<footer>
-  <div class="footer-content">
-    <p>© 2025 <span class="footer-brand">نَظْم — منظّم المستندات الذكي</span> — جميع الحقوق محفوظة</p>
-    <p>صُنع بـ ❤️ بواسطة <b>بهاء الدين الحسين</b> · <span style="direction:ltr; display:inline-block;">0982520358</span></p>
   </div>
-</footer>
+</div>
 
-<div id="pdfTemplate"></div>
+<div class="toast" id="toast">
+  <span id="toastIcon">✓</span>
+  <span id="toastMsg">تم الحفظ</span>
+</div>
 
 <script>
 /* ============================================================
-   نَظْم — منظّم المستندات الذكي
-   تدفق طبيعي + بدون علامات مائية
+   سُطور — SPA
    ============================================================ */
 
 const $ = (id) => document.getElementById(id);
-const textInput    = $('textInput');
-const downloadBtn  = $('downloadBtn');
-const previewBtn   = $('previewBtn');
-const clearBtn     = $('clearBtn');
-const analyzeBtn   = $('analyzeBtn');
-const statusBox    = $('status');
-const charCount    = $('charCount');
-const wordCount    = $('wordCount');
-const sectionCount = $('sectionCount');
-const styleLabel   = $('styleLabel');
-const pdfTemplate  = $('pdfTemplate');
 
-let currentStyle = 'modern';
+/* ============================================================
+   شاشة الترحيب
+   ============================================================ */
+(function(){
+  const particlesContainer = document.getElementById('splashParticles');
+  const splash = document.getElementById('splashScreen');
+  
+  if(particlesContainer){
+    for(let i = 0; i < 20; i++){
+      const particle = document.createElement('div');
+      particle.className = 'splash-particle';
+      const size = Math.random() * 5 + 2;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDelay = (Math.random() * 15) + 's';
+      particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      particlesContainer.appendChild(particle);
+    }
+  }
+  
+  const glow1 = document.createElement('div');
+  glow1.className = 'splash-glow splash-glow-1';
+  const glow2 = document.createElement('div');
+  glow2.className = 'splash-glow splash-glow-2';
+  const glow3 = document.createElement('div');
+  glow3.className = 'splash-glow splash-glow-3';
+  splash.insertBefore(glow3, splash.firstChild);
+  splash.insertBefore(glow2, splash.firstChild);
+  splash.insertBefore(glow1, splash.firstChild);
+  
+  const statusMessages = [
+    'جاري التحميل...',
+    'تحضير المحرر...',
+    'تحميل الخطوط العربية...',
+    'تهيئة القوالب...',
+    'جاهز! ✨'
+  ];
+  
+  let statusIndex = 0;
+  const statusEl = document.getElementById('splashStatus');
+  
+  const statusInterval = setInterval(() => {
+    statusIndex++;
+    if(statusIndex < statusMessages.length){
+      statusEl.textContent = statusMessages[statusIndex];
+    }
+    if(statusIndex >= statusMessages.length - 1){
+      clearInterval(statusInterval);
+    }
+  }, 600);
+  
+  const skipBtn = document.getElementById('splashSkip');
+  
+  function hideSplash(){
+    splash.classList.add('hide');
+    setTimeout(() => {
+      splash.style.display = 'none';
+    }, 800);
+  }
+  
+  const autoHideTimer = setTimeout(hideSplash, 3500);
+  
+  skipBtn.addEventListener('click', () => {
+    clearTimeout(autoHideTimer);
+    clearInterval(statusInterval);
+    statusEl.textContent = 'جاهز! ✨';
+    setTimeout(hideSplash, 200);
+  });
+})();
 
-/* ---------- شريط التنقل ---------- */
-const navbar = $('navbar');
-const mobileToggle = $('mobileToggle');
-const navLinks = $('navLinks');
+/* ============================================================
+   التنقل بين الصفحات
+   ============================================================ */
+function openTool(){
+  document.getElementById('homePage').classList.remove('active');
+  document.getElementById('toolPage').classList.add('active');
+  window.scrollTo({top:0, behavior:'instant'});
+  history.pushState({page: 'tool'}, '', '#tool');
+  if(typeof updateUI === 'function') updateUI();
+}
+
+function goHome(){
+  document.getElementById('toolPage').classList.remove('active');
+  document.getElementById('homePage').classList.add('active');
+  window.scrollTo({top:0, behavior:'instant'});
+  history.pushState({page: 'home'}, '', '#home');
+  document.querySelectorAll('#homePage .reveal').forEach(el => observer.observe(el));
+}
+
+window.addEventListener('popstate', (e) => {
+  if(e.state && e.state.page === 'tool'){
+    openTool();
+  } else {
+    goHome();
+  }
+});
+
+window.addEventListener('load', () => {
+  if(window.location.hash === '#tool'){
+    openTool();
+  }
+});
+
+/* ============================================================
+   الصفحة الرئيسية
+   ============================================================ */
+const navbar = document.getElementById('navbar');
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
 
 window.addEventListener('scroll', () => {
-  if(window.scrollY > 50) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
+  if(navbar){
+    if(window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  }
 });
 
-mobileToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+if(mobileToggle){
+  mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+}
 
-/* ---------- Scroll Reveal ---------- */
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
+    if(entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold:0.15 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-/* ---------- اختيار النمط ---------- */
-document.querySelectorAll('.style-card').forEach(card => {
-  card.addEventListener('click', () => {
-    document.querySelectorAll('.style-card').forEach(c => c.classList.remove('active'));
-    card.classList.add('active');
-    currentStyle = card.dataset.style;
-    const names = {modern:'🚀 عصري', elegant:'👑 فاخر', creative:'🎨 إبداعي', minimal:'◻️ بسيط', tech:'💻 تقني', magazine:'📰 مجلة'};
-    styleLabel.textContent = 'النمط: ' + names[currentStyle];
-    showStatus('🎨 تم اختيار النمط: ' + names[currentStyle], 'success');
-  });
-});
-
-/* ---------- الإحصائيات ---------- */
-function updateStats(){
-  const t = textInput.value;
-  charCount.textContent = t.length;
-  wordCount.textContent = t.trim() ? t.trim().split(/\s+/).length : 0;
-  const parsed = parseText(t);
-  sectionCount.textContent = parsed.sections.length;
-}
-textInput.addEventListener('input', updateStats);
-updateStats();
-
-/* ---------- الحالة ---------- */
-function showStatus(msg, type='success', keep=false){
-  statusBox.innerHTML = msg;
-  statusBox.className = 'status ' + type;
-  if(type !== 'loading' && !keep){
-    clearTimeout(showStatus._t);
-    showStatus._t = setTimeout(() => statusBox.className='status', 4500);
-  }
-}
+document.querySelectorAll('#homePage .reveal').forEach(el => observer.observe(el));
 
 /* ============================================================
-   محرك تحليل النص الذكي
+   الأداة
    ============================================================ */
+const textInput = $('textInput');
+const sectionsList = $('sectionsList');
+const previewWrapper = $('previewWrapper');
+const previewSectionBadge = $('previewSectionBadge');
+const charCount = $('charCount');
+const wordCount = $('wordCount');
+const sectionCount = $('sectionCount');
+const sectionsCount = $('sectionsCount');
+const saveIndicator = $('saveIndicator');
+const saveText = $('saveText');
+const downloadBtn = $('downloadBtn');
+const clearBtn = $('clearBtn');
+const saveFileBtn = $('saveFileBtn');
+const loadFileBtn = $('loadFileBtn');
+const fileInput = $('fileInput');
+const toast = $('toast');
+const toastMsg = $('toastMsg');
+const toastIcon = $('toastIcon');
+
+let currentStyle = 'modern';
+let currentSectionIndex = 0;
+let autoSaveTimer = null;
+const STORAGE_KEY = 'sutoor_autosave_v1';
+const STORAGE_STYLE = 'sutoor_style_v1';
+
+function showToast(msg, type = 'success'){
+  toastMsg.textContent = msg;
+  toastIcon.textContent = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
+  toast.className = 'toast show ' + type;
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => {
+    toast.className = 'toast';
+  }, 2500);
+}
+
 function parseText(raw){
   if(!raw || !raw.trim()) return { sections: [] };
   
@@ -984,9 +1704,6 @@ function parseText(raw){
   return { sections };
 }
 
-/* ============================================================
-   لوحات الألوان
-   ============================================================ */
 const palettes = {
   modern:   { primary:'#6366f1', secondary:'#8b5cf6', accent:'#ec4899', accent2:'#06b6d4', bg:'#ffffff', text:'#1f2937', soft:'#eef2ff' },
   elegant:  { primary:'#0f172a', secondary:'#334155', accent:'#b45309', accent2:'#a16207', bg:'#fdfbf7', text:'#1c1917', soft:'#f5f3ee' },
@@ -996,9 +1713,6 @@ const palettes = {
   magazine: { primary:'#b91c1c', secondary:'#7f1d1d', accent:'#ea580c', accent2:'#facc15', bg:'#fffdf7', text:'#1c1917', soft:'#fef2f2' }
 };
 
-/* ============================================================
-   بناء محتوى قسم (بدون رأس أو تذييل)
-   ============================================================ */
 function renderSectionContent(section, idx, palette, style, isFirst){
   const num = String(idx+1).padStart(2,'0');
   const title = section.title || (isFirst ? null : 'قسم ' + num);
@@ -1009,39 +1723,39 @@ function renderSectionContent(section, idx, palette, style, isFirst){
   if(title){
     if(style === 'modern'){
       titleHTML = `
-        <div style="display:flex;align-items:center;gap:14px;margin:30px 0 18px 0;">
+        <div style="display:flex;align-items:center;gap:14px;margin:0 0 18px 0;">
           <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,${palette.primary},${palette.accent});display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;font-family:'Cairo',sans-serif;flex-shrink:0;">${num}</div>
           <h2 style="${headingBase}font-size:22px;color:${palette.primary};">${escapeHtml(title)}</h2>
         </div>`;
     } else if(style === 'elegant'){
       titleHTML = `
-        <div style="text-align:center;margin:34px 0 22px 0;">
+        <div style="text-align:center;margin:0 0 22px 0;">
           <div style="font-size:11px;letter-spacing:4px;color:${palette.accent};font-weight:700;margin-bottom:6px;font-family:'Cairo',sans-serif;">${num} — SECTION</div>
           <h2 style="${headingBase}font-size:26px;color:${palette.primary};font-family:'Amiri','Cairo',serif;">${escapeHtml(title)}</h2>
           <div style="width:60px;height:2px;background:${palette.accent};margin:12px auto 0;"></div>
         </div>`;
     } else if(style === 'creative'){
       titleHTML = `
-        <div style="margin:28px 0 20px 0;">
+        <div style="margin:0 0 20px 0;">
           <div style="display:inline-block;background:linear-gradient(135deg,${palette.primary},${palette.secondary});color:#fff;padding:10px 22px;border-radius:999px;font-size:18px;font-weight:900;font-family:'Cairo',sans-serif;">${escapeHtml(title)}</div>
         </div>`;
     } else if(style === 'minimal'){
       titleHTML = `
-        <div style="margin:28px 0 16px 0;border-bottom:2px solid ${palette.primary};padding-bottom:8px;">
+        <div style="margin:0 0 16px 0;border-bottom:2px solid ${palette.primary};padding-bottom:8px;">
           <h2 style="${headingBase}font-size:19px;color:${palette.text};">
             <span style="color:${palette.primary};font-weight:900;">${num}.</span> ${escapeHtml(title)}
           </h2>
         </div>`;
     } else if(style === 'tech'){
       titleHTML = `
-        <div style="margin:28px 0 18px 0;display:flex;align-items:center;gap:12px;">
+        <div style="margin:0 0 18px 0;display:flex;align-items:center;gap:12px;">
           <div style="font-family:'Cairo',monospace;color:${palette.accent};font-size:14px;font-weight:700;flex-shrink:0;">&lt;${num}&gt;</div>
           <h2 style="${headingBase}font-size:20px;color:${palette.accent};">${escapeHtml(title)}</h2>
           <div style="flex:1;height:1px;background:linear-gradient(90deg,${palette.accent},transparent);"></div>
         </div>`;
     } else {
       titleHTML = `
-        <div style="margin:28px 0 20px 0;">
+        <div style="margin:0 0 20px 0;">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
             <div style="background:${palette.primary};color:#fff;padding:4px 14px;font-size:12px;font-weight:800;letter-spacing:1px;border-radius:4px;font-family:'Cairo',sans-serif;">عدد ${num}</div>
             <div style="flex:1;height:2px;background:${palette.primary}30;"></div>
@@ -1116,14 +1830,215 @@ function renderSectionContent(section, idx, palette, style, isFirst){
   return `${titleHTML}${contentHTML}`;
 }
 
-/* ============================================================
-   بناء المستند بالكامل — تدفق طبيعي بدون صفحات منفصلة
-   ============================================================ */
-function buildDocument(){
+function updateUI(){
+  const raw = textInput.value;
+  const parsed = parseText(raw);
+  const sections = parsed.sections;
+
+  charCount.textContent = raw.length;
+  wordCount.textContent = raw.trim() ? raw.trim().split(/\s+/).length : 0;
+  sectionCount.textContent = sections.length;
+  sectionsCount.textContent = sections.length;
+
+  if(sections.length === 0){
+    sectionsList.innerHTML = '<div class="empty-sections">اكتب نصك وستظهر الأقسام هنا تلقائياً</div>';
+    previewWrapper.innerHTML = `
+      <div class="empty-preview">
+        <div class="big-icon">📄</div>
+        <p>اختر قسماً من الشريط الجانبي لعرضه</p>
+      </div>`;
+    previewSectionBadge.textContent = '— لا يوجد —';
+    return;
+  }
+
+  if(currentSectionIndex >= sections.length) currentSectionIndex = 0;
+  if(currentSectionIndex < 0) currentSectionIndex = 0;
+
+  sectionsList.innerHTML = sections.map((s, i) => {
+    const title = s.title || (i === 0 ? 'مقدمة' : 'قسم ' + (i+1));
+    return `
+      <div class="section-item ${i === currentSectionIndex ? 'active' : ''}" data-index="${i}">
+        <div class="num">${String(i+1).padStart(2,'0')}</div>
+        <div class="title">${escapeHtml(title)}</div>
+      </div>`;
+  }).join('');
+
+  sectionsList.querySelectorAll('.section-item').forEach(el => {
+    el.addEventListener('click', () => {
+      currentSectionIndex = parseInt(el.dataset.index);
+      updateUI();
+    });
+  });
+
+  const section = sections[currentSectionIndex];
+  const palette = palettes[currentStyle];
+  const isFirst = currentSectionIndex === 0;
+  const contentHTML = renderSectionContent(section, currentSectionIndex, palette, currentStyle, isFirst);
+
+  let bgColor = palette.bg;
+  let decoration = '';
+  if(currentStyle === 'creative'){
+    bgColor = `linear-gradient(180deg, #fffbf5 0%, #fef3c7 100%)`;
+  } else if(currentStyle === 'tech'){
+    decoration = `<div style="position:absolute;inset:0;background-image:linear-gradient(${palette.accent}08 1px,transparent 1px),linear-gradient(90deg,${palette.accent}08 1px,transparent 1px);background-size:30px 30px;pointer-events:none;"></div>`;
+  } else if(currentStyle === 'modern'){
+    decoration = `<div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,${palette.primary},${palette.accent},${palette.accent2});"></div>`;
+  } else if(currentStyle === 'magazine'){
+    decoration = `
+      <div style="position:absolute;top:0;left:0;right:0;height:5px;background:${palette.primary};"></div>
+      <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:${palette.accent};"></div>
+    `;
+    bgColor = '#fffdf7';
+  }
+
+  const title = section.title || (currentSectionIndex === 0 ? 'مقدمة' : 'قسم ' + (currentSectionIndex+1));
+  previewSectionBadge.textContent = title.length > 25 ? title.slice(0,25) + '…' : title;
+
+  previewWrapper.innerHTML = `
+    <div class="paper">
+      <div class="preview-content" style="background:${bgColor};position:relative;min-height:400px;">
+        ${decoration}
+        <div style="position:relative;z-index:1;">
+          ${contentHTML}
+        </div>
+      </div>
+    </div>`;
+}
+
+function setSaveIndicator(state){
+  if(state === 'saving'){
+    saveIndicator.classList.add('saving');
+    saveText.textContent = 'جاري الحفظ...';
+  } else {
+    saveIndicator.classList.remove('saving');
+    saveText.textContent = 'محفوظ تلقائياً';
+  }
+}
+
+function autoSave(){
+  setSaveIndicator('saving');
+  try {
+    localStorage.setItem(STORAGE_KEY, textInput.value);
+    localStorage.setItem(STORAGE_STYLE, currentStyle);
+    setTimeout(() => setSaveIndicator('saved'), 300);
+  } catch(e){
+    console.error('Auto-save error:', e);
+  }
+}
+
+function loadAutoSave(){
+  try {
+    const savedText = localStorage.getItem(STORAGE_KEY);
+    const savedStyle = localStorage.getItem(STORAGE_STYLE);
+    if(savedText){
+      textInput.value = savedText;
+    }
+    if(savedStyle && palettes[savedStyle]){
+      currentStyle = savedStyle;
+      document.querySelectorAll('.style-mini').forEach(b => {
+        b.classList.toggle('active', b.dataset.style === savedStyle);
+      });
+    }
+  } catch(e){
+    console.error('Load auto-save error:', e);
+  }
+}
+
+textInput.addEventListener('input', () => {
+  clearTimeout(autoSaveTimer);
+  setSaveIndicator('saving');
+  autoSaveTimer = setTimeout(() => {
+    autoSave();
+    updateUI();
+  }, 200);
+});
+
+window.addEventListener('beforeunload', autoSave);
+
+document.querySelectorAll('.style-mini').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.style-mini').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentStyle = btn.dataset.style;
+    autoSave();
+    updateUI();
+    showToast('تم تغيير النمط', 'success');
+  });
+});
+
+saveFileBtn.addEventListener('click', () => {
+  const raw = textInput.value;
+  if(!raw.trim()){
+    showToast('لا يوجد نص لحفظه', 'error');
+    return;
+  }
+
+  const fileData = {
+    app: 'sutoor',
+    version: '1.0',
+    savedAt: new Date().toISOString(),
+    style: currentStyle,
+    text: raw,
+    stats: {
+      chars: raw.length,
+      words: raw.trim().split(/\s+/).length,
+      sections: parseText(raw).sections.length
+    }
+  };
+
+  const blob = new Blob([JSON.stringify(fileData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const fileName = (raw.split('\n')[0].trim().slice(0,40) || 'مستند') + '.sutoor';
+  a.href = url;
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showToast('تم حفظ الملف: ' + fileName, 'success');
+});
+
+loadFileBtn.addEventListener('click', () => {
+  fileInput.click();
+});
+
+fileInput.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if(data.app !== 'sutoor' || !data.text){
+        showToast('ملف غير صالح', 'error');
+        return;
+      }
+      textInput.value = data.text;
+      if(data.style && palettes[data.style]){
+        currentStyle = data.style;
+        document.querySelectorAll('.style-mini').forEach(b => {
+          b.classList.toggle('active', b.dataset.style === data.style);
+        });
+      }
+      autoSave();
+      updateUI();
+      showToast('تم استعادة الملف بنجاح', 'success');
+    } catch(err){
+      showToast('خطأ في قراءة الملف', 'error');
+    }
+  };
+  reader.readAsText(file);
+  fileInput.value = '';
+});
+
+downloadBtn.addEventListener('click', async () => {
   const raw = textInput.value.trim();
   if(!raw){
-    showStatus('⚠️ الرجاء كتابة نص أولاً', 'error');
-    return null;
+    showToast('اكتب نصاً أولاً', 'error');
+    return;
   }
 
   const palette = palettes[currentStyle];
@@ -1131,7 +2046,6 @@ function buildDocument(){
   const parsed = parseText(raw);
   const firstLine = raw.split('\n')[0].trim().slice(0,70);
 
-  // إذا كان القسم الأول عنوانه نفس عنوان المستند، احذفه
   const sections = parsed.sections.map((s, i) => {
     if(i === 0 && s.title && s.title.trim() === firstLine){
       return { ...s, title: null, isFirst: true };
@@ -1139,19 +2053,12 @@ function buildDocument(){
     return { ...s, isFirst: false };
   });
 
-  // بناء كل المحتوى في تدفق واحد
   const contentHTML = sections.map((s, i) => renderSectionContent(s, i, palette, style, s.isFirst)).join('');
 
-  // خلفية وديكور
   let bgColor = palette.bg;
   let decoration = '';
-
   if(style === 'creative'){
     bgColor = `linear-gradient(180deg, #fffbf5 0%, #fef3c7 100%)`;
-    decoration = `
-      <div style="position:absolute;top:-80px;left:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,${palette.accent}22,transparent 70%);pointer-events:none;"></div>
-      <div style="position:absolute;bottom:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,${palette.primary}22,transparent 70%);pointer-events:none;"></div>
-    `;
   } else if(style === 'tech'){
     decoration = `<div style="position:absolute;inset:0;background-image:linear-gradient(${palette.accent}08 1px,transparent 1px),linear-gradient(90deg,${palette.accent}08 1px,transparent 1px);background-size:30px 30px;pointer-events:none;"></div>`;
   } else if(style === 'modern'){
@@ -1164,10 +2071,7 @@ function buildDocument(){
     bgColor = '#fffdf7';
   }
 
-  // نحسب ارتفاع كل صفحة A4 بالـ px = 1123px
-  // لكننا نترك المحتوى يتدفق طبيعياً — html2pdf سيقسّم الصفحات تلقائياً
-
-  return `
+  const docHTML = `
     <style>
       .doc-page, .doc-page *{ box-sizing:border-box; }
       .doc-page{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
@@ -1195,34 +2099,34 @@ function buildDocument(){
       </div>
     </div>
   `;
-}
 
-/* ============================================================
-   تنزيل PDF — تدفق طبيعي عبر الصفحات
-   ============================================================ */
-downloadBtn.addEventListener('click', async () => {
-  const html = buildDocument();
-  if(!html) return;
+  const exportDiv = document.createElement('div');
+  exportDiv.style.position = 'fixed';
+  exportDiv.style.top = '0';
+  exportDiv.style.left = '0';
+  exportDiv.style.width = '794px';
+  exportDiv.style.opacity = '0.001';
+  exportDiv.style.pointerEvents = 'none';
+  exportDiv.style.zIndex = '-9999';
+  exportDiv.innerHTML = docHTML;
+  document.body.appendChild(exportDiv);
 
-  pdfTemplate.innerHTML = html;
-  pdfTemplate.style.opacity = '1';
-
-  const element = pdfTemplate.querySelector('.doc-page');
+  const element = exportDiv.querySelector('.doc-page');
 
   downloadBtn.disabled = true;
+  const originalHTML = downloadBtn.innerHTML;
   downloadBtn.innerHTML = '⏳ جاري الإنشاء...';
-  showStatus('✨ جاري تنسيق المستند وتحويله إلى PDF...', 'loading', true);
+  showToast('جاري إنشاء PDF...', 'info');
 
-  const fileName = (textInput.value.trim().split('\n')[0].trim().slice(0,40) || 'document') + '.pdf';
+  const fileName = (raw.split('\n')[0].trim().slice(0,40) || 'document') + '.pdf';
 
   if(document.fonts && document.fonts.ready){
     try { await document.fonts.ready; } catch(e){}
   }
-  await new Promise(r => setTimeout(r, 1200));
+  await new Promise(r => setTimeout(r, 900));
 
   try{
-    // استخدام html2pdf مع pagebreak للحصول على تدفق طبيعي
-    const opt = {
+    await html2pdf().set({
       margin: 0,
       filename: fileName,
       image: { type:'jpeg', quality:0.98 },
@@ -1258,122 +2162,52 @@ downloadBtn.addEventListener('click', async () => {
         mode: ['css', 'legacy'],
         avoid: ['h1', 'h2', 'h3', 'li', 'tr', 'blockquote']
       }
-    };
+    }).from(element).save();
 
-    await html2pdf().set(opt).from(element).save();
-    showStatus('✅ تم إنشاء الملف بنجاح: ' + fileName, 'success');
+    showToast('تم إنشاء الملف: ' + fileName, 'success');
   }catch(e){
     console.error(e);
-    showStatus('❌ حدث خطأ: ' + e.message, 'error');
+    showToast('حدث خطأ أثناء الإنشاء', 'error');
   }finally{
-    pdfTemplate.innerHTML = '';
-    pdfTemplate.style.opacity = '0';
+    document.body.removeChild(exportDiv);
     downloadBtn.disabled = false;
-    downloadBtn.innerHTML = '⬇️ تنزيل PDF';
+    downloadBtn.innerHTML = originalHTML;
   }
 });
 
-/* ============================================================
-   معاينة
-   ============================================================ */
-previewBtn.addEventListener('click', () => {
-  const html = buildDocument();
-  if(!html) return;
-
-  const w = window.open('', '_blank');
-  if(!w){
-    showStatus('⚠️ المتصفح منع فتح النافذة. اسمح بالنوافذ المنبثقة.', 'error');
-    return;
-  }
-
-  const content = `<!DOCTYPE html>
-<html dir="rtl" lang="ar">
-<head>
-<meta charset="UTF-8">
-<title>معاينة المستند - نَظْم</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-  html,body{margin:0;padding:0;background:#334155;font-family:'Cairo',sans-serif;}
-  body{padding:20px 15px;min-height:100vh;}
-  .toolbar{position:sticky;top:0;z-index:100;background:rgba(15,23,42,0.95);backdrop-filter:blur(10px);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;border-radius:14px;margin-bottom:24px;box-shadow:0 10px 30px rgba(0,0,0,0.3);max-width:900px;margin-left:auto;margin-right:auto;}
-  .toolbar h1{font-size:16px;font-weight:800;margin:0;background:linear-gradient(135deg,#a5b4fc,#f0abfc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-  .toolbar .info{font-size:13px;color:rgba(255,255,255,0.6);}
-  .paper{box-shadow:0 20px 60px rgba(0,0,0,0.5);border-radius:4px;overflow:hidden;background:#fff;width:794px;margin:0 auto;flex-shrink:0;}
-  .doc-page{width:794px !important; min-height:auto !important; padding:60px 68px !important;}
-  .doc-page h1, .doc-page h2, .doc-page h3{
-    font-family:'Cairo','Tajawal',sans-serif !important;
-    letter-spacing:0 !important;
-    line-height:1.5 !important;
-  }
-</style>
-</head>
-<body>
-  <div class="toolbar">
-    <h1>📄 نَظْم — معاينة المستند</h1>
-    <div class="info">النمط: ${styleLabel.textContent.replace('النمط: ','')}</div>
-  </div>
-  <div class="paper">
-    ${html.replace(/<style>[\s\S]*?<\/style>/, '').replace(/<div class="doc-page"/, '<div class="doc-page" style="padding:60px 68px;"')}
-  </div>
-</body>
-</html>`;
-
-  w.document.write(content);
-  w.document.close();
-});
-
-/* ============================================================
-   التنسيق الذكي
-   ============================================================ */
-analyzeBtn.addEventListener('click', () => {
-  const raw = textInput.value.trim();
-  if(!raw){ showStatus('⚠️ اكتب نصاً أولاً ليتم تحليله','error'); return; }
-
-  const parsed = parseText(raw);
-  updateStats();
-
-  const sections = parsed.sections.length;
-  const bullets  = parsed.sections.reduce((a,s) => a + s.paras.filter(p=>p.type==='bullet'||p.type==='number').length, 0);
-  const quotes   = parsed.sections.reduce((a,s) => a + s.paras.filter(p=>p.type==='quote').length, 0);
-
-  analyzeBtn.innerHTML = '🎯 جاري التحليل...';
-  analyzeBtn.disabled = true;
-  showStatus('🔎 جاري تحليل النص وتقسيم الأفكار...', 'loading', true);
-
-  setTimeout(() => {
-    analyzeBtn.innerHTML = '✨ تنسيق ذكي فوري';
-    analyzeBtn.disabled = false;
-    showStatus(
-      `✅ تم التحليل: <b>${sections}</b> قسم · <b>${bullets}</b> نقطة · <b>${quotes}</b> اقتباس — النص جاهز للتدفق الطبيعي عبر الصفحات`,
-      'success'
-    );
-  }, 900);
-});
-
-/* ============================================================
-   مسح
-   ============================================================ */
 clearBtn.addEventListener('click', () => {
-  if(confirm('هل أنت متأكد من مسح النص؟')){
+  if(!textInput.value.trim()) return;
+  if(confirm('هل أنت متأكد من مسح كل النص؟')){
     textInput.value = '';
-    updateStats();
-    showStatus('🗑️ تم مسح النص','success');
+    autoSave();
+    updateUI();
+    showToast('تم مسح النص', 'info');
   }
 });
 
-/* ============================================================
-   اختصار Ctrl+S
-   ============================================================ */
 document.addEventListener('keydown', e => {
-  if((e.ctrlKey||e.metaKey) && e.key === 's'){ e.preventDefault(); downloadBtn.click(); }
+  if(!document.getElementById('toolPage').classList.contains('active')) return;
+  
+  if((e.ctrlKey || e.metaKey) && e.key === 's'){
+    e.preventDefault();
+    saveFileBtn.click();
+  }
+  if((e.ctrlKey || e.metaKey) && e.key === 'Enter'){
+    e.preventDefault();
+    downloadBtn.click();
+  }
 });
 
-/* ============================================================
-   util
-   ============================================================ */
 function escapeHtml(s){
   return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
+
+/* ============================================================
+   تهيئة
+   ============================================================ */
+loadAutoSave();
+updateUI();
+setSaveIndicator('saved');
 </script>
 
 </body>
