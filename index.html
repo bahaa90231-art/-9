@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بَهاء — مصمم المستندات الذكي</title>
+<title>نَظْم — منظّم المستندات الذكي</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -66,7 +66,7 @@
     padding:12px 40px;
   }
   .logo{
-    font-size:20px; font-weight:900;
+    font-size:22px; font-weight:900;
     background:linear-gradient(135deg,#a5b4fc,#f0abfc,#fcd34d);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     background-clip:text;
@@ -601,9 +601,9 @@
 
   /* ============ PDF Template ============ */
   #pdfTemplate{
-    position:absolute; top:0; left:0;
+    position:fixed; top:0; left:0;
     width:794px;
-    opacity:0.001; pointer-events:none; z-index:-1;
+    opacity:0; pointer-events:none; z-index:-9999;
     background:#ffffff;
   }
 </style>
@@ -619,7 +619,7 @@
 <nav id="navbar">
   <div class="logo">
     <span class="dot"></span>
-    <span>بَهاء</span>
+    <span>نَظْم</span>
   </div>
   <div class="nav-links" id="navLinks">
     <a href="#home">الرئيسية</a>
@@ -634,14 +634,15 @@
 <section class="hero" id="home">
   <div class="hero-badge">
     <span class="dot"></span>
-    <span>أداة مجانية · بدون تسجيل · كل قسم في صفحة</span>
+    <span>أداة عربية فريدة · بدون تسجيل · تدفق طبيعي للنص</span>
   </div>
   <h1>
-    حوّل نصوصك إلى<br>
-    <span class="highlight">مستندات PDF</span> احترافية
+    نَظْم — رتّب نصوصك<br>
+    <span class="highlight">في مستندات PDF</span> أنيقة
   </h1>
   <p>
-    بَهاء — أداة ذكية تعيد تصميم نصك العادي إلى مستند منسّق تلقائياً بعناوين وألوان وأقسام، <b>كل قسم في صفحة منفصلة</b> — جاهز للتنزيل بضغطة واحدة.
+    نَظْم — أداة عربية فريدة تحوّل نصك العادي إلى مستند PDF منسّق تلقائياً بتدفق طبيعي،
+    بدون أي علامات مائية أو إضافات مزعجة — نصّك فقط، بأناقة.
   </p>
   <div class="hero-buttons">
     <a href="#tool" class="btn-hero primary">🚀 ابدأ الآن مجاناً</a>
@@ -657,12 +658,12 @@
       <div class="label">مجاني</div>
     </div>
     <div class="stat">
-      <div class="num">∞</div>
-      <div class="label">مستندات</div>
+      <div class="num">0</div>
+      <div class="label">علامة مائية</div>
     </div>
     <div class="stat">
-      <div class="num">0</div>
-      <div class="label">تسجيل مطلوب</div>
+      <div class="num">∞</div>
+      <div class="label">مستندات</div>
     </div>
   </div>
 </section>
@@ -670,8 +671,8 @@
 <section class="section-wrap" id="about">
   <div class="section-title reveal">
     <div class="eyebrow">◆ عن الأداة ◆</div>
-    <h2>كل ما تحتاجه في أداة واحدة</h2>
-    <p>صُمّمت "بَهاء" لتكون الحل الأمثل لمن يريد مستندات PDF احترافية بدون أي خبرة في التصميم</p>
+    <h2>نَظْم — الاسم الفريد</h2>
+    <p>"نَظْم" كلمة عربية تعني التنظيم والتأليف — اخترناها لأنها تصف بدقة ما تفعله الأداة</p>
   </div>
   <div class="features-grid">
     <div class="feature-card reveal">
@@ -681,8 +682,8 @@
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">📄</div>
-      <h3>كل قسم في صفحة</h3>
-      <p>كل قسم من مستندك يظهر في صفحة PDF منفصلة — مظهر احترافي كالكتب والمجلات.</p>
+      <h3>تدفق طبيعي للنص</h3>
+      <p>النص يتدفق بشكل طبيعي عبر الصفحات كالكتب الحقيقية — بدون فواصل مصطنعة بين الأقسام.</p>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">🎨</div>
@@ -690,9 +691,9 @@
       <p>اختر من بين 6 أنماط: عصري، فاخر، إبداعي، بسيط، تقني، ومجلة — كل نمط بتصميم فريد.</p>
     </div>
     <div class="feature-card reveal">
-      <div class="feature-icon">⚡</div>
-      <h3>تنسيق فوري</h3>
-      <p>بضغطة زر واحدة يتم تنسيق نصك بالكامل مع ترقيم الأقسام وتلوين العناوين تلقائياً.</p>
+      <div class="feature-icon">✨</div>
+      <h3>بدون علامات مائية</h3>
+      <p>مستندك نظيف تماماً — لا اسم أداة، لا شعار، لا تذييل — نصّك فقط كما كتبته.</p>
     </div>
     <div class="feature-card reveal">
       <div class="feature-icon">👁️</div>
@@ -711,7 +712,7 @@
   <div class="section-title reveal">
     <div class="eyebrow">◆ الأداة ◆</div>
     <h2>جرّبها الآن</h2>
-    <p>الصق نصك، اختر النمط، ثم حمّل مستندك الاحترافي — كل قسم في صفحة</p>
+    <p>الصق نصك، اختر النمط، ثم حمّل مستندك الاحترافي — نصّك فقط، بلا علامات مائية</p>
   </div>
 
   <div class="tool-container reveal">
@@ -748,16 +749,16 @@
 مثال:
 عنوان الموضوع
 
-هذه فكرة أولى تشرح الموضوع بشكل عام. يمكنك كتابة عدة جمل هنا.
+هذه فكرة أولى تشرح الموضوع بشكل عام. يمكنك كتابة عدة جمل هنا وسيتم تنسيقها كفقرة كاملة.
 
 هذه الفكرة الثانية تتعلق بجانب آخر. ويمكن تقسيمها إلى نقاط:
 - نقطة أولى مهمة
 - نقطة ثانية
 - نقطة ثالثة
 
-وأخيراً خاتمة تختصر كل ما سبق.
+وأخيراً خاتمة تختصر كل ما سبق وتضع النقاط على الحروف.
 
-كل قسم من الأقسام أعلاه سيظهر في صفحة PDF منفصلة!"></textarea>
+سيتم توزيع النص بشكل طبيعي على الصفحات، وكل صفحة تمتلئ تلقائياً!"></textarea>
     </div>
 
     <div class="stats-bar">
@@ -765,7 +766,6 @@
         <span class="chip">الأحرف: <b id="charCount">0</b></span>
         <span class="chip">الكلمات: <b id="wordCount">0</b></span>
         <span class="chip">الأقسام: <b id="sectionCount">0</b></span>
-        <span class="chip">الصفحات: <b id="pageCount">0</b></span>
       </div>
       <span class="chip" id="styleLabel">النمط: 🚀 عصري</span>
     </div>
@@ -796,7 +796,7 @@
       <p>
         مرحباً! أنا <b>بهاء الدين الحسين</b>، مطوّر ويب متخصص في بناء الأدوات التفاعلية
         وتصميم الواجهات العربية الحديثة. أؤمن بأن المحتوى العربي يستحق أدوات بجودة عالمية،
-        ولهذا بنيت "بَهاء" لتكون مجانية ومتاحة للجميع.
+        ولهذا بنيت "نَظْم" — أول أداة عربية من نوعها.
       </p>
       <p>
         أهتم بالتفاصيل الصغيرة التي تصنع الفرق: الحروف المتصلة، تدرّج الألوان،
@@ -845,7 +845,7 @@
 
 <footer>
   <div class="footer-content">
-    <p>© 2025 <span class="footer-brand">بَهاء — مصمم المستندات الذكي</span> — جميع الحقوق محفوظة</p>
+    <p>© 2025 <span class="footer-brand">نَظْم — منظّم المستندات الذكي</span> — جميع الحقوق محفوظة</p>
     <p>صُنع بـ ❤️ بواسطة <b>بهاء الدين الحسين</b> · <span style="direction:ltr; display:inline-block;">0982520358</span></p>
   </div>
 </footer>
@@ -854,7 +854,8 @@
 
 <script>
 /* ============================================================
-   بَهاء — محرك التحليل والتنسيق التلقائي
+   نَظْم — منظّم المستندات الذكي
+   تدفق طبيعي + بدون علامات مائية
    ============================================================ */
 
 const $ = (id) => document.getElementById(id);
@@ -867,7 +868,6 @@ const statusBox    = $('status');
 const charCount    = $('charCount');
 const wordCount    = $('wordCount');
 const sectionCount = $('sectionCount');
-const pageCount    = $('pageCount');
 const styleLabel   = $('styleLabel');
 const pdfTemplate  = $('pdfTemplate');
 
@@ -920,7 +920,6 @@ function updateStats(){
   wordCount.textContent = t.trim() ? t.trim().split(/\s+/).length : 0;
   const parsed = parseText(t);
   sectionCount.textContent = parsed.sections.length;
-  pageCount.textContent = parsed.sections.length > 0 ? parsed.sections.length + 1 : 0;
 }
 textInput.addEventListener('input', updateStats);
 updateStats();
@@ -953,7 +952,6 @@ function parseText(raw){
     const t = l.trim();
     if(!t) return false;
     if(isBullet(t) || isNumbered(t)) return false;
-    // عنوان: ينتهي بنقطتين، أو قصير بدون نقطة نهائية
     if(/[:：]\s*$/.test(t) && t.length <= 80) return true;
     if(t.length <= 50 && !/[.!؟?،,]$/.test(t) && t.split(/\s+/).length <= 8) return true;
     return false;
@@ -961,9 +959,7 @@ function parseText(raw){
 
   lines.forEach(line => {
     const trimmed = line.trim();
-    if(!trimmed){
-      return;
-    }
+    if(!trimmed) return;
 
     if(isHeading(trimmed)){
       if(current) sections.push(current);
@@ -1001,56 +997,58 @@ const palettes = {
 };
 
 /* ============================================================
-   بناء محتوى قسم واحد
+   بناء محتوى قسم (بدون رأس أو تذييل)
    ============================================================ */
-function renderSectionContent(section, idx, palette, style){
+function renderSectionContent(section, idx, palette, style, isFirst){
   const num = String(idx+1).padStart(2,'0');
-  const title = section.title || (idx === 0 ? 'مقدمة' : 'قسم ' + num);
+  const title = section.title || (isFirst ? null : 'قسم ' + num);
 
   const headingBase = `margin:0;line-height:1.5;font-weight:800;font-family:'Cairo','Tajawal',sans-serif;letter-spacing:0;`;
 
   let titleHTML = '';
-  if(style === 'modern'){
-    titleHTML = `
-      <div style="display:flex;align-items:center;gap:14px;margin:0 0 18px 0;">
-        <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,${palette.primary},${palette.accent});display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;font-family:'Cairo',sans-serif;flex-shrink:0;">${num}</div>
-        <h2 style="${headingBase}font-size:22px;color:${palette.primary};">${escapeHtml(title)}</h2>
-      </div>`;
-  } else if(style === 'elegant'){
-    titleHTML = `
-      <div style="text-align:center;margin:0 0 22px 0;">
-        <div style="font-size:11px;letter-spacing:4px;color:${palette.accent};font-weight:700;margin-bottom:6px;font-family:'Cairo',sans-serif;">${num} — SECTION</div>
-        <h2 style="${headingBase}font-size:26px;color:${palette.primary};font-family:'Amiri','Cairo',serif;">${escapeHtml(title)}</h2>
-        <div style="width:60px;height:2px;background:${palette.accent};margin:12px auto 0;"></div>
-      </div>`;
-  } else if(style === 'creative'){
-    titleHTML = `
-      <div style="margin:0 0 20px 0;">
-        <div style="display:inline-block;background:linear-gradient(135deg,${palette.primary},${palette.secondary});color:#fff;padding:10px 22px;border-radius:999px;font-size:18px;font-weight:900;font-family:'Cairo',sans-serif;">${escapeHtml(title)}</div>
-      </div>`;
-  } else if(style === 'minimal'){
-    titleHTML = `
-      <div style="margin:0 0 16px 0;border-bottom:2px solid ${palette.primary};padding-bottom:8px;">
-        <h2 style="${headingBase}font-size:19px;color:${palette.text};">
-          <span style="color:${palette.primary};font-weight:900;">${num}.</span> ${escapeHtml(title)}
-        </h2>
-      </div>`;
-  } else if(style === 'tech'){
-    titleHTML = `
-      <div style="margin:0 0 18px 0;display:flex;align-items:center;gap:12px;">
-        <div style="font-family:'Cairo',monospace;color:${palette.accent};font-size:14px;font-weight:700;flex-shrink:0;">&lt;${num}&gt;</div>
-        <h2 style="${headingBase}font-size:20px;color:${palette.accent};">${escapeHtml(title)}</h2>
-        <div style="flex:1;height:1px;background:linear-gradient(90deg,${palette.accent},transparent);"></div>
-      </div>`;
-  } else {
-    titleHTML = `
-      <div style="margin:0 0 20px 0;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-          <div style="background:${palette.primary};color:#fff;padding:4px 14px;font-size:12px;font-weight:800;letter-spacing:1px;border-radius:4px;font-family:'Cairo',sans-serif;">عدد ${num}</div>
-          <div style="flex:1;height:2px;background:${palette.primary}30;"></div>
-        </div>
-        <h2 style="${headingBase}font-size:24px;color:${palette.primary};font-family:'Amiri','Cairo',serif;text-align:right;border-bottom:2px solid ${palette.accent};padding-bottom:10px;">${escapeHtml(title)}</h2>
-      </div>`;
+  if(title){
+    if(style === 'modern'){
+      titleHTML = `
+        <div style="display:flex;align-items:center;gap:14px;margin:30px 0 18px 0;">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,${palette.primary},${palette.accent});display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;font-family:'Cairo',sans-serif;flex-shrink:0;">${num}</div>
+          <h2 style="${headingBase}font-size:22px;color:${palette.primary};">${escapeHtml(title)}</h2>
+        </div>`;
+    } else if(style === 'elegant'){
+      titleHTML = `
+        <div style="text-align:center;margin:34px 0 22px 0;">
+          <div style="font-size:11px;letter-spacing:4px;color:${palette.accent};font-weight:700;margin-bottom:6px;font-family:'Cairo',sans-serif;">${num} — SECTION</div>
+          <h2 style="${headingBase}font-size:26px;color:${palette.primary};font-family:'Amiri','Cairo',serif;">${escapeHtml(title)}</h2>
+          <div style="width:60px;height:2px;background:${palette.accent};margin:12px auto 0;"></div>
+        </div>`;
+    } else if(style === 'creative'){
+      titleHTML = `
+        <div style="margin:28px 0 20px 0;">
+          <div style="display:inline-block;background:linear-gradient(135deg,${palette.primary},${palette.secondary});color:#fff;padding:10px 22px;border-radius:999px;font-size:18px;font-weight:900;font-family:'Cairo',sans-serif;">${escapeHtml(title)}</div>
+        </div>`;
+    } else if(style === 'minimal'){
+      titleHTML = `
+        <div style="margin:28px 0 16px 0;border-bottom:2px solid ${palette.primary};padding-bottom:8px;">
+          <h2 style="${headingBase}font-size:19px;color:${palette.text};">
+            <span style="color:${palette.primary};font-weight:900;">${num}.</span> ${escapeHtml(title)}
+          </h2>
+        </div>`;
+    } else if(style === 'tech'){
+      titleHTML = `
+        <div style="margin:28px 0 18px 0;display:flex;align-items:center;gap:12px;">
+          <div style="font-family:'Cairo',monospace;color:${palette.accent};font-size:14px;font-weight:700;flex-shrink:0;">&lt;${num}&gt;</div>
+          <h2 style="${headingBase}font-size:20px;color:${palette.accent};">${escapeHtml(title)}</h2>
+          <div style="flex:1;height:1px;background:linear-gradient(90deg,${palette.accent},transparent);"></div>
+        </div>`;
+    } else {
+      titleHTML = `
+        <div style="margin:28px 0 20px 0;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div style="background:${palette.primary};color:#fff;padding:4px 14px;font-size:12px;font-weight:800;letter-spacing:1px;border-radius:4px;font-family:'Cairo',sans-serif;">عدد ${num}</div>
+            <div style="flex:1;height:2px;background:${palette.primary}30;"></div>
+          </div>
+          <h2 style="${headingBase}font-size:24px;color:${palette.primary};font-family:'Amiri','Cairo',serif;text-align:right;border-bottom:2px solid ${palette.accent};padding-bottom:10px;">${escapeHtml(title)}</h2>
+        </div>`;
+    }
   }
 
   let contentHTML = '';
@@ -1115,157 +1113,11 @@ function renderSectionContent(section, idx, palette, style){
 
   flushList();
 
-  return `
-    <section style="margin:0 0 20px 0;">
-      ${titleHTML}
-      ${contentHTML}
-    </section>
-  `;
+  return `${titleHTML}${contentHTML}`;
 }
 
 /* ============================================================
-   بناء صفحة الغلاف
-   ============================================================ */
-function buildCoverPage(raw, palette, style){
-  const now = new Date().toLocaleDateString('ar-EG',{year:'numeric',month:'long',day:'numeric'});
-  const docTitle = escapeHtml(raw.split('\n')[0].trim().slice(0,80) || 'مستند');
-  const wordCnt = raw.trim() ? raw.trim().split(/\s+/).length : 0;
-  const secCnt = parseText(raw).sections.length;
-
-  let decoration = '';
-  let bgColor = palette.bg;
-
-  if(style === 'creative'){
-    decoration = `
-      <div style="position:absolute;top:-100px;left:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,${palette.accent}44,transparent 70%);"></div>
-      <div style="position:absolute;bottom:-100px;right:-100px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,${palette.primary}44,transparent 70%);"></div>
-    `;
-    bgColor = `linear-gradient(180deg, #fffbf5 0%, #fef3c7 100%)`;
-  } else if(style === 'tech'){
-    decoration = `
-      <div style="position:absolute;inset:0;background-image:linear-gradient(${palette.accent}15 1px,transparent 1px),linear-gradient(90deg,${palette.accent}15 1px,transparent 1px);background-size:40px 40px;"></div>
-    `;
-  } else if(style === 'modern'){
-    decoration = `
-      <div style="position:absolute;top:0;left:0;right:0;height:12px;background:linear-gradient(90deg,${palette.primary},${palette.accent},${palette.accent2},${palette.primary});"></div>
-      <div style="position:absolute;bottom:0;left:0;right:0;height:12px;background:linear-gradient(90deg,${palette.primary},${palette.accent},${palette.accent2},${palette.primary});"></div>
-    `;
-  } else if(style === 'magazine'){
-    decoration = `
-      <div style="position:absolute;top:0;left:0;right:0;height:8px;background:${palette.primary};"></div>
-      <div style="position:absolute;top:8px;left:0;right:0;height:4px;background:${palette.accent};"></div>
-    `;
-    bgColor = '#fffdf7';
-  } else if(style === 'elegant'){
-    decoration = `
-      <div style="position:absolute;top:40px;left:40px;right:40px;bottom:40px;border:2px solid ${palette.accent};"></div>
-      <div style="position:absolute;top:50px;left:50px;right:50px;bottom:50px;border:1px solid ${palette.accent}80;"></div>
-    `;
-  }
-
-  return `
-    <div class="doc-page cover-page" style="
-      width:794px;
-      height:1123px;
-      background:${bgColor};
-      color:${palette.text};
-      font-family:'Cairo','Tajawal',sans-serif;
-      direction:rtl;
-      position:relative;
-      padding:83px 68px 90px 68px;
-      overflow:hidden;
-      text-align:right;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-    ">
-      ${decoration}
-      <div style="text-align:center;position:relative;z-index:1;max-width:100%;width:100%;">
-        <div style="font-size:13px;letter-spacing:6px;color:${palette.accent};font-weight:800;margin-bottom:30px;font-family:'Cairo',sans-serif;">◆ DOCUMENT ◆</div>
-        <h1 style="margin:0 0 24px 0;font-size:52px;font-weight:900;color:${palette.primary};font-family:'Cairo','Tajawal',sans-serif;letter-spacing:0;line-height:1.3;word-break:break-word;">${docTitle}</h1>
-        <div style="width:100px;height:4px;background:linear-gradient(90deg,${palette.primary},${palette.accent});margin:0 auto 30px;border-radius:2px;"></div>
-        <div style="font-size:15px;color:${palette.text};opacity:0.75;font-family:'Cairo',sans-serif;line-height:2;">
-          <div style="margin-bottom:6px;">📅 ${now}</div>
-          <div style="margin-bottom:6px;">📝 ${wordCnt} كلمة · ${secCnt} قسم</div>
-          <div style="margin-top:30px;font-size:13px;opacity:0.7;">تم التصميم بواسطة بَهاء</div>
-        </div>
-      </div>
-      <div style="position:absolute;bottom:40px;left:0;right:0;text-align:center;font-size:11px;color:${palette.text};opacity:0.5;font-family:'Cairo',sans-serif;">
-        صُنع بواسطة بهاء الدين الحسين · 0982520358
-      </div>
-    </div>
-  `;
-}
-
-/* ============================================================
-   بناء صفحات المحتوى - كل قسم في صفحة
-   ============================================================ */
-function buildContentPages(raw, palette, style){
-  const parsed = parseText(raw);
-  const firstLine = raw.split('\n')[0].trim().slice(0,70);
-  
-  // إذا القسم الأول عنوانه هو نفس عنوان المستند، احذفه من العنوان
-  const sections = parsed.sections.map((s, i) => {
-    if(i === 0 && s.title && s.title.trim() === firstLine){
-      return { ...s, title: null };
-    }
-    return s;
-  });
-
-  let decoration = '';
-  if(style === 'tech'){
-    decoration = `<div style="position:absolute;inset:0;background-image:linear-gradient(${palette.accent}11 1px,transparent 1px),linear-gradient(90deg,${palette.accent}11 1px,transparent 1px);background-size:30px 30px;pointer-events:none;"></div>`;
-  } else if(style === 'modern'){
-    decoration = `<div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,${palette.primary},${palette.accent},${palette.accent2});"></div>`;
-  } else if(style === 'magazine'){
-    decoration = `
-      <div style="position:absolute;top:0;left:0;right:0;height:5px;background:${palette.primary};"></div>
-      <div style="position:absolute;top:5px;left:0;right:0;height:2px;background:${palette.accent};"></div>
-    `;
-  }
-
-  const total = sections.length;
-
-  return sections.map((section, idx) => {
-    const content = renderSectionContent(section, idx, palette, style);
-
-    return `
-      <div class="doc-page content-page" style="
-        width:794px;
-        height:1123px;
-        background:${palette.bg};
-        color:${palette.text};
-        font-family:'Cairo','Tajawal',sans-serif;
-        direction:rtl;
-        position:relative;
-        padding:75px 68px 85px 68px;
-        overflow:hidden;
-        text-align:right;
-      ">
-        ${decoration}
-        <header style="display:flex;justify-content:space-between;align-items:center;margin:0 0 24px 0;padding-bottom:12px;border-bottom:1px solid ${palette.primary}30;position:relative;z-index:1;">
-          <div style="font-size:12px;color:${palette.text};opacity:0.6;font-family:'Cairo',sans-serif;font-weight:600;">
-            ${escapeHtml(raw.split('\n')[0].trim().slice(0,50) || 'مستند')}
-          </div>
-          <div style="font-size:12px;color:${palette.accent};font-weight:800;font-family:'Space Grotesk','Cairo',sans-serif;direction:ltr;">
-            ${String(idx+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}
-          </div>
-        </header>
-        <main style="position:relative;z-index:1;">
-          ${content}
-        </main>
-        <footer style="position:absolute;bottom:30px;left:68px;right:68px;padding-top:10px;border-top:1px solid ${palette.primary}20;display:flex;justify-content:space-between;font-size:10.5px;color:${palette.text};opacity:0.55;font-family:'Cairo',sans-serif;">
-          <span>بَهاء — مصمم المستندات الذكي</span>
-          <span>بهاء الدين الحسين · 0982520358</span>
-        </footer>
-      </div>
-    `;
-  }).join('');
-}
-
-/* ============================================================
-   بناء المستند الكامل
+   بناء المستند بالكامل — تدفق طبيعي بدون صفحات منفصلة
    ============================================================ */
 function buildDocument(){
   const raw = textInput.value.trim();
@@ -1276,9 +1128,44 @@ function buildDocument(){
 
   const palette = palettes[currentStyle];
   const style = currentStyle;
+  const parsed = parseText(raw);
+  const firstLine = raw.split('\n')[0].trim().slice(0,70);
 
-  const coverHTML = buildCoverPage(raw, palette, style);
-  const pagesHTML = buildContentPages(raw, palette, style);
+  // إذا كان القسم الأول عنوانه نفس عنوان المستند، احذفه
+  const sections = parsed.sections.map((s, i) => {
+    if(i === 0 && s.title && s.title.trim() === firstLine){
+      return { ...s, title: null, isFirst: true };
+    }
+    return { ...s, isFirst: false };
+  });
+
+  // بناء كل المحتوى في تدفق واحد
+  const contentHTML = sections.map((s, i) => renderSectionContent(s, i, palette, style, s.isFirst)).join('');
+
+  // خلفية وديكور
+  let bgColor = palette.bg;
+  let decoration = '';
+
+  if(style === 'creative'){
+    bgColor = `linear-gradient(180deg, #fffbf5 0%, #fef3c7 100%)`;
+    decoration = `
+      <div style="position:absolute;top:-80px;left:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,${palette.accent}22,transparent 70%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,${palette.primary}22,transparent 70%);pointer-events:none;"></div>
+    `;
+  } else if(style === 'tech'){
+    decoration = `<div style="position:absolute;inset:0;background-image:linear-gradient(${palette.accent}08 1px,transparent 1px),linear-gradient(90deg,${palette.accent}08 1px,transparent 1px);background-size:30px 30px;pointer-events:none;"></div>`;
+  } else if(style === 'modern'){
+    decoration = `<div style="position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,${palette.primary},${palette.accent},${palette.accent2});"></div>`;
+  } else if(style === 'magazine'){
+    decoration = `
+      <div style="position:absolute;top:0;left:0;right:0;height:6px;background:${palette.primary};"></div>
+      <div style="position:absolute;top:6px;left:0;right:0;height:3px;background:${palette.accent};"></div>
+    `;
+    bgColor = '#fffdf7';
+  }
+
+  // نحسب ارتفاع كل صفحة A4 بالـ px = 1123px
+  // لكننا نترك المحتوى يتدفق طبيعياً — html2pdf سيقسّم الصفحات تلقائياً
 
   return `
     <style>
@@ -1291,15 +1178,27 @@ function buildDocument(){
         font-weight:800 !important;
       }
     </style>
-    <div class="doc-wrapper">
-      ${coverHTML}
-      ${pagesHTML}
+    <div class="doc-page" style="
+      width:794px;
+      background:${bgColor};
+      color:${palette.text};
+      font-family:'Cairo','Tajawal','Segoe UI',Tahoma,sans-serif;
+      direction:rtl;
+      position:relative;
+      padding:60px 68px;
+      text-align:right;
+      min-height:1123px;
+    ">
+      ${decoration}
+      <div style="position:relative;z-index:1;">
+        ${contentHTML}
+      </div>
     </div>
   `;
 }
 
 /* ============================================================
-   تنزيل PDF
+   تنزيل PDF — تدفق طبيعي عبر الصفحات
    ============================================================ */
 downloadBtn.addEventListener('click', async () => {
   const html = buildDocument();
@@ -1307,16 +1206,12 @@ downloadBtn.addEventListener('click', async () => {
 
   pdfTemplate.innerHTML = html;
   pdfTemplate.style.opacity = '1';
-  pdfTemplate.style.position = 'fixed';
-  pdfTemplate.style.top = '0';
-  pdfTemplate.style.left = '0';
-  pdfTemplate.style.zIndex = '-9999';
 
-  const pages = pdfTemplate.querySelectorAll('.doc-page');
+  const element = pdfTemplate.querySelector('.doc-page');
 
   downloadBtn.disabled = true;
   downloadBtn.innerHTML = '⏳ جاري الإنشاء...';
-  showStatus('✨ جاري تصميم المستند (' + pages.length + ' صفحات) وتحويله إلى PDF...', 'loading', true);
+  showStatus('✨ جاري تنسيق المستند وتحويله إلى PDF...', 'loading', true);
 
   const fileName = (textInput.value.trim().split('\n')[0].trim().slice(0,40) || 'document') + '.pdf';
 
@@ -1326,18 +1221,12 @@ downloadBtn.addEventListener('click', async () => {
   await new Promise(r => setTimeout(r, 1200));
 
   try{
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({
-      unit: 'px',
-      format: [794, 1123],
-      orientation: 'portrait',
-      hotfixes: ['px_scaling']
-    });
-
-    for(let i = 0; i < pages.length; i++){
-      const pageEl = pages[i];
-      
-      const canvas = await html2canvas(pageEl, {
+    // استخدام html2pdf مع pagebreak للحصول على تدفق طبيعي
+    const opt = {
+      margin: 0,
+      filename: fileName,
+      image: { type:'jpeg', quality:0.98 },
+      html2canvas: {
         scale: 2,
         useCORS: true,
         backgroundColor: '#ffffff',
@@ -1345,11 +1234,9 @@ downloadBtn.addEventListener('click', async () => {
         scrollX: 0,
         logging: false,
         width: 794,
-        height: 1123,
         windowWidth: 794,
-        windowHeight: 1123,
         onclone: (clonedDoc) => {
-          const el = clonedDoc.querySelectorAll('.doc-page')[i];
+          const el = clonedDoc.querySelector('.doc-page');
           if(el){
             el.style.fontFamily = "'Cairo','Tajawal','Segoe UI',Tahoma,sans-serif";
             el.querySelectorAll('h1,h2,h3').forEach(h => {
@@ -1360,24 +1247,27 @@ downloadBtn.addEventListener('click', async () => {
             });
           }
         }
-      });
+      },
+      jsPDF: {
+        unit: 'px',
+        format: [794, 1123],
+        orientation: 'portrait',
+        hotfixes: ['px_scaling']
+      },
+      pagebreak: {
+        mode: ['css', 'legacy'],
+        avoid: ['h1', 'h2', 'h3', 'li', 'tr', 'blockquote']
+      }
+    };
 
-      const imgData = canvas.toDataURL('image/jpeg', 0.95);
-      
-      if(i > 0) pdf.addPage([794, 1123], 'portrait');
-      pdf.addImage(imgData, 'JPEG', 0, 0, 794, 1123);
-    }
-
-    pdf.save(fileName);
-    showStatus('✅ تم إنشاء الملف بنجاح: ' + fileName + ' (' + pages.length + ' صفحات)', 'success');
+    await html2pdf().set(opt).from(element).save();
+    showStatus('✅ تم إنشاء الملف بنجاح: ' + fileName, 'success');
   }catch(e){
     console.error(e);
     showStatus('❌ حدث خطأ: ' + e.message, 'error');
   }finally{
     pdfTemplate.innerHTML = '';
-    pdfTemplate.style.opacity = '0.001';
-    pdfTemplate.style.position = 'absolute';
-    pdfTemplate.style.zIndex = '-1';
+    pdfTemplate.style.opacity = '0';
     downloadBtn.disabled = false;
     downloadBtn.innerHTML = '⬇️ تنزيل PDF';
   }
@@ -1396,14 +1286,11 @@ previewBtn.addEventListener('click', () => {
     return;
   }
 
-  const parsed = parseText(textInput.value);
-  const totalPages = parsed.sections.length + 1;
-
   const content = `<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>معاينة المستند - بَهاء</title>
+<title>معاينة المستند - نَظْم</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   html,body{margin:0;padding:0;background:#334155;font-family:'Cairo',sans-serif;}
@@ -1411,10 +1298,8 @@ previewBtn.addEventListener('click', () => {
   .toolbar{position:sticky;top:0;z-index:100;background:rgba(15,23,42,0.95);backdrop-filter:blur(10px);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;border-radius:14px;margin-bottom:24px;box-shadow:0 10px 30px rgba(0,0,0,0.3);max-width:900px;margin-left:auto;margin-right:auto;}
   .toolbar h1{font-size:16px;font-weight:800;margin:0;background:linear-gradient(135deg,#a5b4fc,#f0abfc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
   .toolbar .info{font-size:13px;color:rgba(255,255,255,0.6);}
-  .pages-container{display:flex;flex-direction:column;gap:30px;align-items:center;}
-  .paper{box-shadow:0 20px 60px rgba(0,0,0,0.5);border-radius:4px;overflow:hidden;background:#fff;width:794px;flex-shrink:0;}
-  .page-label{color:rgba(255,255,255,0.6);font-size:13px;font-weight:700;margin-bottom:10px;text-align:center;letter-spacing:1px;}
-  .doc-page{width:794px !important; height:auto !important;}
+  .paper{box-shadow:0 20px 60px rgba(0,0,0,0.5);border-radius:4px;overflow:hidden;background:#fff;width:794px;margin:0 auto;flex-shrink:0;}
+  .doc-page{width:794px !important; min-height:auto !important; padding:60px 68px !important;}
   .doc-page h1, .doc-page h2, .doc-page h3{
     font-family:'Cairo','Tajawal',sans-serif !important;
     letter-spacing:0 !important;
@@ -1424,36 +1309,16 @@ previewBtn.addEventListener('click', () => {
 </head>
 <body>
   <div class="toolbar">
-    <h1>📄 بَهاء — معاينة المستند</h1>
-    <div class="info">${totalPages} صفحة (غلاف + ${parsed.sections.length} أقسام)</div>
+    <h1>📄 نَظْم — معاينة المستند</h1>
+    <div class="info">النمط: ${styleLabel.textContent.replace('النمط: ','')}</div>
   </div>
-  <div class="pages-container" id="pagesContainer"></div>
-  <script>
-    window.addEventListener('load', () => {
-      const container = document.getElementById('pagesContainer');
-      const pages = document.querySelectorAll('.doc-page');
-      pages.forEach((page, i) => {
-        const wrapper = document.createElement('div');
-        const label = document.createElement('div');
-        label.className = 'page-label';
-        label.textContent = (i === 0 ? 'غلاف' : 'صفحة ' + i) + ' — ' + (i+1) + ' من ' + pages.length;
-        const paper = document.createElement('div');
-        paper.className = 'paper';
-        paper.appendChild(page.cloneNode(true));
-        wrapper.appendChild(label);
-        wrapper.appendChild(paper);
-        container.appendChild(wrapper);
-      });
-    });
-  <\/script>
+  <div class="paper">
+    ${html.replace(/<style>[\s\S]*?<\/style>/, '').replace(/<div class="doc-page"/, '<div class="doc-page" style="padding:60px 68px;"')}
+  </div>
 </body>
 </html>`;
 
-  // دمج المستند مع صفحة المعاينة
-  const finalContent = content.replace('<div class="pages-container" id="pagesContainer"></div>', 
-    '<div class="pages-container" id="pagesContainer">' + html + '</div>');
-
-  w.document.write(finalContent);
+  w.document.write(content);
   w.document.close();
 });
 
@@ -1479,7 +1344,7 @@ analyzeBtn.addEventListener('click', () => {
     analyzeBtn.innerHTML = '✨ تنسيق ذكي فوري';
     analyzeBtn.disabled = false;
     showStatus(
-      `✅ تم التحليل: <b>${sections}</b> قسم · <b>${bullets}</b> نقطة · <b>${quotes}</b> اقتباس — المستند سيكون <b>${sections + 1}</b> صفحات (غلاف + ${sections} أقسام)`,
+      `✅ تم التحليل: <b>${sections}</b> قسم · <b>${bullets}</b> نقطة · <b>${quotes}</b> اقتباس — النص جاهز للتدفق الطبيعي عبر الصفحات`,
       'success'
     );
   }, 900);
