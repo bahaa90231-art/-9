@@ -87,7 +87,6 @@
     pointer-events:none;
   }
 
-  /* شاشة الترحيب */
   .splash-screen{
     position:fixed; inset:0; z-index:99999;
     background:#0a0a1a;
@@ -591,23 +590,18 @@
   }
   .reveal.visible{ opacity:1; transform:translateY(0); }
 
-  /* ============================================
-     صفحة الأداة - بدون شريط ثابت
-     ============================================ */
   .tool-page{
     min-height:100vh;
     min-height:100dvh;
     display:flex;
     flex-direction:column;
-    padding-top: 80px; /* مساحة للشريط العلوي المتحرك */
+    padding-top: 80px;
     transition: padding-top 0.4s cubic-bezier(.4,0,.2,1);
   }
-  /* عند إخفاء الشريط */
   .tool-page.no-header{
     padding-top: 0;
   }
 
-  /* شريط أدوات متحرك — يختفي عند التمرير */
   .tool-header{
     position:fixed; top:0; left:0; right:0; z-index:100;
     background:rgba(10,10,26,0.9);
@@ -962,9 +956,6 @@
   .toast.error{ border-color:rgba(239,68,68,0.4); }
   .toast.info{ border-color:rgba(99,102,241,0.4); }
 
-  /* ============================================
-     تحسينات الجوال
-     ============================================ */
   @media (max-width:900px){
     nav{ padding:14px 20px; }
     nav.scrolled{ padding:12px 20px; }
@@ -1031,7 +1022,6 @@
     .toast{ font-size: 13px; padding: 12px 18px; }
   }
 
-  /* منع التكبير العشوائي على الجوال عند الكتابة */
   @media (max-width: 767px){
     input, textarea, select {
       font-size: 16px !important;
@@ -1526,8 +1516,8 @@ const toolPage = $('toolPage');
 
 let currentStyle = 'modern';
 let autoSaveTimer = null;
-const STORAGE_KEY = 'sutoor_smart_text_v2';
-const STORAGE_STYLE = 'sutoor_smart_style_v2';
+const STORAGE_KEY = 'sutoor_smart_text_v3';
+const STORAGE_STYLE = 'sutoor_smart_style_v3';
 
 function showToast(msg, type = 'success'){
   toastMsg.textContent = msg;
@@ -1580,9 +1570,7 @@ function loadAutoSave(){
   } catch(e){}
 }
 
-/* ============================================
-   شريط الأداة المتحرك — يختفي عند التمرير للأسفل
-   ============================================ */
+/* شريط الأداة المتحرك */
 let lastScrollY = 0;
 let ticking = false;
 
@@ -1592,24 +1580,20 @@ function handleHeaderScroll(){
   const currentScrollY = window.scrollY;
   const scrollDelta = currentScrollY - lastScrollY;
   
-  // إذا كان التمرير بسيط، لا تفعل شيئاً
   if(Math.abs(scrollDelta) < 5){
     ticking = false;
     return;
   }
   
-  // تمرير للأسفل → إخفاء الشريط
   if(scrollDelta > 0 && currentScrollY > 80){
     toolHeader.classList.add('hidden');
     toolPage.classList.add('no-header');
   } 
-  // تمرير للأعلى → إظهار الشريط
   else if(scrollDelta < 0){
     toolHeader.classList.remove('hidden');
     toolPage.classList.remove('no-header');
   }
   
-  // عند الوصول للأعلى تماماً
   if(currentScrollY <= 30){
     toolHeader.classList.remove('hidden');
     toolPage.classList.remove('no-header');
@@ -1690,9 +1674,7 @@ clearBtn.addEventListener('click', () => {
   }
 });
 
-/* ============================================
-   ✅ حفظ الملف — يحفظ PDF + ملف .sutoor معاً
-   ============================================ */
+/* حفظ الملف — PDF + SUTOOR */
 saveFileBtn.addEventListener('click', async () => {
   const raw = textInput.value;
   if(!raw.trim()){
@@ -1700,7 +1682,6 @@ saveFileBtn.addEventListener('click', async () => {
     return;
   }
 
-  // 1️⃣ حفظ ملف .sutoor (JSON)
   const fileData = {
     app: 'sutoor-smart',
     version: '1.0',
@@ -1720,13 +1701,11 @@ saveFileBtn.addEventListener('click', async () => {
   document.body.removeChild(a1);
   URL.revokeObjectURL(jsonUrl);
 
-  // 2️⃣ إظهار مؤشر الانتظار
   const originalText = saveFileBtn.innerHTML;
   saveFileBtn.innerHTML = '⏳ جاري إنشاء PDF...';
   saveFileBtn.disabled = true;
   showToast('جاري حفظ الملف + PDF...', 'info');
 
-  // 3️⃣ إنشاء PDF
   try {
     const blocks = parseLines(raw);
     const palette = palettes[currentStyle];
@@ -1905,106 +1884,114 @@ const palettes = {
   novel:    { primary:'#8b5a2b', accent:'#a0522d', bg:'#faf6ee', text:'#3d2c1a', soft:'#f5ecd8' }
 };
 
-/* بناء محتوى الكتلة */
+/* بناء كتلة HTML */
 function renderBlock(block, palette, style){
-  const headingBase = `margin:0;line-height:1.5;font-weight:800;font-family:'Cairo','Tajawal',sans-serif;letter-spacing:0;`;
+  const headingBase = `margin:0;line-height:1.4;font-weight:800;font-family:'Cairo','Tajawal',sans-serif;letter-spacing:0;`;
   
   if(block.type === 'heading'){
     if(style === 'modern'){
-      return `<h2 style="${headingBase}font-size:24px;color:${palette.primary};margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid ${palette.accent}40;">${escapeHtml(block.text)}</h2>`;
+      return `<h2 style="${headingBase}font-size:22px;color:${palette.primary};margin:16px 0 8px;padding-bottom:6px;border-bottom:2px solid ${palette.accent}40;">${escapeHtml(block.text)}</h2>`;
     } else if(style === 'elegant'){
-      return `<h2 style="${headingBase}font-size:26px;color:${palette.primary};margin:28px 0 14px;text-align:center;font-family:'Amiri','Cairo',serif;padding-bottom:12px;">${escapeHtml(block.text)}<span style="display:block;width:60px;height:2px;background:${palette.accent};margin:10px auto 0;"></span></h2>`;
+      return `<h2 style="${headingBase}font-size:24px;color:${palette.primary};margin:20px 0 10px;text-align:center;font-family:'Amiri','Cairo',serif;padding-bottom:8px;">${escapeHtml(block.text)}<span style="display:block;width:60px;height:2px;background:${palette.accent};margin:6px auto 0;"></span></h2>`;
     } else if(style === 'creative'){
-      return `<h2 style="${headingBase}font-size:22px;margin:24px 0 12px;display:inline-block;background:linear-gradient(135deg,${palette.primary},${palette.accent});color:#fff;padding:8px 20px;border-radius:999px;">${escapeHtml(block.text)}</h2><div style="clear:both;"></div>`;
+      return `<h2 style="${headingBase}font-size:20px;margin:16px 0 8px;display:inline-block;background:linear-gradient(135deg,${palette.primary},${palette.accent});color:#fff;padding:6px 18px;border-radius:999px;">${escapeHtml(block.text)}</h2><div style="clear:both;"></div>`;
     } else if(style === 'minimal'){
-      return `<h2 style="${headingBase}font-size:20px;color:${palette.text};margin:24px 0 10px;padding-bottom:6px;border-bottom:2px solid ${palette.primary};">${escapeHtml(block.text)}</h2>`;
+      return `<h2 style="${headingBase}font-size:19px;color:${palette.text};margin:16px 0 8px;padding-bottom:4px;border-bottom:2px solid ${palette.primary};">${escapeHtml(block.text)}</h2>`;
     } else if(style === 'tech'){
-      return `<h2 style="${headingBase}font-size:20px;color:${palette.accent};margin:24px 0 12px;font-family:'Cairo',monospace;">&lt;${escapeHtml(block.text)}&gt;</h2>`;
+      return `<h2 style="${headingBase}font-size:19px;color:${palette.accent};margin:16px 0 8px;font-family:'Cairo',monospace;">&lt;${escapeHtml(block.text)}&gt;</h2>`;
     } else if(style === 'novel'){
-      return `<h2 style="${headingBase}font-size:24px;color:${palette.primary};margin:24px 0 16px;text-align:center;font-family:'Amiri','Lateef','Cairo',serif;font-weight:700;">${escapeHtml(block.text)}</h2>`;
+      return `<h2 style="${headingBase}font-size:22px;color:${palette.primary};margin:18px 0 10px;text-align:center;font-family:'Amiri','Lateef','Cairo',serif;font-weight:700;">${escapeHtml(block.text)}</h2>`;
     } else {
-      return `<h2 style="${headingBase}font-size:24px;color:${palette.primary};margin:24px 0 12px;border-bottom:2px solid ${palette.accent};padding-bottom:8px;">${escapeHtml(block.text)}</h2>`;
+      return `<h2 style="${headingBase}font-size:22px;color:${palette.primary};margin:16px 0 8px;border-bottom:2px solid ${palette.accent};padding-bottom:6px;">${escapeHtml(block.text)}</h2>`;
     }
   }
 
   if(block.type === 'bullet'){
     if(style === 'creative'){
-      return `<div style="margin:8px 0;padding:8px 14px;background:${palette.soft};border-right:4px solid ${palette.primary};border-radius:8px;">• ${escapeHtml(block.text)}</div>`;
+      return `<div style="margin:6px 0;padding:8px 14px;background:${palette.soft};border-right:4px solid ${palette.primary};border-radius:8px;line-height:1.8;">• ${escapeHtml(block.text)}</div>`;
     } else if(style === 'tech'){
-      return `<div style="margin:6px 0;padding:6px 12px;background:${palette.soft};border-left:3px solid ${palette.accent};border-radius:4px;font-family:'Cairo',monospace;font-size:14px;">• ${escapeHtml(block.text)}</div>`;
+      return `<div style="margin:4px 0;padding:6px 12px;background:${palette.soft};border-left:3px solid ${palette.accent};border-radius:4px;font-family:'Cairo',monospace;font-size:14px;line-height:1.8;">• ${escapeHtml(block.text)}</div>`;
     } else if(style === 'novel'){
-      return `<div style="margin:6px 0;padding-right:20px;position:relative;font-family:'Amiri','Lateef',serif;font-size:16px;line-height:2;">• ${escapeHtml(block.text)}</div>`;
+      return `<div style="margin:4px 0;padding-right:20px;position:relative;font-family:'Amiri','Lateef',serif;font-size:16px;line-height:1.9;">• ${escapeHtml(block.text)}</div>`;
     }
-    return `<div style="margin:6px 0;padding-right:20px;position:relative;">• ${escapeHtml(block.text)}</div>`;
+    return `<div style="margin:4px 0;padding-right:20px;position:relative;line-height:1.9;">• ${escapeHtml(block.text)}</div>`;
   }
 
   if(block.type === 'number'){
     if(style === 'novel'){
-      return `<div style="margin:6px 0;padding-right:20px;position:relative;font-family:'Amiri','Lateef',serif;font-size:16px;line-height:2;">${escapeHtml(block.text)}</div>`;
+      return `<div style="margin:4px 0;padding-right:20px;position:relative;font-family:'Amiri','Lateef',serif;font-size:16px;line-height:1.9;">${escapeHtml(block.text)}</div>`;
     }
-    return `<div style="margin:6px 0;padding-right:20px;position:relative;">${escapeHtml(block.text)}</div>`;
+    return `<div style="margin:4px 0;padding-right:20px;position:relative;line-height:1.9;">${escapeHtml(block.text)}</div>`;
   }
 
   if(block.type === 'quote'){
     if(style === 'novel'){
-      return `<div style="margin:14px 0;padding:14px 20px;background:${palette.soft};border-right:4px solid ${palette.primary};border-radius:8px;font-style:italic;font-family:'Amiri','Lateef',serif;font-size:16px;color:${palette.primary};line-height:2;">${escapeHtml(block.text)}</div>`;
+      return `<div style="margin:10px 0;padding:12px 18px;background:${palette.soft};border-right:4px solid ${palette.primary};border-radius:8px;font-style:italic;font-family:'Amiri','Lateef',serif;font-size:16px;color:${palette.primary};line-height:1.9;">${escapeHtml(block.text)}</div>`;
     }
-    return `<div style="margin:14px 0;padding:14px 20px;background:${palette.soft};border-right:4px solid ${palette.primary};border-radius:8px;font-style:italic;color:${palette.text};">${escapeHtml(block.text)}</div>`;
+    return `<div style="margin:10px 0;padding:12px 18px;background:${palette.soft};border-right:4px solid ${palette.primary};border-radius:8px;font-style:italic;color:${palette.text};line-height:1.9;">${escapeHtml(block.text)}</div>`;
   }
 
   if(block.type === 'p'){
     if(style === 'elegant'){
-      return `<p style="margin:0 0 14px;line-height:2.1;font-family:'Amiri','Cairo',serif;font-size:16px;text-align:justify;color:${palette.text};">${escapeHtml(block.text)}</p>`;
+      return `<p style="margin:0 0 10px;line-height:1.95;font-family:'Amiri','Cairo',serif;font-size:16px;text-align:justify;color:${palette.text};">${escapeHtml(block.text)}</p>`;
     } else if(style === 'tech'){
-      return `<p style="margin:0 0 12px;line-height:1.9;font-family:'Cairo',monospace;font-size:14px;text-align:justify;color:${palette.text};">${escapeHtml(block.text)}</p>`;
+      return `<p style="margin:0 0 8px;line-height:1.85;font-family:'Cairo',monospace;font-size:14px;text-align:justify;color:${palette.text};">${escapeHtml(block.text)}</p>`;
     } else if(style === 'magazine'){
-      return `<p style="margin:0 0 14px;line-height:2;font-size:15px;text-align:justify;color:${palette.text};padding-right:14px;border-right:3px solid ${palette.primary}40;">${escapeHtml(block.text)}</p>`;
+      return `<p style="margin:0 0 10px;line-height:1.9;font-size:15px;text-align:justify;color:${palette.text};padding-right:14px;border-right:3px solid ${palette.primary}40;">${escapeHtml(block.text)}</p>`;
     } else if(style === 'novel'){
-      return `<p style="margin:0 0 14px;line-height:2.1;font-family:'Amiri','Lateef','Scheherazade New',serif;font-size:17px;text-align:justify;color:${palette.text};">${escapeHtml(block.text)}</p>`;
+      return `<p style="margin:0 0 10px;line-height:2;font-family:'Amiri','Lateef','Scheherazade New',serif;font-size:17px;text-align:justify;color:${palette.text};">${escapeHtml(block.text)}</p>`;
     }
-    return `<p style="margin:0 0 14px;line-height:2;font-size:15px;text-align:justify;color:${palette.text};">${escapeHtml(block.text)}</p>`;
+    return `<p style="margin:0 0 10px;line-height:1.9;font-size:15px;text-align:justify;color:${palette.text};">${escapeHtml(block.text)}</p>`;
   }
 
   return '';
 }
 
-/* ============================================
-   ✅ paginateContent — تقسيم ذكي محسّن
-   يمنع انقسام الفقرة عبر صفحتين
-   ============================================ */
+/* ============================================================
+   ✅ paginateContent — قياس DOM فعلي لدقة عالية
+   ============================================================ */
 function paginateContent(blocks, palette, style){
   const PAGE_HEIGHT = 1123;
-  const PADDING_TOP = 60;
-  const PADDING_BOTTOM = 60;
-  const USABLE_HEIGHT = PAGE_HEIGHT - PADDING_TOP - PADDING_BOTTOM;
-  
-  function estimateHeight(block){
-    const chars = (block.text || '').length;
-    const charPerLine = (style === 'novel') ? 70 : 75;
-    
-    if(block.type === 'heading'){
-      const lines = Math.ceil(chars / 50);
-      return lines * 36 + 40;
-    }
-    if(block.type === 'bullet' || block.type === 'number'){
-      const lines = Math.ceil(chars / charPerLine);
-      return lines * 30 + 12;
-    }
-    if(block.type === 'quote'){
-      const lines = Math.ceil(chars / charPerLine);
-      return lines * 30 + 40;
-    }
-    const lines = Math.ceil(chars / charPerLine);
-    return lines * (style === 'novel' ? 34 : 32) + 14;
+  const PADDING_TOP = 50;
+  const PADDING_BOTTOM = 50;
+  const USABLE_HEIGHT = PAGE_HEIGHT - PADDING_TOP - PADDING_BOTTOM; // 1023px
+
+  // حاوية قياس مؤقتة
+  const measureDiv = document.createElement('div');
+  measureDiv.style.position = 'fixed';
+  measureDiv.style.top = '-9999px';
+  measureDiv.style.left = '-9999px';
+  measureDiv.style.width = '658px'; // 794 - (68*2)
+  measureDiv.style.visibility = 'hidden';
+  measureDiv.style.pointerEvents = 'none';
+  measureDiv.style.direction = 'rtl';
+  measureDiv.style.fontFamily = style === 'novel'
+    ? "'Amiri','Lateef','Cairo',serif"
+    : "'Cairo','Tajawal',sans-serif";
+  document.body.appendChild(measureDiv);
+
+  function measureHeight(block){
+    measureDiv.innerHTML = renderBlock(block, palette, style);
+    return Math.ceil(measureDiv.getBoundingClientRect().height);
   }
-  
+
   const pages = [[]];
   let currentHeight = 0;
-  
+
   blocks.forEach(block => {
-    const h = estimateHeight(block);
-    
-    // إذا كانت الكتلة ستتجاوز الصفحة، انتقل لصفحة جديدة
+    const h = measureHeight(block);
+
+    // كتلة أكبر من صفحة كاملة → صفحة خاصة
+    if(h > USABLE_HEIGHT){
+      if(pages[pages.length - 1].length > 0){
+        pages.push([]);
+      }
+      pages[pages.length - 1].push(block);
+      pages.push([]);
+      currentHeight = 0;
+      return;
+    }
+
     if(currentHeight + h > USABLE_HEIGHT && pages[pages.length - 1].length > 0){
       pages.push([block]);
       currentHeight = h;
@@ -2013,11 +2000,17 @@ function paginateContent(blocks, palette, style){
       currentHeight += h;
     }
   });
-  
-  return pages;
+
+  // إزالة الصفحات الفارغة
+  const finalPages = pages.filter(p => p.length > 0);
+  document.body.removeChild(measureDiv);
+
+  return finalPages.length > 0 ? finalPages : [[]];
 }
 
-/* بناء صفحة HTML كاملة */
+/* ============================================================
+   ✅ buildPageHTML — ارتفاع ثابت + هوامش دقيقة
+   ============================================================ */
 function buildPageHTML(blocks, palette, style){
   const contentHTML = blocks.map(b => renderBlock(b, palette, style)).join('');
   
@@ -2042,15 +2035,16 @@ function buildPageHTML(blocks, palette, style){
   return `
     <div style="
       width:794px;
-      min-height:1123px;
+      height:1123px;
       background:${bgColor};
       color:${palette.text};
       ${pageFontFamily || "font-family:'Cairo','Tajawal','Segoe UI',Tahoma,sans-serif;"}
       direction:rtl;
       position:relative;
-      padding:60px 68px;
+      padding:50px 68px;
       text-align:right;
       overflow:hidden;
+      box-sizing:border-box;
     ">
       ${decoration}
       <div style="position:relative;z-index:1;">
