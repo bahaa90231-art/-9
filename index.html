@@ -6,23 +6,20 @@
 
 <!-- SEO -->
 <title>سطور سمارت — Sutoor Smart | أداة تحويل النص إلى PDF عربية</title>
-<meta name="description" content="سطور سمارت (Sutoor Smart) — أداة عربية مجانية لتحويل النصوص إلى ملفات PDF احترافية بقوالب جاهزة، بما فيها قالب الروايات. sutoor smart pdf tool.">
-<meta name="keywords" content="سطور سمارت, sutoor smart, sutoor smart pdf, سطور سمارت pdf, تحويل نص إلى PDF, أداة PDF عربية, روايات PDF, كتابة رواية, قالب رواية, sutoor smart app, sutoor smart tool">
+<meta name="description" content="سطور سمارت (Sutoor Smart) — أداة عربية مجانية لتحويل النصوص إلى ملفات PDF احترافية بقوالب جاهزة، بما فيها قالب الروايات.">
+<meta name="keywords" content="سطور سمارت, sutoor smart, sutoor smart pdf, تحويل نص إلى PDF, أداة PDF عربية, روايات PDF, قالب رواية">
 <meta name="author" content="بهاء الدين الحسين">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="language" content="Arabic">
 
 <meta property="og:title" content="سطور سمارت — Sutoor Smart | أداة تحويل النص إلى PDF">
 <meta property="og:description" content="سطور سمارت — أداة عربية مجانية لتحويل النصوص إلى PDF بقوالب احترافية">
 <meta property="og:type" content="website">
-<meta property="og:url" content="./">
 <meta property="og:image" content="الشعار.jfif">
 <meta property="og:site_name" content="سطور سمارت">
 <meta property="og:locale" content="ar_AR">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="سطور سمارت — Sutoor Smart">
-<meta name="twitter:description" content="أداة عربية لتحويل النص إلى PDF">
 <meta name="twitter:image" content="الشعار.jfif">
 
 <link rel="icon" type="image/jpeg" href="الشعار.jfif">
@@ -30,24 +27,6 @@
 <link rel="shortcut icon" href="الشعار.jfif">
 <link rel="apple-touch-icon" href="الشعار.jfif">
 <meta name="theme-color" content="#0a0a1a">
-
-<link rel="canonical" href="./">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "سطور سمارت",
-  "alternateName": "Sutoor Smart",
-  "description": "أداة عربية لتحويل النصوص إلى ملفات PDF احترافية بقوالب جاهزة، بما فيها قالب الروايات",
-  "url": "./",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "Web",
-  "inLanguage": "ar",
-  "author": { "@type": "Person", "name": "بهاء الدين الحسين" },
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-}
-</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -590,79 +569,76 @@
   }
   .reveal.visible{ opacity:1; transform:translateY(0); }
 
+  /* ============================================
+     صفحة الأداة — بدون شريط علوي
+     فقط زر صغير للرجوع في الزاوية
+     ============================================ */
   .tool-page{
     min-height:100vh;
     min-height:100dvh;
     display:flex;
     flex-direction:column;
-    padding-top: 80px;
-    transition: padding-top 0.4s cubic-bezier(.4,0,.2,1);
-  }
-  .tool-page.no-header{
-    padding-top: 0;
+    position:relative;
   }
 
-  .tool-header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(10,10,26,0.9);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,0.08);
-    padding:12px 30px;
-    display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:14px;
-    transform: translateY(0);
-    transition: transform 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s ease;
+  /* ✅ زر الرجوع العائم فقط */
+  .floating-back-btn{
+    position:fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 200;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(10,10,26,0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
   }
-  .tool-header.hidden{
-    transform: translateY(-100%);
-    opacity: 0;
+  .floating-back-btn:hover{
+    background: rgba(99,102,241,0.9);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(99,102,241,0.5);
+  }
+  .floating-back-btn:active{
+    transform: scale(0.95);
   }
 
-  .header-actions{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-  .hdr-btn{
-    padding:9px 16px; border-radius:10px;
-    border:none; font-size:13px; font-weight:700;
-    cursor:pointer; font-family:'Cairo',sans-serif;
+  /* ✅ مؤشر الحفظ العائم */
+  .floating-save-indicator{
+    position:fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 200;
     display:flex; align-items:center; gap:6px;
-    transition:all 0.25s;
-    background:rgba(255,255,255,0.06);
-    color:#fff;
-    border:1px solid rgba(255,255,255,0.12);
-  }
-  .hdr-btn:hover{ background:rgba(255,255,255,0.12); transform:translateY(-2px); }
-
-  .back-home-btn{
-    display:flex; align-items:center; gap:6px;
-    padding:9px 16px; border-radius:10px;
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.12);
-    color:#fff; font-size:13px; font-weight:700;
-    cursor:pointer; transition:all 0.25s;
-    font-family:'Cairo',sans-serif;
-  }
-  .back-home-btn:hover{ background:rgba(255,255,255,0.12); transform:translateY(-2px); }
-
-  .save-indicator{
-    display:flex; align-items:center; gap:6px;
-    font-size:12px; color:rgba(255,255,255,0.6);
+    font-size:12px; color:rgba(255,255,255,0.7);
     font-weight:600;
-    padding:6px 12px;
-    background:rgba(16,185,129,0.1);
+    padding:8px 14px;
+    background:rgba(10,10,26,0.85);
+    backdrop-filter: blur(20px);
     border:1px solid rgba(16,185,129,0.3);
     border-radius:999px;
     transition:all 0.3s;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   }
-  .save-indicator.saving{
-    background:rgba(245,158,11,0.1);
-    border-color:rgba(245,158,11,0.3);
+  .floating-save-indicator.saving{
+    border-color:rgba(245,158,11,0.5);
     color:#fbbf24;
   }
-  .save-indicator .dot-save{
+  .floating-save-indicator .dot-save{
     width:6px; height:6px; border-radius:50%;
     background:#10b981;
     box-shadow:0 0 6px #10b981;
   }
-  .save-indicator.saving .dot-save{
+  .floating-save-indicator.saving .dot-save{
     background:#fbbf24;
     box-shadow:0 0 6px #fbbf24;
     animation:pulse 0.6s infinite;
@@ -670,7 +646,8 @@
 
   .write-screen{
     flex:1; display:flex; flex-direction:column;
-    padding:30px; max-width:1400px;
+    padding:70px 30px 30px;
+    max-width:1400px;
     margin:0 auto; width:100%; gap:20px;
   }
 
@@ -760,7 +737,7 @@
   .btn-ghost-write:hover{ background:rgba(255,255,255,0.12); transform:translateY(-3px); }
 
   .design-screen{
-    flex:1; padding:40px 30px;
+    flex:1; padding:70px 30px 40px;
     max-width:1400px; margin:0 auto; width:100%;
     animation: fadeInPage 0.5s ease;
   }
@@ -874,7 +851,7 @@
   }
 
   .preview-screen{
-    flex:1; padding:30px;
+    flex:1; padding:70px 30px 30px;
     max-width:1100px; margin:0 auto; width:100%;
     animation: fadeInPage 0.5s ease;
   }
@@ -988,10 +965,12 @@
     .write-screen, .design-screen, .preview-screen{ padding: 16px; }
     .write-textarea{ padding: 20px 18px; font-size: 16px; min-height: 350px; }
     .pdf-page-inner{ padding: 30px 24px; min-height: auto; }
+    .floating-back-btn{ top: 12px; right: 12px; padding: 8px 14px; font-size: 12px; }
+    .floating-save-indicator{ top: 12px; left: 12px; padding: 6px 10px; font-size: 11px; }
   }
 
   @media (max-width:600px){
-    .write-screen{ padding: 12px; gap: 12px; }
+    .write-screen{ padding: 60px 12px 12px; gap: 12px; }
     .write-textarea{ 
       font-size: 16px; 
       padding: 18px 16px; 
@@ -1016,10 +995,16 @@
     .design-card{ padding: 12px; border-radius: 16px; }
     .design-header h2{ font-size: 22px; }
     .design-header p{ font-size: 13px; }
-    .tool-header{ padding: 10px 12px; gap: 8px; }
-    .hdr-btn, .back-home-btn{ padding: 8px 12px; font-size: 11.5px; }
-    .save-indicator{ padding: 5px 10px; font-size: 11px; }
+    .design-screen, .preview-screen{ padding: 60px 12px 16px; }
     .toast{ font-size: 13px; padding: 12px 18px; }
+    .floating-back-btn{ 
+      top: 10px; right: 10px; 
+      padding: 8px 12px; font-size: 11.5px;
+    }
+    .floating-save-indicator{ 
+      top: 10px; left: 10px; 
+      padding: 6px 10px; font-size: 10.5px; 
+    }
   }
 
   @media (max-width: 767px){
@@ -1223,31 +1208,29 @@
 
 </div>
 
-<!-- صفحة الأداة -->
+<!-- صفحة الأداة — بدون شريط علوي -->
 <div class="page" id="toolPage">
 
-  <div class="tool-header" id="toolHeader">
-    <div class="logo-with-image" onclick="goHome()">
-      <img src="الشعار.jfif" alt="سطور سمارت" class="logo-img">
-      <div class="logo-text">
-        سطور سمارت
-        <small>SUTOOR SMART</small>
-      </div>
-    </div>
-    <div class="header-actions">
-      <button class="back-home-btn" onclick="goHome()">← الرئيسية</button>
-      <div class="save-indicator" id="saveIndicator">
-        <span class="dot-save"></span>
-        <span id="saveText">محفوظ تلقائياً</span>
-      </div>
-      <button class="hdr-btn" id="saveFileBtn" title="حفظ الملف (PDF + SUTOOR)">
-        💾 <span>حفظ الملف</span>
-      </button>
-      <button class="hdr-btn" id="loadFileBtn" title="استعادة ملف">
-        📂 <span>استعادة</span>
-      </button>
-      <input type="file" id="fileInput" accept=".sutoor,.json" style="display:none;">
-    </div>
+  <!-- ✅ زر الرجوع العائم (فقط هذا) -->
+  <button class="floating-back-btn" onclick="goHome()">
+    ← الرئيسية
+  </button>
+
+  <!-- ✅ مؤشر الحفظ العائم -->
+  <div class="floating-save-indicator" id="saveIndicator">
+    <span class="dot-save"></span>
+    <span id="saveText">محفوظ تلقائياً</span>
+  </div>
+
+  <!-- أزرار الحفظ/الاستعادة العائمة -->
+  <div style="position:fixed; top:16px; right:130px; z-index:200; display:flex; gap:8px; flex-wrap:wrap;" id="floatingExtraBtns">
+    <button class="floating-back-btn" id="saveFileBtn" style="position:static;" title="حفظ الملف (PDF + SUTOOR)">
+      💾 حفظ
+    </button>
+    <button class="floating-back-btn" id="loadFileBtn" style="position:static;" title="استعادة ملف">
+      📂 استعادة
+    </button>
+    <input type="file" id="fileInput" accept=".sutoor,.json" style="display:none;">
   </div>
 
   <div class="write-screen" id="writeScreen">
@@ -1511,13 +1494,12 @@ const previewInfo = $('previewInfo');
 const toast = $('toast');
 const toastMsg = $('toastMsg');
 const toastIcon = $('toastIcon');
-const toolHeader = $('toolHeader');
 const toolPage = $('toolPage');
 
 let currentStyle = 'modern';
 let autoSaveTimer = null;
-const STORAGE_KEY = 'sutoor_smart_text_v3';
-const STORAGE_STYLE = 'sutoor_smart_style_v3';
+const STORAGE_KEY = 'sutoor_smart_text_v4';
+const STORAGE_STYLE = 'sutoor_smart_style_v4';
 
 function showToast(msg, type = 'success'){
   toastMsg.textContent = msg;
@@ -1569,46 +1551,6 @@ function loadAutoSave(){
     }
   } catch(e){}
 }
-
-/* شريط الأداة المتحرك */
-let lastScrollY = 0;
-let ticking = false;
-
-function handleHeaderScroll(){
-  if(!toolPage.classList.contains('active')) return;
-  
-  const currentScrollY = window.scrollY;
-  const scrollDelta = currentScrollY - lastScrollY;
-  
-  if(Math.abs(scrollDelta) < 5){
-    ticking = false;
-    return;
-  }
-  
-  if(scrollDelta > 0 && currentScrollY > 80){
-    toolHeader.classList.add('hidden');
-    toolPage.classList.add('no-header');
-  } 
-  else if(scrollDelta < 0){
-    toolHeader.classList.remove('hidden');
-    toolPage.classList.remove('no-header');
-  }
-  
-  if(currentScrollY <= 30){
-    toolHeader.classList.remove('hidden');
-    toolPage.classList.remove('no-header');
-  }
-  
-  lastScrollY = currentScrollY;
-  ticking = false;
-}
-
-window.addEventListener('scroll', () => {
-  if(!ticking){
-    window.requestAnimationFrame(handleHeaderScroll);
-    ticking = true;
-  }
-}, { passive: true });
 
 textInput.addEventListener('input', () => {
   clearTimeout(autoSaveTimer);
@@ -1702,7 +1644,7 @@ saveFileBtn.addEventListener('click', async () => {
   URL.revokeObjectURL(jsonUrl);
 
   const originalText = saveFileBtn.innerHTML;
-  saveFileBtn.innerHTML = '⏳ جاري إنشاء PDF...';
+  saveFileBtn.innerHTML = '⏳ جاري...';
   saveFileBtn.disabled = true;
   showToast('جاري حفظ الملف + PDF...', 'info');
 
@@ -1776,7 +1718,7 @@ saveFileBtn.addEventListener('click', async () => {
     
     saveFileBtn.innerHTML = originalText;
     saveFileBtn.disabled = false;
-    showToast('✅ تم حفظ: ' + baseName + '.sutoor + ' + baseName + '.pdf', 'success');
+    showToast('✅ تم حفظ: ' + baseName + '.sutoor + .pdf', 'success');
   } catch(e){
     console.error(e);
     saveFileBtn.innerHTML = originalText;
@@ -1947,21 +1889,16 @@ function renderBlock(block, palette, style){
   return '';
 }
 
-/* ============================================================
-   ✅ paginateContent — قياس DOM فعلي لدقة عالية
-   ============================================================ */
+/* paginateContent — قياس DOM فعلي */
 function paginateContent(blocks, palette, style){
   const PAGE_HEIGHT = 1123;
-  const PADDING_TOP = 50;
-  const PADDING_BOTTOM = 50;
-  const USABLE_HEIGHT = PAGE_HEIGHT - PADDING_TOP - PADDING_BOTTOM; // 1023px
+  const USABLE_HEIGHT = PAGE_HEIGHT - 100; // 50px أعلى + 50px أسفل
 
-  // حاوية قياس مؤقتة
   const measureDiv = document.createElement('div');
   measureDiv.style.position = 'fixed';
   measureDiv.style.top = '-9999px';
   measureDiv.style.left = '-9999px';
-  measureDiv.style.width = '658px'; // 794 - (68*2)
+  measureDiv.style.width = '658px';
   measureDiv.style.visibility = 'hidden';
   measureDiv.style.pointerEvents = 'none';
   measureDiv.style.direction = 'rtl';
@@ -1981,7 +1918,6 @@ function paginateContent(blocks, palette, style){
   blocks.forEach(block => {
     const h = measureHeight(block);
 
-    // كتلة أكبر من صفحة كاملة → صفحة خاصة
     if(h > USABLE_HEIGHT){
       if(pages[pages.length - 1].length > 0){
         pages.push([]);
@@ -2001,16 +1937,12 @@ function paginateContent(blocks, palette, style){
     }
   });
 
-  // إزالة الصفحات الفارغة
   const finalPages = pages.filter(p => p.length > 0);
   document.body.removeChild(measureDiv);
 
   return finalPages.length > 0 ? finalPages : [[]];
 }
 
-/* ============================================================
-   ✅ buildPageHTML — ارتفاع ثابت + هوامش دقيقة
-   ============================================================ */
 function buildPageHTML(blocks, palette, style){
   const contentHTML = blocks.map(b => renderBlock(b, palette, style)).join('');
   
@@ -2087,7 +2019,6 @@ function getStyleName(style){
   return names[style] || style;
 }
 
-/* تنزيل PDF */
 downloadBtn.addEventListener('click', async () => {
   const raw = textInput.value.trim();
   if(!raw){
