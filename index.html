@@ -749,7 +749,7 @@
   .design-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
   /* ============================================
-     ✅ المعاينة — إصلاح كامل للجوال
+     ✅ المعاينة — حل نهائي باستخدام zoom
      ============================================ */
   .preview-screen{
     flex:1; padding:70px 30px 30px;
@@ -783,6 +783,7 @@
     justify-content: center;
     align-items: flex-start;
     padding: 10px 0 20px;
+    min-height: 200px;
     scrollbar-width: thin;
     scrollbar-color: rgba(165,180,252,0.4) transparent;
   }
@@ -790,19 +791,12 @@
     height: 8px;
     width: 8px;
   }
-  .pdf-page-wrapper::-webkit-scrollbar-track{
-    background: rgba(255,255,255,0.03);
-    border-radius: 4px;
-  }
   .pdf-page-wrapper::-webkit-scrollbar-thumb{
     background: rgba(165,180,252,0.4);
     border-radius: 4px;
   }
-  .pdf-page-wrapper::-webkit-scrollbar-thumb:hover{
-    background: rgba(165,180,252,0.6);
-  }
 
-  /* الصفحة — حجم طبيعي ثابت */
+  /* الصفحة */
   .pdf-page-preview{
     background: white;
     width: 794px;
@@ -814,23 +808,23 @@
     overflow: hidden;
     position: relative;
     animation: pageIn 0.5s ease;
-    transition: transform 0.25s ease, margin 0.25s ease;
+    transform-origin: top center;
   }
-  @keyframes pageIn{ from{opacity:0;transform:scale(0.98);} to{opacity:1;transform:scale(1);} }
+  @keyframes pageIn{ from{opacity:0;} to{opacity:1;} }
 
   .pdf-page-preview::before{
     content: attr(data-page);
     position: absolute;
-    top: -28px;
-    right: 0;
-    background: rgba(255,255,255,0.1);
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.6);
     color: #fff;
-    padding: 4px 14px;
+    padding: 4px 12px;
     border-radius: 8px;
     font-size: 12px;
     font-weight: 700;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.2);
     white-space: nowrap;
     z-index: 5;
   }
@@ -889,10 +883,7 @@
   @keyframes fadeInOverlay{ from{opacity:0;} to{opacity:1;} }
   .projects-overlay.active{ display: block; }
 
-  .projects-container{
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  .projects-container{ max-width: 1100px; margin: 0 auto; }
   .projects-header{
     display: flex;
     justify-content: space-between;
@@ -1130,27 +1121,13 @@
       padding:8px 12px; font-size:11.5px;
     }
 
-    /* ✅ المعاينة على الجوال */
+    /* ✅ المعاينة على الجوال — الحل النهائي */
     .preview-screen{
       padding: 60px 8px 16px;
     }
-    
     .pdf-pages-container{
       gap: 20px;
     }
-    
-    .pdf-page-wrapper{
-      width: 100%;
-      padding: 8px 0 12px;
-      justify-content: center;
-      overflow: visible;
-    }
-    
-    .pdf-page-preview{
-      /* التصغير يتم عبر JavaScript حسب حجم الشاشة */
-      flex-shrink: 0;
-    }
-    
     .preview-actions{
       gap: 8px;
     }
@@ -1645,8 +1622,8 @@ let currentStyle = 'modern';
 let autoSaveTimer = null;
 let currentProjectId = null;
 
-const STORAGE_KEY = 'sutoor_smart_text_v6';
-const STORAGE_STYLE = 'sutoor_smart_style_v6';
+const STORAGE_KEY = 'sutoor_smart_text_v7';
+const STORAGE_STYLE = 'sutoor_smart_style_v7';
 const STORAGE_PROJECTS = 'sutoor_smart_projects_v1';
 const STORAGE_CURRENT = 'sutoor_smart_current_v1';
 
@@ -2348,7 +2325,7 @@ function buildPageHTML(blocks, palette, style){
 }
 
 /* ============================================================
-   ✅ buildPreview — عرض ذكي متكيف مع حجم الشاشة
+   ✅ buildPreview
    ============================================================ */
 function buildPreview(){
   const raw = textInput.value;
@@ -2375,71 +2352,59 @@ function buildPreview(){
     </div>
   `).join('');
   
-  // اضبط التصغير بعد إضافة العناصر
+  // اضبط التصغير بعد الرسم
   requestAnimationFrame(() => {
     adjustPreviewZoom();
+    setTimeout(adjustPreviewZoom, 300);
+    setTimeout(adjustPreviewZoom, 800);
   });
 }
 
 /* ============================================================
-   ✅ adjustPreviewZoom — تصغير الصفحة لتناسب الشاشة
+   ✅ adjustPreviewZoom — باستخدام zoom
    ============================================================ */
 function adjustPreviewZoom(){
-  const previews = document.querySelectorAll('.pdf-page-preview');
   const wrappers = document.querySelectorAll('.pdf-page-wrapper');
   
-  if(previews.length === 0) return;
+  if(wrappers.length === 0) return;
   
-  // على الحاسوب الكبير: عرض طبيعي
-  if(window.innerWidth >= 900){
-    previews.forEach(preview => {
-      preview.style.transform = '';
-      preview.style.transformOrigin = '';
-      preview.style.marginBottom = '';
-      preview.style.marginRight = '';
-      preview.style.marginLeft = '';
-    });
-    wrappers.forEach(w => {
-      w.style.justifyContent = 'center';
-    });
-    return;
-  }
-  
-  // على الجوال/التابلت: تصغير ديناميكي
   wrappers.forEach(wrapper => {
     const preview = wrapper.querySelector('.pdf-page-preview');
     if(!preview) return;
     
+    // إزالة أي تحويل قديم
+    preview.style.transform = '';
+    preview.style.marginBottom = '';
+    preview.style.marginRight = '';
+    preview.style.marginLeft = '';
+    preview.style.zoom = '';
+    
     const containerWidth = wrapper.clientWidth;
     const pageWidth = 794;
-    const pageHeight = 1123;
     
-    // احسب النسبة لتناسب العرض مع هامش صغير
-    let ratio = (containerWidth - 16) / pageWidth;
+    // على الحاسوب: عرض طبيعي
+    if(window.innerWidth >= 900 || containerWidth >= pageWidth){
+      wrapper.style.height = '';
+      wrapper.style.justifyContent = 'center';
+      return;
+    }
     
-    // قيّد النسبة
+    // على الجوال: استخدام zoom
+    let ratio = (containerWidth - 20) / pageWidth;
     if(ratio > 1) ratio = 1;
     if(ratio < 0.3) ratio = 0.3;
     
-    // طبّق التحويل
-    preview.style.transform = `scale(${ratio})`;
-    preview.style.transformOrigin = 'top right';
+    // استخدم zoom
+    preview.style.zoom = ratio;
     
-    // اضبط الهوامش لتفادي الفراغ
-    const offsetX = pageWidth * (1 - ratio);
-    const offsetY = pageHeight * (1 - ratio);
-    
-    preview.style.marginBottom = `-${offsetY}px`;
-    preview.style.marginRight = `-${offsetX}px`;
-    preview.style.marginLeft = '0';
-    
-    // ضبط ارتفاع الحاوية
-    wrapper.style.height = `${pageHeight * ratio + 20}px`;
+    // اضبط ارتفاع الحاوية
+    const pageHeight = 1123;
+    wrapper.style.height = (pageHeight * ratio + 20) + 'px';
     wrapper.style.justifyContent = 'center';
   });
 }
 
-// إعادة ضبط عند تغيير حجم الشاشة
+// إعادة ضبط عند تغيير الحجم أو التدوير
 let resizeTimer;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
@@ -2450,7 +2415,6 @@ window.addEventListener('resize', () => {
   }, 200);
 });
 
-// إعادة الضبط عند تدوير الجوال
 window.addEventListener('orientationchange', () => {
   setTimeout(() => {
     if(previewScreen && previewScreen.style.display !== 'none'){
