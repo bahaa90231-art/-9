@@ -18,10 +18,6 @@
 <meta property="og:site_name" content="سطور سمارت">
 <meta property="og:locale" content="ar_AR">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="سطور سمارت — Sutoor Smart">
-<meta name="twitter:image" content="الشعار.jfif">
-
 <link rel="icon" type="image/jpeg" href="الشعار.jfif">
 <link rel="icon" type="image/jfif" href="الشعار.jfif">
 <link rel="shortcut icon" href="الشعار.jfif">
@@ -66,6 +62,7 @@
     pointer-events:none;
   }
 
+  /* شاشة الترحيب */
   .splash-screen{
     position:fixed; inset:0; z-index:99999;
     background:#0a0a1a;
@@ -75,7 +72,6 @@
     opacity:1; visibility:visible;
   }
   .splash-screen.hide{ opacity:0; visibility:hidden; }
-
   .splash-bg-image{
     position:absolute; inset:0;
     background-image:url('الشعار.jfif');
@@ -83,23 +79,16 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.95;
-    filter: blur(0px) brightness(0.85) saturate(1.2);
+    filter: brightness(0.85) saturate(1.2);
     animation: splashZoom 8s ease-in-out infinite alternate;
   }
-  @keyframes splashZoom{
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
-  }
-
+  @keyframes splashZoom{ from{ transform:scale(1);} to{ transform:scale(1.08);} }
   .splash-overlay{
     position:absolute; inset:0;
     background: radial-gradient(circle at center, rgba(10,10,26,0.3) 0%, rgba(10,10,26,0.75) 70%, rgba(10,10,26,0.95) 100%);
     z-index:1;
   }
-
-  .splash-bg-particles{
-    position:absolute; inset:0; overflow:hidden; z-index:2;
-  }
+  .splash-bg-particles{ position:absolute; inset:0; overflow:hidden; z-index:2; }
   .splash-particle{
     position:absolute; border-radius:50%;
     background:linear-gradient(135deg, #a5b4fc, #f0abfc);
@@ -108,82 +97,61 @@
     box-shadow: 0 0 10px rgba(165,180,252,0.8);
   }
   @keyframes floatParticle{
-    0%, 100%{ transform: translate(0, 0) scale(1); opacity:0.3; }
-    25%{ transform: translate(30px, -50px) scale(1.3); opacity:0.8; }
-    50%{ transform: translate(-20px, -100px) scale(0.8); opacity:0.4; }
-    75%{ transform: translate(40px, -50px) scale(1.2); opacity:0.7; }
+    0%,100%{ transform: translate(0,0) scale(1); opacity:0.3; }
+    25%{ transform: translate(30px,-50px) scale(1.3); opacity:0.8; }
+    50%{ transform: translate(-20px,-100px) scale(0.8); opacity:0.4; }
+    75%{ transform: translate(40px,-50px) scale(1.2); opacity:0.7; }
   }
-
   .splash-loader-bottom{
-    position:absolute; bottom: 70px; left: 50%;
-    transform: translateX(-50%); z-index: 4;
-    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    position:absolute; bottom:70px; left:50%;
+    transform:translateX(-50%); z-index:4;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
     width: min(340px, 80vw);
     animation: fadeIn 1.5s ease 0.8s both;
   }
   .splash-loader-bar-wrapper{
-    width: 100%; height: 4px;
-    background: rgba(255,255,255,0.12);
-    border-radius: 999px; overflow: hidden; position: relative;
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
+    width:100%; height:4px;
+    background:rgba(255,255,255,0.12);
+    border-radius:999px; overflow:hidden; position:relative;
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
   }
   .splash-loader-bar{
-    height: 100%; width: 0%;
-    background: linear-gradient(90deg, #6366f1, #ec4899, #f59e0b, #6366f1);
-    background-size: 200% 100%;
-    border-radius: 999px;
-    animation: loaderProgress 3s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+    height:100%; width:0%;
+    background:linear-gradient(90deg,#6366f1,#ec4899,#f59e0b,#6366f1);
+    background-size:200% 100%;
+    border-radius:999px;
+    animation: loaderProgress 3s cubic-bezier(0.4,0,0.2,1) forwards,
                loaderShine 1.5s linear infinite;
-    box-shadow: 0 0 20px rgba(236,72,153,0.8);
+    box-shadow:0 0 20px rgba(236,72,153,0.8);
   }
-  @keyframes loaderProgress{
-    0%{ width:0%; } 30%{ width:35%; }
-    60%{ width:70%; } 100%{ width:100%; }
-  }
-  @keyframes loaderShine{
-    0%{ background-position: 0% 0%; }
-    100%{ background-position: 200% 0%; }
-  }
+  @keyframes loaderProgress{ 0%{width:0%;} 30%{width:35%;} 60%{width:70%;} 100%{width:100%;} }
+  @keyframes loaderShine{ 0%{background-position:0% 0%;} 100%{background-position:200% 0%;} }
   .splash-status{
-    font-size: 14px; color: rgba(255,255,255,0.75);
-    font-weight: 600; letter-spacing: 1px;
-    min-height: 20px; text-align: center;
-    font-family: 'Cairo', sans-serif;
+    font-size:14px; color:rgba(255,255,255,0.75);
+    font-weight:600; letter-spacing:1px;
+    min-height:20px; text-align:center;
+    font-family:'Cairo',sans-serif;
   }
-  @keyframes fadeIn{
-    from{ opacity:0; transform: translateX(-50%) translateY(20px); }
-    to{ opacity:1; transform: translateX(-50%) translateY(0); }
-  }
-
+  @keyframes fadeIn{ from{opacity:0;transform:translateX(-50%) translateY(20px);} to{opacity:1;transform:translateX(-50%) translateY(0);} }
   .splash-skip{
-    position:absolute; top: 30px; left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 26px; border-radius: 999px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff; font-size: 13px; font-weight: 700;
-    cursor: pointer; font-family: 'Cairo', sans-serif;
-    transition: all 0.3s; z-index: 5;
+    position:absolute; top:30px; left:50%;
+    transform:translateX(-50%);
+    padding:10px 26px; border-radius:999px;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.2);
+    color:#fff; font-size:13px; font-weight:700;
+    cursor:pointer; font-family:'Cairo',sans-serif;
+    transition:all 0.3s; z-index:5;
     animation: fadeInTop 1s ease 1.2s both;
-    backdrop-filter: blur(20px);
+    backdrop-filter:blur(20px);
   }
-  @keyframes fadeInTop{
-    from{ opacity:0; transform: translateX(-50%) translateY(-15px); }
-    to{ opacity:1; transform: translateX(-50%) translateY(0); }
-  }
-  .splash-skip:hover{
-    background: rgba(255,255,255,0.2);
-    transform: translateX(-50%) translateY(-2px);
-    box-shadow: 0 10px 30px rgba(99,102,241,0.5);
-  }
+  @keyframes fadeInTop{ from{opacity:0;transform:translateX(-50%) translateY(-15px);} to{opacity:1;transform:translateX(-50%) translateY(0);} }
+  .splash-skip:hover{ background:rgba(255,255,255,0.2); }
 
   .page{ display:none; min-height:100vh; animation: fadeInPage 0.5s cubic-bezier(.4,0,.2,1); }
   .page.active{ display:block; }
-  @keyframes fadeInPage{
-    from{ opacity:0; transform:translateY(20px); }
-    to{ opacity:1; transform:translateY(0); }
-  }
+  @keyframes fadeInPage{ from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
 
   nav{
     position:fixed; top:0; left:0; right:0; z-index:100;
@@ -198,24 +166,17 @@
     border-bottom:1px solid rgba(255,255,255,0.08);
     padding:10px 40px;
   }
-
-  .logo-with-image{
-    display:flex; align-items:center; gap:12px;
-    cursor:pointer; transition:all 0.3s;
-  }
+  .logo-with-image{ display:flex; align-items:center; gap:12px; cursor:pointer; transition:all 0.3s; }
   .logo-with-image:hover{ transform: scale(1.05); }
-
   .logo-img{
-    width: 52px; height: 52px; object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid rgba(165,180,252,0.6);
-    box-shadow: 0 4px 12px rgba(99,102,241,0.5),
-                0 0 20px rgba(165,180,252,0.4);
+    width:52px; height:52px; object-fit:cover;
+    border-radius:50%;
+    border:2px solid rgba(165,180,252,0.6);
+    box-shadow: 0 4px 12px rgba(99,102,241,0.5), 0 0 20px rgba(165,180,252,0.4);
     transition: all 0.3s;
     background: linear-gradient(135deg, #15103a, #0a0a1a);
-    padding: 3px;
+    padding:3px;
   }
-
   .logo-text{
     font-size:20px; font-weight:900;
     background:linear-gradient(135deg,#a5b4fc,#f0abfc,#fcd34d);
@@ -223,17 +184,16 @@
     background-clip:text;
     font-family:'Cairo',sans-serif;
     letter-spacing:-0.5px;
-    line-height: 1.1;
+    line-height:1.1;
   }
   .logo-text small{
-    display: block; font-size: 10px; font-weight: 700;
-    letter-spacing: 3px;
-    color: rgba(255,255,255,0.5);
+    display:block; font-size:10px; font-weight:700;
+    letter-spacing:3px;
+    color:rgba(255,255,255,0.5);
     -webkit-text-fill-color: rgba(255,255,255,0.5);
-    margin-top: 2px;
+    margin-top:2px;
     font-family: 'Space Grotesk', sans-serif;
   }
-
   .nav-links{ display:flex; gap:32px; align-items:center; }
   .nav-links a{
     color:rgba(255,255,255,0.75);
@@ -250,7 +210,6 @@
     transition:transform 0.3s;
   }
   .nav-links a:hover::after{ transform:scaleX(1); }
-
   .nav-cta{
     background:linear-gradient(135deg,#6366f1,#ec4899);
     padding:9px 20px !important;
@@ -260,7 +219,6 @@
   }
   .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(236,72,153,0.5); }
   .nav-cta::after{ display:none; }
-
   .mobile-toggle{ display:none; background:none; border:none; color:#fff; font-size:24px; cursor:pointer; }
 
   section{ position:relative; }
@@ -285,7 +243,6 @@
     animation:pulse 2s infinite;
   }
   @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-
   .hero h1{
     font-size:clamp(36px, 7vw, 82px);
     font-weight:900; line-height:1.1; letter-spacing:-2px;
@@ -303,14 +260,12 @@
     background:linear-gradient(90deg,#6366f1,#ec4899);
     opacity:0.4; border-radius:4px; z-index:-1;
   }
-
   .hero p{
     font-size:clamp(16px, 2vw, 20px);
     color:rgba(255,255,255,0.7);
     max-width:720px; margin:0 auto 40px;
     animation: fadeUp 1s ease 0.2s both;
   }
-
   .hero-buttons{
     display:flex; gap:16px; flex-wrap:wrap; justify-content:center;
     animation: fadeUp 1s ease 0.3s both;
@@ -338,7 +293,6 @@
     backdrop-filter:blur(10px);
   }
   .btn-hero.secondary:hover{ background:rgba(255,255,255,0.12); transform:translateY(-4px); }
-
   .hero-stats{
     display:flex; gap:60px; margin-top:70px;
     animation: fadeUp 1s ease 0.4s both;
@@ -353,11 +307,7 @@
     font-family:'Space Grotesk',sans-serif;
   }
   .stat .label{ font-size:13px; color:rgba(255,255,255,0.55); margin-top:4px; }
-
-  @keyframes fadeUp{
-    from{ opacity:0; transform:translateY(30px); }
-    to{ opacity:1; transform:translateY(0); }
-  }
+  @keyframes fadeUp{ from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
 
   .section-wrap{ padding:100px 40px; max-width:1400px; margin:0 auto; }
   .section-title{ text-align:center; margin-bottom:70px; }
@@ -374,10 +324,7 @@
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     background-clip:text;
   }
-  .section-title p{
-    color:rgba(255,255,255,0.6);
-    max-width:640px; margin:0 auto; font-size:16px;
-  }
+  .section-title p{ color:rgba(255,255,255,0.6); max-width:640px; margin:0 auto; font-size:16px; }
 
   .features-grid{
     display:grid;
@@ -387,8 +334,7 @@
   .feature-card{
     background:rgba(255,255,255,0.04);
     border:1px solid rgba(255,255,255,0.08);
-    border-radius:20px;
-    padding:32px 28px;
+    border-radius:20px; padding:32px 28px;
     transition:all 0.4s cubic-bezier(.4,0,.2,1);
     position:relative; overflow:hidden;
     backdrop-filter:blur(10px);
@@ -404,25 +350,16 @@
     box-shadow:0 30px 60px rgba(99,102,241,0.25);
   }
   .feature-card:hover::before{ opacity:1; }
-
   .feature-icon{
-    width:60px; height:60px;
-    border-radius:16px;
+    width:60px; height:60px; border-radius:16px;
     display:flex; align-items:center; justify-content:center;
     font-size:28px; margin-bottom:20px;
     background:linear-gradient(135deg,#6366f1,#ec4899);
     box-shadow:0 12px 30px rgba(99,102,241,0.4);
     position:relative; z-index:1;
   }
-  .feature-card h3{
-    font-size:19px; font-weight:800; margin-bottom:10px;
-    position:relative; z-index:1;
-  }
-  .feature-card p{
-    color:rgba(255,255,255,0.6);
-    font-size:14.5px; line-height:1.8;
-    position:relative; z-index:1;
-  }
+  .feature-card h3{ font-size:19px; font-weight:800; margin-bottom:10px; position:relative; z-index:1; }
+  .feature-card p{ color:rgba(255,255,255,0.6); font-size:14.5px; line-height:1.8; position:relative; z-index:1; }
 
   .dev-card{
     display:grid;
@@ -443,8 +380,7 @@
   }
   .dev-avatar img{
     width:100%; height:100%;
-    object-fit: cover;
-    object-position: center top;
+    object-fit: cover; object-position: center top;
     display: block;
     transition: transform 0.5s cubic-bezier(.4,0,.2,1);
   }
@@ -456,7 +392,6 @@
     pointer-events: none;
   }
   @keyframes shimmer{ 0%{transform:translateX(-100%);} 100%{transform:translateX(100%);} }
-
   .dev-info h3{
     font-size:32px; font-weight:900; margin-bottom:8px;
     background:linear-gradient(135deg,#fff,#a5b4fc);
@@ -472,11 +407,7 @@
     content:''; width:30px; height:2px;
     background:linear-gradient(90deg,#6366f1,#ec4899);
   }
-  .dev-info p{
-    color:rgba(255,255,255,0.7);
-    font-size:15.5px; line-height:2;
-    margin-bottom:18px;
-  }
+  .dev-info p{ color:rgba(255,255,255,0.7); font-size:15.5px; line-height:2; margin-bottom:18px; }
   .dev-skills{ display:flex; gap:10px; flex-wrap:wrap; margin-top:24px; }
   .skill-tag{
     background:rgba(255,255,255,0.06);
@@ -527,10 +458,7 @@
     box-shadow:0 12px 30px rgba(99,102,241,0.4);
     position:relative; z-index:1;
   }
-  .contact-card h4{
-    font-size:17px; font-weight:800; margin-bottom:8px;
-    position:relative; z-index:1;
-  }
+  .contact-card h4{ font-size:17px; font-weight:800; margin-bottom:8px; position:relative; z-index:1; }
   .contact-card span{
     color:rgba(255,255,255,0.7); font-size:14.5px;
     direction:ltr; display:inline-block;
@@ -557,21 +485,17 @@
     background-clip:text;
   }
   footer .footer-seo{
-    margin-top: 20px; padding-top: 20px;
+    margin-top:20px; padding-top:20px;
     border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 12px; color: rgba(255,255,255,0.35);
-    line-height: 1.9;
+    font-size:12px; color:rgba(255,255,255,0.35);
+    line-height:1.9;
   }
 
-  .reveal{
-    opacity:0; transform:translateY(50px);
-    transition:all 0.9s cubic-bezier(.16,1,.3,1);
-  }
+  .reveal{ opacity:0; transform:translateY(50px); transition:all 0.9s cubic-bezier(.16,1,.3,1); }
   .reveal.visible{ opacity:1; transform:translateY(0); }
 
   /* ============================================
-     صفحة الأداة — بدون شريط علوي
-     فقط زر صغير للرجوع في الزاوية
+     صفحة الأداة
      ============================================ */
   .tool-page{
     min-height:100vh;
@@ -581,53 +505,37 @@
     position:relative;
   }
 
-  /* ✅ زر الرجوع العائم فقط */
   .floating-back-btn{
-    position:fixed;
-    top: 16px;
-    right: 16px;
-    z-index: 200;
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: rgba(10,10,26,0.85);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: 'Cairo', sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.3s cubic-bezier(.4,0,.2,1);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    position:fixed; top:16px; right:16px; z-index:200;
+    padding:10px 18px; border-radius:999px;
+    background:rgba(10,10,26,0.85);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.15);
+    color:#fff; font-size:13px; font-weight:700;
+    cursor:pointer; font-family:'Cairo',sans-serif;
+    display:flex; align-items:center; gap:6px;
+    transition:all 0.3s cubic-bezier(.4,0,.2,1);
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
   }
   .floating-back-btn:hover{
-    background: rgba(99,102,241,0.9);
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 12px 32px rgba(99,102,241,0.5);
+    background:rgba(99,102,241,0.9);
+    transform:translateY(-2px) scale(1.05);
+    box-shadow:0 12px 32px rgba(99,102,241,0.5);
   }
-  .floating-back-btn:active{
-    transform: scale(0.95);
-  }
+  .floating-back-btn:active{ transform:scale(0.95); }
 
-  /* ✅ مؤشر الحفظ العائم */
   .floating-save-indicator{
-    position:fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 200;
+    position:fixed; top:16px; left:16px; z-index:200;
     display:flex; align-items:center; gap:6px;
     font-size:12px; color:rgba(255,255,255,0.7);
     font-weight:600;
     padding:8px 14px;
     background:rgba(10,10,26,0.85);
-    backdrop-filter: blur(20px);
+    backdrop-filter:blur(20px);
     border:1px solid rgba(16,185,129,0.3);
     border-radius:999px;
     transition:all 0.3s;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    box-shadow:0 8px 24px rgba(0,0,0,0.3);
   }
   .floating-save-indicator.saving{
     border-color:rgba(245,158,11,0.5);
@@ -687,7 +595,7 @@
     background:rgba(255,255,255,0.06);
     box-shadow:0 0 0 5px rgba(99,102,241,0.15), inset 0 0 60px rgba(99,102,241,0.05);
   }
-  .write-textarea::placeholder{ color:rgba(255,255,255,0.35); line-height: 2; }
+  .write-textarea::placeholder{ color:rgba(255,255,255,0.35); line-height:2; }
 
   .write-stats{
     display:flex; gap:10px; justify-content:center;
@@ -716,18 +624,13 @@
     display:flex; align-items:center; gap:10px;
     transition:all 0.3s cubic-bezier(.4,0,.2,1);
   }
-
   .btn-continue{
     background:linear-gradient(135deg,#6366f1,#ec4899);
     color:#fff;
     box-shadow:0 20px 50px rgba(236,72,153,0.4);
   }
   .btn-continue:hover{ transform:translateY(-4px) scale(1.03); box-shadow:0 28px 60px rgba(236,72,153,0.55); }
-  .btn-continue:disabled{
-    opacity:0.4; cursor:not-allowed;
-    transform:none !important; box-shadow:none;
-  }
-
+  .btn-continue:disabled{ opacity:0.4; cursor:not-allowed; transform:none !important; box-shadow:none; }
   .btn-ghost-write{
     background:rgba(255,255,255,0.06);
     color:#fff;
@@ -741,7 +644,6 @@
     max-width:1400px; margin:0 auto; width:100%;
     animation: fadeInPage 0.5s ease;
   }
-
   .design-header{ text-align:center; margin-bottom:50px; }
   .design-header h2{
     font-size:clamp(26px, 4vw, 42px);
@@ -752,13 +654,11 @@
     margin-bottom:12px;
   }
   .design-header p{ color:rgba(255,255,255,0.6); font-size:16px; max-width:600px; margin:0 auto; }
-
   .designs-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
     gap:20px; margin-bottom:40px;
   }
-
   .design-card{
     background:rgba(255,255,255,0.03);
     border:2px solid rgba(255,255,255,0.08);
@@ -780,8 +680,7 @@
   .design-card.active::after{
     content:'✓';
     position:absolute; top:14px; left:14px;
-    width:32px; height:32px;
-    border-radius:50%;
+    width:32px; height:32px; border-radius:50%;
     background:linear-gradient(135deg,#6366f1,#ec4899);
     color:#fff;
     display:flex; align-items:center; justify-content:center;
@@ -789,73 +688,61 @@
     z-index:10;
     box-shadow:0 6px 20px rgba(99,102,241,0.5);
   }
-
   .design-preview{
-    height: 160px; border-radius: 12px;
-    margin-bottom: 14px; padding: 20px;
-    display: flex; flex-direction: column;
-    gap: 8px; overflow: hidden;
-    position: relative;
+    height:160px; border-radius:12px;
+    margin-bottom:14px; padding:20px;
+    display:flex; flex-direction:column;
+    gap:8px; overflow:hidden;
+    position:relative;
   }
-
-  .design-preview .dp-h1{ height: 14px; border-radius: 4px; width: 70%; }
-  .design-preview .dp-h2{ height: 8px; border-radius: 4px; width: 45%; margin-top: 6px; }
-  .design-preview .dp-line{ height: 5px; border-radius: 3px; width: 95%; opacity: 0.6; }
-  .design-preview .dp-line.short{ width: 70%; }
-
+  .design-preview .dp-h1{ height:14px; border-radius:4px; width:70%; }
+  .design-preview .dp-h2{ height:8px; border-radius:4px; width:45%; margin-top:6px; }
+  .design-preview .dp-line{ height:5px; border-radius:3px; width:95%; opacity:0.6; }
+  .design-preview .dp-line.short{ width:70%; }
   .dp-modern { background: linear-gradient(135deg, #ffffff, #f8fafc); }
   .dp-modern .dp-h1 { background: linear-gradient(90deg, #6366f1, #ec4899); }
   .dp-modern .dp-h2 { background: #8b5cf6; }
   .dp-modern .dp-line { background: #94a3b8; }
-
   .dp-elegant { background: #fdfbf7; }
   .dp-elegant .dp-h1 { background: #0f172a; }
   .dp-elegant .dp-h2 { background: #b45309; }
   .dp-elegant .dp-line { background: #78716c; }
-
   .dp-creative { background: linear-gradient(135deg, #fffbf5, #fef3c7); }
   .dp-creative .dp-h1 { background: linear-gradient(90deg, #ec4899, #f59e0b); }
   .dp-creative .dp-h2 { background: #8b5cf6; }
   .dp-creative .dp-line { background: #a8a29e; }
-
   .dp-minimal { background: #ffffff; }
   .dp-minimal .dp-h1 { background: #111827; }
   .dp-minimal .dp-h2 { background: #374151; }
   .dp-minimal .dp-line { background: #d1d5db; }
-
   .dp-tech { background: linear-gradient(135deg, #0f172a, #1e293b); }
   .dp-tech .dp-h1 { background: linear-gradient(90deg, #22d3ee, #a78bfa); }
   .dp-tech .dp-h2 { background: #06b6d4; }
   .dp-tech .dp-line { background: #475569; }
-
   .dp-magazine { background: #fffdf7; }
   .dp-magazine .dp-h1 { background: #b91c1c; }
   .dp-magazine .dp-h2 { background: #ea580c; }
   .dp-magazine .dp-line { background: #a16207; }
-
   .dp-novel { background: #faf6ee; }
   .dp-novel .dp-h1 { background: #8b5a2b; }
-  .dp-novel .dp-h2 { background: #a0522d; width: 30%; }
+  .dp-novel .dp-h2 { background: #a0522d; width:30%; }
   .dp-novel .dp-line { background: #8b5a2b; }
-
   .design-name{
     font-size:16px; font-weight:800; color:#fff;
     text-align:center;
     display:flex; align-items:center; justify-content:center;
     gap:8px;
   }
+  .design-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
-  .design-actions{
-    display:flex; gap:12px; justify-content:center;
-    flex-wrap:wrap;
-  }
-
+  /* ============================================
+     المعاينة — مُصلَحة للجوال
+     ============================================ */
   .preview-screen{
     flex:1; padding:70px 30px 30px;
     max-width:1100px; margin:0 auto; width:100%;
     animation: fadeInPage 0.5s ease;
   }
-
   .preview-header{ text-align:center; margin-bottom:30px; }
   .preview-header h2{
     font-size:clamp(24px, 4vw, 36px);
@@ -867,6 +754,7 @@
   }
   .preview-header p{ color:rgba(255,255,255,0.6); font-size:15px; }
 
+  /* ✅ حاوية صفحات PDF — عرض متجاوب مع تمرير أفقي على الجوال */
   .pdf-pages-container{
     display:flex; flex-direction:column;
     gap:30px; align-items:center;
@@ -875,42 +763,56 @@
 
   .pdf-page-preview{
     background:white;
-    width:100%; max-width:794px;
+    width:100%;
+    max-width:794px;
     border-radius:6px;
     box-shadow:0 25px 50px -12px rgba(0,0,0,0.6);
     overflow:hidden;
     position:relative;
     animation: pageIn 0.5s ease;
+    /* ✅ يسمح بالتصغير والتمرير على الجوال */
+    margin: 0 auto;
   }
-  @keyframes pageIn{
-    from{ opacity:0; transform:scale(0.95); }
-    to{ opacity:1; transform:scale(1); }
-  }
+  @keyframes pageIn{ from{opacity:0;transform:scale(0.95);} to{opacity:1;transform:scale(1);} }
 
   .pdf-page-preview::before{
     content: attr(data-page);
-    position: absolute; top: -28px; left: 0;
-    background: rgba(255,255,255,0.1);
-    color: #fff; padding: 4px 14px;
-    border-radius: 8px;
-    font-size: 12px; font-weight: 700;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.15);
+    position:absolute; top:-28px; right:0;
+    background:rgba(255,255,255,0.1);
+    color:#fff; padding:4px 14px;
+    border-radius:8px;
+    font-size:12px; font-weight:700;
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.15);
   }
 
+  /* ✅ محتوى الصفحة قابل للتصغير في الجوال */
   .pdf-page-inner{
+    width: 794px;
     min-height: 1123px;
-    padding: 60px 68px;
+    padding: 50px 68px;
     font-family: 'Cairo', 'Tajawal', sans-serif;
     color: #1e293b;
     line-height: 1.8;
     direction: rtl;
     text-align: right;
+    background: #ffffff;
+    transform-origin: top right;
+  }
+
+  /* ✅ الحاوية التي تحتوي على الصفحة على الجوال - تصغير تلقائي */
+  .pdf-page-wrapper{
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    justify-content: center;
   }
 
   .preview-actions{
     display:flex; gap:12px; justify-content:center;
-    flex-wrap:wrap; padding: 20px 0;
+    flex-wrap:wrap; padding:20px 0;
   }
 
   .toast{
@@ -933,6 +835,234 @@
   .toast.error{ border-color:rgba(239,68,68,0.4); }
   .toast.info{ border-color:rgba(99,102,241,0.4); }
 
+  /* ============================================
+     ✅ قسم "مشاريعي" 
+     ============================================ */
+  .projects-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,26,0.92);
+    backdrop-filter: blur(20px);
+    z-index: 500;
+    display: none;
+    overflow-y: auto;
+    padding: 80px 20px 40px;
+    animation: fadeIn 0.3s ease;
+  }
+  .projects-overlay.active{ display: block; }
+
+  .projects-container{
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .projects-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .projects-header h2{
+    font-size: 28px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .close-projects{
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .close-projects:hover{
+    background: rgba(239,68,68,0.2);
+    border-color: rgba(239,68,68,0.5);
+  }
+
+  .new-project-btn{
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 10px 25px rgba(16,185,129,0.4);
+    transition: all 0.3s;
+  }
+  .new-project-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(16,185,129,0.6);
+  }
+
+  .projects-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .project-card{
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 20px;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .project-card:hover{
+    border-color: rgba(165,180,252,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(99,102,241,0.25);
+  }
+
+  .project-card.current-project{
+    border-color: #10b981;
+    background: rgba(16,185,129,0.08);
+  }
+  .project-card.current-project::before{
+    content: '✓ الحالي';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  .project-name{
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+    padding-right: 8px;
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .project-name-icon{
+    font-size: 20px;
+  }
+
+  .project-info{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .project-info span{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .project-actions{
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+
+  .project-btn{
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.25s;
+    flex: 1;
+    justify-content: center;
+  }
+  .project-btn:hover{ transform: translateY(-2px); }
+  .project-btn.open{
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    border: none;
+  }
+  .project-btn.open:hover{ box-shadow: 0 8px 20px rgba(99,102,241,0.5); }
+  .project-btn.rename:hover{ background: rgba(245,158,11,0.3); border-color: rgba(245,158,11,0.5); }
+  .project-btn.delete:hover{ background: rgba(239,68,68,0.3); border-color: rgba(239,68,68,0.5); }
+
+  .empty-projects{
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255,255,255,0.5);
+  }
+  .empty-projects .icon{
+    font-size: 60px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+  .empty-projects p{ font-size: 15px; line-height: 1.8; }
+
+  /* ✅ زر مشاريعي العائم */
+  .floating-projects-btn{
+    position: fixed;
+    top: 16px;
+    right: 160px;
+    z-index: 200;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(10,10,26,0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(16,185,129,0.4);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .floating-projects-btn:hover{
+    background: rgba(16,185,129,0.9);
+    border-color: rgba(16,185,129,0.8);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(16,185,129,0.5);
+  }
+
+  /* ============================================
+     Responsive
+     ============================================ */
   @media (max-width:900px){
     nav{ padding:14px 20px; }
     nav.scrolled{ padding:12px 20px; }
@@ -959,57 +1089,100 @@
     .dev-avatar{ max-width:280px; margin:0 auto; }
     .dev-info .role{ justify-content:center; }
     footer .footer-content{ flex-direction:column; text-align:center; }
-    .logo-img{ width: 44px; height: 44px; }
-    .logo-text{ font-size: 16px; }
-    .logo-text small{ font-size: 8px; letter-spacing: 3px; }
-    .write-screen, .design-screen, .preview-screen{ padding: 16px; }
-    .write-textarea{ padding: 20px 18px; font-size: 16px; min-height: 350px; }
-    .pdf-page-inner{ padding: 30px 24px; min-height: auto; }
-    .floating-back-btn{ top: 12px; right: 12px; padding: 8px 14px; font-size: 12px; }
-    .floating-save-indicator{ top: 12px; left: 12px; padding: 6px 10px; font-size: 11px; }
+    .logo-img{ width:44px; height:44px; }
+    .logo-text{ font-size:16px; }
+    .logo-text small{ font-size:8px; letter-spacing:3px; }
+    .write-screen, .design-screen, .preview-screen{ padding:16px; }
+    .write-textarea{ padding:20px 18px; font-size:16px; min-height:350px; }
+    .pdf-page-inner{ padding:30px 24px; min-height:auto; }
+    .floating-back-btn{ top:12px; right:12px; padding:8px 14px; font-size:12px; }
+    .floating-save-indicator{ top:12px; left:12px; padding:6px 10px; font-size:11px; }
+    .floating-projects-btn{ top:12px; right:130px; padding:8px 14px; font-size:12px; }
   }
 
   @media (max-width:600px){
-    .write-screen{ padding: 60px 12px 12px; gap: 12px; }
+    .write-screen{ padding:60px 12px 12px; gap:12px; }
     .write-textarea{ 
-      font-size: 16px; 
-      padding: 18px 16px; 
-      min-height: 60vh;
-      line-height: 1.9;
-      border-radius: 16px;
+      font-size:16px; 
+      padding:18px 16px; 
+      min-height:60vh;
+      line-height:1.9;
+      border-radius:16px;
     }
-    .write-header h2{ font-size: 22px; }
-    .write-header p{ font-size: 13px; }
-    .write-stats{ gap: 6px; }
-    .write-stat{ padding: 6px 12px; font-size: 11px; }
-    .write-actions{ gap: 8px; }
+    .write-header h2{ font-size:22px; }
+    .write-header p{ font-size:13px; }
+    .write-stats{ gap:6px; }
+    .write-stat{ padding:6px 12px; font-size:11px; }
+    .write-actions{ gap:8px; }
     .btn-write{ 
-      padding: 14px 20px; 
-      font-size: 14px; 
-      width: 100%; 
-      justify-content: center;
-      border-radius: 12px;
+      padding:14px 20px; 
+      font-size:14px; 
+      width:100%; 
+      justify-content:center;
+      border-radius:12px;
     }
-    .designs-grid{ grid-template-columns: 1fr; gap: 14px; }
-    .design-preview{ height: 130px; }
-    .design-card{ padding: 12px; border-radius: 16px; }
-    .design-header h2{ font-size: 22px; }
-    .design-header p{ font-size: 13px; }
-    .design-screen, .preview-screen{ padding: 60px 12px 16px; }
-    .toast{ font-size: 13px; padding: 12px 18px; }
+    .designs-grid{ grid-template-columns:1fr; gap:14px; }
+    .design-preview{ height:130px; }
+    .design-card{ padding:12px; border-radius:16px; }
+    .design-header h2{ font-size:22px; }
+    .design-header p{ font-size:13px; }
+    .design-screen, .preview-screen{ padding:60px 12px 16px; }
+    .toast{ font-size:13px; padding:12px 18px; }
     .floating-back-btn{ 
-      top: 10px; right: 10px; 
-      padding: 8px 12px; font-size: 11.5px;
+      top:10px; right:10px; 
+      padding:8px 12px; font-size:11.5px;
     }
     .floating-save-indicator{ 
-      top: 10px; left: 10px; 
-      padding: 6px 10px; font-size: 10.5px; 
+      top:10px; left:10px; 
+      padding:6px 10px; font-size:10.5px; 
     }
+    .floating-projects-btn{
+      top:10px; right:120px;
+      padding:8px 12px; font-size:11.5px;
+    }
+
+    /* ✅ تصغير صفحة PDF على الجوال */
+    .pdf-page-wrapper{
+      width: 100%;
+      overflow-x: auto;
+      justify-content: flex-start;
+      padding: 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .pdf-page-preview{
+      /* التصغير تلقائياً على الجوال */
+      transform: scale(0.42);
+      transform-origin: top right;
+      margin-bottom: -650px; /* تقليل الفراغ الناتج عن التصغير */
+      margin-right: 0;
+      margin-left: auto;
+      width: 794px !important;
+      max-width: 794px !important;
+    }
+
+    .projects-list{
+      grid-template-columns: 1fr;
+    }
+    .projects-header h2{ font-size:22px; }
+    .projects-overlay{ padding:70px 12px 20px; }
+    .project-card{ padding:16px; }
   }
 
   @media (max-width: 767px){
-    input, textarea, select {
-      font-size: 16px !important;
+    input, textarea, select { font-size: 16px !important; }
+  }
+
+  /* ✅ على شاشات صغيرة جداً */
+  @media (max-width: 420px){
+    .pdf-page-preview{
+      transform: scale(0.38);
+      margin-bottom: -700px;
+    }
+  }
+  @media (max-width: 360px){
+    .pdf-page-preview{
+      transform: scale(0.34);
+      margin-bottom: -750px;
     }
   }
 </style>
@@ -1105,24 +1278,24 @@
         <p>شاشة كتابة كاملة بلا مشتتات — ركّز على نصّك فقط.</p>
       </div>
       <div class="feature-card reveal">
-        <div class="feature-icon">🎨</div>
-        <h3>7 أنماط احترافية</h3>
-        <p>عصري، فاخر، إبداعي، بسيط، تقني، مجلة — وقالب الروايات الجديد!</p>
+        <div class="feature-icon">📁</div>
+        <h3>مشاريع محفوظة</h3>
+        <p>احفظ مشاريعك المتعددة وعدّل عليها لاحقاً بسهولة.</p>
       </div>
       <div class="feature-card reveal">
-        <div class="feature-icon">📖</div>
-        <h3>قالب الروايات</h3>
-        <p>قالب خاص لكتابة الروايات والقصة بتصميم كلاسيكي أنيق بخط Amiri.</p>
+        <div class="feature-icon">🎨</div>
+        <h3>7 أنماط احترافية</h3>
+        <p>عصري، فاخر، إبداعي، بسيط، تقني، مجلة — وقالب الروايات!</p>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">📄</div>
         <h3>تدفق طبيعي للصفحات</h3>
-        <p>النص يتدفق تلقائياً عبر الصفحات عند امتلائها — كالكتب الحقيقية.</p>
+        <p>النص يتدفق تلقائياً عبر الصفحات عند امتلائها.</p>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">💾</div>
-        <h3>حفظ تلقائي فوري</h3>
-        <p>كل حرف تكتبه يُحفظ فوراً — لن تفقد عملك أبداً.</p>
+        <h3>تنزيل PDF فوري</h3>
+        <p>حمّل ملف PDF احترافي بضغطة واحدة — بدون علامات مائية.</p>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">🔒</div>
@@ -1208,35 +1381,29 @@
 
 </div>
 
-<!-- صفحة الأداة — بدون شريط علوي -->
+<!-- صفحة الأداة -->
 <div class="page" id="toolPage">
 
-  <!-- ✅ زر الرجوع العائم (فقط هذا) -->
+  <!-- زر الرجوع العائم -->
   <button class="floating-back-btn" onclick="goHome()">
     ← الرئيسية
   </button>
 
-  <!-- ✅ مؤشر الحفظ العائم -->
+  <!-- مؤشر الحفظ العائم -->
   <div class="floating-save-indicator" id="saveIndicator">
     <span class="dot-save"></span>
     <span id="saveText">محفوظ تلقائياً</span>
   </div>
 
-  <!-- أزرار الحفظ/الاستعادة العائمة -->
-  <div style="position:fixed; top:16px; right:130px; z-index:200; display:flex; gap:8px; flex-wrap:wrap;" id="floatingExtraBtns">
-    <button class="floating-back-btn" id="saveFileBtn" style="position:static;" title="حفظ الملف (PDF + SUTOOR)">
-      💾 حفظ
-    </button>
-    <button class="floating-back-btn" id="loadFileBtn" style="position:static;" title="استعادة ملف">
-      📂 استعادة
-    </button>
-    <input type="file" id="fileInput" accept=".sutoor,.json" style="display:none;">
-  </div>
+  <!-- ✅ زر مشاريعي -->
+  <button class="floating-projects-btn" id="projectsBtn">
+    📁 مشاريعي
+  </button>
 
   <div class="write-screen" id="writeScreen">
     <div class="write-header">
       <h2>✍️ اكتب نصّك</h2>
-      <p>ركّز على كتابتك — التنسيق يأتي لاحقاً</p>
+      <p id="currentProjectName">مشروع جديد</p>
     </div>
 
     <div class="write-textarea-wrapper">
@@ -1248,7 +1415,7 @@
 اكتب عنوانك، ثم فقراتك بشكل طبيعي. اضغط Enter لسطر جديد.
 
 💡 كل حرف تكتبه يُحفظ تلقائياً
-💡 جرّب قالب 'الروايات' الجديد لكتابة روايتك أو قصتك
+💡 اضغط '📁 مشاريعي' لاستعراض مشاريعك المحفوظة
 💡 عند الانتهاء اضغط 'متابعة' لاختيار التصميم"></textarea>
     </div>
 
@@ -1267,7 +1434,7 @@
   <div class="design-screen" id="designScreen" style="display:none;">
     <div class="design-header">
       <h2>🎨 اختر تصميمك</h2>
-      <p>اختر أحد الأنماط الاحترافية لمستندك — بما فيها قالب الروايات الجديد</p>
+      <p>اختر أحد الأنماط الاحترافية لمستندك</p>
     </div>
 
     <div class="designs-grid" id="designsGrid">
@@ -1344,6 +1511,26 @@
 
 </div>
 
+<!-- ============================================
+     ✅ نافذة "مشاريعي"
+     ============================================ -->
+<div class="projects-overlay" id="projectsOverlay">
+  <div class="projects-container">
+    <div class="projects-header">
+      <h2>📁 مشاريعي</h2>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="new-project-btn" id="newProjectBtn">
+          ✨ مشروع جديد
+        </button>
+        <button class="close-projects" onclick="closeProjects()">
+          ✕ إغلاق
+        </button>
+      </div>
+    </div>
+    <div class="projects-list" id="projectsList"></div>
+  </div>
+</div>
+
 <div class="toast" id="toast">
   <span id="toastIcon">✓</span>
   <span id="toastMsg">تم الحفظ</span>
@@ -1352,7 +1539,9 @@
 <script>
 const $ = (id) => document.getElementById(id);
 
-/* شاشة الترحيب */
+/* ============================================================
+   شاشة الترحيب
+   ============================================================ */
 (function(){
   const particlesContainer = document.getElementById('splashParticles');
   const splash = document.getElementById('splashScreen');
@@ -1372,14 +1561,7 @@ const $ = (id) => document.getElementById(id);
     }
   }
   
-  const statusMessages = [
-    'جاري التحميل...',
-    'تحضير المحرر...',
-    'تحميل الخطوط العربية...',
-    'تهيئة القوالب...',
-    'جاهز! ✨'
-  ];
-  
+  const statusMessages = ['جاري التحميل...', 'تحضير المحرر...', 'تحميل الخطوط العربية...', 'تهيئة القوالب...', 'جاهز! ✨'];
   let statusIndex = 0;
   const statusEl = document.getElementById('splashStatus');
   
@@ -1388,22 +1570,17 @@ const $ = (id) => document.getElementById(id);
     if(statusIndex < statusMessages.length){
       statusEl.textContent = statusMessages[statusIndex];
     }
-    if(statusIndex >= statusMessages.length - 1){
-      clearInterval(statusInterval);
-    }
+    if(statusIndex >= statusMessages.length - 1) clearInterval(statusInterval);
   }, 600);
   
   const skipBtn = document.getElementById('splashSkip');
   
   function hideSplash(){
     splash.classList.add('hide');
-    setTimeout(() => {
-      splash.style.display = 'none';
-    }, 800);
+    setTimeout(() => { splash.style.display = 'none'; }, 800);
   }
   
   const autoHideTimer = setTimeout(hideSplash, 3500);
-  
   skipBtn.addEventListener('click', () => {
     clearTimeout(autoHideTimer);
     clearInterval(statusInterval);
@@ -1412,13 +1589,16 @@ const $ = (id) => document.getElementById(id);
   });
 })();
 
-/* التنقل */
+/* ============================================================
+   التنقل
+   ============================================================ */
 function openTool(){
   document.getElementById('homePage').classList.remove('active');
   document.getElementById('toolPage').classList.add('active');
   window.scrollTo({top:0, behavior:'instant'});
   history.pushState({page: 'tool'}, '', '#tool');
   updateStats();
+  updateCurrentProjectName();
 }
 
 function goHome(){
@@ -1429,19 +1609,15 @@ function goHome(){
 }
 
 window.addEventListener('popstate', (e) => {
-  if(e.state && e.state.page === 'tool'){
-    openTool();
-  } else {
-    goHome();
-  }
+  if(e.state && e.state.page === 'tool') openTool();
+  else goHome();
 });
 
 window.addEventListener('load', () => {
-  if(window.location.hash === '#tool'){
-    openTool();
-  }
+  if(window.location.hash === '#tool') openTool();
 });
 
+/* الصفحة الرئيسية */
 const navbar = document.getElementById('navbar');
 const mobileToggle = document.getElementById('mobileToggle');
 const navLinks = document.getElementById('navLinks');
@@ -1454,9 +1630,7 @@ window.addEventListener('scroll', () => {
 });
 
 if(mobileToggle){
-  mobileToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
+  mobileToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => navLinks.classList.remove('open'));
   });
@@ -1470,7 +1644,9 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('#homePage .reveal').forEach(el => observer.observe(el));
 
-/* عناصر الأداة */
+/* ============================================================
+   عناصر الأداة
+   ============================================================ */
 const textInput = $('textInput');
 const writeScreen = $('writeScreen');
 const designScreen = $('designScreen');
@@ -1481,9 +1657,6 @@ const previewBtn = $('previewBtn');
 const backToDesignBtn = $('backToDesignBtn');
 const downloadBtn = $('downloadBtn');
 const clearBtn = $('clearBtn');
-const saveFileBtn = $('saveFileBtn');
-const loadFileBtn = $('loadFileBtn');
-const fileInput = $('fileInput');
 const charCount = $('charCount');
 const wordCount = $('wordCount');
 const lineCount = $('lineCount');
@@ -1494,21 +1667,99 @@ const previewInfo = $('previewInfo');
 const toast = $('toast');
 const toastMsg = $('toastMsg');
 const toastIcon = $('toastIcon');
-const toolPage = $('toolPage');
+const currentProjectNameEl = $('currentProjectName');
 
 let currentStyle = 'modern';
 let autoSaveTimer = null;
-const STORAGE_KEY = 'sutoor_smart_text_v4';
-const STORAGE_STYLE = 'sutoor_smart_style_v4';
+let currentProjectId = null;
 
+const STORAGE_KEY = 'sutoor_smart_text_v5';
+const STORAGE_STYLE = 'sutoor_smart_style_v5';
+const STORAGE_PROJECTS = 'sutoor_smart_projects_v1';
+const STORAGE_CURRENT = 'sutoor_smart_current_v1';
+
+/* ============================================================
+   إدارة المشاريع
+   ============================================================ */
+function getProjects(){
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_PROJECTS) || '{}');
+  } catch(e){ return {}; }
+}
+
+function saveProjects(projects){
+  try {
+    localStorage.setItem(STORAGE_PROJECTS, JSON.stringify(projects));
+  } catch(e){}
+}
+
+function createProject(name, text = '', style = 'modern'){
+  const id = 'proj_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+  const projects = getProjects();
+  projects[id] = {
+    id,
+    name: name || 'مشروع بدون اسم',
+    text,
+    style,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+  saveProjects(projects);
+  return id;
+}
+
+function updateProject(id, updates){
+  const projects = getProjects();
+  if(!projects[id]) return false;
+  projects[id] = { ...projects[id], ...updates, updatedAt: new Date().toISOString() };
+  saveProjects(projects);
+  return true;
+}
+
+function deleteProject(id){
+  const projects = getProjects();
+  delete projects[id];
+  saveProjects(projects);
+}
+
+function updateCurrentProjectName(){
+  if(!currentProjectId){
+    currentProjectNameEl.textContent = 'مشروع جديد (غير محفوظ)';
+    return;
+  }
+  const projects = getProjects();
+  if(projects[currentProjectId]){
+    currentProjectNameEl.textContent = '📁 ' + projects[currentProjectId].name;
+  } else {
+    currentProjectNameEl.textContent = 'مشروع جديد';
+  }
+}
+
+function autoSaveProject(){
+  if(!currentProjectId){
+    const text = textInput.value.trim();
+    if(!text) return;
+    const defaultName = text.split('\n')[0].trim().slice(0, 40) || 'مشروع بدون اسم';
+    currentProjectId = createProject(defaultName, textInput.value, currentStyle);
+    try { localStorage.setItem(STORAGE_CURRENT, currentProjectId); } catch(e){}
+    updateCurrentProjectName();
+  } else {
+    updateProject(currentProjectId, {
+      text: textInput.value,
+      style: currentStyle
+    });
+  }
+}
+
+/* ============================================================
+   Toast
+   ============================================================ */
 function showToast(msg, type = 'success'){
   toastMsg.textContent = msg;
   toastIcon.textContent = type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ';
   toast.className = 'toast show ' + type;
   clearTimeout(showToast._t);
-  showToast._t = setTimeout(() => {
-    toast.className = 'toast';
-  }, 2500);
+  showToast._t = setTimeout(() => { toast.className = 'toast'; }, 2500);
 }
 
 function updateStats(){
@@ -1529,26 +1780,47 @@ function setSaveIndicator(state){
   }
 }
 
+/* ============================================================
+   الحفظ التلقائي — يحفظ النص + المشروع الحالي
+   ============================================================ */
 function autoSave(){
   setSaveIndicator('saving');
   try {
     localStorage.setItem(STORAGE_KEY, textInput.value);
     localStorage.setItem(STORAGE_STYLE, currentStyle);
+    autoSaveProject();
     setTimeout(() => setSaveIndicator('saved'), 300);
   } catch(e){}
 }
 
 function loadAutoSave(){
   try {
+    const savedCurrentId = localStorage.getItem(STORAGE_CURRENT);
     const savedText = localStorage.getItem(STORAGE_KEY);
     const savedStyle = localStorage.getItem(STORAGE_STYLE);
-    if(savedText) textInput.value = savedText;
-    if(savedStyle){
-      currentStyle = savedStyle;
-      document.querySelectorAll('.design-card').forEach(c => {
-        c.classList.toggle('active', c.dataset.style === savedStyle);
-      });
+    
+    if(savedCurrentId){
+      const projects = getProjects();
+      if(projects[savedCurrentId]){
+        currentProjectId = savedCurrentId;
+        textInput.value = projects[savedCurrentId].text || '';
+        currentStyle = projects[savedCurrentId].style || 'modern';
+      } else if(savedText){
+        textInput.value = savedText;
+      }
+    } else if(savedText){
+      textInput.value = savedText;
     }
+    
+    if(savedStyle && !currentProjectId){
+      currentStyle = savedStyle;
+    }
+    
+    document.querySelectorAll('.design-card').forEach(c => {
+      c.classList.toggle('active', c.dataset.style === currentStyle);
+    });
+    
+    updateCurrentProjectName();
   } catch(e){}
 }
 
@@ -1556,13 +1828,14 @@ textInput.addEventListener('input', () => {
   clearTimeout(autoSaveTimer);
   setSaveIndicator('saving');
   updateStats();
-  autoSaveTimer = setTimeout(() => {
-    autoSave();
-  }, 200);
+  autoSaveTimer = setTimeout(() => { autoSave(); }, 200);
 });
 
 window.addEventListener('beforeunload', autoSave);
 
+/* ============================================================
+   التنقل بين الخطوات
+   ============================================================ */
 continueBtn.addEventListener('click', () => {
   if(!textInput.value.trim()){
     showToast('اكتب نصاً أولاً', 'error');
@@ -1616,49 +1889,41 @@ clearBtn.addEventListener('click', () => {
   }
 });
 
-/* حفظ الملف — PDF + SUTOOR */
-saveFileBtn.addEventListener('click', async () => {
-  const raw = textInput.value;
-  if(!raw.trim()){
-    showToast('لا يوجد نص لحفظه', 'error');
+/* ============================================================
+   ✅ تنزيل PDF — يستبدل زر "حفظ الملف"
+   ============================================================ */
+downloadBtn.addEventListener('click', async () => {
+  const raw = textInput.value.trim();
+  if(!raw){
+    showToast('لا يوجد نص', 'error');
     return;
   }
 
-  const fileData = {
-    app: 'sutoor-smart',
-    version: '1.0',
-    savedAt: new Date().toISOString(),
-    style: currentStyle,
-    text: raw
-  };
-  const jsonBlob = new Blob([JSON.stringify(fileData, null, 2)], { type: 'application/json' });
-  const jsonUrl = URL.createObjectURL(jsonBlob);
-  const baseName = (raw.split('\n')[0].trim().slice(0,40) || 'مستند');
+  // طلب اسم الملف من المستخدم
+  let defaultName = raw.split('\n')[0].trim().slice(0, 40) || 'sutoor-smart';
+  let fileName = prompt('📄 اسم ملف PDF:', defaultName + '.pdf');
   
-  const a1 = document.createElement('a');
-  a1.href = jsonUrl;
-  a1.download = baseName + '.sutoor';
-  document.body.appendChild(a1);
-  a1.click();
-  document.body.removeChild(a1);
-  URL.revokeObjectURL(jsonUrl);
+  if(fileName === null) return; // المستخدم ألغى
+  fileName = fileName.trim();
+  if(!fileName) fileName = defaultName + '.pdf';
+  if(!fileName.toLowerCase().endsWith('.pdf')) fileName += '.pdf';
 
-  const originalText = saveFileBtn.innerHTML;
-  saveFileBtn.innerHTML = '⏳ جاري...';
-  saveFileBtn.disabled = true;
-  showToast('جاري حفظ الملف + PDF...', 'info');
+  const blocks = parseLines(raw);
+  const palette = palettes[currentStyle];
+  const pages = paginateContent(blocks, palette, currentStyle);
+  const totalPages = pages.length;
 
-  try {
-    const blocks = parseLines(raw);
-    const palette = palettes[currentStyle];
-    const pages = paginateContent(blocks, palette, currentStyle);
-    const totalPages = pages.length;
+  downloadBtn.disabled = true;
+  const originalHTML = downloadBtn.innerHTML;
+  downloadBtn.innerHTML = '⏳ جاري الإنشاء...';
+  showToast('جاري إنشاء PDF (' + totalPages + ' صفحات)...', 'info');
 
-    if(document.fonts && document.fonts.ready){
-      try { await document.fonts.ready; } catch(e){}
-    }
-    await new Promise(r => setTimeout(r, 300));
+  if(document.fonts && document.fonts.ready){
+    try { await document.fonts.ready; } catch(e){}
+  }
+  await new Promise(r => setTimeout(r, 500));
 
+  try{
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({
       unit: 'px',
@@ -1690,7 +1955,7 @@ saveFileBtn.addEventListener('click', async () => {
       pageDiv.innerHTML = buildPageHTML(pageBlocks, palette, currentStyle);
       exportWrapper.appendChild(pageDiv);
 
-      await new Promise(r => setTimeout(r, 80));
+      await new Promise(r => setTimeout(r, 100));
 
       const canvas = await html2canvas(pageDiv, {
         scale: 2,
@@ -1707,58 +1972,206 @@ saveFileBtn.addEventListener('click', async () => {
 
       const imgData = canvas.toDataURL('image/jpeg', 0.92);
 
-      if(i > 0){
-        pdf.addPage([794, 1123], 'portrait');
-      }
+      if(i > 0) pdf.addPage([794, 1123], 'portrait');
       pdf.addImage(imgData, 'JPEG', 0, 0, 794, 1123, undefined, 'FAST');
     }
 
-    pdf.save(baseName + '.pdf');
+    pdf.save(fileName);
+
     document.body.removeChild(exportWrapper);
-    
-    saveFileBtn.innerHTML = originalText;
-    saveFileBtn.disabled = false;
-    showToast('✅ تم حفظ: ' + baseName + '.sutoor + .pdf', 'success');
-  } catch(e){
+    showToast('✅ تم تنزيل: ' + fileName, 'success');
+  }catch(e){
     console.error(e);
-    saveFileBtn.innerHTML = originalText;
-    saveFileBtn.disabled = false;
-    showToast('⚠️ تم حفظ ملف .sutoor فقط (فشل PDF)', 'info');
+    showToast('❌ حدث خطأ: ' + e.message, 'error');
+  }finally{
+    downloadBtn.disabled = false;
+    downloadBtn.innerHTML = originalHTML;
   }
 });
 
-loadFileBtn.addEventListener('click', () => fileInput.click());
+/* ============================================================
+   ✅ قسم "مشاريعي"
+   ============================================================ */
+const projectsOverlay = $('projectsOverlay');
+const projectsList = $('projectsList');
+const projectsBtn = $('projectsBtn');
+const newProjectBtn = $('newProjectBtn');
 
-fileInput.addEventListener('change', (e) => {
-  const file = e.target.files[0];
-  if(!file) return;
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    try {
-      const data = JSON.parse(ev.target.result);
-      if(!data.text){
-        showToast('ملف غير صالح', 'error');
-        return;
+function openProjects(){
+  renderProjects();
+  projectsOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjects(){
+  projectsOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function renderProjects(){
+  const projects = getProjects();
+  const ids = Object.keys(projects).sort((a, b) => 
+    new Date(projects[b].updatedAt) - new Date(projects[a].updatedAt)
+  );
+
+  if(ids.length === 0){
+    projectsList.innerHTML = `
+      <div class="empty-projects">
+        <div class="icon">📁</div>
+        <p>لا توجد مشاريع محفوظة بعد<br>ابدأ الكتابة وسيُحفظ مشروعك تلقائياً</p>
+      </div>`;
+    return;
+  }
+
+  projectsList.innerHTML = ids.map(id => {
+    const p = projects[id];
+    const isCurrent = id === currentProjectId;
+    const date = new Date(p.updatedAt).toLocaleDateString('ar-EG', {
+      year:'numeric', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'
+    });
+    const words = (p.text || '').trim().split(/\s+/).filter(Boolean).length;
+    
+    return `
+      <div class="project-card ${isCurrent ? 'current-project' : ''}" data-id="${id}">
+        <div class="project-name">
+          <span class="project-name-icon">📄</span>
+          <span>${escapeHtml(p.name)}</span>
+        </div>
+        <div class="project-info">
+          <span>🕒 ${date}</span>
+          <span>📝 ${words} كلمة · ${(p.text || '').length} حرف</span>
+          <span>🎨 ${getStyleName(p.style)}</span>
+        </div>
+        <div class="project-actions">
+          <button class="project-btn open" data-action="open" data-id="${id}">
+            📖 فتح
+          </button>
+          <button class="project-btn rename" data-action="rename" data-id="${id}">
+            ✏️ تسمية
+          </button>
+          <button class="project-btn delete" data-action="delete" data-id="${id}">
+            🗑️
+          </button>
+        </div>
+      </div>`;
+  }).join('');
+
+  // ربط الأحداث
+  projectsList.querySelectorAll('.project-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const action = btn.dataset.action;
+      const id = btn.dataset.id;
+      
+      if(action === 'open'){
+        openProject(id);
+      } else if(action === 'rename'){
+        renameProject(id);
+      } else if(action === 'delete'){
+        deleteProjectConfirm(id);
       }
-      textInput.value = data.text;
-      if(data.style){
-        currentStyle = data.style;
-        document.querySelectorAll('.design-card').forEach(c => {
-          c.classList.toggle('active', c.dataset.style === data.style);
-        });
-      }
-      autoSave();
-      updateStats();
-      showToast('تم استعادة الملف بنجاح', 'success');
-    } catch(err){
-      showToast('خطأ في قراءة الملف', 'error');
-    }
-  };
-  reader.readAsText(file);
-  fileInput.value = '';
+    });
+  });
+}
+
+function openProject(id){
+  const projects = getProjects();
+  if(!projects[id]) return;
+  
+  // حفظ المشروع الحالي أولاً
+  if(currentProjectId && currentProjectId !== id){
+    updateProject(currentProjectId, {
+      text: textInput.value,
+      style: currentStyle
+    });
+  }
+  
+  currentProjectId = id;
+  textInput.value = projects[id].text || '';
+  currentStyle = projects[id].style || 'modern';
+  
+  document.querySelectorAll('.design-card').forEach(c => {
+    c.classList.toggle('active', c.dataset.style === currentStyle);
+  });
+  
+  try { localStorage.setItem(STORAGE_CURRENT, id); } catch(e){}
+  localStorage.setItem(STORAGE_KEY, textInput.value);
+  localStorage.setItem(STORAGE_STYLE, currentStyle);
+  
+  updateCurrentProjectName();
+  updateStats();
+  closeProjects();
+  showToast('تم فتح: ' + projects[id].name, 'success');
+}
+
+function renameProject(id){
+  const projects = getProjects();
+  if(!projects[id]) return;
+  
+  const newName = prompt('✏️ الاسم الجديد للمشروع:', projects[id].name);
+  if(newName === null) return;
+  const trimmed = newName.trim();
+  if(!trimmed){
+    showToast('الاسم لا يمكن أن يكون فارغاً', 'error');
+    return;
+  }
+  
+  updateProject(id, { name: trimmed });
+  if(id === currentProjectId) updateCurrentProjectName();
+  renderProjects();
+  showToast('تم تحديث الاسم', 'success');
+}
+
+function deleteProjectConfirm(id){
+  const projects = getProjects();
+  if(!projects[id]) return;
+  
+  if(!confirm('هل أنت متأكد من حذف "' + projects[id].name + '"؟')){
+    return;
+  }
+  
+  deleteProject(id);
+  
+  if(id === currentProjectId){
+    currentProjectId = null;
+    textInput.value = '';
+    try { localStorage.removeItem(STORAGE_CURRENT); } catch(e){}
+    localStorage.removeItem(STORAGE_KEY);
+    updateCurrentProjectName();
+    updateStats();
+  }
+  
+  renderProjects();
+  showToast('تم حذف المشروع', 'info');
+}
+
+newProjectBtn.addEventListener('click', () => {
+  if(currentProjectId){
+    updateProject(currentProjectId, {
+      text: textInput.value,
+      style: currentStyle
+    });
+  }
+  
+  currentProjectId = null;
+  textInput.value = '';
+  try { localStorage.removeItem(STORAGE_CURRENT); } catch(e){}
+  localStorage.removeItem(STORAGE_KEY);
+  updateCurrentProjectName();
+  updateStats();
+  closeProjects();
+  showToast('مشروع جديد — ابدأ الكتابة', 'info');
 });
 
-/* تحليل النص */
+projectsBtn.addEventListener('click', openProjects);
+
+projectsOverlay.addEventListener('click', (e) => {
+  if(e.target === projectsOverlay) closeProjects();
+});
+
+/* ============================================================
+   تحليل النص
+   ============================================================ */
 function parseLines(raw){
   if(!raw || !raw.trim()) return [];
   const lines = raw.split(/\r?\n/);
@@ -1826,7 +2239,6 @@ const palettes = {
   novel:    { primary:'#8b5a2b', accent:'#a0522d', bg:'#faf6ee', text:'#3d2c1a', soft:'#f5ecd8' }
 };
 
-/* بناء كتلة HTML */
 function renderBlock(block, palette, style){
   const headingBase = `margin:0;line-height:1.4;font-weight:800;font-family:'Cairo','Tajawal',sans-serif;letter-spacing:0;`;
   
@@ -1889,10 +2301,9 @@ function renderBlock(block, palette, style){
   return '';
 }
 
-/* paginateContent — قياس DOM فعلي */
 function paginateContent(blocks, palette, style){
   const PAGE_HEIGHT = 1123;
-  const USABLE_HEIGHT = PAGE_HEIGHT - 100; // 50px أعلى + 50px أسفل
+  const USABLE_HEIGHT = PAGE_HEIGHT - 100;
 
   const measureDiv = document.createElement('div');
   measureDiv.style.position = 'fixed';
@@ -1917,17 +2328,13 @@ function paginateContent(blocks, palette, style){
 
   blocks.forEach(block => {
     const h = measureHeight(block);
-
     if(h > USABLE_HEIGHT){
-      if(pages[pages.length - 1].length > 0){
-        pages.push([]);
-      }
+      if(pages[pages.length - 1].length > 0) pages.push([]);
       pages[pages.length - 1].push(block);
       pages.push([]);
       currentHeight = 0;
       return;
     }
-
     if(currentHeight + h > USABLE_HEIGHT && pages[pages.length - 1].length > 0){
       pages.push([block]);
       currentHeight = h;
@@ -2002,9 +2409,11 @@ function buildPreview(){
   previewInfo.textContent = `${totalPages} صفحة · النمط: ${getStyleName(currentStyle)}`;
   
   pdfPagesContainer.innerHTML = pages.map((pageBlocks, i) => `
-    <div class="pdf-page-preview" data-page="صفحة ${i+1} من ${totalPages}">
-      <div class="pdf-page-inner" style="padding:0;">
-        ${buildPageHTML(pageBlocks, palette, currentStyle)}
+    <div class="pdf-page-wrapper">
+      <div class="pdf-page-preview" data-page="صفحة ${i+1} من ${totalPages}">
+        <div class="pdf-page-inner" style="padding:0;">
+          ${buildPageHTML(pageBlocks, palette, currentStyle)}
+        </div>
       </div>
     </div>
   `).join('');
@@ -2019,102 +2428,13 @@ function getStyleName(style){
   return names[style] || style;
 }
 
-downloadBtn.addEventListener('click', async () => {
-  const raw = textInput.value.trim();
-  if(!raw){
-    showToast('لا يوجد نص', 'error');
-    return;
-  }
-
-  const blocks = parseLines(raw);
-  const palette = palettes[currentStyle];
-  const pages = paginateContent(blocks, palette, currentStyle);
-  const totalPages = pages.length;
-
-  downloadBtn.disabled = true;
-  const originalHTML = downloadBtn.innerHTML;
-  downloadBtn.innerHTML = '⏳ جاري الإنشاء...';
-  showToast('جاري إنشاء PDF (' + totalPages + ' صفحات)...', 'info');
-
-  const fileName = (raw.split('\n')[0].trim().slice(0,40) || 'sutoor-smart') + '.pdf';
-
-  if(document.fonts && document.fonts.ready){
-    try { await document.fonts.ready; } catch(e){}
-  }
-  await new Promise(r => setTimeout(r, 500));
-
-  try{
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({
-      unit: 'px',
-      format: [794, 1123],
-      orientation: 'portrait',
-      hotfixes: ['px_scaling'],
-      compress: true
-    });
-
-    const exportWrapper = document.createElement('div');
-    exportWrapper.style.position = 'fixed';
-    exportWrapper.style.top = '0';
-    exportWrapper.style.left = '-9999px';
-    exportWrapper.style.width = '794px';
-    exportWrapper.style.background = '#ffffff';
-    exportWrapper.style.zIndex = '-99999';
-    document.body.appendChild(exportWrapper);
-
-    for(let i = 0; i < pages.length; i++){
-      const pageBlocks = pages[i];
-      
-      exportWrapper.innerHTML = '';
-      
-      const pageDiv = document.createElement('div');
-      pageDiv.style.width = '794px';
-      pageDiv.style.height = '1123px';
-      pageDiv.style.overflow = 'hidden';
-      pageDiv.style.background = '#ffffff';
-      pageDiv.innerHTML = buildPageHTML(pageBlocks, palette, currentStyle);
-      exportWrapper.appendChild(pageDiv);
-
-      await new Promise(r => setTimeout(r, 100));
-
-      const canvas = await html2canvas(pageDiv, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: '#ffffff',
-        scrollY: 0,
-        scrollX: 0,
-        logging: false,
-        width: 794,
-        height: 1123,
-        windowWidth: 794,
-        windowHeight: 1123
-      });
-
-      const imgData = canvas.toDataURL('image/jpeg', 0.92);
-
-      if(i > 0){
-        pdf.addPage([794, 1123], 'portrait');
-      }
-      pdf.addImage(imgData, 'JPEG', 0, 0, 794, 1123, undefined, 'FAST');
-    }
-
-    pdf.save(fileName);
-
-    document.body.removeChild(exportWrapper);
-    showToast('✅ تم إنشاء الملف: ' + fileName + ' (' + totalPages + ' صفحة)', 'success');
-  }catch(e){
-    console.error(e);
-    showToast('❌ حدث خطأ: ' + e.message, 'error');
-  }finally{
-    downloadBtn.disabled = false;
-    downloadBtn.innerHTML = originalHTML;
-  }
-});
-
 function escapeHtml(s){
   return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
+/* ============================================================
+   تهيئة
+   ============================================================ */
 loadAutoSave();
 updateStats();
 setSaveIndicator('saved');
