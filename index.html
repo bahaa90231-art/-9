@@ -552,13 +552,31 @@
     animation:pulse 0.6s infinite;
   }
 
+  .floating-projects-btn{
+    position:fixed; top:16px; right:160px; z-index:200;
+    padding:10px 18px; border-radius:999px;
+    background:rgba(10,10,26,0.85);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(16,185,129,0.4);
+    color:#fff; font-size:13px; font-weight:700;
+    cursor:pointer; font-family:'Cairo',sans-serif;
+    display:flex; align-items:center; gap:6px;
+    transition:all 0.3s;
+    box-shadow:0 8px 24px rgba(0,0,0,0.4);
+  }
+  .floating-projects-btn:hover{
+    background:rgba(16,185,129,0.9);
+    border-color:rgba(16,185,129,0.8);
+    transform:translateY(-2px) scale(1.05);
+    box-shadow:0 12px 32px rgba(16,185,129,0.5);
+  }
+
   .write-screen{
     flex:1; display:flex; flex-direction:column;
     padding:70px 30px 30px;
     max-width:1400px;
     margin:0 auto; width:100%; gap:20px;
   }
-
   .write-header{ text-align:center; margin-bottom:10px; }
   .write-header h2{
     font-size:clamp(24px, 4vw, 38px);
@@ -569,13 +587,11 @@
     margin-bottom:8px;
   }
   .write-header p{ color:rgba(255,255,255,0.6); font-size:15px; font-weight:500; }
-
   .write-textarea-wrapper{
     flex:1; position:relative;
     display:flex; flex-direction:column;
     min-height:400px;
   }
-
   .write-textarea{
     flex:1; width:100%;
     padding:30px 40px;
@@ -596,7 +612,6 @@
     box-shadow:0 0 0 5px rgba(99,102,241,0.15), inset 0 0 60px rgba(99,102,241,0.05);
   }
   .write-textarea::placeholder{ color:rgba(255,255,255,0.35); line-height:2; }
-
   .write-stats{
     display:flex; gap:10px; justify-content:center;
     flex-wrap:wrap; padding:10px 0;
@@ -610,12 +625,10 @@
     display:flex; align-items:center; gap:6px;
   }
   .write-stat b{ color:#a5b4fc; font-weight:800; }
-
   .write-actions{
     display:flex; gap:12px; justify-content:center;
     flex-wrap:wrap; padding:10px 0 20px;
   }
-
   .btn-write{
     padding:16px 40px; border-radius:14px;
     font-size:16px; font-weight:800;
@@ -736,7 +749,7 @@
   .design-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
   /* ============================================
-     المعاينة — مُصلَحة للجوال
+     ✅ المعاينة — إصلاح كامل للجوال
      ============================================ */
   .preview-screen{
     flex:1; padding:70px 30px 30px;
@@ -754,60 +767,84 @@
   }
   .preview-header p{ color:rgba(255,255,255,0.6); font-size:15px; }
 
-  /* ✅ حاوية صفحات PDF — عرض متجاوب مع تمرير أفقي على الجوال */
   .pdf-pages-container{
     display:flex; flex-direction:column;
     gap:30px; align-items:center;
     margin-bottom:30px;
+    width: 100%;
   }
 
-  .pdf-page-preview{
-    background:white;
-    width:100%;
-    max-width:794px;
-    border-radius:6px;
-    box-shadow:0 25px 50px -12px rgba(0,0,0,0.6);
-    overflow:hidden;
-    position:relative;
-    animation: pageIn 0.5s ease;
-    /* ✅ يسمح بالتصغير والتمرير على الجوال */
-    margin: 0 auto;
+  /* حاوية التمرير */
+  .pdf-page-wrapper{
+    width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px 0 20px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(165,180,252,0.4) transparent;
   }
-  @keyframes pageIn{ from{opacity:0;transform:scale(0.95);} to{opacity:1;transform:scale(1);} }
+  .pdf-page-wrapper::-webkit-scrollbar{
+    height: 8px;
+    width: 8px;
+  }
+  .pdf-page-wrapper::-webkit-scrollbar-track{
+    background: rgba(255,255,255,0.03);
+    border-radius: 4px;
+  }
+  .pdf-page-wrapper::-webkit-scrollbar-thumb{
+    background: rgba(165,180,252,0.4);
+    border-radius: 4px;
+  }
+  .pdf-page-wrapper::-webkit-scrollbar-thumb:hover{
+    background: rgba(165,180,252,0.6);
+  }
+
+  /* الصفحة — حجم طبيعي ثابت */
+  .pdf-page-preview{
+    background: white;
+    width: 794px;
+    min-width: 794px;
+    max-width: 794px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+    overflow: hidden;
+    position: relative;
+    animation: pageIn 0.5s ease;
+    transition: transform 0.25s ease, margin 0.25s ease;
+  }
+  @keyframes pageIn{ from{opacity:0;transform:scale(0.98);} to{opacity:1;transform:scale(1);} }
 
   .pdf-page-preview::before{
     content: attr(data-page);
-    position:absolute; top:-28px; right:0;
-    background:rgba(255,255,255,0.1);
-    color:#fff; padding:4px 14px;
-    border-radius:8px;
-    font-size:12px; font-weight:700;
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.15);
+    position: absolute;
+    top: -28px;
+    right: 0;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    white-space: nowrap;
+    z-index: 5;
   }
 
-  /* ✅ محتوى الصفحة قابل للتصغير في الجوال */
   .pdf-page-inner{
     width: 794px;
     min-height: 1123px;
-    padding: 50px 68px;
+    padding: 0;
     font-family: 'Cairo', 'Tajawal', sans-serif;
     color: #1e293b;
     line-height: 1.8;
     direction: rtl;
     text-align: right;
     background: #ffffff;
-    transform-origin: top right;
-  }
-
-  /* ✅ الحاوية التي تحتوي على الصفحة على الجوال - تصغير تلقائي */
-  .pdf-page-wrapper{
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    justify-content: center;
   }
 
   .preview-actions{
@@ -836,7 +873,7 @@
   .toast.info{ border-color:rgba(99,102,241,0.4); }
 
   /* ============================================
-     ✅ قسم "مشاريعي" 
+     قسم "مشاريعي"
      ============================================ */
   .projects-overlay{
     position: fixed;
@@ -847,15 +884,15 @@
     display: none;
     overflow-y: auto;
     padding: 80px 20px 40px;
-    animation: fadeIn 0.3s ease;
+    animation: fadeInOverlay 0.3s ease;
   }
+  @keyframes fadeInOverlay{ from{opacity:0;} to{opacity:1;} }
   .projects-overlay.active{ display: block; }
 
   .projects-container{
     max-width: 1100px;
     margin: 0 auto;
   }
-
   .projects-header{
     display: flex;
     justify-content: space-between;
@@ -864,7 +901,6 @@
     flex-wrap: wrap;
     gap: 14px;
   }
-
   .projects-header h2{
     font-size: 28px;
     font-weight: 900;
@@ -876,7 +912,6 @@
     align-items: center;
     gap: 12px;
   }
-
   .close-projects{
     padding: 10px 20px;
     border-radius: 12px;
@@ -896,7 +931,6 @@
     background: rgba(239,68,68,0.2);
     border-color: rgba(239,68,68,0.5);
   }
-
   .new-project-btn{
     padding: 12px 24px;
     border-radius: 12px;
@@ -940,7 +974,6 @@
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(99,102,241,0.25);
   }
-
   .project-card.current-project{
     border-color: #10b981;
     background: rgba(16,185,129,0.08);
@@ -957,7 +990,6 @@
     padding: 3px 10px;
     border-radius: 999px;
   }
-
   .project-name{
     font-size: 17px;
     font-weight: 800;
@@ -968,10 +1000,7 @@
     align-items: center;
     gap: 8px;
   }
-  .project-name-icon{
-    font-size: 20px;
-  }
-
+  .project-name-icon{ font-size: 20px; }
   .project-info{
     display: flex;
     flex-direction: column;
@@ -979,19 +1008,13 @@
     font-size: 12px;
     color: rgba(255,255,255,0.5);
   }
-  .project-info span{
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
+  .project-info span{ display: flex; align-items: center; gap: 6px; }
   .project-actions{
     display: flex;
     gap: 8px;
     margin-top: 4px;
     flex-wrap: wrap;
   }
-
   .project-btn{
     padding: 8px 14px;
     border-radius: 8px;
@@ -1024,41 +1047,8 @@
     padding: 60px 20px;
     color: rgba(255,255,255,0.5);
   }
-  .empty-projects .icon{
-    font-size: 60px;
-    margin-bottom: 16px;
-    opacity: 0.5;
-  }
+  .empty-projects .icon{ font-size: 60px; margin-bottom: 16px; opacity: 0.5; }
   .empty-projects p{ font-size: 15px; line-height: 1.8; }
-
-  /* ✅ زر مشاريعي العائم */
-  .floating-projects-btn{
-    position: fixed;
-    top: 16px;
-    right: 160px;
-    z-index: 200;
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: rgba(10,10,26,0.85);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(16,185,129,0.4);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: 'Cairo', sans-serif;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.3s;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-  }
-  .floating-projects-btn:hover{
-    background: rgba(16,185,129,0.9);
-    border-color: rgba(16,185,129,0.8);
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 12px 32px rgba(16,185,129,0.5);
-  }
 
   /* ============================================
      Responsive
@@ -1092,9 +1082,8 @@
     .logo-img{ width:44px; height:44px; }
     .logo-text{ font-size:16px; }
     .logo-text small{ font-size:8px; letter-spacing:3px; }
-    .write-screen, .design-screen, .preview-screen{ padding:16px; }
+    .write-screen, .design-screen{ padding:16px; }
     .write-textarea{ padding:20px 18px; font-size:16px; min-height:350px; }
-    .pdf-page-inner{ padding:30px 24px; min-height:auto; }
     .floating-back-btn{ top:12px; right:12px; padding:8px 14px; font-size:12px; }
     .floating-save-indicator{ top:12px; left:12px; padding:6px 10px; font-size:11px; }
     .floating-projects-btn{ top:12px; right:130px; padding:8px 14px; font-size:12px; }
@@ -1126,7 +1115,7 @@
     .design-card{ padding:12px; border-radius:16px; }
     .design-header h2{ font-size:22px; }
     .design-header p{ font-size:13px; }
-    .design-screen, .preview-screen{ padding:60px 12px 16px; }
+    .design-screen{ padding:60px 12px 16px; }
     .toast{ font-size:13px; padding:12px 18px; }
     .floating-back-btn{ 
       top:10px; right:10px; 
@@ -1141,28 +1130,38 @@
       padding:8px 12px; font-size:11.5px;
     }
 
-    /* ✅ تصغير صفحة PDF على الجوال */
+    /* ✅ المعاينة على الجوال */
+    .preview-screen{
+      padding: 60px 8px 16px;
+    }
+    
+    .pdf-pages-container{
+      gap: 20px;
+    }
+    
     .pdf-page-wrapper{
       width: 100%;
-      overflow-x: auto;
-      justify-content: flex-start;
-      padding: 0;
-      -webkit-overflow-scrolling: touch;
+      padding: 8px 0 12px;
+      justify-content: center;
+      overflow: visible;
     }
+    
     .pdf-page-preview{
-      /* التصغير تلقائياً على الجوال */
-      transform: scale(0.42);
-      transform-origin: top right;
-      margin-bottom: -650px; /* تقليل الفراغ الناتج عن التصغير */
-      margin-right: 0;
-      margin-left: auto;
-      width: 794px !important;
-      max-width: 794px !important;
+      /* التصغير يتم عبر JavaScript حسب حجم الشاشة */
+      flex-shrink: 0;
+    }
+    
+    .preview-actions{
+      gap: 8px;
+    }
+    .preview-actions .btn-write{
+      padding: 12px 16px;
+      font-size: 13px;
+      flex: 1;
+      min-width: 130px;
     }
 
-    .projects-list{
-      grid-template-columns: 1fr;
-    }
+    .projects-list{ grid-template-columns: 1fr; }
     .projects-header h2{ font-size:22px; }
     .projects-overlay{ padding:70px 12px 20px; }
     .project-card{ padding:16px; }
@@ -1170,20 +1169,6 @@
 
   @media (max-width: 767px){
     input, textarea, select { font-size: 16px !important; }
-  }
-
-  /* ✅ على شاشات صغيرة جداً */
-  @media (max-width: 420px){
-    .pdf-page-preview{
-      transform: scale(0.38);
-      margin-bottom: -700px;
-    }
-  }
-  @media (max-width: 360px){
-    .pdf-page-preview{
-      transform: scale(0.34);
-      margin-bottom: -750px;
-    }
   }
 </style>
 </head>
@@ -1384,21 +1369,14 @@
 <!-- صفحة الأداة -->
 <div class="page" id="toolPage">
 
-  <!-- زر الرجوع العائم -->
-  <button class="floating-back-btn" onclick="goHome()">
-    ← الرئيسية
-  </button>
+  <button class="floating-back-btn" onclick="goHome()">← الرئيسية</button>
 
-  <!-- مؤشر الحفظ العائم -->
   <div class="floating-save-indicator" id="saveIndicator">
     <span class="dot-save"></span>
     <span id="saveText">محفوظ تلقائياً</span>
   </div>
 
-  <!-- ✅ زر مشاريعي -->
-  <button class="floating-projects-btn" id="projectsBtn">
-    📁 مشاريعي
-  </button>
+  <button class="floating-projects-btn" id="projectsBtn">📁 مشاريعي</button>
 
   <div class="write-screen" id="writeScreen">
     <div class="write-header">
@@ -1511,20 +1489,14 @@
 
 </div>
 
-<!-- ============================================
-     ✅ نافذة "مشاريعي"
-     ============================================ -->
+<!-- نافذة "مشاريعي" -->
 <div class="projects-overlay" id="projectsOverlay">
   <div class="projects-container">
     <div class="projects-header">
       <h2>📁 مشاريعي</h2>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <button class="new-project-btn" id="newProjectBtn">
-          ✨ مشروع جديد
-        </button>
-        <button class="close-projects" onclick="closeProjects()">
-          ✕ إغلاق
-        </button>
+        <button class="new-project-btn" id="newProjectBtn">✨ مشروع جديد</button>
+        <button class="close-projects" onclick="closeProjects()">✕ إغلاق</button>
       </div>
     </div>
     <div class="projects-list" id="projectsList"></div>
@@ -1673,8 +1645,8 @@ let currentStyle = 'modern';
 let autoSaveTimer = null;
 let currentProjectId = null;
 
-const STORAGE_KEY = 'sutoor_smart_text_v5';
-const STORAGE_STYLE = 'sutoor_smart_style_v5';
+const STORAGE_KEY = 'sutoor_smart_text_v6';
+const STORAGE_STYLE = 'sutoor_smart_style_v6';
 const STORAGE_PROJECTS = 'sutoor_smart_projects_v1';
 const STORAGE_CURRENT = 'sutoor_smart_current_v1';
 
@@ -1780,9 +1752,6 @@ function setSaveIndicator(state){
   }
 }
 
-/* ============================================================
-   الحفظ التلقائي — يحفظ النص + المشروع الحالي
-   ============================================================ */
 function autoSave(){
   setSaveIndicator('saving');
   try {
@@ -1890,7 +1859,7 @@ clearBtn.addEventListener('click', () => {
 });
 
 /* ============================================================
-   ✅ تنزيل PDF — يستبدل زر "حفظ الملف"
+   تنزيل PDF
    ============================================================ */
 downloadBtn.addEventListener('click', async () => {
   const raw = textInput.value.trim();
@@ -1899,11 +1868,10 @@ downloadBtn.addEventListener('click', async () => {
     return;
   }
 
-  // طلب اسم الملف من المستخدم
   let defaultName = raw.split('\n')[0].trim().slice(0, 40) || 'sutoor-smart';
   let fileName = prompt('📄 اسم ملف PDF:', defaultName + '.pdf');
   
-  if(fileName === null) return; // المستخدم ألغى
+  if(fileName === null) return;
   fileName = fileName.trim();
   if(!fileName) fileName = defaultName + '.pdf';
   if(!fileName.toLowerCase().endsWith('.pdf')) fileName += '.pdf';
@@ -1990,7 +1958,7 @@ downloadBtn.addEventListener('click', async () => {
 });
 
 /* ============================================================
-   ✅ قسم "مشاريعي"
+   قسم "مشاريعي"
    ============================================================ */
 const projectsOverlay = $('projectsOverlay');
 const projectsList = $('projectsList');
@@ -2043,33 +2011,22 @@ function renderProjects(){
           <span>🎨 ${getStyleName(p.style)}</span>
         </div>
         <div class="project-actions">
-          <button class="project-btn open" data-action="open" data-id="${id}">
-            📖 فتح
-          </button>
-          <button class="project-btn rename" data-action="rename" data-id="${id}">
-            ✏️ تسمية
-          </button>
-          <button class="project-btn delete" data-action="delete" data-id="${id}">
-            🗑️
-          </button>
+          <button class="project-btn open" data-action="open" data-id="${id}">📖 فتح</button>
+          <button class="project-btn rename" data-action="rename" data-id="${id}">✏️ تسمية</button>
+          <button class="project-btn delete" data-action="delete" data-id="${id}">🗑️</button>
         </div>
       </div>`;
   }).join('');
 
-  // ربط الأحداث
   projectsList.querySelectorAll('.project-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const action = btn.dataset.action;
       const id = btn.dataset.id;
       
-      if(action === 'open'){
-        openProject(id);
-      } else if(action === 'rename'){
-        renameProject(id);
-      } else if(action === 'delete'){
-        deleteProjectConfirm(id);
-      }
+      if(action === 'open') openProject(id);
+      else if(action === 'rename') renameProject(id);
+      else if(action === 'delete') deleteProjectConfirm(id);
     });
   });
 }
@@ -2078,7 +2035,6 @@ function openProject(id){
   const projects = getProjects();
   if(!projects[id]) return;
   
-  // حفظ المشروع الحالي أولاً
   if(currentProjectId && currentProjectId !== id){
     updateProject(currentProjectId, {
       text: textInput.value,
@@ -2126,9 +2082,7 @@ function deleteProjectConfirm(id){
   const projects = getProjects();
   if(!projects[id]) return;
   
-  if(!confirm('هل أنت متأكد من حذف "' + projects[id].name + '"؟')){
-    return;
-  }
+  if(!confirm('هل أنت متأكد من حذف "' + projects[id].name + '"؟')) return;
   
   deleteProject(id);
   
@@ -2393,6 +2347,9 @@ function buildPageHTML(blocks, palette, style){
   `;
 }
 
+/* ============================================================
+   ✅ buildPreview — عرض ذكي متكيف مع حجم الشاشة
+   ============================================================ */
 function buildPreview(){
   const raw = textInput.value;
   const blocks = parseLines(raw);
@@ -2411,13 +2368,96 @@ function buildPreview(){
   pdfPagesContainer.innerHTML = pages.map((pageBlocks, i) => `
     <div class="pdf-page-wrapper">
       <div class="pdf-page-preview" data-page="صفحة ${i+1} من ${totalPages}">
-        <div class="pdf-page-inner" style="padding:0;">
+        <div class="pdf-page-inner">
           ${buildPageHTML(pageBlocks, palette, currentStyle)}
         </div>
       </div>
     </div>
   `).join('');
+  
+  // اضبط التصغير بعد إضافة العناصر
+  requestAnimationFrame(() => {
+    adjustPreviewZoom();
+  });
 }
+
+/* ============================================================
+   ✅ adjustPreviewZoom — تصغير الصفحة لتناسب الشاشة
+   ============================================================ */
+function adjustPreviewZoom(){
+  const previews = document.querySelectorAll('.pdf-page-preview');
+  const wrappers = document.querySelectorAll('.pdf-page-wrapper');
+  
+  if(previews.length === 0) return;
+  
+  // على الحاسوب الكبير: عرض طبيعي
+  if(window.innerWidth >= 900){
+    previews.forEach(preview => {
+      preview.style.transform = '';
+      preview.style.transformOrigin = '';
+      preview.style.marginBottom = '';
+      preview.style.marginRight = '';
+      preview.style.marginLeft = '';
+    });
+    wrappers.forEach(w => {
+      w.style.justifyContent = 'center';
+    });
+    return;
+  }
+  
+  // على الجوال/التابلت: تصغير ديناميكي
+  wrappers.forEach(wrapper => {
+    const preview = wrapper.querySelector('.pdf-page-preview');
+    if(!preview) return;
+    
+    const containerWidth = wrapper.clientWidth;
+    const pageWidth = 794;
+    const pageHeight = 1123;
+    
+    // احسب النسبة لتناسب العرض مع هامش صغير
+    let ratio = (containerWidth - 16) / pageWidth;
+    
+    // قيّد النسبة
+    if(ratio > 1) ratio = 1;
+    if(ratio < 0.3) ratio = 0.3;
+    
+    // طبّق التحويل
+    preview.style.transform = `scale(${ratio})`;
+    preview.style.transformOrigin = 'top right';
+    
+    // اضبط الهوامش لتفادي الفراغ
+    const offsetX = pageWidth * (1 - ratio);
+    const offsetY = pageHeight * (1 - ratio);
+    
+    preview.style.marginBottom = `-${offsetY}px`;
+    preview.style.marginRight = `-${offsetX}px`;
+    preview.style.marginLeft = '0';
+    
+    // ضبط ارتفاع الحاوية
+    wrapper.style.height = `${pageHeight * ratio + 20}px`;
+    wrapper.style.justifyContent = 'center';
+  });
+}
+
+// إعادة ضبط عند تغيير حجم الشاشة
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if(previewScreen && previewScreen.style.display !== 'none'){
+      adjustPreviewZoom();
+    }
+  }, 200);
+});
+
+// إعادة الضبط عند تدوير الجوال
+window.addEventListener('orientationchange', () => {
+  setTimeout(() => {
+    if(previewScreen && previewScreen.style.display !== 'none'){
+      adjustPreviewZoom();
+    }
+  }, 300);
+});
 
 function getStyleName(style){
   const names = {
