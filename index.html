@@ -520,7 +520,6 @@
   .floating-back-btn:hover{
     background:rgba(99,102,241,0.9);
     transform:translateY(-2px) scale(1.05);
-    box-shadow:0 12px 32px rgba(99,102,241,0.5);
   }
   .floating-back-btn:active{ transform:scale(0.95); }
 
@@ -568,7 +567,6 @@
     background:rgba(16,185,129,0.9);
     border-color:rgba(16,185,129,0.8);
     transform:translateY(-2px) scale(1.05);
-    box-shadow:0 12px 32px rgba(16,185,129,0.5);
   }
 
   .write-screen{
@@ -748,9 +746,7 @@
   }
   .design-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 
-  /* ============================================
-     ✅ المعاينة — حل نهائي باستخدام zoom
-     ============================================ */
+  /* المعاينة */
   .preview-screen{
     flex:1; padding:70px 30px 30px;
     max-width:1100px; margin:0 auto; width:100%;
@@ -774,7 +770,6 @@
     width: 100%;
   }
 
-  /* حاوية التمرير */
   .pdf-page-wrapper{
     width: 100%;
     overflow: auto;
@@ -787,16 +782,12 @@
     scrollbar-width: thin;
     scrollbar-color: rgba(165,180,252,0.4) transparent;
   }
-  .pdf-page-wrapper::-webkit-scrollbar{
-    height: 8px;
-    width: 8px;
-  }
+  .pdf-page-wrapper::-webkit-scrollbar{ height: 8px; width: 8px; }
   .pdf-page-wrapper::-webkit-scrollbar-thumb{
     background: rgba(165,180,252,0.4);
     border-radius: 4px;
   }
 
-  /* الصفحة */
   .pdf-page-preview{
     background: white;
     width: 794px;
@@ -867,6 +858,121 @@
   .toast.info{ border-color:rgba(99,102,241,0.4); }
 
   /* ============================================
+     نافذة إدخال اسم الملف
+     ============================================ */
+  .filename-modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,26,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeInOverlay 0.25s ease;
+  }
+  .filename-modal.active{ display: flex; }
+
+  .filename-modal-content{
+    background: rgba(30, 41, 59, 0.98);
+    border: 1px solid rgba(165,180,252,0.3);
+    border-radius: 24px;
+    padding: 28px 24px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes modalIn{
+    from{ opacity:0; transform: scale(0.9) translateY(20px); }
+    to{ opacity:1; transform: scale(1) translateY(0); }
+  }
+
+  .filename-modal-header{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .filename-modal-header span{ font-size: 32px; }
+  .filename-modal-header h3{
+    font-size: 19px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+  }
+
+  .filename-input{
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(0,0,0,0.35);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    outline: none;
+    transition: all 0.25s;
+    margin-bottom: 20px;
+    direction: rtl;
+    -webkit-appearance: none;
+  }
+  .filename-input:focus{
+    border-color: #a5b4fc;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 0 0 4px rgba(99,102,241,0.15);
+  }
+  .filename-input::placeholder{ color: rgba(255,255,255,0.4); }
+
+  .filename-modal-actions{
+    display: flex;
+    gap: 10px;
+  }
+
+  .filename-btn{
+    flex: 1;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .filename-btn.cancel{
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .filename-btn.cancel:hover{
+    background: rgba(239,68,68,0.2);
+    border-color: rgba(239,68,68,0.5);
+  }
+  .filename-btn.confirm{
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+  }
+  .filename-btn.confirm:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(99,102,241,0.6);
+  }
+  .filename-btn:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+
+  @keyframes fadeInOverlay{ from{opacity:0;} to{opacity:1;} }
+
+  /* ============================================
      قسم "مشاريعي"
      ============================================ */
   .projects-overlay{
@@ -880,7 +986,6 @@
     padding: 80px 20px 40px;
     animation: fadeInOverlay 0.3s ease;
   }
-  @keyframes fadeInOverlay{ from{opacity:0;} to{opacity:1;} }
   .projects-overlay.active{ display: block; }
 
   .projects-container{ max-width: 1100px; margin: 0 auto; }
@@ -1041,9 +1146,7 @@
   .empty-projects .icon{ font-size: 60px; margin-bottom: 16px; opacity: 0.5; }
   .empty-projects p{ font-size: 15px; line-height: 1.8; }
 
-  /* ============================================
-     Responsive
-     ============================================ */
+  /* Responsive */
   @media (max-width:900px){
     nav{ padding:14px 20px; }
     nav.scrolled{ padding:12px 20px; }
@@ -1121,16 +1224,9 @@
       padding:8px 12px; font-size:11.5px;
     }
 
-    /* ✅ المعاينة على الجوال — الحل النهائي */
-    .preview-screen{
-      padding: 60px 8px 16px;
-    }
-    .pdf-pages-container{
-      gap: 20px;
-    }
-    .preview-actions{
-      gap: 8px;
-    }
+    .preview-screen{ padding: 60px 8px 16px; }
+    .pdf-pages-container{ gap: 20px; }
+    .preview-actions{ gap: 8px; }
     .preview-actions .btn-write{
       padding: 12px 16px;
       font-size: 13px;
@@ -1480,6 +1576,28 @@
   </div>
 </div>
 
+<!-- نافذة إدخال اسم ملف PDF -->
+<div class="filename-modal" id="filenameModal">
+  <div class="filename-modal-content">
+    <div class="filename-modal-header">
+      <span>📄</span>
+      <h3>اسم ملف PDF</h3>
+    </div>
+    <input 
+      type="text" 
+      id="filenameInput" 
+      class="filename-input" 
+      placeholder="اكتب اسم الملف هنا..."
+      autocomplete="off"
+      maxlength="80"
+    >
+    <div class="filename-modal-actions">
+      <button class="filename-btn cancel" id="cancelFilename">إلغاء</button>
+      <button class="filename-btn confirm" id="confirmFilename">تنزيل PDF</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast">
   <span id="toastIcon">✓</span>
   <span id="toastMsg">تم الحفظ</span>
@@ -1622,8 +1740,8 @@ let currentStyle = 'modern';
 let autoSaveTimer = null;
 let currentProjectId = null;
 
-const STORAGE_KEY = 'sutoor_smart_text_v7';
-const STORAGE_STYLE = 'sutoor_smart_style_v7';
+const STORAGE_KEY = 'sutoor_smart_text_v8';
+const STORAGE_STYLE = 'sutoor_smart_style_v8';
 const STORAGE_PROJECTS = 'sutoor_smart_projects_v1';
 const STORAGE_CURRENT = 'sutoor_smart_current_v1';
 
@@ -1836,57 +1954,142 @@ clearBtn.addEventListener('click', () => {
 });
 
 /* ============================================================
-   تنزيل PDF
+   ✅ تنزيل PDF — مع نافذة إدخال تعمل على Chrome
    ============================================================ */
-downloadBtn.addEventListener('click', async () => {
+const filenameModal = $('filenameModal');
+const filenameInput = $('filenameInput');
+const cancelFilename = $('cancelFilename');
+const confirmFilename = $('confirmFilename');
+
+downloadBtn.addEventListener('click', () => {
+  const raw = textInput.value.trim();
+  if(!raw){
+    showToast('لا يوجد نص لتنزيله', 'error');
+    return;
+  }
+  
+  let defaultName = raw.split('\n')[0].trim().slice(0, 40) || 'sutoor-smart';
+  defaultName = defaultName.replace(/\.pdf$/i, '').replace(/[\\/:*?"<>|]/g, '');
+  
+  filenameInput.value = defaultName;
+  filenameModal.classList.add('active');
+  
+  setTimeout(() => {
+    filenameInput.focus();
+    filenameInput.select();
+  }, 150);
+});
+
+cancelFilename.addEventListener('click', () => {
+  filenameModal.classList.remove('active');
+});
+
+filenameModal.addEventListener('click', (e) => {
+  if(e.target === filenameModal){
+    filenameModal.classList.remove('active');
+  }
+});
+
+filenameInput.addEventListener('keydown', (e) => {
+  if(e.key === 'Enter'){
+    e.preventDefault();
+    confirmFilename.click();
+  }
+  if(e.key === 'Escape'){
+    filenameModal.classList.remove('active');
+  }
+});
+
+confirmFilename.addEventListener('click', async () => {
+  let fileName = filenameInput.value.trim();
+  
+  if(!fileName){
+    showToast('اكتب اسماً للملف', 'error');
+    filenameInput.focus();
+    return;
+  }
+  
+  fileName = fileName.replace(/[\\/:*?"<>|]/g, '');
+  
+  if(!fileName.toLowerCase().endsWith('.pdf')){
+    fileName += '.pdf';
+  }
+  
   const raw = textInput.value.trim();
   if(!raw){
     showToast('لا يوجد نص', 'error');
+    filenameModal.classList.remove('active');
     return;
   }
-
-  let defaultName = raw.split('\n')[0].trim().slice(0, 40) || 'sutoor-smart';
-  let fileName = prompt('📄 اسم ملف PDF:', defaultName + '.pdf');
   
-  if(fileName === null) return;
-  fileName = fileName.trim();
-  if(!fileName) fileName = defaultName + '.pdf';
-  if(!fileName.toLowerCase().endsWith('.pdf')) fileName += '.pdf';
-
-  const blocks = parseLines(raw);
-  const palette = palettes[currentStyle];
-  const pages = paginateContent(blocks, palette, currentStyle);
-  const totalPages = pages.length;
-
+  filenameModal.classList.remove('active');
+  
+  confirmFilename.disabled = true;
   downloadBtn.disabled = true;
   const originalHTML = downloadBtn.innerHTML;
   downloadBtn.innerHTML = '⏳ جاري الإنشاء...';
-  showToast('جاري إنشاء PDF (' + totalPages + ' صفحات)...', 'info');
+  
+  await generatePDF(raw, fileName, originalHTML);
+  
+  confirmFilename.disabled = false;
+});
 
-  if(document.fonts && document.fonts.ready){
-    try { await document.fonts.ready; } catch(e){}
-  }
-  await new Promise(r => setTimeout(r, 500));
-
-  try{
+/* ============================================================
+   ✅ دالة توليد PDF — موثوقة على كل المتصفحات
+   ============================================================ */
+async function generatePDF(raw, fileName, originalHTML){
+  let exportWrapper = null;
+  
+  try {
+    if(typeof html2canvas === 'undefined'){
+      throw new Error('مكتبة html2canvas غير محمّلة');
+    }
+    if(typeof window.jspdf === 'undefined'){
+      throw new Error('مكتبة jsPDF غير محمّلة');
+    }
+    
     const { jsPDF } = window.jspdf;
+    
+    const blocks = parseLines(raw);
+    if(blocks.length === 0){
+      throw new Error('لا يوجد محتوى');
+    }
+    
+    const palette = palettes[currentStyle];
+    const pages = paginateContent(blocks, palette, currentStyle);
+    const totalPages = pages.length;
+    
+    if(totalPages === 0){
+      throw new Error('لم يتم إنشاء صفحات');
+    }
+    
+    showToast('جاري تجهيز ' + totalPages + ' صفحة...', 'info');
+    
+    if(document.fonts && document.fonts.ready){
+      try { await document.fonts.ready; } catch(e){}
+    }
+    await new Promise(r => setTimeout(r, 400));
+    
+    exportWrapper = document.createElement('div');
+    exportWrapper.style.position = 'fixed';
+    exportWrapper.style.top = '0';
+    exportWrapper.style.left = '0';
+    exportWrapper.style.width = '794px';
+    exportWrapper.style.background = '#ffffff';
+    exportWrapper.style.zIndex = '999999';
+    exportWrapper.style.opacity = '0.01';
+    exportWrapper.style.pointerEvents = 'none';
+    exportWrapper.style.overflow = 'hidden';
+    document.body.appendChild(exportWrapper);
+    
     const pdf = new jsPDF({
       unit: 'px',
       format: [794, 1123],
       orientation: 'portrait',
-      hotfixes: ['px_scaling'],
-      compress: true
+      compress: true,
+      hotfixes: ['px_scaling']
     });
-
-    const exportWrapper = document.createElement('div');
-    exportWrapper.style.position = 'fixed';
-    exportWrapper.style.top = '0';
-    exportWrapper.style.left = '-9999px';
-    exportWrapper.style.width = '794px';
-    exportWrapper.style.background = '#ffffff';
-    exportWrapper.style.zIndex = '-99999';
-    document.body.appendChild(exportWrapper);
-
+    
     for(let i = 0; i < pages.length; i++){
       const pageBlocks = pages[i];
       
@@ -1897,14 +2100,17 @@ downloadBtn.addEventListener('click', async () => {
       pageDiv.style.height = '1123px';
       pageDiv.style.overflow = 'hidden';
       pageDiv.style.background = '#ffffff';
+      pageDiv.style.position = 'relative';
+      pageDiv.style.boxSizing = 'border-box';
       pageDiv.innerHTML = buildPageHTML(pageBlocks, palette, currentStyle);
       exportWrapper.appendChild(pageDiv);
-
-      await new Promise(r => setTimeout(r, 100));
-
+      
+      await new Promise(r => setTimeout(r, 150));
+      
       const canvas = await html2canvas(pageDiv, {
         scale: 2,
         useCORS: true,
+        allowTaint: true,
         backgroundColor: '#ffffff',
         scrollY: 0,
         scrollX: 0,
@@ -1914,25 +2120,32 @@ downloadBtn.addEventListener('click', async () => {
         windowWidth: 794,
         windowHeight: 1123
       });
-
+      
       const imgData = canvas.toDataURL('image/jpeg', 0.92);
-
-      if(i > 0) pdf.addPage([794, 1123], 'portrait');
+      
+      if(i > 0){
+        pdf.addPage([794, 1123], 'portrait');
+      }
       pdf.addImage(imgData, 'JPEG', 0, 0, 794, 1123, undefined, 'FAST');
+      
+      showToast('📄 تجهيز الصفحة ' + (i+1) + ' من ' + totalPages, 'info');
     }
-
+    
     pdf.save(fileName);
-
-    document.body.removeChild(exportWrapper);
-    showToast('✅ تم تنزيل: ' + fileName, 'success');
-  }catch(e){
-    console.error(e);
-    showToast('❌ حدث خطأ: ' + e.message, 'error');
-  }finally{
+    
+    showToast('✅ تم تنزيل: ' + fileName + ' (' + totalPages + ' صفحة)', 'success');
+    
+  } catch(e){
+    console.error('PDF Error:', e);
+    showToast('❌ خطأ: ' + e.message, 'error');
+  } finally {
+    if(exportWrapper && exportWrapper.parentNode){
+      document.body.removeChild(exportWrapper);
+    }
     downloadBtn.disabled = false;
-    downloadBtn.innerHTML = originalHTML;
+    downloadBtn.innerHTML = originalHTML || '⬇️ تنزيل PDF';
   }
-});
+}
 
 /* ============================================================
    قسم "مشاريعي"
@@ -2324,9 +2537,6 @@ function buildPageHTML(blocks, palette, style){
   `;
 }
 
-/* ============================================================
-   ✅ buildPreview
-   ============================================================ */
 function buildPreview(){
   const raw = textInput.value;
   const blocks = parseLines(raw);
@@ -2352,7 +2562,6 @@ function buildPreview(){
     </div>
   `).join('');
   
-  // اضبط التصغير بعد الرسم
   requestAnimationFrame(() => {
     adjustPreviewZoom();
     setTimeout(adjustPreviewZoom, 300);
@@ -2360,19 +2569,14 @@ function buildPreview(){
   });
 }
 
-/* ============================================================
-   ✅ adjustPreviewZoom — باستخدام zoom
-   ============================================================ */
 function adjustPreviewZoom(){
   const wrappers = document.querySelectorAll('.pdf-page-wrapper');
-  
   if(wrappers.length === 0) return;
   
   wrappers.forEach(wrapper => {
     const preview = wrapper.querySelector('.pdf-page-preview');
     if(!preview) return;
     
-    // إزالة أي تحويل قديم
     preview.style.transform = '';
     preview.style.marginBottom = '';
     preview.style.marginRight = '';
@@ -2382,29 +2586,24 @@ function adjustPreviewZoom(){
     const containerWidth = wrapper.clientWidth;
     const pageWidth = 794;
     
-    // على الحاسوب: عرض طبيعي
     if(window.innerWidth >= 900 || containerWidth >= pageWidth){
       wrapper.style.height = '';
       wrapper.style.justifyContent = 'center';
       return;
     }
     
-    // على الجوال: استخدام zoom
     let ratio = (containerWidth - 20) / pageWidth;
     if(ratio > 1) ratio = 1;
     if(ratio < 0.3) ratio = 0.3;
     
-    // استخدم zoom
     preview.style.zoom = ratio;
     
-    // اضبط ارتفاع الحاوية
     const pageHeight = 1123;
     wrapper.style.height = (pageHeight * ratio + 20) + 'px';
     wrapper.style.justifyContent = 'center';
   });
 }
 
-// إعادة ضبط عند تغيير الحجم أو التدوير
 let resizeTimer;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
